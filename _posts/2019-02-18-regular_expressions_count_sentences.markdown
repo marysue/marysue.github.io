@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Regular Expressions : Count Sentences"
-date:       2019-02-18 23:49:56 +0000
+date:       2019-02-18 18:49:56 -0500
 permalink:  regular_expressions_count_sentences
 ---
 
