@@ -52,11 +52,17 @@ Splitting a string on the simple ?.! characters will yield multiple strings with
 
 So for a given sentence:  
 
-       "This, well, is a sentence. This is too!! And so is this, I think? Woo...".split(/[\?\.\!]/)
+ `"This, well, is a sentence. This is too!! And so is this, I think? Woo...".split(/[\?\.\!]/)`
+
+
+
 
 Returns the 5 element array: 
 
-       ["This, well, is a sentence", " This is too", "", " And so is this, I think", " Woo"]
+ `["This, well, is a sentence", " This is too", "", " And so is this, I think", " Woo"]`
+
+
+
  
 We cannot simply count the elements in this array, as it has empty elements.  Our count would be off.
  
