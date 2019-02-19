@@ -28,20 +28,26 @@ This expression states to record matches on each of the following:
 		
 ### The construction of the regular expression is as follows:
 
+
+
 `(//)`        :        regular expression placed between the '/'
-`(!+) `      :        matches one or more exclamation points - marks as one match.  
-                         Eliminate the + if you want to match on everysingle ! ... but we don't as some sentences end in !!!
+
+`(!+) `      :        matches one or more exclamation points - marks as one match.   Eliminate the + if you want to match on everysingle ! ... but we don't as some sentences end in !!!
+												 
 `\s`         :        matches any whitespace character
                            so `(!+)\s` matches one or more exclamation points followed by any number of 
 													 whitespace character so "This is a blast!     "   would count as one match
+													 
 `|`            :       OR ... match the previous expression OR the next expression
+
 `(\.+)`     :       use care here, the period means "all or any" so you need to quote the
-period to match only the character - not interpret the meaning
-So this expression matches one or more periods
+period to match only the character - not interpret the meaning.  So this expression matches one or more periods
+
 `\s `       :       see above
+
 ` (\?+) ` :       again use care, the` ?` means to match between 0 and 1 of the previous
-character -- so we need to quote this to match on the character
-and not interpret the meaning
+character -- so we need to quote this to match on the character and not interpret the meaning
+
 `\s`        :        see above  
 		
 	
@@ -67,44 +73,52 @@ Returns the 5 element array:
 We cannot simply count the elements in this array, as it has empty elements.  Our count would be off.
  
 There are a couple of ways to manage this.
+
+### Split, Reject
  
-1.  You can parse the array using "reject", which returns a new array with only elements in the reject block which were false.
+You can parse the array using "reject", which returns a new array with only elements in the reject block which were false.
   
-       So for example, with the array `["a", "b", "c", "d"].reject{ |x| x == "c"}`
- 			will return false for a, b, and d..  Your resulting array will be:
- 			
-			`["a", "b", "d"]`
-					
+ So for example, with the array `["a", "b", "c", "d"].reject{|x| x=="c"}` will return false for a, b, and d.  Your resulting array will be:
+			 
+		 ["a", "b", "d"]
 
-	In our case we can use reject to remove the empty string.
-	
-	Our code then becomes three lines:
-* split the string into an array of sentences, including nil sentences:
-* reject the members of the array which are nil, returning an array of non-nil sentences
-* use this array's length method to count the elements in the array
-		
- 2.  You can use gsub to substitute the matching characters, placing a unique character in its place.  gsub will return a string.  Once you have a string with unique characters you can split on that character, and split will return an array which you then can get a proper count for the number of sentences:
+In our case we can use reject to remove the empty string.
 
-     `sentence = "This, well, is a sentence. This is too!! And so is this, I think? Woo..."`
-		 `newSentence = sentence.gsub(/(!+)\s|(\.+)\s|(\?+)\s/, '\0|')`
+Our code then becomes the following three lines:
+<ul>
+<li>split the string into an array of sentences, including nil sentences</li>
+<li>reject the members of the array which are nil, returning an array of non-nil sentences</li>
+<li>use this array's length method to count the elements in the array</li>
+</ul>
+
+
+### gsub, split
+
+You can use gsub to substitute the matching characters, placing a unique character in its place.  gsub will return a string.  Once you have a string with unique characters you can split on that character, and split will return an array which you then can get a proper count for the number of sentences:
+
+`sentence = "This, well, is a sentence. This is too!! And so is this, I think? Woo..."`<br>
+`newSentence = sentence.gsub(/(!+)\s|(\.+)\s|(\?+)\s/, '\0|')`
  		 
- 		 Your newSentence is now a string:
- 		     ` "This, well, is a sentence. |This is too!! |And so is this, I think? |Woo..."`
+ Your newSentence is now a string:<br>
+ 
+ ` "This, well, is a sentence. |This is too!! |And so is this, I think? |Woo..."`
+ 
+ And you can easily split this now, on the pipe character:
 		 
-		 And you can easily split this now, on the pipe character:
-		 
-			`newArr =  newSentence.split("|");`
+`newArr =  newSentence.split("|");`
  		 
-	 Which returns the array:
+Which returns the array:
 	 
-		`["This, well, is a sentence. ", "This is too!! ", "And so is this, I think? ", "Woo..."]`
+`["This, well, is a sentence. ", "This is too!! ", "And so is this, I think? ", "Woo..."]`
 		 
-	 And now you can count the members of this array
+And now you can count the members of this array
 
 	 `newArr.length  =>  4`
  		 
  
-3.  Finally, I found this on the web.  Now that you understand the reject function -- which is, in itself a map function, you could chain map and reject functions.
+###  Lesson in complexity
+
+Finally, I found this on the web.  Now that you understand the reject function -- which is, in itself a map function, you could chain map and reject functions.
 
 WARNING:  This is a truth and beauty issue.  Some developers believe if they can make code work in less lines that it is better.  I counter that argument with -- is it understandable?  Is it easier for someone who did not write the code to understand what you've written?  If the answer is no!  I'd suggest breaking your code into smaller, more easily digestable chunks.  The following code is a perfect example of this.
 
@@ -116,10 +130,12 @@ First, the actual line of code I found:
  
 
 The overview of this function, which is pretty brain warping, is:
-a.  Take all the elements of the array and run them through map, 
-b.  In the map function, create an array that answers the question:  Is this an empty string.  The result from this map is an array of booleans.
-c. 	Take this array of booleans, and remove the element of the array that is false (or IS an empty string).  The result from this "reject" function returns an array of booleans which should all be true:  they ARE all strings.
-d. 	Take this array and count the members.  This should yield the number of sentences found in the string. 
+<ul>
+<li>Take all the elements of the array and run them through map, </li>
+<li>In the map function, create an array that answers the question:  Is this an empty string.  The result from this map is an array of booleans representing whether the string is a sentence.</li>
+<li>Take this array of booleans, and remove the element of the array that is false (or IS an empty string).  The result from this "reject" function returns an array of booleans which should all be true:  they ARE all strings.</li>
+<li>Take this array and count the members.  This should yield the number of sentences found in the string. </li>
+</ul>
 		 
 You could do this by taking multiple steps:
 
@@ -150,9 +166,9 @@ make this more intuitive - because each of the false's were acutally true - they
 
  returns:
  
-	`[true, true, false, true, true]`
-			
-	Filter out these results to contain only booleans representing sentences:
+ `[true, true, false, true, true]`
+ 
+ Filter out these results to contain only booleans representing sentences:
  
    `finalArr = step4Arr.map{|x| x==false}`
 			
