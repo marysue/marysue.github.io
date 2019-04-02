@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "CLI Gem Web Scraper"
-date:       2019-04-02 00:07:52 +0000
+date:       2019-04-01 20:07:53 -0400
 permalink:  cli_gem_web_scraper
 ---
 
@@ -13,13 +13,10 @@ This project attempts to pull in the many facets of object oriented programming 
 <li>Designing an object oriented program</li>
 	<li>Designing a Singleton (Scraper)</li>
 	<li>Using inheritance; encapsulation; polymorphism and abstraction</li>
-	<li>Using modules to create reusable code</li>
-	<li>Using namespaces to organize source code</li>
 	<li>Adhering to the single responsibility principle (SRP)</li>
 	<li>Using the "super" directive to inherit and enhance child methods</li>
 	<li>Using "send" to iteratively assign attributes values based upon a hash received, as well as testing to see if a hash key exists within the hash</li>
 	<li>Using Nokogiri and Open-Uri to reach out and scrape the contents of a remote webpage (or two)</li>
-	<li>Using exceptions to throw meaningful error messages</li>
 	<li>Learning the process for creating and publishing Ruby gems</li>
 	</ol>
 
@@ -102,9 +99,10 @@ The critical calls were:
 	
 For pricing information, within each &lt;li&gt; element pricing is obtained through a function call, cleaning the text, removing preceding and trailing whitespace: 
 
-<pre><code>was_price = clean_up(eachComputer.css('span.as-price-previousprice').text)</code>
-<code>current_price = clean_up(eachComputer.css('div.as-price-currentprice').text)</code>
-<code>savings = clean_up(eachComputer.css('span.as-producttile-savingsprice').text)</code></pre>
+
+	     <code> was_price = clean_up(eachComputer.css('span.as-price-previousprice').text)</code>
+	      <code>current_price = clean_up(eachComputer.css('div.as-price-currentprice').text)</code>
+	      <code>savings = clean_up(eachComputer.css('span.as-producttile-savingsprice').text)</code>
 
 
 There were a few challenges in this scraping.  First, nothing was easy to get ahold of.  The CPU was mixed up in the description string, along with the number of cores, model name, color, etc.  There was no other place on the page where this information was distinctly separated.  That said, I had to depend upon the description string for the bulk of my information.  To do this, however, I had to parse out the information I needed from this description string.  
@@ -138,20 +136,20 @@ Scraper also performs one more function.  After the user has selected the comput
 	
 Once I got the paragraphs in the detail section, I needed to determine what type of information I was looking at in order to determine where to put this in the returning hash.  So for each paragraph, I removed the leading and trailing white space, then looked at the string to determine what component this represented: 
 
-<pre><code>case detail
-    when "RAM"
-		    ram = detailStr
-		when "HardDrive"
-		    hard_drive = detailStr
-		when "YearReleased"
-		    year_released = detailStr
-		when "GPU"
-		    gpu = detailStr
-		end</code></pre>
+	<pre><code>case detail
+	        when "RAM"
+	          ram = detailStr
+	        when "HardDrive"
+	          hard_drive = detailStr
+	        when "YearReleased"
+	          year_released = detailStr
+	        when "GPU"
+	          gpu = detailStr
+	      end</code></pre>
 	
 Once I understood what the component was, I was able to store the information in he corresponding variable, load the hash, remove the nil values, and return the hash:
 
-<pre><code>hash = {
+	<pre><code>hash = {
 	        :ram => ram,
 	        :hard_drive => hard_drive,
 	        :year_released => year_released,
@@ -191,9 +189,5 @@ The bulk of the code in findMyMac deals in two parts: presenting configuration c
 <li><b>Abstracted Methods:  Findable Class</b>
 
 <code>Concerns::Findable</code> has methods that are available to all Mac classes utilizing their <code>@@all</code> class variable.  This module finds, selects, and sorts the <code>@@all</code> array of Mac objects.</li>
-
-For a live demo, with a brief overview of design and implementation see:  [YouTube](https://www.youtube.com/watch?v=XKcexqg0Qgs)
-
-
 	 
 
