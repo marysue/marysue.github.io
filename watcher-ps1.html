@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width",  initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>Mary Lark - Full Stack Engineer</title>
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/responsive.css">
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
+	</head>
+	
+	<body>
+	
+		<div class="blue-back">
+			<header class="medium-fade shadow">
+		
+				<div class="navbar light-fade">
+					<div class="wrapper">
+						<nav class="menu">
+							<a href="index.html">About</a>
+							<a href="resume.html">Resume</a>
+							<a class="selected" href="work-samples.html">Work Samples</a>
+							<a href="contact.html">Contact</a>
+							<a href="#" class="hamburger-icon" >&#9776;</a>
+						</nav>
+					</div><!-- .wrapper -->
+				</div><!-- #navbar -->
+				
+				<div class="wrapper">
+					<div id="logo">
+						<h1 class="pageTitle">Mary Lark, Full Stack Engineer</h1>
+					</div>
+				</div><!-- .wrapper -->
+			</header>
+			
+			
+			<div class="pageBorder">
+				<section class="shadow">
+					<center><h2>Watcher: An event-driven powershell script</h2></center>
+					<h3>Background:</h3>
+					<p>Watcher.ps1 is intended to run on a virtual machine.  In the paradigm we were 
+					working with, virtual machines are created by copying from a pristine archive 
+					copy of a virtual machine. An archive is a virtual machine, operating system and
+					software installed, group policy, registry and user settings set properly.  The
+					virtual machine is then shut-down.  From this point forward, the virtual machine is
+					referred to as an archive, and is typically never started again. They are simply 
+					copied and the copy is used.  This way we can guarantee the integrity of the VM 
+					assigned to the user.</p>
+
+					<p>Once the archive has been created and shut down, the new vm is then copied and
+					started.  When the VM is running the user&#8217;s files are mounted via a network 
+					mount and the machine is ready for the user to log on. </p>
+
+					<p>Upon logoff, the user files are dismounted, and the virtual machine is then 
+					destroyed.</p>
+
+					<h3>About the powershell script:</h3>
+					<p>In some cases we can point software to look to the network mount for its files, 
+					rather than the C:\ drive, however in some cases the software cannot be redirected.
+					Such is the case with Dreamweaver.  Dreamweaver expects the website files to 
+					reside in c:\inetpub\wwwroot.  But because the c:\ drive is destroyed when the 
+					user logs out, we had to devise a mechanism such that the files from the 
+					user&#8217;s persistent storage were automatically copied to the 
+					c:\inetpub\wwwroot directory at login &#8212; and when the files were updated, 
+					these updates would be mirrored in the user&#8217;s persistent storage.</p>
+
+					<p>In this script, the watcher object is a file system object provided by 
+					powershell.  The watcher object has event-driven methods that automatically 
+					respond to events that can occur on a file system object.  The watcher object 
+					has the ability to determine which files are changed, deleted, or added.</p>
+
+					<p>Initially we define toPath as the path to the persistent 
+					storage.  We copy all files from toPath down to c:\inetpub\wwwroot as the user 
+					logs on.  Once copied, we begin watching the file system and based upon the event 
+					that occurs (creation, deletion, or change) watcher will execute accordingly.</p>
+
+					<p>At anytime the user logs off we know that the files on the persistent storage 
+					mirror exactly the files in wwwroot directory.  When the virtual machine shuts 
+					down,the persistent storage (network mounted drive) is then detached and 
+					preserved, and finally the virtual machine is destroyed.</p>
+
+					<p>When the student logs back in, a new clean virtual machine is cloned from the 
+					pristine archive copy,  the persistent storage is mounted on the virtual machine 
+					via a network mount, and the files are then copied down into wwwroot for use by 
+					Dreamweaver.  Rinse and repeat.</p>
+
+					<h3>Watcher: The event-driven code:</h3>
+
+					<pre><code style="font-size: 10px;">
+$labID=$args[0]
+$watcher = New-Object System.IO.FileSystemWatcher
+$watcher.Path = 'c:\inetpub\wwwroot'
+$watcher.IncludeSubdirectories = $true
+$watcher.NotifyFilter = 
+   [System.IO.NotifyFilters]::LastWrite 
+   -bor [System.IO.NotifyFilters]::FileName 
+   -bor [System.IO.NotifyFilters]::DirectoryName
+
+$toPath = "c:\users\student\links\WebServerManagedFolder\"
+$pso = new-object psobject -property @{toPath = $toPath}
+
+Out-File -FilePath c:\users\administrator\desktop\outlog.txt 
+	 -Append -InputObject "     Deleting contents of wwwroot"
+get-childitem c:\inetpub\wwwroot\* 
+	 -recurse | remove-item -force -recurse
+Out-File -FilePath c:\users\administrator\desktop\outlog.txt 
+	 -Append -InputObject 
+	 "    Copying contents of $toPath to wwwroot"
+Copy-Item $toPath* c:\inetpub\wwwroot\ -recurse
+
+
+Register-ObjectEvent $watcher Created -SourceIdentifier 
+	 FileCreated -MessageData $pso -Action {
+	$name = $Event.SourceEventArgs.Name
+	$fullPath = $Event.MessageData.toPath + $name
+	$fullName = "c:\inetpub\" + $name
+	$changeType = $Event.SourceEventArgs.ChangeType
+	$timeStamp = $Event.TimeGenerated
+	$toPath = $Event.MessageData.toPath
+	
+	Write-Host ""
+	Write-Host ""
+	Write-Host "FILE CREATED" -fore green
+	Write-Host "============" -fore green
+	Write-Host "  FileName:      $name" -fore green
+	Write-Host "  Copy from:     $fullName" -fore green
+	Write-Host "  Copy to:       $fullPath" -fore green
+	Write-Host "  Change type:   $changeType" -fore green
+	Write-Host "  Time:          $timeStamp" -fore green
+	Write-Host "  ToPath:        $toPath" -fore green
+
+	Out-File -FilePath c:\users\administrator\desktop\outlog.txt 
+		 -Append -InputObject "The file '$name' was $changeType 
+		 at $timeStamp"
+	Out-File -FilePath c:\users\administrator\desktop\outlog.txt 
+		 -Append -InputObject 
+		 "     Deleting contents of $toPath"
+	get-childitem $toPath* -recurse | remove-item -force -recurse
+	Out-File -FilePath c:\users\administrator\desktop\outlog.txt 
+		 -Append -InputObject 
+		 "     Copying contents of c:\inetpub\wwwroot to $toPath"
+	Copy-Item c:\inetpub\wwwroot\* $toPath -recurse
+}
+
+Register-ObjectEvent $watcher Deleted -SourceIdentifier 
+	FileDeleted -MessageData $pso -Action {
+	$name = $Event.SourceEventArgs.Name
+	$fullPath = $Event.MessageData.toPath + $name
+	$fullName = "c:\inetpub\" + $name
+	$changeType = $Event.SourceEventArgs.ChangeType
+	$timeStamp = $Event.TimeGenerated
+	$toPath = $Event.MessageData.toPath
+	
+	Write-Host ""
+	Write-Host ""
+	Write-Host "FILE DELETED"  -fore red
+	Write-Host "============" -fore red
+	Write-Host "  FileName:              $name" -fore red
+	Write-Host "  Deleted from:          $fullName" -fore red
+	Write-Host "  Deleting in target:    $fullPath" -fore red
+	Write-Host "  Change type:           $changeType" -fore red
+	Write-Host "  Time:                  $timeStamp" -fore red
+	Write-Host "  ToPath:                $toPath" -fore red
+
+	Out-File -FilePath c:\users\administrator\desktop\outlog.txt 
+		 -Append -InputObject 
+		 "The file '$name' was $changeType at $timeStamp"
+	Out-File -FilePath c:\users\administrator\desktop\outlog.txt 
+		 -Append -InputObject "     
+		 Deleting contents of $toPath"
+	get-childitem $toPath* -recurse | 
+		 remove-item -force -recurse
+	Out-File -FilePath c:\users\administrator\desktop\outlog.txt 
+		 -Append -InputObject 
+		 "     Copying contents of c:\inetpub\wwwroot to $toPath"
+	Copy-Item c:\inetpub\wwwroot\* $toPath -recurse
+}
+
+Register-ObjectEvent $watcher Changed -SourceIdentifier 
+	 FileChanged -MessageData $pso -Action {
+	$name = $Event.SourceEventArgs.Name
+	$fullName = "c:\inetpub\" + $name
+	$fullPath = $Event.MessageData.toPath + $name
+	$changeType = $Event.SourceEventArgs.ChangeType
+	$timeStamp = $Event.TimeGenerated
+	$toPath = $Event.MessageData.toPath
+	
+	Write-Host ""  
+	Write-Host ""  
+	Write-Host "FILE Changed" -fore white
+	Write-Host "============" -fore white
+	Write-Host "  FileName:              $name" -fore white
+	Write-Host "  Changed from:          $fullName" -fore white
+	Write-Host "  Changing in target:    $fullPath" -fore white
+	Write-Host "  Change type:           $changeType" -fore white
+	Write-Host "  Time:                  $timeStamp" -fore white
+	Write-Host "  ToPath:                $toPath" -fore white
+
+	Out-File -FilePath c:\users\administrator\desktop\outlog.txt 
+		 -Append -InputObject "The file '$name' was 
+		 $changeType at $timeStamp"
+	Out-File -FilePath c:\users\administrator\desktop\outlog.txt 
+		 -Append -InputObject "     Deleting contents of $toPath"
+	get-childitem $toPath* -recurse | remove-item -force -recurse
+	Out-File -FilePath c:\users\administrator\desktop\outlog.txt 
+		 -Append -InputObject 
+		 "     Copying contents of c:\inetpub\wwwroot to $toPath"
+	Copy-Item c:\inetpub\wwwroot\* $toPath -recurse
+}
+
+Register-ObjectEvent $watcher Renamed -SourceIdentifier FileRenamed 
+	 -MessageData $pso -Action {
+	$name = $Event.SourceEventArgs.Name
+	$fullPath = $Event.MessageData.toPath + $name
+	$changeType = $Event.SourceEventArgs.ChangeType
+	$timeStamp = $Event.TimeGenerated
+	$toPath = $Event.MessageData.toPath
+	
+	Write-Host ""
+	Write-Host ""
+	Write-Host "FILE Renamed " -fore yellow
+	Write-Host "============" -fore yellow
+	Write-Host "  FileName:              $name" -fore yellow
+	Write-Host "  Copying from:          $fullName" -fore yellow
+	Write-Host "  Copying to target:     $fullPath" -fore yellow
+	Write-Host "  Deleting in target:    &lt;Need code for this>" -fore yellow
+	Write-Host "  Change type:           $changeType" -fore yellow
+	Write-Host "  Time:                  $timeStamp" -fore yellow
+	Write-Host "  ToPath:                $toPath" -fore yellow
+
+	Out-File -FilePath c:\users\administrator\desktop\outlog.txt 
+		 -Append -InputObject "The file '$name' was 
+		 $changeType at $timeStamp"
+	Out-File -FilePath c:\users\administrator\desktop\outlog.txt 
+		 -Append -InputObject "     Deleting contents of $toPath"
+	get-childitem $toPath* -recurse | remove-item -force -recurse
+	Out-File -FilePath c:\users\administrator\desktop\outlog.txt 
+		 -Append -InputObject 
+		 "     Copying contents of c:\inetpub\wwwroot to $toPath"
+	Copy-Item c:\inetpub\wwwroot\* $toPath -recurse
+}
+
+		</code></pre>	  	  
+				</section>
+			</div> <!-- pageBorder -->
+		</div> <!-- end blue-back-->
+		
+				<section id="details" class="medium-fade">
+			<div class="wrapper">
+			   <div class="border-right">
+				   <center>
+					  <h3>Contact</h3>
+					  <p>
+						email: <a href="mailto:mary@marylark.com">mary@marylark.com</a><br>
+						phone: +1 925 866 1111
+					  </p>
+					  <h3>Correspondence</h3>
+					  <address>
+						1002 E. Winding Creek Dr.<br>
+						Eagle, ID 83616
+					  </address>
+						<br><br>
+						<span style="font-size: 10px;">&copy; 2018 Mary Lark. All Rights Reserved.</span>
+					
+					  </center>
+				</div>
+			</div><!-- .wrapper -->
+		</section> <!--end details section -->
+			
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+	</body>
+</html>

@@ -1,0 +1,14 @@
+figure {
+	font-size: 10px;
+	font-style: italic;
+}
+
+code {
+	background: grey;
+	color: white;
+}
+
+.container {
+	margin-left: 40px;
+	margin-right: 40px;
+}

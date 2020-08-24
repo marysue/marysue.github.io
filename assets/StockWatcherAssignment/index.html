@@ -1,0 +1,96 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width",  initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <title>Stock Watcher Assignment</title>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<h1>Assignment:  StockWatcher</h1>
+
+	<h2>The assignment specifics</h2>
+		<p>This assignment is to create a responsive website that will reach out to a stock quote company and return current values for any given stock.  </p>
+		<p>The responsive nature of this site is such that when the screen size is above 600px, the following fields will be shown:</p>
+
+			<figure>
+					<img src="images/maxBrowserLayout.png" alt="Full Browser View." title="Stock Watcher">
+					<figcaption>Full browser view of Stock Watcher.</figcaption>
+		   </figure>
+		   
+		 <p>When the browser collapses to a maximum of 600px, the image must change.  As you can see, the Index field, the arrow and graph disappear, and the price and pricing change move to the righthand side of the container.</p>
+				<figure>
+					<img src="images/responsiveOutput.png" alt="Minimum Browser Layout" title="Stock Watcher">
+					<figcaption>Layout for the minimum browser size.</figcaption>
+				</figure>
+			
+	<h2>My current design</h2>
+
+		<h3>Div Layout</h3>
+			<p>Within the div container for all of the stock quotes, we have multiple individual cards.  The div container houses all of the cards as shown below:</p>
+				<figure>
+					<img src="images/tileLayout.png" alt="Full Browser Layout" title="Stock Watcher">
+					<figcaption>Layout for the full browser.</figcaption>
+				</figure>
+
+			<p>	The divs within the individual cards are shown in the image below.  The black outer line represents the card div.  Within the card div we've sectioned off a lefthand side div, and a righthand side div.  When the browser collapses, we set the righthand side div to width and height of 0, and visibility to hidden, leaving only the information in the lefthand side div visible</p>
+
+			<p>Within in lefthand side div, we have 4 additional children.  I can then rearrange the children in the lefthand side div, hiding the Index child, then repositioning the change in pricing div, and the price div to the right hand side or the containing div.</p>
+				<figure>
+						<img src="images/divLayout.png" alt="Divs currently used." title="Stock Watcher">
+						<figcaption>Div layout as currently used.</figcaption>
+			   </figure>
+			   
+			 <p>Because the nature of the cards only have two sizes, I chose to use <code>display: inline-block;</code>, with <code>position: relative; </code> for the card, then the divs within the card I chose <code>position: absolute;</code> then used my <code>margin-top: x-pxs;</code> to position all the divs from the top of the card.</p>
+			 
+			 <p>With the div's for the arrow, vertical line, high and low prices styled by their own classes, I was easily able to hide these when the screen size fell below approx 600px, and move the price and price change percentage to the right hand side of a reduced size card.</p>
+	   
+			<p>The result is the following:</p>
+				<figure>
+						<img src="images/maxBrowserLayout.png" alt="Maximum Browser Layout" title="Stock Watcher">
+						<figcaption>Output for Larger Browser Configuration</figcaption>
+			   </figure>
+			   
+			 <p>And for the browser layout where the browser is less than 600px:</p>
+			 	<figure>
+						<img src="images/minBrowserLayout-final.png" alt="Minimum Browser Layout" title="Stock Watcher">
+						<figcaption>Output for Minimum Browser Configuration</figcaption>
+			   </figure>
+	 
+	 	<h2>Challenges</h2>
+			<p>This assignment presented several challenges:</p>
+			<ol>
+				<li>Using API's : finding the API and understanding the fields</li>
+				<li>Graphical representation (arrow and vertical line) of change in stock values</li>
+				<li>Graphical representation (up arrow/down arrow) of change in stock values</li>
+				<li>Reponsive design, altering the output based upon the display size</li>
+				<li>Because each tile housing stock prices was created dynamically, all of the html was created in javascript</li>
+				<li>div positioning</li>
+				<li>Positioning the arrow along the line took some math and one image of a horizontal arrow.  I set the vertical line as the border-left of my div.  The high and low values were simply a paragraph with static break positioning the high at the top of the div, and the low at the bottom of the div.  Then the div immediately to the left was just narrow enough to house the image of the arrow, and the same height as the div with the veritcal bar.  Calculating where to place the arrow took a bit of math, as I had to determine the spread between the high and low values, then determine what percentage of that value was my current value.  From there, I took the number of pixels from the top of the line to the bottom of the line and multiplied it by the percentage of movement in the stock price.  I set the line height at that value.</li>
+			</ol>
+			
+			<p>Lessons learned:</p>
+			<ol>
+				<li>CORS error was misleading:  I received a cross browser error whenever I placed the 
+				api call inside a callback or other function.  If the api call was in the main portion 
+				of the javascript it responded without error.  It turned out this was a huge red-herring, 
+				as I surrounded my input boxes with the form tag.  Removing these tags eliminated the 
+				CORS error.</li>
+				<li>I found a great font package that provides symbols, and treats them like text.  
+				So whatever formatting you do to your text, applies to the symbol as well.  It's called 
+				FontAwesome. </li>
+				<li>This exercise was huge with my understanding of the dev tools and div 
+				positioning - perhaps one of the most challenging aspects of this exercise.</li>
+				<li>More important than all of the above, was truly examining the layout and changes
+				before starting to code.  Once I understood how the layout was going to change with
+				the responsive design, I was able to determine how to use my divs.</li>
+			</ol>
+			
+			<h2>Final Product</h2>
+			<p>The final product can be viewed here:  <a href="http://marylark.com/StockWatcher">StockWatcher Example</a>
+		
+	</div> <!-- class container -->
+</body>
+</html>

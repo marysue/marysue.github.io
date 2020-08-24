@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width",  initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>Mary Lark - Full Stack Engineer</title>
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/responsive.css">
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
+	</head>
+	
+	<body>
+	
+		<div class="blue-back">
+			<header class="medium-fade shadow">
+		
+				<div class="navbar light-fade">
+					<div class="wrapper">
+						<nav class="menu">
+							<a href="index.html">About</a>
+							<a href="resume.html">Resume</a>
+							<a class="selected" href="work-samples.html">Work Samples</a>
+							<a href="contact.html">Contact</a>
+							<a href="#" class="hamburger-icon" >&#9776;</a>
+						</nav>
+					</div><!-- .wrapper -->
+				</div><!-- #navbar -->
+				
+				<div class="wrapper">
+					<div id="logo">
+						<h1 class="pageTitle">Mary Lark, Full Stack Engineer</h1>
+					</div>
+				</div><!-- .wrapper -->
+			</header>
+			
+			
+			<div>
+			   <center>
+					<img class="fixed-ratio-resize shadow" src="images/mary-headshot.jpg" width="175px" height="250px" alt="Mary Lark" title="Mary Lark">
+				</center>
+			</div>
+ 
+ 
+			<div class="pageBorder">
+				<section  class="shadow">
+					<center><h2>Creating a Responsive Website</h2></center>
+					
+						<p><br>In this assignment, we were given a website that has been styled, but is not responsive, meaning if you adjust the height or width of the browser the contents may scale - but not well.&nbsp; For instance, columns may become as wide as the browser, rather than splitting up into easier-to-read smaller columns.&nbsp; Buttons may collapse one upon the next.&nbsp; Titles may become impossible to read as the browser window increases or decreases in size.</p>
+
+						<p>First we need to create a meta tag to use the viewport settings, set the content width to the device width, and then prevent scaling by setting initial, minimum and maximum scale to 1.0:<br></p>
+
+						<!-- wp:image {"id":17,"align":"center"} -->
+						<img class="fixed-ratio-resize" src="images/ExceptionalRealty/image-1.png" />
+
+						<p>To keep things organized, let's put all of our responsive instructions in a new css file:<br></p>
+
+						<!-- wp:image {"id":18,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-2.png" >
+
+						<p>Make sure these directives are placed in all of our pages.</p>
+
+						<p>Next, return to your website.&nbsp; We're going to manually manipulate the size of the browser until something starts looking funky.&nbsp; At that point, we'll put in the responsive directives to fix the issue.</p>
+
+						<p>Before we get started, open the developer tools.&nbsp; In chrome, when we do this we'll see a ruler available under the browser address bar, and above our page.&nbsp; </p>
+
+						<p>As we start shrinking our browser window, we'll notice that some of our icons are getting squished into the image:</p>
+
+						<!-- wp:image {"id":19,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-3.png" alt="" class="wp-image-19"/>
+
+						<p>As we expand the browser, we'll see that it starts looking better around 1108 pixels:</p>
+
+
+						<!-- wp:image {"id":20,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-4.png" alt="" class="wp-image-20"/>
+
+						<p>So for our first media query we're going to write it for 1108px wide:<br></p>
+
+						<!-- wp:image {"id":23,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-7.png" alt="" class="wp-image-23"/>
+
+						<p><br>So what we've accomplished now is the browser is going to move the placement of the social icons when the browser collapses to 1108px or less, and the social icons will then be placed under the nav bar in absolute positioning (they will never move as you scroll the page, so they will scroll out of view); 82px from the top of the page, and 4% from the right of the page.&nbsp; Also the &lt;a&gt; tags will display inline-block.</p>
+
+						<p>Returning to the browser, let's see what else breaks as we scale down:<br></p>
+
+						<!-- wp:image {"id":21,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-5.png" alt="" class="wp-image-21"/>
+
+						<p>As you can see in the image above, around 900 pixels the navigation font is getting squished up against the edges, and the font size on the paragraphs below could get smaller in proportion to the smaller images.&nbsp; So we'll create another media tag at 900px.&nbsp; <br></p>
+
+						<!-- wp:image {"id":22,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-6.png" alt="" class="wp-image-22"/>
+
+						<p>The result here is now our navigation font and our text size has gotten a bit smaller as we approach 900px.&nbsp; But now the logo is looking a bit disproportionate:</p>
+
+						<!-- wp:image {"id":25,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-9.png" alt="" class="wp-image-25"/>
+
+						<p>However, we already have styles set for #logo h1 and&nbsp; #logo h2 - where h1 is the logo, and h2 is the "Exceptional Realty Group" text:</p>
+
+						<!-- wp:image {"id":26,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-10.png" alt="" class="wp-image-26"/>
+
+						<p>So we can just set the width and height of the logo down 10px; and set the font down to 2.2em:</p>
+
+						<!-- wp:image {"id":27,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-11.png" alt="" class="wp-image-27"/>
+
+						<p>Now as we scale down the logo, the area within that bar will scale down a bit, so we need to also reposition the social media icons:</p>
+
+						<!-- wp:image {"id":28,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-12.png" alt="" class="wp-image-28"/>
+
+						<p>So the social media icons were last set to 82px from the top, so we'll adjust them up a bit to72 px; from the top:<br></p>
+
+						<!-- wp:image {"id":29,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-13.png" alt="" class="wp-image-29"/>
+
+						<p>So now the social media icons are centered better within that bar area:</p>
+
+						<!-- wp:image {"id":30,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-14.png" alt="" class="wp-image-30"/>
+
+						<p>When we now reduce our screen size to around 800px, the nav bar links start getting smushed again:</p>
+
+						<!-- wp:image {"id":31,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-15.png" alt="" class="wp-image-31"/>
+
+						<p>So we'll set another media directive to 800px, to reduce the size of our nav bar links and anchors:</p>
+
+						<!-- wp:image {"id":33,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-17.png" alt="" class="wp-image-33"/>
+
+						<p>In looking at our paragraph columns, we're finding only 3-4 words per column.&nbsp; That looks squishy as well.&nbsp; <br></p>
+
+						<!-- wp:image {"id":34,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-18.png" alt="" class="wp-image-34"/>
+
+						<p>So let's look at the 3 columns.&nbsp; When we reduce the browser size to around 900 pixels, we end up with only 3-4 words per column.&nbsp; </p>
+
+						<p>The 3 columns uses a style of col-3:<br></p>
+
+						<!-- wp:image {"id":36,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-20.png" alt="" class="wp-image-36"/>
+
+						<p>So column rule is the vertical lines between the columns, and the column gap is the spacing between the columns.&nbsp; We want to set the column-count.&nbsp; Originally it is set to 3.&nbsp; So we'll go back to our media setting for 900px and add a setting for .col-3 to move down to 2 columns::</p>
+
+						<!-- wp:image {"id":37,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-21.png" alt="" class="wp-image-37"/>
+
+						<p>So now this looks much better :</p>
+
+						<!-- wp:image {"id":38,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-22.png" alt="" class="wp-image-38"/>
+
+						<p>And for the column on the right-hand side of the photo :</p>
+
+						<!-- wp:image {"id":35,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-19.png" alt="" class="wp-image-35"/>
+
+						<!-- wp:image {"id":39,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-23.png" alt="" class="wp-image-39"/>
+
+						<p>So as shown above, we'll set the columns down to 100% for all 3 formats of columns under 750 px., with no left margins, and no float.&nbsp; </p>
+
+						<p>Now you can see when you get down below 750px. browser width the column jumps down under the photo, rather than next to it:</p>
+
+						<!-- wp:image {"id":40,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-24.png" alt="" class="wp-image-40"/>
+
+						<p>At 750 px we have a border problem at the bottom of the page:</p>
+
+						<!-- wp:image {"id":41,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-25.png" alt="" class="wp-image-41"/>
+
+						<p>So add another media directive to remove the border:</p>
+
+						<!-- wp:image {"id":42,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-26.png" alt="" class="wp-image-42"/>
+
+						<p>And looking again at the screenshot above, the contact details, we want to fix the way it is laying out:</p>
+
+						<!-- wp:image {"id":43,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-27.png" alt="" class="wp-image-43"/>
+
+						<p>And you can see it has now been adjusted properly:</p>
+
+						<!-- wp:image {"id":44,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-28.png" alt="" class="wp-image-44"/>
+
+						<p>So now at 750px, the columns are starting to get pretty narrow again:</p>
+
+						<!-- wp:image {"id":45,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-29.png" alt="" class="wp-image-45"/>
+
+						<p>So we should go ahead and set all the columns down to 1 in the media directive for 750px:</p>
+
+						<!-- wp:image {"id":47,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-31.png" alt="" class="wp-image-47"/>
+
+						<p>And here our columns now collapse into 1 when the browser window is reduced less than 750px:</p>
+
+						<!-- wp:image {"id":48,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-32.png" alt="" class="wp-image-48"/>
+
+						<p>Next, when we scale down under 750, the nav bar gets completely squished:</p>
+
+						<!-- wp:image {"id":49,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-33.png" alt="" class="wp-image-49"/>
+
+						<p>So we want to collapse the nav bar into a hamburger bar icon.&nbsp; <br></p>
+
+						<p>Notice on getbootstrap.com, the navigation menu looks like:</p>
+
+						<!-- wp:image {"id":51,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-35.png" alt="" class="wp-image-51"/>
+
+						<p><br>but as we scale down, the navigation bar collapses into a hamburger bar icon: </p>
+
+						<!-- wp:image {"id":52,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-36.png" alt="" class="wp-image-52"/>
+
+						<p>On our original style for the nav bar, we included a special&lt;a&gt; tag with class menu-icon for the hamburger bar icon, and the code for the hamburger bar icon :&nbsp; ☰<br></p>
+
+						<!-- wp:image {"id":50,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-34.png" alt="" class="wp-image-50"/>
+
+						<p>And a style was created for the menu-icon class so that the hamburger icon would not display by default:<br></p>
+
+						<!-- wp:image {"id":53,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-37.png" alt="" class="wp-image-53"/>
+
+						<p>So first we want to hide all of the navigation bars when we reduce our screen to 700px:</p>
+
+						<!-- wp:image {"id":54,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-38.png" alt="" class="wp-image-54"/>
+
+						<!-- wp:paragraph {"align":"left"} -->
+						<p style="text-align:left">And now we want to activate the hamburger bar icon:</p>
+
+						<!-- wp:image {"id":55,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-39.png" alt="" class="wp-image-55"/>
+
+						<!-- wp:paragraph {"align":"left"} -->
+						<p style="text-align:left">So now when we scale down below 700px we need to remove some padding around the logo and the social media icons:</p>
+
+						<!-- wp:image {"id":56,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-40.png" alt="" class="wp-image-56"/>
+
+						<!-- wp:image {"id":59,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-43.png" alt="" class="wp-image-59"/>
+
+						<p>And when we get down below 495 px our logo and social media are getting smushed again:<br></p>
+
+						<!-- wp:image {"id":58,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-42.png" alt="" class="wp-image-58"/>
+
+						<p>So let's add another media query for 495px:</p>
+
+						<!-- wp:image {"id":60,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-44.png" alt="" class="wp-image-60"/>
+
+						<p>And now you can get very small and you still have your navigation hamburger, your logo, and your social media icons:<br></p>
+
+						<!-- wp:image {"id":61,"align":"center"} -->
+						<img class="fixed-ratio-resize"  src="images/ExceptionalRealty/image-45.png" alt="" class="wp-image-61"/>
+
+						<p>Remember to check the behavior on all of your pages before completing this exercise.</p>
+
+						<p>To see the website in action:</p>
+
+						<p><a href="assets/websites/adding-responsive-features-cb-000/index.html">Responsive Web Site</a></p>
+			</section>
+		</div> <!-- end blue-back -->
+		
+		<section id="details" class="medium-fade">
+			<div class="wrapper">
+			   <div class="border-right">
+				   <center>
+					  <h3>Contact</h3>
+					  <p>
+						email: <a href="mailto:mary@marylark.com">mary@marylark.com</a><br>
+						phone: +1 925 866 1111
+					  </p>
+					  <h3>Correspondence</h3>
+					  <address>
+						1002 E. Winding Creek Dr.<br>
+						Eagle, ID 83616
+					  </address>
+						<br><br>
+						<span style="font-size: 10px;">&copy; 2018 Mary Lark. All Rights Reserved.</span>
+					
+					  </center>
+				</div>
+			</div><!-- .wrapper -->
+		</section> <!--end details section -->
+		
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+		
+	</body>
+</html>

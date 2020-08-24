@@ -1,0 +1,215 @@
+ <!doctype html>
+<html>
+	<head>
+		<title>Mission 3: ANSI SQL Plain Vanilla Test Harness</title>
+				<style type="text/css">
+				#fullSpan {
+					width:1200px;
+					height: 55px;
+					 float:left;
+					 display: inline-block 
+					}
+				#inputSpan {
+					width: 1200px;
+					height: 250px;
+					 float:left;
+					display: inline-block
+				}
+				#outputSpan {
+					width: 1200px;
+					height: 75px;
+					float: left;
+					display: inline-block
+				}
+				textarea {
+					resize: none;
+				}
+					/* Dropdown Button */
+					.dropbtn {
+						background-color: #4CAF50;
+						color: white;
+						padding: 16px;
+						font-size: 16px;
+						border: none;
+						cursor: pointer;
+						display: inline;
+					}
+
+					/* Dropdown button on hover & focus */
+					.dropbtn:hover, .dropbtn:focus {
+						background-color: #3e8e41;
+					}
+
+					/* The container <div> - needed to position the dropdown content */
+					.dropdown {
+						position: relative;
+						/* position: absolute;*/
+						display: inline-block;
+
+					}
+
+					/* Dropdown Content (Hidden by Default) */
+					.dropdown-content {
+						display: none;
+						position: absolute;
+						background-color: #f9f9f9;
+						min-width: 160px;
+						box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+					}
+
+					/* Links inside the dropdown */
+					.dropdown-content a {
+						color: black;
+						padding: 12px 16px;
+						text-decoration: none;
+						display: block;
+					}
+					/* MARYS */
+.after-box {
+    clear: left;
+    border: 3px solid red;      
+}
+					/* Change color of dropdown links on hover */
+					.dropdown-content a:hover {background-color: #f1f1f1}
+
+					/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+					.show {display:block;}
+					
+					.clear{
+						clear:both;
+					}
+ 		</style>
+	</head>
+<!--	<script src="plainVanilla_validation.js" type="text/javascript"></script>
+-->
+<script src="plainVanilla_validation.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+	//http://www.w3schools.com/howto/howto_js_dropdown.asp
+	/* When the user clicks on the button,
+	toggle between hiding and showing the dropdown content */
+	function Quest1Fn() {
+		document.getElementById("Quest1ID").classList.toggle("show");
+	}
+	function Quest2Fn() {
+		document.getElementById("Quest2ID").classList.toggle("show");
+	}
+	function Quest3Fn() {
+		document.getElementById("Quest3ID").classList.toggle("show");
+	}
+	function Quest4Fn() {
+		document.getElementById("Quest4ID").classList.toggle("show");
+	}
+
+	
+	// Close the dropdown menu if the user clicks outside of it
+	window.onclick = function(event) {
+		if (!event.target.matches('.dropbtn')) {
+		var dropdowns = document.getElementsByClassName("dropdown-content");
+		//var dropdowns = document.getElementsByID("myDropdown");
+			var i;
+	
+			for (i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i];
+				if (openDropdown.classList.contains('show')) {
+					openDropdown.classList.remove('show');
+				}
+			}
+		}
+
+	}
+	function runFunction(functionName){
+		try{
+			document.getElementById("resultsBox").value="";
+			window['CodeEval'].evaluate(functionName, document.getElementById('inputStr').value);
+		}catch (err){
+			document.getElementById("resultsBox").value=err;
+		}
+	}
+</script>
+	<body>
+	<h2>PlainVanilla SQL Code Evaluation Test bed</h2>
+	<h2>Mission 3 Challenge</h2>
+	<div id="fullSpan">		
+		<div class="dropdown">
+		    <button onclick="Quest1Fn()" class="dropbtn">Quest 1</button>
+		    <div id="Quest1ID" class="dropdown-content">
+				 <a href="#" onclick = "runFunction('Q1C1R1C');">C1Req1Code: Student Backup Tbl</a>
+				 <a href="#" onclick = "runFunction('Q1C2R1O');">C2Req1Output: Student Backup Tbl</a>
+				 <a href="#" onclick = "runFunction('Q1C3R2C');">C3Req2Code: Course Details</a>
+				 <a href="#" onclick = "runFunction('Q1C4R2O');">C4Req2Output: Course Details</a>
+				 <a href="#" onclick = "runFunction('Q1C5R3C');">C5Req3Code: Course Tbl</a>
+				 <a href="#" onclick = "runFunction('Q1C6R3O');">C6Req3Output: Course Tbl</a>
+		    </div>
+		</div>
+		<div class="dropdown">
+		    <button onclick="Quest2Fn()" class ="dropbtn">Quest 2</button>
+		    <div id = "Quest2ID" class="dropdown-content">
+				<a href = "#" onclick="runFunction('Q2C1R1C');">C1Req1Code: BookOrders</a>
+				<a href = "#" onclick="runFunction('Q2C2R1O');">C2Req1Output: BookOrders</a>
+				<a href = "#" onclick="runFunction('Q2C3R2C');">C3Req2Code: Alter Tbl Course</a>
+				<a href = "#" onclick="runFunction('Q2C4R3C');">C4Req3Code: Update TblCourse</a>
+				<a href = "#" onclick="runFunction('Q2C5R3O');">C5Req3Output: TblCourse</a>
+			
+		    </div> 
+		</div>
+		<div class="dropdown">
+			<button onclick="Quest3Fn()" class ="dropbtn">Quest 3</button>
+		    <div id = "Quest3ID" class="dropdown-content">
+				<a href = "#" onclick="runFunction('Q3C1R1C');">C1Req1Code: Nbr Students</a>
+				<a href = "#" onclick="runFunction('Q3C2R1O');">C2Req1Output: Nbr Students</a>
+				<a href = "#" onclick="runFunction('Q3C3R2C');">C3Req2Code: Student Scores</a>
+				<a href = "#" onclick="runFunction('Q3C4R2O');">C4Req2Output: Student Scores</a>
+				<a href = "#" onclick="runFunction('Q3C5R3C');">C5Req3Code: Total Marks</a>
+			    <a href = "#" onclick="runFunction('Q3C6R3O');">C6Req3Output: Total Marks</a>
+				<a href = "#" onclick="runFunction('Q3C7R4C');">C7Req4Code: Lecture Name</a>
+				<a href = "#" onclick="runFunction('Q3C8R4O');">C8Req4Output: Lecture Name</a>
+				
+		    </div> 	
+		</div>
+		<div class="dropdown">
+		  <button onclick="Quest4Fn()" class ="dropbtn">Quest 4</button>
+		  <div id = "Quest4ID" class="dropdown-content">
+		 <a href = "#" onclick="runFunction('Q4C1R1C');">C1Req1Code: Student Addr Details </a>
+		 <a href = "#" onclick="runFunction('Q4C2R1O');">C2Req1Output: Student Addr Details</a>
+		 <a href = "#" onclick="runFunction('Q4C3R2C');">C3Req2Code: Course Details</a>
+		 <a href = "#" onclick="runFunction('Q4C4R2O');">C4Req2Output: Course Details</a>
+		 <a href = "#" onclick="runFunction('Q4C5R3C');">C5Req3Code: Max Course Fees</a>
+		 <a href = "#" onclick="runFunction('Q4C6R3O');">C6Req3Output: Max Course Fees</a>
+		  </div> 
+		</div>
+		
+
+		</div>	
+	</div>
+
+	<div id="inputSpan">
+			<h3>Paste code to evalute:</h3>
+			<textarea id="inputStr" rows="10" cols="120" ></textarea>	
+			
+			<input type="button" value="Clear" id="clearinput"> 
+			<script>
+				var myinput = document.querySelector('#clearinput');
+				var mytextarea = document.querySelector('#inputStr');
+				myinput.addEventListener('click', function clearInput() { mytextarea.value='';}, false);
+		</script>	
+	</div>
+
+	<div class="clear"/>
+	
+	<div id="outputSpan">
+			<h3>Evaluation Results:</h3>
+			<textarea id="resultsBox" rows="5" cols="120"  ></textarea>
+			<input type="button" value="Clear" id="clearresults"> 
+		<script>
+			var input = document.querySelector('#clearresults');
+			var textarea = document.querySelector('#resultsBox');
+			input.addEventListener('click', function clearResults () { textarea.value='';}, false);
+		</script>
+	</div>
+
+	</body>
+	
+
+
+</html>

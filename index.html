@@ -1,32 +1,316 @@
----
-layout: default
-title: Mary Lark, Software Engineer
----
-<div class="blurb">
-	<img src = "img/mary-headshot.jpg" alt = "Hello!" title="Mary Sue" width="150" height="200" border="2">
-    <!-- <img src = "img/WindsongDrClimb(2).jpg" alt="Nice climb!" title="Climbing over Boise" width="150" height="175" border="2"> -->
-	<img src = "img/summit.JPG" alt="Mt Diablo Summit" title="Mt Diablo Summit" width="300" height="200" border="2">
-	<h1>Hi there, I'm Mary Lark!</h1>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width",  initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>Mary Lark - Full Stack Engineer</title>
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/responsive.css">
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
+	</head>
 	
-	<p>Thank you for visiting my GitHub site!  I created this site to give you a bit of insight into my current professional
-		qualifications, as well as where my ongoing education is taking me.  In the pages that follow, I hope to give you a
-		pretty good understanding of who I am and what my abilities are.</p>
-	<p><b>Where I came from: </b> Starting my career as a systems administrator I later discovered I had a passion for software engineering.  The blend of
-		systems administration and software engineering put me in a sweet-spot of maximal efficiency as I can quickly pick
-		up, understand, and troubleshoot complex workflows.  Although I do prefer software engineering, I have stayed up-to-date 
-		on my systems administration knowledge.</p>
+	<body>
 	
-	<p><b>Who I am, in fun and work: </b>"My personality is witty and outgoing.  I love catching my teammates off-guard with humor.  There's nothing better than having 
-		fun when you're in a high-stress analytic mode pushing towards a delivery.</p>
+		<div class="blue-back">
+			<header class="medium-fade shadow">
+				<div class="wrapper">
+					<div class="navbar light-fade">
+						<nav class="menu">
+							<a class="selected" href="index.html">About</a>
+							<a href="resume.html">Resume</a>
+							<a href="work-samples.html">Work Samples</a>
+							<a href="contact.html">Contact</a>
+							<a href="#" class="hamburger-icon" >&#9776;</a>
+						</nav>
+					</div><!-- .wrapper -->
+				</div><!-- #navbar -->
+				
+				<div class="wrapper">
+					<div id="logo">
+						<h1 class="pageTitle">Mary Lark, Full Stack Engineer</h1>
+					</div>
+				</div><!-- .wrapper -->
+			</header>
+		  
+		  
+			<div>
+				<center>
+					<img class="fixed-ratio-resize shadow" src="images/mary-headshot.jpg" width="175px" height="250px" alt="Mary Lark" title="Mary Lark">
+				</center>
+			</div>
+	 
+			<div class="pageBorder">
+				<section  class="shadow">
+					<div>
+						<center><h2>Profile</h2></center>
+						<center><button onclick="hideProfile()">Hide</button>
+						<button onclick="showProfile()">Show</button></center><br /><br />
+					</div>
+				
+					<div class="col-3 verbose" id="profileDiv">
+						<p class="profile">Having a broad background in software engineering, starting as a Unix Systems Administrator, moving
+						into Software Development has allowed me to quickly assimilate into complex environments quickly.</p>
+					  
+						<p class="profile">After graduating from San Francisco State University, I spent 4 years programming 
+						in c and C++ in the gnu-unix and Visual Studio environments in financial systems and medical
+						device enterprise development organizations.</p>
+					  
+						<p class="profile">Taking a 12 year sabatical to raise my family, I returned to software engineering. 
+						First, working customer support and technical assistance at an Internet Service Provider 
+						installing security certificates and websites in Microsoft IIS/Apache-Tomcat environments.</p>
+
+						<p class="profile">Recently I worked for an educational services provider, providing customized citrix virtual 
+						environments, installing gateways, routers, domains, and virtualized desktops in both the Linux and Microsoft
+						O/S's.</p>
+
+						<p class="profile">The final year I moved into full-time development on an Agile development team working 
+						with Object Oriented programming.  I developed software within a pre-designed framework, 
+						expanding and maintaining code in Java.  Although having such versatility on the job was interesting,
+						focusing on full-stack engineering was where I thrived.  It was the perfect combination of using my 
+						past experience working with SQL, and c-based languages, but incorporated the front-end technologies 
+						HTML5, CSS3, JavaScript, JSP, JUnit, and XML.</p>
+					</div>
+				</section>
+				
+				
+				<section class="shadow">
+					<center><h2>Recommendations</h2></center>
+					<center><button id="hideRecommend" onclick="hideRecommend()">Hide</button>
+					<button id="showRecommend" onclick="showRecommend()">Show</button></center><br /><br />
+					<div id="recommendation">	
+						<div class="author">
+							Brad Brashier<br>
+							Sr. Development Manager, Allata
+						</div>
+						<div class="recommend first">
+							<p>"Mary is a wonderful person to work with.  She isn't afraid to dive in deep on new and complex topics, 
+							and she is positive and encouraging to those around her. She does what needs to be done and can see 
+							the big picture to understand why it is necessary. She has a high degree of skill in front-end frameworks 
+							such as JavaScript and Angular, and is adept at organizing, structuring, and supporting Agile teams."</p>
+						</div>
+						
+						<div class="author">
+							Jason Robinson<br>
+							Manager, Software Development, Allata
+						</div>
+						<div class="recommend">
+							<p>"I worked with Mary on a client project with vague guidelines and large customer knowledge gaps.  
+								With Mary’s hard work, and the team’s dedication, we were able to help the customer discover the 
+								technical requirements for a non-technical statement of work, to parse that work into concrete 
+								requirements, and to execute on those requirements while coordinating with third party vendors.  
+								Mary took technical direction well where needed, worked doggedly to fill in knowledge gaps, 
+								and executed on tasks exactly as expected.  Mary conducts all communication with customers 
+								and co-workers to utmost professional standards, and her professional maturity is an asset in 
+								an office setting for mentoring new employees." </p>
+						</div>
+						<div class="author">
+							Paul Corsi<br>
+							Senior Associate – Quality Assurance, Allata
+						</div>
+						<div class="recommend">
+							<p>"I had the pleasure of working with Mary on a project to convert requirements into user stories for development. 
+							Her attention to detail is one of her strongest assets. Her persistence to ensure the correct information 
+							is collected and returned to clients points to her project management /business analyst skills. 
+							Mary’s eagerness helps a team achieve consensus on expectations of assigned tasks. Mary is not afraid to 
+							ask questions until she has a complete grasp of her responsibilities. I appreciate her contributions and 
+							efforts when working together."</p>
+						</div>
+
+						<div class="author">
+							Joseph White<br>
+							Security Management | Windows and Linux System Administration | Virtualization | Cisco Networking, Toolwire, Inc.
+						</div>			
+						<div class="recommend">
+							<p>"Mary is an amazing person and an incredible resource. No-one 
+							digs into a problem like Mary, and her attention to detail is 
+							second-to-none. At Toolwire Mary inherited a system in desperate 
+							need of a "new sheriff". Where there was chaos and disparity Mary 
+							brought order and conformity."</p>
+						</div>
+						
+						<div class="author">
+							Brett Gentry<br>
+							Entrepreneur In Residence
+						</div>
+						<div class="recommend">
+							<p>"It’s my great pleasure to recommend Mary. I’ve worked directly 
+							with her for 5 years now. She is one of my primary go-to people at 
+							Toolwire and the true one-stop resource for everything about our 
+							OnDemand hosting platform. I can always rely on Mary to put her 
+							heart and soul into everything she does. She consistently 
+							demonstrates leadership initiative, leaving a path of organization 
+							and documentation where there previously was only chaos. She does 
+							a wonderful job of cross training the software and technical 
+							operations teams after every major project she manages or builds. 
+							Dogged, driven, fun, engaged, curious and thoughtful, are just 
+							some of the wonderful adjectives that describe her. If I go to 
+							another company I am bringing Mary with me if I can. So don't hire 
+							her JUST yet... "</p>
+						</div>
+						
+						<div class="author">
+							Razi Mohiuddin<br>
+							Special Projects at Amazon Web Services
+						</div>
+						<div class="recommend">
+							<p>"Mary is a delight to work with and easy to get along. She has a 
+							lot of energy, and has a ready smile and works well with everyone. 
+							She had to come up to speed on lots of advanced technical details 
+							of projects and she was able to do so with ease. She is detail 
+							oriented and is able to deliver her tasks on time. Highly 
+							recommended."</p>
+						</div>
+
+						<div class="author">
+							Albert Di Rienzo<br>
+							President, CEO and Chief Science Officer
+						</div>
+						<div class="recommend">
+							<p>"I've had the pleasure of knowing Mary Sue Lark for many years 
+							as well as working with Mary at Siemens Medical Systems. Mary is a 
+							very capable, conscientious, and high integrity engineer that 
+							consistently executed her project responsibilities in a 
+							collaborative, efficient, effective and productive manner. I have 
+							no reservation in recommending Mary Sue Lark."</p>
+						</div>
+
+						<div class="author">
+							Jan Legtenbert<br>
+							Business Analist bij Le Blanc Advies
+						</div>
+						<div class="recommend">
+							<p>"Mary and I worked together on a project for a foreign bank. I 
+							could always rely on her to help me with problems or discuss 
+							solutions. Mary turned out to be a good friend that made me feel 
+							welcome such a long way from home."</p>
+						</div>
+
+						<div class="author">
+							Steve Wensel<br>
+							IT Management Consultant<br>
+							Onboard Engineering Services Ltd
+						</div>
+						<div class="recommend">
+							<p>"Mary and I worked together on an international project that was 
+							rather stressful at times. I always found her to be willing to 
+							help me resolve issues and pleasant to work with. I enjoyed 
+							working with her."</p>
+						</div>
+
+						<div class="author">
+							Mike King<br>
+							Parking Technology & Infrastructure Manager<br>
+							City of Sacramento
+						</div>
+						<div class="recommend">
+							<p>"Mary Sue always has impressed me with her positive attitude, 
+							warm personality, and tenacity. She is an asset to any team or 
+							project, and I would welcome any opportunity to work directly with 
+							her."</p>
+						</div>
+
+						<div class="author">
+							James Coll<br>
+							Software Engineer / Architect<br>
+							Full-Stack | SOA | SaaS | Java | C#.Net | C++ | JavaScript | NodeJS | SQL | AWS | CSS
+						</div>
+						<div class="recommend">
+							<p>"Mary Sue was a pleasure to work with at TRW. She always 
+							supported the efforts of the team and forged strong professional 
+							relationships with teammates onshore and overseas."</p>
+						</div>
+
+						<div class="author">
+							Kristin Speer<br>
+							Managing Director,<br>
+							Technology Practice at Westwood & Wilshire
+						</div>
+						<div class="recommend">		
+							<p>"Mary provided IT and various tech support to all departments, and she was always 
+							delightfully cheery and responsive to anyone in the company who needed fast help--a 
+							rare attribute that we very much appreciated. I would highly recommend Mary for any 
+							position that involved being responsive to problems, working with people, 
+							and helping build morale. She brings a smile and a laugh to tough work."</p>
+						</div>
+
+						<div class="author">
+							Phillip Liu<br>
+							VP of Engineering at Datrium
+						</div>
+						<div class="recommend">
+							<p>"Mary is an intelligent, hard working co-worker whom everyone can
+							count on in lean times."</p>
+						</div>
+
+					</div> <!--recommendation -->
+				</section>
+			</div><!-- .wrapper -->
+		</div><!-- .blue-back -->
+
+		<section id="details" class="medium-fade">
+			<div class="wrapper">
+				<div>
+					<center>
+						<h3>Contact</h3>
+						<p>
+						email: <a href="mailto:mary@marylark.com">mary@marylark.com</a><br>
+						phone: +1 925 866 1111
+						</p>
+						<h3>Correspondence</h3>
+						<address>
+						1002 E. Winding Creek Dr.<br>
+						Eagle, ID 83616
+						</address>
+						<br><br>
+						<span style="font-size: 10px;">&copy; 2020 Mary Lark. All Rights Reserved.</span>
+					</center>
+				</div>	
+			</div><!-- .wrapper -->
+		</section>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+	
+		  <script>
+			  function hideProfile () {
+					document.getElementById("profileDiv").style.display = "none";
+			  }
+
+			  function showProfile() {
+				document.getElementById("profileDiv").style.display = "block";
+			  }
+
+			  function hideRecommend() {
+
+				  var elList = document.getElementsByClassName("recommend");
+				  for (i = 0; i < elList.length; i++) {
+					  elList[i].style.display = "none";
+				  }
+
+			  }
+			  function showRecommend() {
+				  var elList = document.getElementsByClassName("recommend");
+				  for (i = 0; i < elList.length; i++) {
+					  elList[i].style.display = "block";
+				  }
+			  }
+			 
+			//   $(document).ready(function(){
+			// 	$("#hide").click(function(){
+			// 		$("p.profile").hide();
+			// 	});
+			// 	$("#show").click(function(){
+			// 		$("p.profile").show();
+			// 	});
+			// 	$("#hideRecommend").click(function(){
+			// 		$("div.recommend").hide();
+			// 	});
+			// 	$("#showRecommend").click(function() {
+			// 		$("div.recommend").show();
+			// 	});
+			// })
 		
-	<p>Don't get me wrong!  I'm extremely driven: Keeping on schedule and delivering high-quality work is my primary focus.  
-		But you can take yourself too seriously sometimes, and that's when things around you can fall apart.  Also, I've found 
-		if you keep attitudes light and fun, creativity flows much more freely and your work product ultimately reflects this.</p>
-	
-		<p><b>Presentations and teaching bonus!</b>  In additional to my technical experience, I really enjoy mentoring and teaching.  I have designed and
-		delivered training classes to both technical and non-technical personnel.  I'm told my approach to teaching breaks 
-		down complex information into digestable chunks that non-technical personnel can easily understand.
-		</p>
-		
-		<p><a href="/about">Read more about my life...</a></p>
-</div><!-- /.blurb -->
+
+		  </script>
+	</body>
+</html>

@@ -1,0 +1,88 @@
+h1,
+h3 {
+  text-align: center;
+}
+
+h2 {
+	text-align: left;
+	margin: 4px;
+}
+
+h3 {
+	text-align: left;
+	margin: 4px;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.percentChg p {
+	margin-top: 40px;
+	margin-left: 4px;
+	margin-bottom: 0px;
+	font-size: 10px;
+}
+
+
+.price p {
+	margin-top: 0px;
+	margin-left: 4px;
+	font-size: 20px;
+	font-weight: bold;
+}
+.left {
+	width: 150px;
+	height: 135px;
+	float: left;
+}
+
+.right {
+	width:100px;
+	height: 135px;
+	float: right;
+}
+
+.arrow {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 30px;
+	height: 117px;
+	float: left;
+	padding: 0px;
+}
+
+.graph {
+	padding: 0;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 65px;
+	height: 117px;	
+	font-size: 12px;
+	float: right;
+	border-left: 2px solid black;
+}
+
+.graph p {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 4px;
+}
+
+.container {
+  text-align: center;
+}
+
+.card {
+  border: 2px solid black;
+  width: 275px;
+  height: 135px;
+  display: inline-block;
+  text-align: left; 
+  border-radius: 12px;
+  margin-top: 20px;
+
+}
+
+
+
+
+

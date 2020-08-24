@@ -1,0 +1,110 @@
+@media only screen and (max-width: 1108px) {
+  /* write styles we want to kick in for screens < 1108 px */
+    .wrapper {
+      /* not to be fixed anymore */
+      width: 90%; /*5% on each side */
+    }
+
+    #social {
+      /* don't want this positioned fixed */
+      position: absolute;
+      top: 80px;
+      right: 4%;
+      width: auto;
+    }
+
+    #social a {
+      display: inline-block;
+    }
+}
+    @media only screen and (max-width: 900px) {
+      /* because the navigation bar is getting smushed, and
+      because font could probably go down as image goes down */
+      body {
+        font-size: 85%;
+      }
+
+      #logo h1 {
+        /*h1 is the logo and h2 is the Script Exceptional Realty */
+        width: 35px;
+        height: 35px;
+      }
+
+      #logo h2 {
+        font-size: 2.2em;
+      }
+
+      #social {
+        top: 72px;
+      }
+
+      .col-3 p {
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+      }
+    }
+
+    @media only screen and (max-width: 800px) {
+      #navbar nav a {
+        font-size: 0.9em;
+      }
+    }
+
+    @medio only screen and (max-width: 800px) {
+      #navbar nav a {
+        font-size: 0.9em;
+      }
+    }
+
+    @media only screen and (max-width: 750px) {
+      .col-1, .col-2, .col-3 {
+        width: 100%;
+        margin-left: 0;
+        float: none;
+      }
+
+      .border-right {
+        border: 0;
+      }
+
+      #details div {
+        height: auto;
+        padding-bottom: 20px;
+      }
+
+      .col-3 p {
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
+      }
+    }
+
+@media only screen and (max-width: 700px) {
+  #navbar nav a {
+    /* hide all the top navbar links */
+    display: none;
+  }
+
+  #navbar nav a.menu-icon {
+    display: block;
+    float: right;
+    font-size: 1.5em;
+    padding: 10px 20px;
+    width: auto;
+  }
+
+  #logo {
+    padding: 60px 0 0;
+  }
+
+  #social {
+    top: 60px;
+  }
+}
+
+@media only screen and (max-width: 495px) {
+  #logo h2 {
+    visibility: hidden;
+  }
+}

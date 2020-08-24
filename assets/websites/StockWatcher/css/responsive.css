@@ -1,0 +1,65 @@
+/* 1080 px for iPhone 7Plus */
+
+@media only screen and (max-width: 415px) {
+	/* this is one column naturally */
+}
+@media only screen and (max-width: 570px) {
+	.arrow {
+		width: 0px;
+		visibility: hidden;
+	}
+	.card {
+		border: 1px solid black;
+		display: inline-block;
+		height: 50px;
+		width: 200px;
+		margin-top: 0px;
+		margin-left: 80px;
+		margin-right: 80px;
+	}
+
+	.cardLeft {
+		width: 125px;
+		height: 50px;
+	}
+	
+	.company  p{
+		width: 95px;
+		position: absolute;
+		overflow: hidden;
+		margin: 0;
+		height: 50px;
+		font-size: 12px;
+	}	
+	
+	.graph {
+		width: 0px;
+		visibility: hidden;
+	}
+
+	.percentChg p{
+	  margin-left: 100px;
+	  margin-top: 4px;
+	  font-size: 10px;
+	}
+
+	.price p {
+		font-size: 15px;
+	}
+  .right {
+		width: 0px;
+		visibility: hidden;
+	}
+
+	.symbol {
+		visibility: hidden;
+		line-height: 0;
+		margin-top: 0;
+	}
+
+
+  .price p {
+	  margin-top: 20px;
+	  margin-left: 100px;
+  }
+}
