@@ -1,0 +1,12 @@
+I"§<p>Page layout is a very visual and subjective topic.  The more artistic your eye, I believe, the better your page layouts will be.</p>
+
+<p>The key points I took away from designing the Exceptional Realty Website from spec were the following:</p>
+
+<ol>
+  <li>Running a full page of text, straight across, is not always best.  Try to break it up into two or three columns for ease of reading.</li>
+  <li>Use divâ€™s to surround areas that will change depending upon the browser width.  This makes writing the responsive CSS easier.</li>
+  <li>Fonts:   Sans Serif fonts such as Arial and Verdana are easier to read online.  The ideal font size for reading easily online is 16px</li>
+  <li>Remember to always make your layout mobile friendly.  Websites that are not responsive are basically useless in this day.</li>
+  <li>Use gradients in colors and page shadows.  It eases the visual effect from stark to soft and welcoming.</li>
+</ol>
+:ET
