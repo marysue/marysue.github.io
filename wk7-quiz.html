@@ -26,7 +26,7 @@
                         </ol>
                     </p>
                     <div class="answer">
-                        <p>#1, #2, #3 : EXPLANATION<br>
+                        <p>#1, #2, #4 : EXPLANATION<br>
                             The README for your project should be about the project. Therefore, your personal bio belongs elsewhere.</p>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
                     <p style="display: inline-block">What does "MVP" stand for in the context of planning and documenting the work in your github repo?
                         <ol>
-                            <li> Most vital product</li>
+                            <li>Most vital product</li>
                             <li>Most valuable product</li>
                             <li>Maximum visible product</li>
                             <li>Minimum viable product</li>
@@ -398,7 +398,7 @@
     }
 </pre></code></p>
                     <div class="answer">
-                        <p>Polynomial O(n<sup>2</sup>) : Because the outer for (i) will run n times, and for each time the outer loop runs the inner (j) will run n times - which is n * n - and there's another inner loop (k) that will run n times - so we have n*n*n which is n<sup>3</sup> so we have O(n<sup>3</sup>)</p>
+                        <p>Polynomial O(n<sup>3</sup>) : Because the outer for (i) will run n times, and for each time the outer loop runs the inner (j) will run n times - which is n * n - and there's another inner loop (k) that will run n times - so we have n*n*n which is n<sup>3</sup> so we have O(n<sup>3</sup>)</p>
                     </div>
                 </div>
                 <div class="question" id="question-24">
@@ -507,6 +507,7 @@
                     <div class="answer">
                         <p>Selection Sort : Time complexity O(n<sup>2</sup>) and O(1) space complexity</p>
                     </div>
+                </div>
                 <div class="question" id="question-29">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
@@ -598,7 +599,7 @@
         } else if (list[mid] > target) {
             return anotherSearch(list.slice(0, mid), target);
         } else {
-            return binarySearch(list.slice(mid + 1), target);
+            return anotherSearch(list.slice(mid + 1), target);
         }
     }
 </pre></code></p>

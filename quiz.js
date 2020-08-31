@@ -40,8 +40,8 @@ function showAnswers() {
 
 function hideQuestion() {
     console.log(event.target.id);
-    //let question = document.getElementById(event.target.id);
-   // question.style.display = "none";
+    let question = document.getElementById(event.target.id);
+    question.style.display = "none";
 }
 
 function showQuestions() {
@@ -55,7 +55,7 @@ function showQuestions() {
         hiddenQuestionsArr = JSON.parse(hidden);
         console.log("HiddenQuestions:  ", hiddenQuestionsArr);
         for (let i = 0; i < hiddenQuestionsArr.length; i++) {
-            question = document.getElementById(hiddenQuestionsArr[i]);
+            let question = document.getElementById(hiddenQuestionsArr[i]);
             console.log("Setting ", hiddenQuestionsArr[i], " to display=none");
             question.style.display = "none";
         }
