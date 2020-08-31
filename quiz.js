@@ -41,6 +41,7 @@ function showAnswers() {
 function hideQuestion() {
     console.log(event.target.id);
     let question = document.getElementById(event.target.id);
+
     question.style.display = "none";
 }
 
