@@ -64,6 +64,32 @@ function showQuestions() {
 }
 
 window.addEventListener("DOMContentLoaded", (event) => {
+    let quizBtn = document.getElementsByClassName("quizNbr")[0];
+
+    console.log("Quiz btn:  ", quizBtn.id);
+    if (localStorage.getItem(quizBtn.id)) {
+        quizBtn.style.display = "none"
+        let quiz = document.getElementById("quiz");
+        quiz.style.display = "inline-block";
+    }
+
+    //quizBtn.style.display = "inline-block";
+    quizBtn.addEventListener("click", (event) => {
+        quiz = event.target.id;
+        if (localStorage.getItem(quiz) === null) {
+            let thisQuizNbr = parseInt(quiz.slice(4));
+            let lastQuizNbr = thisQuizNbr - 1;
+            let lastQuizId = "quiz" + lastQuizNbr;
+            localStorage.removeItem(lastQuizId);
+            localStorage.setItem(quiz, "started");
+            quizBtn.style.display = "none";
+            let myQuiz = document.getElementById("quiz");
+            myQuiz.style.display = "inline-block";
+            reset();
+        };
+
+    });
+
 
     const userAgent = navigator.userAgent.toLowerCase();
     isTablet = /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent);
@@ -96,16 +122,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
         for (let i = 0; i < myQuestions.length; i++) {
             myQuestions[i].addEventListener( "click", (event) => {
                 answerDiv = event.target.parentElement.getElementsByClassName("answer")[0];
-
-                if (answerDiv.style.display=== "none") {
+                if (answerDiv !== undefined && answerDiv.style.display === "none") {
                     answerDiv.style.display="block";
                     event.target.innerHTML = "HIDE";
-
-                } else {
-
+                } else if (answerDiv !== undefined ) {
                     answerDiv.style.display="none";
                     event.target.innerHTML ="SHOW";
-
                 }
             });
          }

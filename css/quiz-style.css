@@ -12,3 +12,10 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+
+.question {
+    border: 1px solid #3333;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+  }
