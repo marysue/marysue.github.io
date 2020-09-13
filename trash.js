@@ -80,4 +80,38 @@ add(root, 15);
 //console.log(breadthFirst(root, 10));
 //printTree(root);
 
-printBreadthFirst(root);
+//printBreadthFirst(root);
+
+function depthFirstSearch(graph, startingNode, targetVal, visited = new Set() ) {
+    console.log(`startingNode: ${startingNode}`);
+    if (startingNode === targetVal) return true;
+    visited.add(startingNode);
+
+    let neighbors = startingNode;
+    console.log(`     neighbors: ${graph[startingNode]}`)
+    for (let neighbor of graph[startingNode]) {
+        if (visited.has(neighbor)) continue;
+        console.log(`          neighbor: ${neighbor}`)
+        visited.forEach( elt => console.log(`          visited: ${elt}`));
+
+        let retVal = depthFirstSearch(graph, neighbor, targetVal, visited);
+        console.log(`          return from depthFirstSearch: ${retVal}`);
+        //if (depthFirstSearch(graph, neighbor, targetVal, visited)) {
+            if (retVal) {
+                console.log(`          returning true from function`);
+            return true;
+        }
+
+    }
+    console.log(`returning false`);
+    return false;
+}
+
+let graph = {
+    'a' : [ 'b', 'c' ],
+    'b' : [ 'c', 'd' ],
+    'c' : [ 'a' ],
+    'd' : [ ]
+}
+
+depthFirstSearch(graph, 'a', 'c');
