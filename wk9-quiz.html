@@ -1146,7 +1146,76 @@ CSS
                         <p>Diagram C</p>
                     </div>
                 </div>
-                <!-- <div class="question" id="question-92">
+                <div class="question" id="question-92">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What position setting completely removes itself from the document flow, and what is that position dependent upon?</p>
+                    <div class="answer">
+                        <p>position: absolute;</p>
+                        <p> <ul>
+                            <li>Completely removes the element from the document flow.</li>
+                            <li>Elements around it position themselves as though the element didn't exist.</li>
+                            <li>Absolute in conjunction with top, bottom, left, right, reference the parent element who's
+                                position is NOT static.</li>
+                            <li>If there is no parent element that is NOT static, then the
+                                position of top, bottom, etc, will be relative to the root document.</li>
+                            <li>Position absolute will scroll out of view.</li>
+                        </ul></p>
+                    </div>
+                </div>
+                <div class="question" id="question-93">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What position setting will allow you to position the element with (top, bottom, left, right) relative to its normal position?</p>
+                    <div class="answer">
+                        <p>position: relative</p>
+                        <p>position: relative does not change anything on its own, without setting top, bottom, left, and right.</p>
+                    </div>
+                </div>
+                <div class="question" id="question-94">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What is the most common use for position: relative?</p>
+                    <div class="answer">
+                        <p>Setting the parent element to a non-static value, such that child elements may be positioned relative to this parent.  Any non-static setting will allow this, but relative is the most common choice.</p>
+                    </div>
+                </div>
+                <div class="question" id="question-95">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">If you want to set an element to a specific position on the page, never to have its position interrupted by any other element, what position setting would you choose?</p>
+                    <div class="answer">
+                        <p>position: absolute</p>
+                        <p>Remember, with position absolute a parent must be set to a non-static setting.  If not, the element will be positioned relative to the document root.  Also remember, this position setting will allow the element to scroll out of view.</p>
+                    </div>
+                </div>
+                <div class="question" id="question-96">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What would you use if you want to lock an element into a specific position, not dependent upon a parent element, which will remain in the same position regardless of scrolling?</p>
+                    <div class="answer">
+                        <p>position: fixed</p>
+                        <p>Again note:  Position fixed is similar to position absolute BUT rather than positioning itself relative to a parent element, it positions itself relative to the document and a specific on-screen position.  However, unlike position absolute, when scrolling begins, this element will not move with the scrolling.</p>
+                    </div>
+                </div>
+                <div class="question" id="question-97">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What is the default positioning setting?</p>
+                    <div class="answer">
+                        <p>position: static is default.  However, the element set to position static will not be able to be used to position its children.</p>
+                    </div>
+                </div>
+                <div class="question" id="question-98">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What position setting initially is relative, but as you scroll it becomes fixed to the top of the page?</p>
+                    <div class="answer">
+                        <p>position: stickey</p>
+                        <p>This is a combination of both relative and fixed position.  While you scroll, this position remains relative.  But as you scroll the parent out of view this becomes fixed position, never scrolling out of view.</p>
+                    </div>
+                </div>
+                <!-- <div class="question" id="question-99">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
                     <p style="display: inline-block">QUESTION</p>
@@ -1154,6 +1223,14 @@ CSS
                         <p>ANSWER</p>
                     </div>
                 </div>
-            </div> -->
+                <div class="question" id="question-100">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div> -->
+            </div>
 	</body>
 </html>
