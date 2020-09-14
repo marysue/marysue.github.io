@@ -1215,6 +1215,99 @@ CSS
                         <p>This is a combination of both relative and fixed position.  While you scroll, this position remains relative.  But as you scroll the parent out of view this becomes fixed position, never scrolling out of view.</p>
                     </div>
                 </div>
+                <div class="question" id="question-99">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you create a grid?</p>
+                    <div class="answer">
+                        <p>Set the grid container class's display to grid or inline-grid</p>
+                    </div>
+                </div>
+                <div class="question" id="question-100">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you put items into the grid?</p>
+                    <div class="answer">
+                        <p>All direct children of the grid container automatically become grid items.</p>
+                    </div>
+                </div>
+                <div class="question" id="question-101">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What are grid container grid settings?</p>
+                    <div class="answer">
+                        <p>
+<code><pre>
+    .grid__container {
+        display: grid;
+        grid-column-gap: 50px;
+        grid-row-gap: 50px;
+        grid-gap: 50px 100px; /* row, column */
+        grid-template-columns:  repeat(4 1fr) /*can use px, or auto or combined to specify number of cols */
+        grid-template-rows: 80px 200px /* ditto above */
+        justify-content: space-between; /*space-around, center, start, end, space-evenly */
+        align-content: space-around; /* space-evenly, space-around, space-betwen, center, start, end */
+        grid-template-areas: 'area area . . .'  /* (template area "area" uses two of 5 cols) */
+                              'area1 area2 area3 area4 area5' /* to name areas used in grid items to indicate where item goes */
+    }
+
+    .grid__item {
+        grid-column-start: 1;
+        grid-column-end: 3;  //or use
+        grid-column: 1  / span 3; //start on column 1, span 3 columns
+                     1 / 3;  // start on 1, end on 3
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-row: 1 / span 3; //start on row 1, span 3 rows;
+                  1 / 3;  // start on row 1, end on row 3;
+        grid-area: area1;  // named area related to grid-template-areas on grid__container
+                   1 / 2 / 5 / 6 // ( row start, col start, row end, col end)
+    }
+</pre></code>
+                        </p>
+                    </div>
+                </div>
+                <div class="question" id="question-102">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What are the rules for using a flex box?</p>
+                    <div class="answer">
+                        <p><ul>
+                            <li>A flexible layout must have a parent element with the display property set to flex.</li>
+                            <li>Direct child elements of the flexible container automatically become flexible items.</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="question" id="question-103">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What properties are available on a flexible container and on a flex item?</p>
+                    <div class="answer">
+                        <p>
+<code><pre>
+    .class__container {
+        display: flex;
+        flex-direction: row | row-reverse | column | column-reverse
+        flex-wrap: nowrap | wrap | wrap-reverse;
+        flex-flow: column wrap; //shorthand for flex-direction and flex-wrap
+        justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly | left | start
+        align-items: flex-start | flex-end | center | stretch | baseline
+        align-content: flex-start | flex-end ... same as justify content = aligns container's lines within when there is extra space in cross-asix
+    }
+
+    .class_childItem {
+        order: 1 | 2 | 3 | 5 | ... 99 //default: 0;
+        flex-grow: 1;  //grow twice as large as other containers; 3 times, 4 times, etc.
+        flex-shrink: 3; //default 1;
+        flex-basis:  | auto /* default auto:  default size of elt before remaining space is distrib.  20%, 5rem, auto, etc.
+        flex: none | [ &lt;'flex-grow'&gt; &lt;'flex-shrink'&gt;? || &lt;'flex-basis'&gt; ] //shorthand for flex-grow, flex-shrink and flex-basis; 2nd & 3rd properties are optional. Defualt is 0 1 auto;
+        align-self: flex-start | flex-end | auto | center | baseline
+    }
+</pre></code>
+                        </p>
+                    </div>
+                </div>
                 <!-- <div class="question" id="question-99">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
