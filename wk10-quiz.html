@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width",  initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>Mary Lark - Full Stack Engineer</title>
+		<link rel="stylesheet" type="text/css" href="css/quiz-style.css">
+        <script src="./quiz.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> -->
+	</head>
+
+	<body>
+            <h2><center>Week 10 Quiz</center></h2>
+            <center><button class="buttonClass quizNbr" id="quiz10", style="display: inline-block">Start Quiz 7</button></center>
+                <!-- REMEMBER TO INCREMENT THE QUIZ NUMBER IN THE START QUIZ BUTTON!!! -->
+            <div id="quiz" style="margin: 30px; display: none;">
+                <center><button id="resetButton">Reset Quiz</button></center>
+
+                <div class="question" id="question-1">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you create a user named 'Mary' that is superuser with password 'myPassword'?</p>
+                    <div class="answer">
+                        <p>
+<code><pre>
+    CREATE USER Mary WITH superuser PASSWORD 'mypassword';
+</pre></code>
+                        </p>
+                    </div>
+                </div>
+                <div class="question" id="question-2">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you create a normal user named 'Mary' with password 'MyPassword'?</p>
+                    <div class="answer">
+                        <p>
+<code><pre>
+    CREATE USER Mary WITH PASSWORD 'MyPassword';
+</pre></code>
+                        </p>
+                    </div>
+                </div>
+                <div class="question" id="question-3">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you create a database named 'clues'?</p>
+                    <div class="answer">
+                        <p>
+<code><pre>
+    CREATE DATABASE clues;
+</pre></code>
+                        </p>
+                    </div>
+                </div>
+                <div class="question" id="question-4">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you create a database named clues with the owner 'Mary'?</p>
+                    <div class="answer">
+                        <p>If the user 'Mary' doesn't exist yet, create her.
+<code><pre>
+    CREATE USER Mary WITH PASSWORD 'MyPassword';
+    CREATE DATABASE clues WITH OWNER Mary;
+</pre></code>
+                        </p>
+                    </div>
+                </div>
+                <div class="question" id="question-5">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">Create a table called 'drinks' with the following fields: <ul>
+                        <li>id, which will be our primary key</li>
+                        <li>name, 50 characters long</li>
+                        <li>ounces, which will be a number with no decimal places</li>
+                    </ul></p>
+                    <div class="answer">
+                        <p>
+CREATE TABLE drinks (
+    id serial,
+    name VARCHAR(50),
+    ounces INTEGER,
+    PRIMARY KEY (id)
+);
+                        </p>
+                    </div>
+                </div>
+                <div class="question" id="question-6">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you create a table called 'menu' with the following:
+                        <ul>
+                            <li>id as a primary key</li>
+                            <li>name as a string no longer than 50 characters</li>
+                            <li>drink_id which will have no decimal places and will be a foreign key to the drinks table</li>
+                        </ul> </p>
+                    <div class="answer">
+                        <p>
+<code><pre>
+    CREATE TABLE menu (
+        id serial,
+        name VARCHAR(50),
+        drink_id INTEGER,
+        PRIMARY KEY(id),
+        FOREIGN KEY (drink_id) REFERENCES drinks(id);
+</pre></code>
+                        </p>
+                    </div>
+                </div>
+                <div class="question" id="question-7">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What is the command to show the people table (not the data, just the table)?</p>
+                    <div class="answer">
+                        <p>Use the describe people command:
+<code><pre>\d people;</pre></code>
+                        </p>
+                    </div>
+                </div>
+                <div class="question" id="question-8">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What is the command to show all the users in your RDBMS?</p>
+                    <div class="answer">
+                        <p>Use the describe users command:
+<code><pre>\du;</pre></code>
+                        </p>
+                    </div>
+                </div>
+                <div class="question" id="question-9">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What is the command to show the tables we have in our database (not the contents)?</p>
+                    <div class="answer">
+                        <p>Use the describe tables command</p>
+<code><pre>
+    \dt;  //describe tables
+    \d &lt;&lt;tableName&gt;&gt; //describe just this table
+</pre></code>
+                    </div>
+                </div>
+                <div class="question" id="question-10">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What is the command to show all of your databases?</p>
+                    <div class="answer">
+                        <p>Use the list database command:
+<code><pre>
+    \list;
+</pre></code>
+                        </p>
+                    </div>
+                </div>
+                <div class="question" id="question-11">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you show the user is in this session?</p>
+                    <div class="answer">
+                        <p>
+<code><pre>
+    SELECT CURRENT_USER;
+</pre></code>
+                        </p>
+                    </div>
+                </div>
+                <div class="question" id="question-12">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What are the commands to setup a database?</p>
+                    <div class="answer">
+                        <p>
+<code><pre>
+    CREATE DATABASE &lt;&lt;databaseName&gt;&gt;;
+    REVOKE CONNECT ON DATABASE &lt;&lt;databaseName&gt;&gt; FROM PUBLIC;
+    GRANT CONNECT ON DATABASE &lt;&lt;databaseName&gt;&gt; TO &lt;&lt;UserName&gt;&gt;;
+</pre></code>
+                        </p>
+                    </div>
+                </div>
+                <div class="question" id="question-13">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you delete a table?</p>
+                    <div class="answer">
+                        <p>If the table has any dependencies (i.e. another table references it) you MUST delete the table that references it first.</p>
+<code><pre>
+    DROP TABLE &lt;&lt;tableName&gt;&gt;;
+</pre></code>
+                    </div>
+                </div>
+                <div class="question" id="question-14">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you delete a user?</p>
+                    <div class="answer">
+                        <p>If the user has any references, like "GRANT CONNECT ON DATABASE ...", you must REVOKE CONNECT ON DATABASE first.  </p>
+<code><pre>
+    DROP USER &lt;&lt;UserName&gt;&gt;;
+</pre></code>
+                    </div>
+                </div>
+                <div class="question" id="question-15">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you log a user in to a specific database?</p>
+                    <div class="answer">
+                        <p>
+<code><pre>
+    psql -u -W &lt;&lt;userName&gt;&gt; &lt;&lt;databaseName&gt;&gt;;
+</pre></code>
+                        </p>
+                    </div>
+                </div>
+                <div class="question" id="question-16">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">If you have a string value set as NOT NULL, is "" a NULL value?</p>
+                    <div class="answer">
+                        <p>No!  "" is not equivalent to NULL.</p>
+                    </div>
+                </div>
+                <div class="question" id="question-17">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What are two ways of declaring a primary key?</p>
+                    <div class="answer">
+                        <p>Within the table, or using constraint syntax:
+<code><pre>
+    id serial PRIMARY KEY,
+</pre></code><br> or constraint syntax, which is at the end of the CREATE TABLE, but still within the parens:
+<code><pre>
+    id serial,
+    PRIMARY KEY(id);
+</pre></code>
+                        </p>
+                    </div>
+                </div>
+                <div class="question" id="question-18">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-19">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-20">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-21">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-22">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-23">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-24">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-25">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-26">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-27">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-28">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-29">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-30">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-31">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-32">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-33">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-34">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-35">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-36">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-37">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-38">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-39">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-40">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-41">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-42">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-43">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-44">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-45">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-46">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-47">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-48">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-49">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-50">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-51">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-52">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-53">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-54">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-55">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-56">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-57">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-58">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-59">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-60">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-61">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-62">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-63">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-64">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-65">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-66">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-67">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-68">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-69">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-70">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-71">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-72">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-73">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-74">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-75">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-76">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-77">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-78">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-79">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-80">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-81">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-82">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-83">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-84">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-85">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-86">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-87">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-88">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-89">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+                <div class="question" id="question-90">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">QUESTION</p>
+                    <div class="answer">
+                        <p>ANSWER</p>
+                    </div>
+                </div>
+            </div>
+
+
+	</body>
+</html>
