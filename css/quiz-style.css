@@ -19,3 +19,12 @@ tr:nth-child(even) {
     padding: 10px;
     margin: 10px;
   }
+
+code pre {
+    background-color: lightgray;
+    border-radius: 2px;
+}
+code {
+    background-color: lightgray;
+    border-radius: 2px;
+}
