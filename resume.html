@@ -19,7 +19,7 @@
 						<nav class="menu">
 							<a href="index.html">About</a>
 							<a class="selected" href="resume.html">Resume</a>
-							<a href="work-samples.html">Work Samples</a>
+							<a href="portfolio.html">Portfolio</a>
 							<a href="contact.html">Contact</a>
 							<a href="#" class="hamburger-icon" >&#9776;</a>
 						</nav>
@@ -45,51 +45,80 @@
 				<section  class="resume shadow">
 					<div>
 					<a href="assets/resume.pdf">Download Resume</a>
-						<center><h2>Resume</h2></center>
+						<h2 style="margin-bottom: 0px; color: brown">Mary Lark</h2>
+						<p style="display: flex; justify-content: space-between; margin-top: 0px; font-size: 10pt"><span style="color: brown">t:  925.866.1111</span><span style="color: brown">e:  mary@marylark.com</span>      San Ramon, Ca     <a href="http://www.marylark.com">Portfolio</a>     <a href="https://www.linkedin.com/in/mlark">Linkedin</a>     <a href="https://github.com/marysue">Github</a></p>
 					</div>
 					<div>
-						<center>
-							<p>Experienced full stack engineer.  Capable in many programming and scripting languages, fascinated by web development at all levels from UI to back-end processing.  With my broad engineering experience I am able to quickly ramp up on new technologies and projects.</p>
-						</center>
-						<h3>Highlights:</h3>
-							<ol>
-								<li>Participated in React-Native development on iOS and Android platforms as well as web apps.</li>
-								<li>Created Robotic software using UIPath, working with Excel spreadsheets and scraping web data.</li>
-								<li>Created testing harness for middleware code stack using HTML/JavaScript and Junit/Java</li>
-								<li>Extended web pages and new DB Objects using Java, JavaBeans, JSP, Json and AJAX, HTML, and CSS</li>
-								<li>Created an maintained Oracle database tables, functions, views, triggers, procedures using Oracle PL/SQL</li>
-								<li>Created SQL files from Excel spreadsheets using VBA</li>
-								<li>Created and maintained externalization files in XML</li>
-								<li>Created virtualized machine prep scripts and logon scripts using PowerShell, vbScript, VB.Net, and Perl</li>
-								<li>Designed and implemented event driven testing harness for web page navigation using IMacros and VB.Net</li>
-								<li>Created server hardware/ virtual machine configuration polling in C#.Net</li>
-							</ol>
-						<h3>Experience:</h3>
-						<strong>appAcademy, San Francisco, CA:  2020 - present<br>
-						Full Stack Engineering</strong>
-						<p>Updating my technical stack with React and Python as well as refreshing my Algorithms and Data Structures, SQL, JavaScript, HTML, and CSS skills.</p>
+						<h3 style="color: brown; margin-bottom: 0px;">Experience</h3>
+						<div style="display: grid; grid-template-columns: 1fr, 1fr;">
+							<b style="font-size: 10pt; grid-column: 1; ">IT Engineer | Toolwire, Inc.</b>
+							<span style="font-size: 10pt; grid-column: 2; text-align: right ">April 2011 - July 2017</span>
 
-						<strong>Canyon Hills Consulting, San Ramon, CA : 2017 - 2020<br>
-						Full Stack Engineer</strong><br>
-						<p>Provided consulting services including Business Analysis, QA, and full-stack web development using UIPath Robotic Software, Angular8, React-Native, Javascript, HTML5, CSS, and Bootstrap as well as Java with delivery on iOS as well as Android mobile platforms.</p>
 
-						<strong>Toolwire, Pleasanton, CA : 2011 – 2017<br>
-						Full Stack Engineer</strong><br>
-						<p>Provided software engineering skills on an Agile team in a business consulting object oriented programming (OOP) environment, enhancing and maintaining code in the Java stack using Eclipse for Java, JavaScript, JSP, Json, AJAX, testing using Junit; maintaining xml build files for Maven and Ant; developing and maintaining database tables using MS-SQL, Oracle PL/SQL and creating SQL files from Excel files using VBA.  Created tools in the C#.Net/ASP.Net development stack using Visual Studio.  Created virtualization machine cloning, persistent storage and logon scripts using VisualBasic Scripting, Powershell, Perl, manipulating and accessing ActiveDirectory and CMS using ASP.Net.  </p>
+							<ul style="font-size: 9pt; margin-top: 0px">
+								<li>Designed, implemented, and standardized virtual environment delivery using perl and vbScript scripting to prepare components, such as: LAN's and persistent storage connections, reducing delivery time for custom virtual machines from 5 days to 1 day.</li>
+								<li>Managed over 200 Citrix servers, updating and normalizing servers to maximize server utilization and reduce server requirements by 40%, eliminating the need for additional power to our server cage.</li>
+								<li>Performed database updates utilizing visual basic for applications, transforming excel data into SQL, reducing new course roll-out time by 50%.</li>
+								<li>Provided complex infrastructure workflow training for both engineers and course designers, reducing ticket "turnaround to resolution" time by 75%</li>
+							</ul>
+						</div>
+							<div style="display: grid; grid-template-columns: 1fr, 1fr;">
+								<b style="font-size: 10pt; grid-column: 1; ">Software Consultant | Canyon Hills Group</b>
+								<span style="font-size: 10pt; grid-column: 2; text-align: right; ">August 2017 - July 2020</span>
+								<ul style="font-size: 9pt; margin-top: 0px">
+									<li>Provided web design and delivery utilizing Wordpress and Magento CMS systems for small local companies, providing clients with public facing presence.</li>
+								</ul>
+							</div>
+							<h3 style="color: brown; margin-bottom: 0px;">Projects</h3>
+							<div style="display: grid; grid-template-columns: 80%, 20%">
+								<b style="font-size: 10pt; grid-column: 1; ">Scheduler  (Python, HTML5, CSS3, sqlAlchemy, Alembic, Webpack)</b>
+								<span style="font-size: 10pt; grid-column: 2; text-align: right"><a href="https://placement-scheduler.herokuapp.com/login">live site</a> | <a href="https://github.com/marysue/Scheduler.git">github</a></span>
+								<span style="font-size: 8pt; grid-column: 1"><em><b>Placement agency scheduling assistant for outsourcing and managing contractor placements</b></em></span>
+								<ul style="font-size: 9pt; margin-top: 0px; grid-column: 1">
+									<li>Authenticated and authorized users utilizing flask_login on the backend, protected routes on the frontend.</li>
+									<li>Implemented data consistency and automated UI component updates with Redux store and React hooks.</li>
+									<li>Provided scheduling functionality through the use of  datetime on the backend, and moment on the frontend in order to determine job placement within calendar view, allowing date comparisons (before, after, isSame).</li>
+									<li>Provided user interface via Material-Ui components for consistent display of calendar days, forms, and tables.</li>
+								</ul>
+							</div>
+							<div style="display: grid; grid-template-columns: 80%, 20px">
+								<b style="font-size: 10pt; grid-column: 1; ">CF Riders (JavaScript, React/Redux, JSX, Express.js, postgreSQL, Sequelize ORM)</b>
+								<span style="font-size: 10pt; grid-column: 2; text-align: right;"><a href="https://cfriders.herokuapp.com/">live site</a> | <a href="https://github.com/marysue/CF-Riders.git">github</a></span>
+								<span style="font-size: 8pt; grid-column: 1"><em><b>A Social Networking Site Providing Bicycle Equipment with customer reviews</b></em></span>
+								<ul style="font-size: 9pt; margin-top: 0px; grid-column: 1">
+									<li>Provided user security via bcrypt hashing on the backend to obfuscate and secure user passwords.</li>
+									<li>Maintained site consistency and reduced development time by exploiting component reuse.</li>
+									<li>Created backend API’s using Express.js providing RESTful endpoints for data lookup and storage.</li>
+								</ul>
+							</div>
+							<div style="display: grid; grid-template-columns: 1fr, 1fr;">
+								<b style="font-size: 10pt; grid-column: 1; ">Cadence (Python, React / Redux, JSX, Express, postgreSQL, Sequelize, AWS, Heroku)</b>
+								<span style="font-size: 10pt; grid-column: 2; text-align: right"><a href="https://aa-cadence.herokuapp.com/">live site</a> | <a href="https://github.com/Beaukenny/Strava-clone-project.git">github</a></span>
+							</div>
+							<span style="font-size: 8pt;"><em><b>A Social Networking Site Providing customized Route Maps for running, hiking, or bicycling</b></em></span>
+							<ul style="font-size: 9pt; margin-top: 0px">
+								<li>Provided mapping functionality with Google maps api allowing users to create map routes, and determine distances and elevations in order to calibrate their workout exertion to use during their workouts.
+								</li>
+								<li>Enabled photo upload and storage for the user to store their workout photos via AWS S3 integration, and photo metadata within postgreSQL database.</li>
+								<li>Created easy associations for the user to store their workout information, route maps, and workout comments using database models, migrations, and tables using postgreSQL/Flask-SQLAlchemy/Alembic db/ORM.</li>
+							</ul>
+							<div style="display: grid; grid-template-columns: 1fr, 1fr;">
+								<b style="font-size: 10pt; grid-column: 1; ">Coredump (JavaScript, React / Redux, JSX, Express, Pug templates, postgreSQL)</b>
+								<span style="font-size: 10pt; grid-column: 2; text-align: right"><a href="https://aa-coredump.herokuapp.com/">live site</a> | <a href="https://github.com/mjshuff23/coredump-project">github</a></span>
+							</div>
+							<span style="font-size: 8pt;"><em><b>A Social Networking Site for Providing Software Q & A</b></em></span>
+							<ul style="font-size: 9pt; margin-top: 0px">
+								<li>Employed postgreSQL/Sequelize database/ORM to store product ratings and user comments.</li>
+							</ul>
+							<h3 style="color: brown; margin-bottom: 0px;">Education</h3>
+							<div style="font-size: 9pt">
+							App Academy | San Francisco, CA July 2020 Immersive 1000-hr full stack engineering course <br>
+							San Francisco State University | San Francisco, CA | BS in Computer Science <br>
+							Project Management Institute | Project Management Professional (PMP) <br>
+							Scrum Alliance | Certified Scrum Master (CSM)
+						</div>
 
-						<h3>Previous experience:</h3>
-						<p>4 years software engineering experience, 2 years working with Unix/C in an enterprise development environment,  2 years working with C++ and Visual Studio in a medical device environment, and 2 years as a systems administrator working with Unix and Linux systems in an Artificial Intelligence environment.</p>
 
-						<h3>Tools/Languages/OS:</h3>
-						<b>Languages:</b>  JavaScript, HTML5, CSS3, JavaScript, Node.js, React, Python, SQL<br>
-						<b>Other Tools:</b>  UiPath, Jira, Mantis, Subversion, Git
-
-						<h3>Education – Certifications</h3>
-						AppAcademy : July 2020 Full Stack Engineering Cohort; Graduation Dec. 2020<br>
-						B.S.C.S. : San Francisco State University<br>
-						PMP : Project Management Institute; 2017<br>
-						CSM : ScrumAlliance.org; 2017<br>
-						UiPath Advanced Developer Certification : UiPath; 2019<br>
 					</div>
 				</section>
 			</div> <!-- pageBorder -->
@@ -110,7 +139,7 @@
 						Eagle, ID 83616
 						</address>
 						<br><br>
-						<span style="font-size: 10px;">&copy; 2020 Mary Lark. All Rights Reserved.</span>
+						<span style="font-size: 10px;">&copy; 2021 Mary Lark. All Rights Reserved.</span>
 					</center>
 				</div>
 			</div><!-- .wrapper -->

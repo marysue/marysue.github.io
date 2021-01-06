@@ -20,7 +20,7 @@
 						<nav class="menu">
 							<a class="selected" href="index.html">About</a>
 							<a href="resume.html">Resume</a>
-							<a href="work-samples.html">Work Samples</a>
+							<a href="portfolio.html">Portfolio</a>
 							<a href="contact.html">Contact</a>
 							<a href="#" class="hamburger-icon" >&#9776;</a>
 						</nav>
@@ -45,8 +45,8 @@
 				<section  class="shadow">
 					<div>
 						<center><h2>Profile</h2></center>
-						<center><button onclick="hideProfile()">Hide</button>
-						<button onclick="showProfile()">Show</button></center><br /><br />
+						<center><button id="hideProfile"  onclick="hideProfile()">Hide</button>
+						<button id="showProfile" style="display: none" onclick="showProfile()">Show</button></center><br /><br />
 					</div>
 
 					<div class="col-3 verbose" id="profileDiv">
@@ -77,8 +77,8 @@
 
 				<section class="shadow">
 					<center><h2>Recommendations</h2></center>
-					<center><button id="hideRecommend" onclick="hideRecommend()">Hide</button>
-					<button id="showRecommend" onclick="showRecommend()">Show</button></center><br /><br />
+					<center><button id="hideRecommend" onclick="hideRecommend()">Abbreviate Recommendations</button>
+					<button id="showRecommend" style="display: none" onclick="showRecommend()">Show Full Recommendations</button></center><br /><br />
 					<div id="recommendation">
 						<div class="author">
 							Brad Brashier<br>
@@ -264,7 +264,7 @@
 						Eagle, ID 83616
 						</address>
 						<br><br>
-						<span style="font-size: 10px;">&copy; 2020 Mary Lark. All Rights Reserved.</span>
+						<span style="font-size: 10px;">&copy; 2021 Mary Lark. All Rights Reserved.</span>
 					</center>
 				</div>
 			</div><!-- .wrapper -->
@@ -274,15 +274,33 @@
 
 		  <script>
 			  function hideProfile () {
+					let btnElt = document.getElementById("showProfile");
+					let hideBtn = document.getElementById("hideProfile");
+					switchDisplay(btnElt);
+					switchDisplay(hideBtn)
 					document.getElementById("profileDiv").style.display = "none";
+			  }
+			  function switchDisplay(btnElt) {
+				if (btnElt.style.display === "none") {
+					btnElt.style.display = "block";
+				} else {
+					btnElt.style.display = "none";
+				}
 			  }
 
 			  function showProfile() {
+				let btnElt = document.getElementById("showProfile");
+				let hideBtn = document.getElementById("hideProfile");
+				switchDisplay(btnElt);
+				switchDisplay(hideBtn)
 				document.getElementById("profileDiv").style.display = "block";
 			  }
 
 			  function hideRecommend() {
-
+				  var btnElt = document.getElementById("hideRecommend");
+				  showBtn = document.getElementById("showRecommend");
+				  switchDisplay(btnElt);
+				  switchDisplay(showBtn);
 				  var elList = document.getElementsByClassName("recommend");
 				  for (i = 0; i < elList.length; i++) {
 					  elList[i].style.display = "none";
@@ -290,6 +308,10 @@
 
 			  }
 			  function showRecommend() {
+				var btnElt = document.getElementById("hideRecommend");
+				  showBtn = document.getElementById("showRecommend");
+				  switchDisplay(btnElt);
+				  switchDisplay(showBtn);
 				  var elList = document.getElementsByClassName("recommend");
 				  for (i = 0; i < elList.length; i++) {
 					  elList[i].style.display = "block";

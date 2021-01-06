@@ -3,16 +3,19 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width",  initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-		<title>Mary Lark - Full Stack Engineer</title>
+        <title>Mary Lark - Full Stack Engineer</title>
+        <link rel="stylesheet" type="text/css" href="../css/quiz-style.css">
 		<!-- <link rel="stylesheet" type="text/css" href="css/responsive.css"> -->
         <script src="./quiz.js"></script>
         <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> -->
 	</head>
 
 	<body>
-            <h2>Week 5 Quiz</h2>
-            <button id="resetButton">Reset Quiz</button>
+        <h2><center>Week 5 Quiz</center></h2>
+        <center><button class="buttonClass quizNbr" id="quiz5", style="display: inline-block">Start Quiz 5</button></center>
 
+        <div id="quiz" style="margin: 30px; display: none;">
+            <center><button id="resetButton">Reset Quiz</button></center>
 
             <div class="question" id="question-1">
                 <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
@@ -1162,7 +1165,7 @@ class Apartment {
                 <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
                     <p style="display: inline-block">Define a static method on an ES6 class:</p>
                     <div class="answer">
-                        <p><code><pre>
+<p><code><pre>
 class Apartment {
     //Somewhere in the class
 
@@ -1320,7 +1323,7 @@ exports = {
                         <p>Javascript supports of type of inheritance known as implementation inheritance through a mechanism know as prototypal inheritance. <ul>
                             <li>Implementation inheritance = the data a methods defined on a parent class are available on objects created from classes that inherit from those parent classes</li>
                             <li>Prototypal inheritance = JavaScript uses prototype objects to make its implementation inheritance work not just on classes but on all objects (objects can inherit directly from other objects)/</li>
-                        </ul><br><br><img src="./images/img1.png"></p>
+                        </ul><br><br><img src="./wk5-images/img1.png"></p>
                     </div>
                 </div>
                 <div class="question" id="question-114">
@@ -1377,7 +1380,7 @@ exports = {
                             <li>No internal depencencies! Basically, creater new class instances OUTSIDE and pass in - do not create new class instances INSIDE.</li>
                             <li>Often implemented using something called dependency injection</li>
                         </ol><br><br>
-                        <img src="./images/img2.png">
+                        <img src="./wk5-images/img2.png">
                     </div>
                 </div>
                 <div class="question" id="question-119">
@@ -1389,8 +1392,8 @@ exports = {
                         <p>It is often called "the one dot rule"</p>
                         <p>The easiest way to comply with the Law of Demeter is don't use more than one dot (not counting the dot after "this" (this.state.getCategory() is a-okay).</p>
                         <p>For example, the following code breaks the Law of Demeter:</p>
-                        <img src="./images/img4.png">
-                        <img src="./images/img3.png">
+                        <img src="./wk5-images/img4.png">
+                        <img src="./wk5-images/img3.png">
                     </div>
                 </div>
                 <div class="question" id="question-120">
