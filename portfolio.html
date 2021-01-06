@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="rootElement">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width",  initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 		<title>Mary Lark - Full Stack Engineer</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css">
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/responsive.css">
@@ -14,15 +15,14 @@
 
 		<div class="blue-back">
 			<header class="medium-fade shadow">
-
-				<div class="navbar light-fade">
-					<div class="wrapper">
+				<div class="wrapper">
+					<div class="navbar light-fade">
 						<nav class="menu">
 							<a href="index.html">About</a>
 							<a href="resume.html">Resume</a>
 							<a class="selected" href="portfolio.html">Portfolio</a>
 							<a href="contact.html">Contact</a>
-							<a href="#" class="hamburger-icon" >&#9776;</a>
+							<a href="#" id="burger-time" class="hamburger-icon" >&#9776;</a>
 						</nav>
 					</div><!-- .wrapper -->
 				</div><!-- #navbar -->
@@ -35,11 +35,18 @@
 			</header>
 
 
+			<div>
+				<center>
+					<img class="fixed-ratio-resize shadow" src="images/mary-headshot.jpg" width="175px" height="250px" alt="Mary Lark" title="Mary Lark">
+				</center>
+			</div>
+
 			<div class="pageBorder">
 				<section  class="shadow">
 					<div>
 						<center><h2>Portfolio</h2></center>
-						<p>Welcome to my portfolio page.  I'm excited to present the projects that I have accomplished in my coding bootcamp at appAcademy as I freshened up my tech skills.  At the end of this page you'll find additional scripting and courses I've created along my professional career in both Software Engineering and IT Engineering.</p>
+						<p>Welcome to my portfolio page.  I'm excited to present the projects that I have accomplished in my coding bootcamp at appAcademy as I freshened up my tech skills. </p>
+						<p>At the end of this page you'll find additional scripting and courses I've created along my professional career in both Software Engineering and IT Engineering.</p>
 
 							<h2>Group project #1:  Coredump</h2>
 						<p>This project is a clone of the Stackoverflow site, demonstrating social networking capabilities such as posting questions, commenting on the questions, and rating both the questions and the answers.</p>
@@ -72,6 +79,15 @@
 							<img src="./assets/images/placement-scheduler.png" class="center" alt="Placement Scheduler" />
 						</a>
 
+
+						<h2>Web Scraper</h2>
+						<p>This project was designed when I was looking for a new Mac.  The current Apple site has a refurbished page where you can save money by buying refurbished.  The problem with the page was that you couldn't perform searches based on criteria, like pricing, cores, hard drive type and size, etc.  In order to figure these things out I needed to navigate to three different pages and typically got confused about where I started.</p>
+						<p>Web scraper solved this issue for me by scraping the apple site, storing the information in memory, and providing an interface to sort and view the information.</p>
+						<p>Because web pages are so frequently changed, this application became outdated shortly after I had made my purchase!  Meanwhile, I managed to get a demo video showing the product:</p>
+
+						<a href="https://youtu.be/XKcexqg0Qgs">
+							<img src="./assets/images/WebScraper.png" class="center" alt="Web Scraper" />
+						</a>
 
 						<h2>IT Application : Watcher</h2>
 						<a href="watcher-ps1.html">PowerShell:</a>  <br>
@@ -114,25 +130,7 @@
 
 						<p><a href="assets/ppt/Virtualization-and-Persistence.pptx">Virtualization and Persistence</a><br><br><br></p>
 
-						<h2>appAcademy Study Guides:</h2>
-							<p><a href="./Quizzes/wk5-quiz.html">Week 5 Quiz</a></p>
-							<p><a href="./Quizzes/wk6-quiz.html">Week 6 Quiz</a></p>
-							<p><a href="./Quizzes/wk7-quiz.html">Week 7 Quiz</a></p>
-							<p><a href="./Quizzes/wk8-quiz.html">Week 8 Quiz</a></p>
-							<p><a href="./Quizzes/wk9-quiz.html">Week 9 Quiz</a></p>
-							<p><a href="./Quizzes/wk10-quiz.html">Week 10 Quiz</a></p>
-							<p><a href="./Quizzes/wk11-quiz.html">Week 11 Quiz</a></p>
-							<p><a href="./Quizzes/wk12-quiz.html">Week 12 Quiz</a></p>
-							<p><a href="./Quizzes/wk13-quiz.html">Week 13 Quiz</a></p>
-							<p><a href="./Quizzes/wk14-quiz.html">Week 14 Quiz</a></p>
-							<p>No quiz:  Week 15 : Express/Pug Group Project Week : Coredump</p>
-							<p>No quiz:  Week 16:  Express Solo Project Week : CF Riders</p>
-							<p><a href="./Quizzes/wk17-quiz.html">Week 17 Quiz</a></p>
-							<p><a href="./Quizzes/wk18-quiz.html">Week 18 Quiz</a></p>
-							<p>No quiz:  Weeks 19 - React/Express Group Project Week : Cadence</p>
-							<p>No quiz:  Week 20 - React/Python  Capstone Project : Placement Scheduler </p>
-							<p>No quiz:  Weeks 21-24:  Job Placement and Capstone completion</p>
-					</div>
+						<a href="./quizzes.html">Technical Study Guides</a>
 				</section>
 			</div><!-- pageBorder -->
 		</div><!-- .blue-back -->
