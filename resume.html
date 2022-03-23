@@ -1,165 +1,367 @@
 <!DOCTYPE html>
 <html lang="en" id="rootElement">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width",  initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-		<title>Mary Lark - Full Stack Engineer</title>
-		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css">
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/responsive.css">
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
-	</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width", initial-scale=1.0,
+    minimum-scale=1.0, maximum-scale=1.0">
+    <title>Mary Lark - Full Stack Engineer</title>
+    <link
+      rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
+  </head>
 
-	<body>
+  <body>
+    <div class="blue-back">
+      <header class="medium-fade shadow">
+        <div class="wrapper">
+          <div class="navbar light-fade">
+            <nav class="menu">
+              <a href="index.html">About</a>
+              <a class="selected" href="resume.html">Resume</a>
+              <a href="portfolio.html">Portfolio</a>
+              <a href="contact.html">Contact</a>
+              <a href="#" id="burger-time" class="hamburger-icon">&#9776;</a>
+            </nav>
+          </div>
+          <!-- .wrapper -->
+        </div>
+        <!-- #navbar -->
 
-		<div class="blue-back">
-			<header class="medium-fade shadow">
-				<div class="wrapper">
-					<div class="navbar light-fade">
-						<nav class="menu">
-							<a href="index.html">About</a>
-							<a class="selected" href="resume.html">Resume</a>
-							<a href="portfolio.html">Portfolio</a>
-							<a href="contact.html">Contact</a>
-							<a href="#" id="burger-time" class="hamburger-icon" >&#9776;</a>
-						</nav>
-					</div><!-- .wrapper -->
-				</div><!-- #navbar -->
+        <div class="wrapper">
+          <div id="logo">
+            <h1 class="pageTitle">Mary Lark, Full Stack Engineer</h1>
+          </div>
+        </div>
+        <!-- .wrapper -->
+      </header>
 
-				<div class="wrapper">
-					<div id="logo">
-						<h1 class="pageTitle">Mary Lark, Full Stack Engineer</h1>
-					</div>
-				</div><!-- .wrapper -->
-			</header>
+      <div>
+        <center>
+          <img
+            class="fixed-ratio-resize shadow"
+            src="images/mary-headshot.jpg"
+            width="175px"
+            height="250px"
+            alt="Mary Lark"
+            title="Mary Lark"
+          />
+        </center>
+      </div>
 
+      <div class="pageBorder">
+        <section class="resume shadow">
+          <div>
+            <a href="assets/resume.pdf">Download Resume</a>
+            <h2 style="margin-bottom: 0px; color: brown">Mary Lark</h2>
+            <p
+              style="
+                display: flex;
+                justify-content: space-between;
+                margin-top: 0px;
+                font-size: 10pt;
+              "
+            >
+              <span style="color: brown">t: 925.866.1111</span
+              ><span style="color: brown">e: mary@marylark.com</span> Littleton,
+              CO <a href="http://www.marylark.com">Portfolio</a>
+              <a href="https://www.linkedin.com/in/mlark">Linkedin</a>
+              <a href="https://github.com/marysue">Github</a>
+            </p>
+          </div>
+          <div>
+            <h3 style="color: brown; margin-bottom: 0px">Skills</h3>
+            <span style="font-size: 9pt; font-weight: bold; margin-top: 0px"
+              >Python, React, Redux, JavaScript, Node, Express, HTML, CSS,
+              Python, SQL, postgres, RDBMS, Sequelize, Flask, SqlAlchemy ORM,
+              Alembic, Figma, AWS, Heroku, Webpack, Docker, Docker Compose,
+              GitHub, REST API’s, TDD</span
+            >
+          </div>
+          <div>
+            <h3 style="color: brown; margin-bottom: 0px">Experience</h3>
+            <div style="display: grid; grid-template-columns: 1fr, 1fr">
+              <b style="font-size: 10pt; grid-column: 1"
+                >Full Stack Developer | Techniphi.com</b
+              >
+              <span style="font-size: 10pt; grid-column: 2; text-align: right"
+                >June 2021 - April 2022</span
+              >
+              <ul style="font-size: 9pt; margin-top: 0px">
+                <li>
+                  Created new components using React Native for iOS and Android
+                  deployments
+                </li>
+                <li>
+                  Debugged React, React Native, php, and Python code for support
+                  issues
+                </li>
+                <li>Participated in support rotations</li>
+                <li>Documented support issues</li>
+                <li>Investigated AWS issues</li>
+                <li>Updated postgreSQL database using backend endpoints</li>
+                <li>Updated MySQL database directly using SequelPro</li>
+                <li>Debugged php using MAMP Pro with Visual Studio Code</li>
+                <li>
+                  Wrote slackbots for first level support use to update/access
+                  database
+                </li>
+              </ul>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr, 1fr">
+              <b style="font-size: 10pt; grid-column: 1"
+                >Student | AppAcademy</b
+              >
+              <span style="font-size: 10pt; grid-column: 2; text-align: right"
+                >July 2020 - December 2020</span
+              >
+              <ul style="font-size: 9pt; margin-top: 0px">
+                <li>
+                  Updated my tech stack with the latest web technologies using
+                  best practices and design patterns.
+                </li>
+              </ul>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr, 1fr">
+              <b style="font-size: 10pt; grid-column: 1"
+                >Software Consultant | Canyon Hills Group</b
+              >
+              <span style="font-size: 10pt; grid-column: 2; text-align: right"
+                >August 2017 - July 2020</span
+              >
+              <ul style="font-size: 9pt; margin-top: 0px">
+                <li>
+                  Architectural and design consulting providing web design and
+                  delivery utilizing Wordpress and Magento CMS
+                </li>
+                <li>
+                  Software development consulting with Object-oriented design in
+                  a DevOps / Agile environment with Angular UI.
+                </li>
+                <li>
+                  Performed QA in a React / Native environment on mobile
+                  platforms with both Android and iOS development. Used Jest and
+                  Gradle in our Test-Driven Development within a DevOps CI/CD
+                  environment on Azure.
+                </li>
+              </ul>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr, 1fr">
+              <b style="font-size: 10pt; grid-column: 1"
+                >IT Engineer | Toolwire, Inc.</b
+              >
+              <span style="font-size: 10pt; grid-column: 2; text-align: right"
+                >April 2011 - July 2017</span
+              >
 
-			<div>
-			   <center>
-					<img class="fixed-ratio-resize shadow" src="images/mary-headshot.jpg" width="175px" height="250px" alt="Mary Lark" title="Mary Lark">
-				</center>
-			</div>
+              <ul style="font-size: 9pt; margin-top: 0px">
+                <li>
+                  Designed, implemented, and standardized Citrix and VMWare
+                  virtual environment for our SaaS systems delivery using perl
+                  scripting to prepare components, such as: LAN’s and persistent
+                  storage connections, reducing delivery time from 5 days to 1
+                  day.
+                </li>
+                <li>
+                  Managed over 200 Citrix servers, updating and normalizing
+                  servers to maximize server utilization and reduce server
+                  requirements by 40%, reducing the need for added power to our
+                  server cage.
+                </li>
+                <li>
+                  Maintained data warehousing system utilizing visual basic for
+                  applications, transforming excel data into SQL, reducing new
+                  course roll-out time by 50%.
+                </li>
+                <li>
+                  Architected and delivered complex infrastructure workflow
+                  training for both engineers and course designers, reducing
+                  ticket “turnaround to resolution” time by 75%.
+                </li>
+                <li>
+                  Enhanced code base written in Java with Spring Boot /
+                  Hibernate, Junit and JavaBeans, JSP, and SQL on an Agile
+                  development team using JIRA and Confluence in 2-week sprints
+                  following our sprint planning sessions.
+                </li>
+              </ul>
+            </div>
+            <h3 style="color: brown; margin-bottom: 0px">Projects</h3>
+            <div style="display: grid; grid-template-columns: 80%, 20%">
+              <b style="font-size: 10pt; grid-column: 1"
+                >Scheduler (Python, HTML, CSS, Flask, FlaskSQLAlchemy, Alembic,
+                postgres, Webpack)</b
+              >
+              <span style="font-size: 10pt; grid-column: 2; text-align: right"
+                ><a href="https://placement-scheduler.herokuapp.com/login"
+                  >live site</a
+                >
+                |
+                <a href="https://github.com/marysue/Scheduler.git"
+                  >github</a
+                ></span
+              >
+              <span style="font-size: 8pt; grid-column: 1"
+                ><em
+                  ><b
+                    >Placement agency scheduling assistant for outsourcing and
+                    managing contractor placements</b
+                  ></em
+                ></span
+              >
+              <ul style="font-size: 9pt; margin-top: 0px; grid-column: 1">
+                <li>
+                  Provides authentication and authorization via API’s on the
+                  backend and authorized private routes on the frontend to
+                  maintain user security.
+                </li>
+                <li>
+                  Utilizes postgreSQL database for tracking contractor,
+                  placement agency, and hiring manager requests and schedules
+                </li>
+                <li>
+                  Provides data consistency across components using Redux store
+                  and React hooks managing UI / UX state.
+                </li>
+              </ul>
+            </div>
+            <div style="display: grid; grid-template-columns: 80%, 20px">
+              <b style="font-size: 10pt; grid-column: 1"
+                >CF Riders (JavaScript, React / Redux, JSX, Node.js, Express.js,
+                postgreSQL, Sequelize ORM)</b
+              >
+              <span style="font-size: 10pt; grid-column: 2; text-align: right"
+                ><a href="https://cfriders.herokuapp.com/">live site</a> |
+                <a href="https://github.com/marysue/CF-Riders.git"
+                  >github</a
+                ></span
+              >
+              <span style="font-size: 8pt; grid-column: 1"
+                ><em
+                  ><b
+                    >A Social Networking Site Providing Bicycle Equipment with
+                    customer reviews</b
+                  ></em
+                ></span
+              >
+              <ul style="font-size: 9pt; margin-top: 0px; grid-column: 1">
+                <li>
+                  Provides user security via bcrypt hashing on the NodeJS,
+                  Express backend.
+                </li>
+                <li>
+                  Tracking and storing data using postgreSQL/Sequelize for
+                  product ratings as well as comments
+                </li>
+                <li>
+                  Reusing components was the forefront of this design
+                  maintaining site consistency and reducing development time.
+                </li>
+              </ul>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr, 1fr">
+              <b style="font-size: 10pt; grid-column: 1"
+                >Cadence (Python, React.js, Redux, JSX, Express, postgreSQL,
+                Sequelize, AWS, Heroku, RESTful APIs)</b
+              >
+              <span style="font-size: 10pt; grid-column: 2; text-align: right"
+                ><a href="https://aa-cadence.herokuapp.com/">live site</a> |
+                <a href="https://github.com/Beaukenny/Strava-clone-project.git"
+                  >github</a
+                ></span
+              >
+            </div>
+            <span style="font-size: 8pt"
+              ><em
+                ><b
+                  >A Social Networking Site Providing customized Route Maps for
+                  running, hiking, or bicycling</b
+                ></em
+              ></span
+            >
+            <ul style="font-size: 9pt; margin-top: 0px">
+              <li>
+                Providing elevation, distance and time information in our UI/UX
+                via Google maps API and AWS S3 integration for storing user
+                uploaded workout photos associated with a particular route.
+              </li>
+              <li>
+                Creating models, migrations, and database tables using Python
+                Flask library and sqlAlchemy and Alembic
+              </li>
+            </ul>
+            <div style="display: grid; grid-template-columns: 1fr, 1fr">
+              <b style="font-size: 10pt; grid-column: 1"
+                >Coredump (JavaScript, ReactJS, Redux, JSX, NodeJS, ExpressJS,
+                Pug templates, postgreSQL)</b
+              >
+              <span style="font-size: 10pt; grid-column: 2; text-align: right"
+                ><a href="https://aa-coredump.herokuapp.com/">live site</a> |
+                <a href="https://github.com/mjshuff23/coredump-project"
+                  >github</a
+                ></span
+              >
+            </div>
+            <span style="font-size: 8pt"
+              ><em
+                ><b
+                  >A Social Networking Site for Providing Software Q & A</b
+                ></em
+              ></span
+            >
+            <ul style="font-size: 9pt; margin-top: 0px">
+              <li>
+                Providing associations and product ratings as well as user
+                comments with postgreSQL database design utilizing Sequelize ORM
+                for managing db modeling and queries.
+              </li>
+            </ul>
+            <h3 style="color: brown; margin-bottom: 0px">Education</h3>
+            <div style="font-size: 9pt">
+              App Academy | San Francisco, CA July 2020 Immersive 1000-hr full
+              stack engineering course <br />
+              San Francisco State University | San Francisco, CA | Bachelor of
+              Science in Computer Science (BSCS)<br />
+              Project Management Institute | Project Management Professional
+              (PMP) <br />
+              Scrum Alliance | Certified Scrum Master (CSM)
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- pageBorder -->
+    </div>
+    <!-- .blue-back -->
 
+    <section id="details" class="medium-fade">
+      <div class="wrapper">
+        <div>
+          <center>
+            <h3>Contact</h3>
+            <p>
+              email: <a href="mailto:mary@marylark.com">mary@marylark.com</a
+              ><br />
+              phone: +1 925 866 1111
+            </p>
+            <h3>Correspondence</h3>
+            <address>
+              1002 E. Winding Creek Dr.<br />
+              Eagle, ID 83616
+            </address>
+            <br /><br />
+            <span style="font-size: 10px"
+              >&copy; 2021 Mary Lark. All Rights Reserved.</span
+            >
+          </center>
+        </div>
+      </div>
+      <!-- .wrapper -->
+    </section>
 
-			<div class="pageBorder">
-				<section  class="resume shadow">
-					<div>
-					<a href="assets/resume.pdf">Download Resume</a>
-						<h2 style="margin-bottom: 0px; color: brown">Mary Lark</h2>
-						<p style="display: flex; justify-content: space-between; margin-top: 0px; font-size: 10pt"><span style="color: brown">t:  925.866.1111</span><span style="color: brown">e:  mary@marylark.com</span>      San Ramon, Ca     <a href="http://www.marylark.com">Portfolio</a>     <a href="https://www.linkedin.com/in/mlark">Linkedin</a>     <a href="https://github.com/marysue">Github</a></p>
-					</div>
-					<div>
-						<h3 style="color: brown; margin-bottom: 0px;">Skills</h3>
-						<span style="font-size: 9pt; font-weight:bold; margin-top: 0px">Python, React, Redux, JavaScript, Node, Express, HTML, CSS, Python, SQL, postgres, RDBMS, Sequelize, Flask, SqlAlchemy ORM, Alembic, Figma, AWS, Heroku, Webpack, Docker, Docker Compose, GitHub, REST API’s, TDD</span>
-
-					</div>
-					<div>
-						<h3 style="color: brown; margin-bottom: 0px;">Experience</h3>
-						<div style="display: grid; grid-template-columns: 1fr, 1fr;">
-							<b style="font-size: 10pt; grid-column: 1; ">Student | AppAcademy</b>
-							<span style="font-size: 10pt; grid-column: 2; text-align: right; ">July 2020 - December 2020</span>
-							<ul style="font-size: 9pt; margin-top: 0px">
-								<li>Updated my tech stack with the latest web technologies using best practices and design patterns.</li>
-							</ul>
-						</div>
-							<div style="display: grid; grid-template-columns: 1fr, 1fr;">
-								<b style="font-size: 10pt; grid-column: 1; ">Software Consultant | Canyon Hills Group</b>
-								<span style="font-size: 10pt; grid-column: 2; text-align: right; ">August 2017 - July 2020</span>
-								<ul style="font-size: 9pt; margin-top: 0px">
-									<li>Architectural and design consulting providing web design and delivery utilizing Wordpress and Magento CMS</li>
-									<li>Software development consulting with Object-oriented design in a DevOps / Agile environment with Angular UI.</li>
-									<li>Performed QA in a React / Native environment on mobile platforms with both Android and iOS development.  Used Jest and Gradle in our Test-Driven Development within a DevOps CI/CD environment on Azure.</li>
-								</ul>
-							</div>
-							<div style="display: grid; grid-template-columns: 1fr, 1fr;">
-								<b style="font-size: 10pt; grid-column: 1; ">IT Engineer | Toolwire, Inc.</b>
-								<span style="font-size: 10pt; grid-column: 2; text-align: right ">April 2011 - July 2017</span>
-
-
-								<ul style="font-size: 9pt; margin-top: 0px">
-									<li>Designed, implemented, and standardized Citrix and VMWare virtual environment for our SaaS systems delivery using perl scripting to prepare components, such as: LAN’s and persistent storage connections, reducing delivery time from 5 days to 1 day.</li>
-									<li>Managed over 200 Citrix servers, updating and normalizing servers to maximize server utilization and reduce server requirements by 40%, reducing the need for added power to our server cage.</li>
-									<li>Maintained data warehousing system utilizing visual basic for applications, transforming excel data into SQL, reducing new course roll-out time by 50%.</li>
-									<li>Architected and delivered complex infrastructure workflow training for both engineers and course designers, reducing ticket “turnaround to resolution” time by 75%.</li>
-									<li>Enhanced code base written in Java with Spring Boot / Hibernate, Junit and JavaBeans, JSP, and SQL on an Agile development team using JIRA and Confluence in 2-week sprints following our sprint planning sessions.</li>
-
-								</ul>
-							</div>
-							<h3 style="color: brown; margin-bottom: 0px;">Projects</h3>
-							<div style="display: grid; grid-template-columns: 80%, 20%">
-								<b style="font-size: 10pt; grid-column: 1; ">Scheduler  (Python, HTML, CSS, Flask, FlaskSQLAlchemy, Alembic, postgres, Webpack)</b>
-								<span style="font-size: 10pt; grid-column: 2; text-align: right"><a href="https://placement-scheduler.herokuapp.com/login">live site</a> | <a href="https://github.com/marysue/Scheduler.git">github</a></span>
-								<span style="font-size: 8pt; grid-column: 1"><em><b>Placement agency scheduling assistant for outsourcing and managing contractor placements</b></em></span>
-								<ul style="font-size: 9pt; margin-top: 0px; grid-column: 1">
-									<li>Provides authentication and authorization via API’s on the backend and authorized private routes on the frontend to maintain user security.</li>
-									<li>Utilizes postgreSQL database for tracking contractor, placement agency, and hiring manager requests and schedules</li>
-									<li>Provides data consistency across components using Redux store and React hooks managing UI / UX state.</li>
-
-								</ul>
-							</div>
-							<div style="display: grid; grid-template-columns: 80%, 20px">
-								<b style="font-size: 10pt; grid-column: 1; ">CF Riders (JavaScript, React / Redux, JSX, Node.js, Express.js, postgreSQL, Sequelize ORM)</b>
-								<span style="font-size: 10pt; grid-column: 2; text-align: right;"><a href="https://cfriders.herokuapp.com/">live site</a> | <a href="https://github.com/marysue/CF-Riders.git">github</a></span>
-								<span style="font-size: 8pt; grid-column: 1"><em><b>A Social Networking Site Providing Bicycle Equipment with customer reviews</b></em></span>
-								<ul style="font-size: 9pt; margin-top: 0px; grid-column: 1">
-									<li>Provides user security via bcrypt hashing on the NodeJS, Express backend.</li>
-									<li>Tracking and storing data using postgreSQL/Sequelize for product ratings as well as comments</li>
-									<li>Reusing components was the forefront of this design maintaining site consistency and reducing development time.</li>								</ul>
-							</div>
-							<div style="display: grid; grid-template-columns: 1fr, 1fr;">
-								<b style="font-size: 10pt; grid-column: 1; ">Cadence (Python, React.js, Redux, JSX, Express, postgreSQL, Sequelize, AWS, Heroku, RESTful APIs)</b>
-								<span style="font-size: 10pt; grid-column: 2; text-align: right"><a href="https://aa-cadence.herokuapp.com/">live site</a> | <a href="https://github.com/Beaukenny/Strava-clone-project.git">github</a></span>
-							</div>
-							<span style="font-size: 8pt;"><em><b>A Social Networking Site Providing customized Route Maps for running, hiking, or bicycling</b></em></span>
-							<ul style="font-size: 9pt; margin-top: 0px">
-								<li>Providing elevation, distance and time information in our UI/UX via Google maps API and AWS S3 integration for storing user uploaded workout photos associated with a particular route.</li>
-								<li>Creating models, migrations, and database tables using Python Flask library and sqlAlchemy and Alembic</li>
-
-							</ul>
-							<div style="display: grid; grid-template-columns: 1fr, 1fr;">
-								<b style="font-size: 10pt; grid-column: 1; ">Coredump (JavaScript, ReactJS, Redux, JSX, NodeJS, ExpressJS, Pug templates, postgreSQL)</b>
-								<span style="font-size: 10pt; grid-column: 2; text-align: right"><a href="https://aa-coredump.herokuapp.com/">live site</a> | <a href="https://github.com/mjshuff23/coredump-project">github</a></span>
-							</div>
-							<span style="font-size: 8pt;"><em><b>A Social Networking Site for Providing Software Q & A</b></em></span>
-							<ul style="font-size: 9pt; margin-top: 0px">
-								<li>Providing associations and product ratings as well as user comments with postgreSQL database design utilizing Sequelize ORM for managing db modeling and queries.</li>
-							</ul>
-							<h3 style="color: brown; margin-bottom: 0px;">Education</h3>
-							<div style="font-size: 9pt">
-							App Academy | San Francisco, CA July 2020 Immersive 1000-hr full stack engineering course <br>
-							San Francisco State University | San Francisco, CA | Bachelor of Science in Computer Science (BSCS)<br>
-							Project Management Institute | Project Management Professional (PMP) <br>
-							Scrum Alliance | Certified Scrum Master (CSM)
-						</div>
-
-
-					</div>
-				</section>
-			</div> <!-- pageBorder -->
-		</div><!-- .blue-back -->
-
-		<section id="details" class="medium-fade">
-			<div class="wrapper">
-				<div>
-					<center>
-						<h3>Contact</h3>
-						<p>
-						email: <a href="mailto:mary@marylark.com">mary@marylark.com</a><br>
-						phone: +1 925 866 1111
-						</p>
-						<h3>Correspondence</h3>
-						<address>
-						1002 E. Winding Creek Dr.<br>
-						Eagle, ID 83616
-						</address>
-						<br><br>
-						<span style="font-size: 10px;">&copy; 2021 Mary Lark. All Rights Reserved.</span>
-					</center>
-				</div>
-			</div><!-- .wrapper -->
-		</section>
-
-		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-		<script type="text/javascript" src="js/menu.js"></script>
-	</body>
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+  </body>
 </html>
