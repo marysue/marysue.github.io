@@ -4,1005 +4,1039 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width",  initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 		<title>Mary Lark - Full Stack Engineer</title>
-		<link rel="stylesheet" type="text/css" href="../css/quiz-style.css">
+		<link rel="stylesheet" type="text/css" href="../../css/quiz-style.css">
         <script src="./quiz.js"></script>
         <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> -->
 	</head>
 
 	<body>
-            <h2><center>Week 2 Quiz</center></h2>
-            <center><button class="buttonClass quizNbr" id="quiz2", style="display: inline-block">Start Quiz 2</button></center>
+            <h2><center>Week 14 Quiz</center></h2>
+            <center><button class="buttonClass quizNbr" id="quiz14", style="display: inline-block">Start Quiz 14</button></center>
                 <!-- REMEMBER TO INCREMENT THE QUIZ NUMBER IN THE START QUIZ BUTTON!!! -->
             <div id="quiz" style="margin: 30px; display: none;">
                 <center><button id="resetButton">Reset Quiz</button></center>
-<h2>Objectives</h2>
-<li>Unix commands: ls, cd, pwd, navigating up and down tree paths</li>
-<li>Node:  running files with node:  node <filename></li>
-<li>Variables:  Primitive vs. Reference</li>
-<ol>
-    <li>Object:  reference type</li>
-    <li>Boolean, Null, Undefined, Number, String:  Primitive types (immutable) - see images</li>
-</ol>
-<li> When to use . vs [] when accessing values of an object</li>
-<li>Object.keys and Object.values; iterating through with for in loop</li>
-<li>...rest syntax </li>
-<li>...spread syntax</li>
-<li>destructure an array or object let [firstEl, secondEl] = numArray</li>
-<li>Callbacks</li>
-<li>Scope</li>
-<li>Context</li>
-<li>Closures</li>
-<li>Arrow Functions</li>
+
                 <div class="question" id="question-1">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Using the following folder structure, how would you navigate from the Coding directory to the Homework directory?</p>
-                    <div><img src="./wk2-images/mathThePath1.png" style="height:400px;"  /></div>
+                    <p style="display: inline-block">What is a virtual DOM?</p>
                     <div class="answer">
-                        <p><code>cd ..</code> : To navigate to the previous directory we can use <code>cd ..</code></p>
+                        <p>The Virtual DOM is an in-memory tree representation of the browser's Document Object Model.  React's philosophy is to interact with the Virtual DOM instead of the regular DOM for developer ease and performance.</p>
                     </div>
                 </div>
                 <div class="question" id="question-2">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Referencing the file structure below, if you are currently in the Notes directory what would running the commany <code>pwd</code> return?</p>
-                    <div><img src="wk2-images/matchThePath2.png" style="height:400px;" /></div>
+                    <p style="display: inline-block">How does the virtual DOM and the DOM interact?</p>
                     <div class="answer">
-                        <p>/Desktop/Homework/Notes : the current path starting with the Root folder</p>
+                        <p>By trading off the additional memory requirements of the Virtual DOM, React is able to optimize for efficient subtree comparisons, resulting in fewer, simpler updates to the less efficient DOM.</p>
                     </div>
                 </div>
                 <div class="question" id="question-3">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Using the folder structure below, what is the command you would need to navigate from <code>root</code> to <code>Applications</code>?</p>
-                    <div><img src="./wk2-images/matchThePath3.png" style="height:400px;" /></div>
+                    <p style="display: inline-block">What is the upside to the additional memory requirements using the virtual DOM?</p>
                     <div class="answer">
-                        <p>cd Applications : To navigate to a directory we use the <code>cd</code> (Change Directory) command followed by the <code>path</code> we want to change to.</p>
+                        <p>By trading off the additional memory requirements of the Virtual DOM, React is able to optimize for efficient subtree comparisons, resulting in fewer, simpler updates to the less efficient DOM.  </p>
+                        <p>The result of these tradeoffs is improved performance.</p>
                     </div>
                 </div>
                 <div class="question" id="question-4">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Using the folder structure below, what is the command you would need to navigate from the <code>root</code> directory to the <code>USB</code> directory?</p>
-                    <div> <img src="./wk2-images/matchThePath4.png"  style="height:400px;"/></div>
-
+                    <p style="display: inline-block">What is a key aspect of the React philosophy?</p>
                     <div class="answer">
-                        <p><code>cd Volumes/USB</code>  To navigate to a directory we use the <code>cd</code> (Change Directory) command followed by the <code>path</code> we want to change to. Since we know we are starting from <code>root</code> so we need to enter the <code>Volumes</code> directory, then the <code>USB</code> directory. </p>
+                        <p>Thinking about how the UI should look at any given moment, rather than how to change it over time, eliminates a whole class of bugs.</p>
                     </div>
                 </div>
                 <div class="question" id="question-5">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What does the <code>ls</code> do?</p>
+                    <p style="display: inline-block">How is every virtual DOM node eventually constructed?</p>
                     <div class="answer">
-                        <p>Lists both the files and subdirectories within the current directory.</p>
+                        <p>Eventually every virtual DOM note is constructed using the React.createElement function.</p>
                     </div>
                 </div>
-<h2>Object Notation</h2>
                 <div class="question" id="question-6">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Given the following code, what does <code>console.log</code> print?</p>
-<code><pre>
-let bear = { growl: "RAWR" };
-console.log(bear["age"]);
-</pre></code>
+                    <p style="display: inline-block">How many arguments does the React.createElement function take?</p>
                     <div class="answer">
-                        <p>undefined : There is no "age" key in the bear object.</p>
+                        <p><ol>
+                            <li>type : either an html element "h1", _or_ a reference to a function or class that is a React Component 'Component'</li>
+                            <li> props : These are static properties and any html attributes</li>
+                            <li>children:  An array of Virtual DOM Nodes or a string of content</li>
+                        </ol</p>
                     </div>
                 </div>
                 <div class="question" id="question-7">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">In the code below, what is the returned value of <code>manager.salary</code>?</p>
+                    <p style="display: inline-block">Create the following structure using React.createElement:</p>
 <code><pre>
-    let manager = {};
-    manager["salary"] = "$$$";
+    &lt;ul&gt;
+      &lt;li class='selected'&gt;
+          &lt;a href='/pets'&gt;Pets&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+          &lt;a href='/owners'&gt;Owners&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
 </pre></code>
                     <div class="answer">
-                        <p>"$$$" -- We can set a key within an object using bracket notation. That key can then be acessed using either dot notation or bracket notation.</p>
+<code><pre>
+    React.createElement(
+        'ul',
+        null,
+        React.createElement(
+            'li',
+            { className: 'selected' },
+            React.createElement('a', { href: '/pets' }, 'Pets' ),
+        ),
+        React.createElement(
+            'li',
+            null,
+            React.createElement('a', { href: '/owners' }, 'Owners' ),
+        ),
+    );
+</pre></code>
                     </div>
                 </div>
                 <div class="question" id="question-8">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">In the code below, which answers would set a <code>color</code> key to the value of <code>"blue"</code> in the <code>car</code> object?</p>
-<code><pre>
-    let car = {};
-    let colorVar = "color";
-</pre></code>
-                    <ol>
-                        <li> car[colorVar] = "blue"</li>
-                        <li> car.color = "blue"</li>
-                        <li>car[0] = "blue"</li>
-                        <li>car.colorVar = "blue"</li>
-                    </ol>
+                    <p style="display: inline-block">How do you render an object with React?</p>
                     <div class="answer">
-                        <p>Answer 1 or answer 2.  Using dot notation we can explicitly set key names (car.color), but we cannot use variables to set keys (i.e. cat.colorVar) Meaning - if you executed car.colorVar = "blue" you would be setting a new key named colorVar in the car object.</p>
+                        <p>
+<code><pre>
+    ReactDOM.render(
+        component, //The react component to rendertarget // the browser DOM node to render it to
+    );
+</pre></code>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-9">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the return value of cat.myKey?</p>
-<code><pre>
-    let cat = {};
-    let myKey = "color";
-
-    cat.myKey = "orange";
-    cat.myKey;
-</pre></code>
+                    <p style="display: inline-block">Using react, render the component named App to the DOM node 'root'</p>
                     <div class="answer">
-                        <p>"orange" : We can set a key with an object using dot notation. That key can then be accessed using either dot notation or bracket notation.</p>
+                        <p>
+<code><pre>
+    ReactDOM.render(
+        &lt;App /&gt;,
+        document.getElementById('root')
+    );
+</pre></code>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-10">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What does the console.log statement below print out?</p>
-<code><pre>
-    let lion = { name: "Simba" };
-    console.log(lion["color"] === undefined);
-</pre></code>
+                    <p style="display: inline-block">Render the same element as above, using strict mode</p>
                     <div class="answer">
-                        <p>true:  If we try to access a key that is not inside an object we get undefined. So by that logic, we can check if a key is within an object by comparing that key's value to undefined.</p>
+                        <p>
+<code><pre>
+    ReactDOM.render(
+        &lt;React.StrictMode&gt;
+            &lt;App /&gt;
+        &lt;/React.StrictMode&gt;,
+  document.getElementById('root')
+);
+</pre></code>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-11">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What would be the returned value of accessing dog["name"] in the codde below?</p>
-<code><pre>
-    let dog = {}
-    dog.name = "Lily";
-</pre></code>
+                    <p style="display: inline-block">How would you construct virtual DOM nodes using HTML-like syntax?</p>
                     <div class="answer">
-                        <p>"Lily"; We can set a key within an object using dot notation - <code>dog.name = "Lily"</code> That key can then be accessed using either dot notation <code>(dog.name)</code> or bracket notation <code>(dog["name"])</code></p>
-                  </div>
+                        <p>Using JSX</p>
+                    </div>
                 </div>
                 <div class="question" id="question-12">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Which of the following answers will give you access to the value of the <code>cat</code> object's <code>name</code> key?</p>
-                    <ol>
-                        <li><code>cat[catName]</code></li>
-                        <li><code>cat.name</code></li>
-                        <li><code>cat["name"]</code></li>
-                    </ol>
+                    <p style="display: inline-block">What is JSX?</p>
                     <div class="answer">
-                        <p>All of the above ar correct! We can use bracket notation to access the <code>name</code> key (<code>cat["name"]</code>), dot notation(<code>cat.name</code>), and we can use a variable with bracket notation (<code>cat[catName]</code>).</p>
+                        <p>JSX is a special format to let you construct virtual DOM nodes using familiar HTML-like syntax.  You can put the JSX directly into your .js files, however you must run the JSX through a pre-compiler like Babel in order for the browser to understand it.</p>
                     </div>
                 </div>
-<h2>Primitive  vs Reference</h2>
                 <div class="question" id="question-13">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">A JavaScript object is what type?</p>
+                    <p style="display: inline-block">What do you need to use in order for the browser to understand JSX?</p>
                     <div class="answer">
-                        <p>Reference : JavaScript objects are stored in memory by reference to the object itself.</p>
+                        <p>Using Bable, the JSX code is compiled to a series of recursively nested createElement calls, rather than &lt;elt&gt; JSX syntax. </p>
                     </div>
                 </div>
                 <div class="question" id="question-14">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">JavaScript primitive types are immutable (meaning they cannot change).  True or False?</p>
+                    <p style="display: inline-block">You're given an array of cards containing name, imgUrl, and content.  What are the 3 steps you need to take to render these cards?</p>
                     <div class="answer">
-                        <p>True:  JavaScript primitive types are immutable.  When you change a JavaScript primitive type value, a new memory location is assigned to the variable.</p>
+                        <p><ol>
+                            <li>Create the index.js file</li>
+                                <ol style="list-style-type: lower-alpha">
+                                    <li>Create the card object array.</li>
+                                    <li>Tie the element to the index.html DOM node.  i.e.:  const rootDiv = document.queryElement('root');
+                                    <li>Using ReactDOM.render, pass the cards to the component that will display the cards.</li>
+                                    </li>
+                                </ol>
+<code><pre>
+    const rootDiv = document.getElementById("root");
+
+    const cards = [
+        {
+            name: "Martok",
+            imgUrl: "http://guide.fleetops.net/images/avatars/martok.png",
+            content: "Ferocious Klingon"
+        },
+        {   name: "Mijural",
+            imgUrl: "http://guide.fleetops.net/images/avatars/mijural.png",
+            content: "Shrike Class Romulan"
+        }
+    ]
+
+    ReactDOM.render(
+        &lt;StarTrekCardDeck cards={cards} />,
+        rootDiv
+    )
+</pre></code>
+                            <li>Create the component that will render the cards</li>
+                                <ol style="list-style-type: lower-alpha">
+                                    <li>Remember, each card can be represented by another component.</li>
+                                    <li>Taking the cards from the props, map through them, calling the individual card component with the values needed</li>
+                                </ol>
+<code><pre>
+    const StarTrekCardDeck = (props) =&gt; {
+        return (
+            &lt;div&gt;
+                //Here we are mapping the cards into &lt;StarTrekCard&gt; components
+                {props.cards.map(card =&gt;
+                    &lt;StarTrekCard
+                        imgUrl={card.imgUrl}
+                        content={card.content}
+                        key={card.name} /&gt;
+                )}
+            &lt;/div&gt;
+        );
+    }
+</pre></code>
+                            <li>Create the individual card component</li>
+                                <ol style="list-style-type: lower-alpha">
+                                    <li>In this component we return the JSX for the layout of each individual card.</li>
+                                </ol>
+<code><pre>
+    const StarTrekCard = (props) =&gt; {
+        return (
+            &lt;div className="card"&gt;
+                &lt;div className="card-image"&gt;
+                    &lt;figure className="image"&gt;
+                        &lt;img src={props.imgUrl} /&gt;
+                    &lt;/figure&gt;
+                &lt;div className="card-content"&gt;
+                    &lt;div className="content"&gt;
+                        {props.content}
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        );
+    }
+</pre></code>
+                        </ol></p>
                     </div>
                 </div>
+                <h2>React Class Components</h2>
                 <div class="question" id="question-15">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the value of <code>array1</code> in the following code:</p>
-<code><pre>
-    let array1 = [1, 2, 3];
-    let array2 = array1;
-    array2.push(4);
-    console.log(array1);
-</pre></code>
+                    <p style="display: inline-block">What is the command to create a React project named "my-app-name"?</p>
                     <div class="answer">
-                        <p>[1, 2, 3, 4] : Since an array is type of object, that means it is a reference type. So both array1 and array2 are pointing at the same location in memory. Meaning if you change array2 you also change array1!</p>
+                        <p><code>npx create-react-app my-app-name</code></p>
                     </div>
                 </div>
                 <div class="question" id="question-16">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What does the console.log statement print in the following code?</p>
-<code><pre>
-    let num1 = 7;
-    let num2 = num1;
-    num1 += 10;
-    console.log(num2);
-</pre></code>
+                    <p style="display: inline-block">Name the two folders that have files we don't typically needd:</p>
                     <div class="answer">
-                        <p>7 : Since a number is a primitive type that means it cannot be mutated. When we reassign num1 (num1 += 10) the value of num1 changes (it points now to a different location in memory) but num2 is left pointing at the original number (7)</p>
+                        <p>
+                            <ol>
+                                <li>public</li>
+                                <li>src</li>
+
+                            </ol>
+                        </ol>
+
+
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-17">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">A JavaScript boolean is a Primitive or Reference type?</p>
+                    <p style="display: inline-block">Name the files in the public folder that we don't need</p>
                     <div class="answer">
-                        <p>Primitive type.  Meaning, that it is immutable.</p>
+                        <p>public folder:
+                            <ol>
+                                <li>favicon.ico</li>
+                                <li>robots.txt</li>
+                                <li>logo192.png</li>
+                                <li>logo512.png</li>
+                                <li>manifest.json</li>
+                            </ol></p>
                     </div>
                 </div>
-<h2>Destructuring</h2>
                 <div class="question" id="question-18">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the printed value of the console.log(firstEl) in the code below:</p>
-<code><pre>
-    let foods = ["apple", "potato"]
-    let [firstEl, secondEl] = foods;
-    console.log(firstEl);
-</pre></code>
+                    <p style="display: inline-block">Name the files in the src folder we don't need</p>
                     <div class="answer">
-                        <p>"apple" : The above code assigns firstEl to the value in the first position in foods - which is "apple".</p>
+                        <p>src folder:
+                            <ol>
+                              <li>App.css</li>
+                              <li>App.test.js</li>
+                              <li>logo.svg</li>
+                              <li>serviceWorker.js</li>
+                              <li>setupTests.js</li>
+                          </ol></p>
                     </div>
                 </div>
                 <div class="question" id="question-19">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the printed value of console.log(fruit) in the code below?</p>
-<code><pre>
-    let obj = { color: "Red", fruit: "tomato" };
-    let { fruit } = obj;
-    console.log(fruit);
-</pre></code>
+                    <p style="display: inline-block">What files do you need to modify after deleting the files from public and src?</p>
                     <div class="answer">
-                        <p>"tomato" :  We are able to destructure objects to select exactly the values we want by specifying the key we are interested in.</p>
+                        <p>Any files that reference the deleted files.</p>
+                        <p>Also, index.html can be replace with a boilerplate HTML file.</p>
                     </div>
                 </div>
                 <div class="question" id="question-20">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the value of console.log(apple) in the code below?</p>
-<code><pre>
-    let obj = { color: "Red", fruit: "tomato" };
-    let { apple } = obj;
-
-    console.log(apple);
-</pre></code>
+                    <p style="display: inline-block">When you modify index HTML to the boilerplate file, what do you need to remember to do?</p>
                     <div class="answer">
-                        <p>undefined: If the variable does does not match any of the keys contained within the object then no values will be destructured. </p>
+                        <p>Add a div with an id of 'root' you will use in your ReactDOM.render() call;</p>
                     </div>
                 </div>
                 <div class="question" id="question-21">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the value printed by console.log(rating) in the code below:</p>
-<code><pre>
-    let object = { game: { name: "Boggle", rating: "10" } };
-
-    let {
-      game: { rating }
-    } = object;
-
-    console.log(rating); // => ???
-</pre></code>
+                    <p style="display: inline-block">How would you create a custom react app from aA's custom template?</p>
                     <div class="answer">
-                        <p>10 : We can destructure nested objects to access keys by specifying which part of the object we want to deconstruct, then using a variable name for the specified key we want (in this case rating).</p>
+                        <p>
+<code>npx create-react-app my-app-name --template @appacademy/simple
+</code>
+    </p>
                     </div>
                 </div>
                 <div class="question" id="question-22">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Looking at the snippet below, how would you destructure the mario object to access the value of Mario's sibling's fears(mario.siblings.fears)?</p>
-<code><pre>
-    let mario = {
-        name: "mario",
-        profession: "plumber",
-        siblings: {
-          name: "Luigi",
-          fears: "ghosts"
-        }
-      };
-</pre></code>
+                    <p style="display: inline-block">Using ES2015 class syntax, describe the file contents if the class is named "Hello"</p>
                     <div class="answer">
-                        <p>let { siblings: { fears } } = mario;  : In order to access nested keys we need to first specify the key of the object where our key is nested (sibling) from there we specify the key we are looking for fears. Finally, when destructuring we always must mention the object we are trying to extract values from on the right side of the expression(in this case mario).</p>
+                        <p>You need to import React, extend the class using React.Component, use the render() {} function, and export default Hello;</className></p>
+<code><pre>
+    import React from 'react'
+
+    class Hello extends React.Component {
+        constructor() {
+            super();
+            this.state = {
+                name: this.pickRandomName();
+            }
+        }
+        pickRandomName() {
+            const randomNum = Math.floor(Math.random() * 3);
+            const names = ['LeBron', 'Messi', 'Serena']
+            return names[randomNum];
+        }
+        changeName = () &gt; {
+            this.setState({
+                name: this.pickRandomName()
+            });
+        }
+        render() {
+            return (
+                &lt;&gt;
+                    &lt;h1j&gt;Hello {this.state.name}!&lt;/h1&gt;
+                    &lt;button onClick={this.changeName}&gt;Change name&lt;/button&gt;
+                &lt;/&gt;
+            )
+        }
+    }
+
+    export default Hello;
+
+</pre></code>
                     </div>
                 </div>
                 <div class="question" id="question-23">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the printed value of console.log(traits) below:</p>
-<code><pre>
-    let obj = { name: "Crystal", traits: ["mammal", "dog"] };
-    let { traits, name } = obj;
-
-    console.log(traits); // => ???
-</pre></code>
+                    <p style="display: inline-block">How would you initialize a state within a class component?</p>
                     <div class="answer">
-                        <p>["mammal", "dog"] : When destructing an object order doesn't matter. By using a variable with the same name as the traits key in obj we receive back the values located there.</p>
+                        <p>
+<code><pre>
+    class <className> extends React.Component(
+        constructor() {
+            super();
+            this.state = {
+                name: '',
+                email: '',
+                password: ''
+            }
+        }
+    </className>
+</pre></code>
+                        </p>
                     </div>
                 </div>
-<h2>JavaScript Variables</h2>
                 <div class="question" id="question-24">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">When declaring a variable without a keyword (var, let, const) which scope is it attached to?</p>
+                    <p style="display: inline-block">Where should you NOT update state?</p>
                     <div class="answer">
-                        <p>global scope:  Using a keyword when declaring a variable attaches that variable to either the function or block's scope. Without a keyword the variable will be declared on the global scope.</p>
+                        <p>Any instance method <em>except</em> for render()</p>
                     </div>
                 </div>
                 <div class="question" id="question-25">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Will the code below throw an error?</p>
-<code><pre>
-    console.log(parrot);
-    let parrot = "Hello!";
-</pre></code>
+                    <p style="display: inline-block">How would you update the state of an email address entered in your form?</p>
                     <div class="answer">
-                        <p>Yes!  When using the let keyword the variable will be in the temporal dead zone. Meaning that variable is not accessible until it is initialized with a value (even if that value is undefined).</p>
+                        <p>
+<code><pre>
+    handleEmail = (e) &gt; {
+        this.setState({
+            email: e.target.value
+        });
+    }
+
+</pre></code>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-26">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What will happen when the code below is executed?</p>
-<code><pre>
-    let kitty = "Mittens";
-    kitty = "Apples";
-</pre></code>
+                    <p style="display: inline-block">How would you provide default values for a class component's props?</p>
                     <div class="answer">
-                        <p>ANSWER</p>
+                        <p>Place this right before your export:
+<code><pre>
+    Books.defaultProps = {
+        books: [
+            {title: "Don Quixote", author: "Miguel De Cervantes"},
+            {title: "Pedro Paramo", author: "Juan Rulfo"}|
+        ]
+    };
+</pre></code>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-27">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">QUESTION</p>
+                    <p style="display: inline-block">In a form, how would you add event listeners?</p>
                     <div class="answer">
-                        <p>The kitty variable will have the value of "Apples"</p>
-                        <p>The let keyword allows you to declare a variable and will allow you to reassign that value.</p>
+                        <p>
+<code><pre>
+    render() {
+        return (
+            &lt;form onSubmit={this.handleSubmit}&gt;
+                &lt;input type="text" value={this.state.value}/&gt;
+                &lt;button&gt;Submit!&lt;/button&gt;
+            &lt;/form&gt;
+        )
+    }
+</pre></code>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-28">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the return value of the dogParty function below?</p>
-<code><pre>
-    function dogParty() {
-        let dog = "Rupert";
-
-        if (true) {
-          let dog = "Fluffy";
-        }
-
-        return dog;
-      }
-
-      dogParty(); // ???
-</pre></code>
+                    <p style="display: inline-block">How do you prevent event default behavior?</p>
                     <div class="answer">
-                        <p>"Rupert" : Since let variables are block-scoped then the value of dog will not be overwritten within the block. Meaning that the dogParty function will return "Rupert".</p>
+                        <p>
+<code><pre>
+    handleSubmit = e &gt; {
+        e.preventDefault();
+        const inputVal = this.state.value;
+    }
+</pre></code>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-29">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What will happen when the code snippet below is evaluated?</p>
-<code><pre>
-    const puppy = "Spot";
-    puppy = "Rover";
-</pre></code>
+                    <p style="display: inline-block">Can you pass a function through props?</p>
                     <div class="answer">
-                        <p>An error will be thrown : An error will be thrown because the const keyword does not allow that variable to be reassigned.</p>
+                        <p>Yes!</p>
                     </div>
                 </div>
                 <div class="question" id="question-30">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">In the code snippet below what is the value of the puppy variable?</p>
-<code><pre>
-    let puppy;
-    let newPuppy = "apples";
-</pre></code>
+                    <p style="display: inline-block">How would you call the function passed through props?</p>
                     <div class="answer">
-                        <p>undefined : When you declare a variable with no value then the default value assigned to that variable is undefined.</p>
+                        <p><code>this.props.submitForm(inputVal)</code></p>
                     </div>
                 </div>
                 <div class="question" id="question-31">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Will the following code throw an error?</p>
-<code><pre>
-console.log(party);
-var party = "Party!";
-</pre></code>
+                    <p style="display: inline-block">What are two ways we can safely use "this" keyword within event handlers?</p>
                     <div class="answer">
-                        <p>No!  When using the var keyword the declared variable name is hoisted. Meaning that though the value for the party variable is not assigned yet - the name of the variable is hoisted up to the top of the file and assigned to the value of undefined. </p>
+                        <p><ol>
+                            <li>The fat-arrow function will bind this:
+<code><pre>
+    changeEmail = e =&gt;{
+        this.setState({
+            email: e.target.value
+        });
+
+</pre></code></li>
+                            <li>We can also use bind in the constructor:
+<code><pre>
+    constructor() {
+        super();
+        this.state = { email: ''};
+        this.changeEmail = this.changeEmail.bind(this);
+    }
+</pre></code>
+                            </li>
+                        </ol></p>
                     </div>
                 </div>
                 <div class="question" id="question-32">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Will the following code throw an error?</p>
-<code><pre>
-    var zoo = "panda";
-
-    if (true) {
-      console.log(zoo);
-      let zoo = "lion";
-    }
-</pre></code>
+                    <p style="display: inline-block">Describe what the React SyntheticEvent object is?</p>
                     <div class="answer">
-                        <p>Yes! The error thrown by a let variable in the temporal dead zone takes precedence over any scope chaining that would attempt to go to the outer scope to find a value for the zoo variable. </p>
+                        <p>The SyntheticEvent object mimics the characteristics of the event passed to the callback in an event handler but adding more data to it.</p>
                     </div>
                 </div>
                 <div class="question" id="question-33">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the return value of the dogParty function below?</p>
-<code><pre>
-    function dogParty() {
-        if (true) {
-          let dog = "Rupert";
-          const dog = "Fluffy";
-          var dog = "Poodle";
-        }
-
-        return dog;
-      }
-
-      dogParty(); // ???
-</pre></code>
+                    <p style="display: inline-block">What is a Synthetic Event?</p>
                     <div class="answer">
-                        <p>An error is thrown : You cannot redeclare the same variable name twice, this causes a SyntaxError, even if you are declaring it with another keyword.</p>
+                        <p>Your event handlers will be passed instances of SyntheticEvent, a cross-browser wrapper around the browser's native event.  It has the same interface as the browser's native event, except the events work identically across all browsers.</p>
                     </div>
                 </div>
                 <div class="question" id="question-34">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the return value of the dogParty function below?</p>
-<code><pre>
-    function dogParty() {
-        var dog = "Rupert";
-
-        if (true) {
-          var dog = "Fluffy";
-        }
-
-        return dog;
-      }
-
-      dogParty(); // ???
-</pre></code>
+                    <p style="display: inline-block">What are two of the interfaces SyntheticEvent provides similar to your browser's native event?</p>
                     <div class="answer">
-                        <p>"Fluffy":  Since var variables are function-scoped and can be re-assigned then the value of dog will be overwritten in the block within dogParty.</p>
+                        <p><code>stopPropagation()</code> and <code>preventDefault()</code></p>
                     </div>
                 </div>
-<h2>Arrow Functions</h2>
                 <div class="question" id="question-35">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the value printed when we log the animalSound function below in Node?
-
-                    </p>
-<code><pre>
-    const animalTime = {
-        name: "Patrick",
-        sayMoo: () => {
-          let str = this.name + " says Moo!";
-          return str;
-        },
-        sayBark: function() {
-          return () => {
-            let str = this.name + " says Bark!";
-            return str;
-          };
-        }
-      };
-
-      let animalSound = animalTime.sayMoo();
-
-      console.log(animalSound); // ???
-</pre></code>
+                    <p style="display: inline-block">Create a React class component containing a form with one input area, a button named "Submit", a submit callback named handleSubmit, and a callback on the input the sets the value and calls handleResponse when the value of the input box changes.</p>
                     <div class="answer">
-                        <p>"undefined says Moo!" : When defining the sayMoo method we did so with an arrow function. Meaning - that when JavaScript creates the animalTime object it does so on the global scope and since an arrow function always has the context of what created that function - the sayMoo's context is the global scope.</p>
+                        <p>
+class Simpleform extends React.Component {
+    constructor() {
+        super();
+
+        this.state = {
+            response: ''
+        }
+    }
+    handleResponse = e =&gt; {
+        this.setState({
+            response: e.target.value
+        });
+    }
+    handleSubmit = e =&gt; {
+        e.preventDefault();
+        this.props.submitForm(this.state.response);
+    }
+    render() {
+        return (
+            &lt;form onSubmit={this.handleSubmit}&gt;
+                &lt;input
+                    onChange={this.handleResponse}
+                    type="text"
+                    value={this.state.response}
+                /&gt;
+                &lt;button&gt;Submit&lt;/button&gt;
+            &lt;/form&gt;
+        );
+    }
+}
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-36">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the value printed when we log the animalSound function below in Node?</p>
-<code><pre>
-    const animalTime = {
-        name: "Patrick",
-        sayMoo: () => {
-          let str = this.name + " says Moo!";
-          return str;
-        },
-        sayBark: function() {
-          return () => {
-            let str = this.name + " says Bark!";
-            return str;
-          };
-        },
-        sayChirp: () => {
-          return function() {
-            let str = this.name + " says Chirp!";
-            return str;
-          };
-        }
-      };
-
-      // now let's use the chirp function
-      let animalSound = animalTime.sayChirp();
-
-      // notice this is invoked
-      console.log(animalSound()); // ???
-</pre></code>
+                    <p style="display: inline-block">Define a single event handler method to handle onChange events for multiple "input" elements.</p>
                     <div class="answer">
-                        <p>"undefined says Chirp!" : When defining the sayChirp method we did so with an arrow function. This binds the context of the window to that entire function. So when the inside function expression is invoked it will still be run with the global object as it's context.</p>
+                        <p>
+<code><pre>
+    onChange = (e) =&gt; {
+        const { name, value } = e.target;
+        this.setState( { [name]: value });
+    }
+
+    render() {
+        return(
+            &lt;form onSubmit={this.onSubmit}&gt;
+                &lt;input
+                    onChange={this.onChange}
+                    name='email'
+                    type="text"
+                    value{this.state.email}
+                /&gt;
+                &lt;input
+                    onChange={this.onChange}
+                    name='password'
+                    type='text'
+                    value={this.state.password}
+                /&gt;
+                &lt;button&gt;Submit&lt;/button&gt;
+            &lt;/form&gt;
+        );
+    }
+
+</pre></code>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-37">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the value printed when we log the animalSound function below in Node?</p>
-<code><pre>
-    const animalTime = {
-        name: "Patrick",
-        sayMeow: function() {
-          let str = this.name + " says Meow!";
-          return str;
-        }
-      };
-
-      let animalSound = animalTime.sayMeow();
-
-      console.log(animalSound); // ???
-</pre></code>
+                    <p style="display: inline-block">Add a "textarea" element to a form</p>
                     <div class="answer">
-                        <p>"Patrick says Meow!" : </p>
+                        <p>The textarea element in React uses a value attribute instead of inner content. It is handled the same way you would handle an input element. It will be a self-closing tag;</p>
+                        <p>Normal html:</p>
+<code><pre>
+    &lt;textarea&gt;This is the text that goes in the text area.&lt;/textarea&gt;
+</pre></code><br>
+<p>However, in React, the text goes in a value attribute, and the element is self-closing</p>
+<code><pre>
+    &lt;textarea value={this.state.text} onChange={this.onChange} /&gt;
+</pre></code>
                     </div>
                 </div>
                 <div class="question" id="question-38">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the value printed when we log the animalSound function below in Node?</p>
-<code><pre>
-    const animalTime = {
-        name: "Patrick",
-        sayMoo: () => {
-          let str = this.name + " says Moo!";
-          return str;
-        },
-        sayBark: function() {
-          return () => {
-            let str = this.name + " says Bark!";
-            return str;
-          };
-        }
-      };
-
-      let animalSound = animalTime.sayBark();
-
-      // notice this is invoked
-      console.log(animalSound()); // ???
-</pre></code>
+                    <p style="display: inline-block">How do you write a select element on a form?</p>
                     <div class="answer">
-                        <p>"Patrick says Bark!" : In the above example we wrapped our sayBark method's arrow function within a function expression. Which means that when the sayBark function is invoked the function expression's context will be the animalTime object. Since an arrow function always has the context as the function that created it- the animalTime object will be the context for the inner arrow function of sayBark.</p>
+                        <p>
+<code><pre>
+    &lt;select name='timezone' onChange={this.onChange} value={this.state.timezone}&gt;
+        &lt;option&gt;PST&lt;/option&gt;
+        &lt;option&gt;CST&lt;/option&gt;
+        &lt;option&gt;EST&lt;/option&gt;
+    &lt;/select&gt;
+</pre></code>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-39">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the value printed when we invoke the sayThis function below in Node?</p>
-<code><pre>
-    const sayThis = () => {
-        if (true) {
-          console.log(this);
-        }
-      };
-
-      sayThis(); // => ???
-</pre></code>
+                    <p style="display: inline-block">What steps might you take to validate input?</p>
                     <div class="answer">
-                        <p>the global object : When we declared the sayThis function the object that function was declared upon was the global object!</p>
+                        <p><ol>
+                            <li>in your onSubmit function, take your input and call your validation function</li>
+                            <li>If you have validation errors, set your state with the errors object</li>
+                            <li>If no validation errors, continue to submit the form.</li>
+                        </ol></p>
+<code><pre>
+    validate(spiritAnimal) {
+        const validationErrors = [];
+
+        if (!spiritAnimal) {
+            validationErrors.push('Please provide a spirit animal');
+        }
+        return validationErrors;
+    }
+    onSubmit = e =&gt; {
+        e.preventDefault();
+        const { spiritAnimal } = this.state;
+        const validationErrors = this.validate(spiritAnimal);
+
+        if (validationErrors.length > 0) {
+            this.setState( {validationErrors});
+        } else {
+            this.props.submitForm(spiritAnimal);
+            this.setState({spiritAnimal: ''});
+        }
+    }
+</pre></code>
                     </div>
                 </div>
+                <h2>React Lifecycles</h2>
                 <div class="question" id="question-40">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Which of the examples below would have the return value of undefined?</p>
-<code><pre>
-    // 1.
-  let adder = (num1, num2) => {
-  let add = num1 + num2;
-  return add;
-};
-
-// 2.
-  let addFive = num => {
-  let add = num + 5;
-  return add;
-};
-
-// 3.
-  let addFive2 = num => num + 5;
-
-// 4.
-  const addFive3 = num => {
-  const add = num + 5;
-  add;
-};
-</pre></code>
+                    <p style="display: inline-block">Describe the lifecycle of a React component</p>
                     <div class="answer">
-                        <p>4:  Example 4 shows an arrow function with multiple statements - which means that an explicit return is necessary. </p>
+                        <p><ol>
+                            <li>Mounting</li>
+                            <li>Updating</li>
+                            <li>Unmounting</li>
+                        </ol></p>
                     </div>
                 </div>
                 <div class="question" id="question-41">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the value printed when we invoke the changePets function below?</p>
-<code><pre>
-    const findPets = () => {
-        let pets = this.pets;
-        return pets;
-      };
-
-      let changePets = findPets.bind({ pets: ["cow", "dog", "iguana"] });
-
-      changePets(); // ????
-</pre></code>
+                    <p style="display: inline-block">Describe the steps when the React component is added to the virtual DOM:</p>
                     <div class="answer">
-                        <p>undefined : When we declared the findPets function the object that function was declared upon was the global object. Fat arrow functions do not allow you to rebind them to another context.Since the global object does not have a this.pets key the changePets function will return undefined.</p>
+                        <p>
+                            <ol>
+                                <li>The constructor method is called on the component</li>
+                                <li>The render method is called on the component</li>
+                                <li>DOM gets updated.</li>
+                                <li>The componentDidMount method is called.</li>
+                            </ol>
+                        </p>
                     </div>
                 </div>
-<h2>Context</h2>
                 <div class="question" id="question-42">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the context of the goHunt function below?</p>
-<code><pre>
-    let panther = {
-        pounce: function() {
-          console.log("woosh");
-        },
-        hunt: function() {
-          this.pounce();
-        }
-      };
-
-      let goHunt = panther.hunt;
-      goHunt(); // TypeError: this.pounce is not a function
-</pre></code>
+                    <p style="display: inline-block">Describe the events when a React component is updated.</p>
                     <div class="answer">
-                        <p>The global object.  : When we extract the goHunt method to a separate variable and then try to invoke it - the goHunt will have lost the context of the panther object. So the goHunt will instead be called upon the global object.</p>
+                        <p><ol>
+                            <li>The render method is called.</li>
+                            <li>The DOM gets updated.</li>
+                            <li>The componentDidUpdate method is called</li>
+                        </ol></p>
                     </div>
                 </div>
                 <div class="question" id="question-43">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the value printed when we invoke the sayThis function below in Node?</p>
-<code><pre>
-    function sayThis() {
-        if (true) {
-          console.log(this); // => ???
-        }
-      }
-
-      sayThis();
-</pre></code>
+                    <p style="display: inline-block">When does the componentWillUnmount method get called?</p>
                     <div class="answer">
-                        <p>The global object : The global object is the context for every function call that does not have another defined context.</p>
+                        <p>Just before a React component gets removed from the virtual DOM.</p>
                     </div>
                 </div>
                 <div class="question" id="question-44">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">The value of <code>this</code> in a function is the function's ______.</p>
-                    <ul>
-                        <li>context</li>
-                        <li>this</li>
-                        <li>None of the above</li>
-                        <li>scope</li>
-                        <li>method</li>
-                    </ul>
+                    <p style="display: inline-block">Should you fetch data from within the constructor?</p>
                     <div class="answer">
-                        <p>context</p>
+                        <p>No!  Use componentDidMount instead.</p>
                     </div>
                 </div>
                 <div class="question" id="question-45">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the returned context from the invocation of cat.whoIsThis below?</p>
-<code><pre>
-    let cat = {
-        whoIsThis: function() {
-          return this;
-        }
-      };
-
-      console.log(cat.whoIsThis()); // ???
-</pre></code>
+                    <p style="display: inline-block">How would you fetch data?</p>
                     <div class="answer">
-                        <p>cat : The cat object is the context of the cat.whoIsThis method-style invocation.</p>
+                        <p>Use the componentDidMount() lifecycle event.</p>
+<code><pre>
+    componentDidMount() {
+        fetch(url)
+           .then(response =&gt; response.json())
+           .then(data =&gt; this.setState( { movieInfo: data} ));
+    }
+</pre></code>
                     </div>
                 </div>
+                <h2>React Router</h2>
                 <div class="question" id="question-46">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">A ____ is a function that is a value within an object and belongs to that object.</p>
+                    <p style="display: inline-block">What steps do you need to take to use the react router?</p>
                     <div class="answer">
-                        <p>method:  A method is a function that is a value within an object and belongs to an object.</p>
+                        <p><ol>
+                            <li><code>npm install --save react-router-dom@^5.1.2</code></li>
+                            <li><code>import { BrowserRouter } from 'react-router-dom';</code></li>
+                        </ol</p>
                     </div>
                 </div>
                 <div class="question" id="question-47">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the returned value from the invocation of cat.sayName?
-
-                    </p>
-<code><pre>
-    let cat = {
-        name: "Jet",
-        sayName: function() {
-          return this.name;
-        }
-      };
-
-      console.log(cat.sayName()); // ???
-</pre></code>
+                    <p style="display: inline-block">How many child components can BrowserRouter have?</p>
                     <div class="answer">
-                        <p>Jet : The cat object is the context of the cat.sayName method-style invocation so the returned value will be cat.name- which is "Jet".</p>
+                        <p>Only ONE</p>
                     </div>
                 </div>
                 <div class="question" id="question-48">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the context of invoking the boundHunt function below?</p>
-<code><pre>
-    let panther = {
-        pounce: function() {
-          console.log("woosh");
-        },
-        hunt: function() {
-          this.pounce();
-        }
-      };
-
-      let boundHunt = panther.hunt.bind(panther);
-</pre></code>
+                    <p style="display: inline-block">How do you circumvent the constraint on child components for BrowserRouter?</p>
                     <div class="answer">
-                        <p>panther:  When we extract the goHunt method and bind it to the panther object then no matter where boundHunt is called it will have the bound context of the panther object.</p>
+                        <p>Use a div tag to surround your components to be controlled by the Router, including the Route tag</p>
+<code><pre>
+    import { BrowserRouter } from 'react-router-dom';
+
+    const App = () =&gt; {
+        return (
+            &lt;BrowserRouter&gt;
+                &lt;div&gt; //Note that BrowserRouter can only have a single child Component!
+                    //Include components here you want to be controlled by the Router, including
+                    //the &lt;Route&gt; tag
+                &lt;/div&gt;
+            &lt;/ BrowserRouter&gt;
+        );
+    };
+
+
+</pre></code>
                     </div>
                 </div>
-<h2>Scope</h2>
                 <div class="question" id="question-49">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the value logged inside the sayPuppy function?</p>
-<code><pre>
-    let puppy = "Shasta";
-
-    function sayPuppy() {
-      console.log(puppy);
-    }
-
-    sayPuppy(); // ???
-</pre></code>
+                    <p style="display: inline-block">What arguments does a <code>&lt;Route&gt;</code> component take?</p>
                     <div class="answer">
-                        <p>Shasta : We declared a variable with let in the global scope. The sayPuppy function will have access to any variables within it's local scope as well as any variables declared in outer scopes because of scope chaining!</p>
+                        <p><ol>
+                            <li>path:  A pattern to match the URL in the browser.  You can include placeholders by prefixing them with a <code>:</code> character.</li>
+<code><pre>
+    &lt;Route path='/users/:userId' /&gt;
+    &lt;Route path='/users/:userId/stores/:storyId'/&gt;
+
+</pre></code>
+                            <li>component:  Typically you pass a single component to this attribute.  When the path is matched, this component will be rendered and passed props containing <code>history</code> <code>location</code> and <code>match</code> properties. <br><br>
+                            Example:  When someone visits <code>/users/1</code> this will render the Component <code>UserProfile</code>:
+<code><pre>
+    &lt;Route path='/users/:userId' component={UserProfile} /&gt;
+</pre></code></li>
+                            <li>render:  An alternative to <code>component</code> this will cause a component to render, you can pass this an arrow function that renders multiple components. Usually we use this so we can pass custom props to the component.  Using the <code>component</code> tag doesn't let us do this.</li>
+                        </ol></p>
                     </div>
                 </div>
                 <div class="question" id="question-50">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">In the code snippet below there are three scopes labeled with numbers. Below pick the correct answer for the name of each scope in order.</p>
-<code><pre>
-    // 1. ???
-    let chicken = "bokbok";
-
-    function farmTime() {
-      // 2. ???
-      console.log(chicken);
-
-      if (true) {
-        // 3. ???
-        let cow = "moo";
-      }
-    }
-</pre></code>
+                    <p style="display: inline-block">In your route, suppose you want to pass an extra prop called "token" to the user Profile page.  How would you do this?</p>
                     <div class="answer">
-                        <p>1. Global Scope 2. Local/Function Scope 3. Block Scope </p>
+                        <p>We can do it but we need to pass the regular props from <code>&lt;Route&gt;</code> as well by using the spread operator: <code>{...props}</code>.</p>
+<code><pre>
+    &lt;Route
+        path='/users/:userId'
+        render={props =&gt; &lt;UserProfile {...props} token={token} }/&gt;
+</pre></code>
                     </div>
                 </div>
                 <div class="question" id="question-51">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the value logged in the last line of the snippet below (console.log(puppy))?</p>
-<code><pre>
-    function sayPuppy() {
-        const puppy = "Wolfie";
-        return puppy;
-      }
-
-      sayPuppy(); // "Wolfie"
-
-      console.log(puppy); // ????
-</pre></code>
+                    <p style="display: inline-block">What package would you need to generate navigation links?</p>
                     <div class="answer">
-                        <p>An error is thrown : Scope chaining allows an inner scope to reference an outer scope's variables but it will not allow an outer scope to access inner scope's variables.</p>
+                        <p><code>npm install react-router-dom</code> then include it by <code>require Router from 'react-router-dom';</code></p>
                     </div>
                 </div>
                 <div class="question" id="question-52">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">The value of the last line in the code snippet below is: ____</p>
-<code><pre>
-    function catSound() {
-        var sound = "meow";
-        return sound;
-      }
-
-      function dogSound() {
-        var sound = "bark";
-        return sound;
-      }
-
-      let noise1 = catSound();
-      let noise2 = dogSound();
-
-      noise1 === noise2; // ???
-</pre></code>
+                    <p style="display: inline-block">What does <code>Link</code> render?</p>
                     <div class="answer">
-                        <p>false : Above we declared two different function-scoped variables using var in catSound and dogSound. Since the var declared variables will be function-scoped they will return different values from their separate functions.</p>
+                        <p><code>Link</code> renders an anchor tag <code>&lt;a href=""&gt;&lt;/a&gt;</code> that when clicked, changes the <code>window.location.href</code> to the url</p>
                     </div>
                 </div>
                 <div class="question" id="question-53">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the value of the final line of the snippet below (result1 === result2) ?</p>
-<code><pre>
-    function inner() {
-        let str = "hello";
-        return str;
-      }
-
-      function outer() {
-        let test = inner();
-        return test;
-      }
-
-      let result1 = outer();
-
-      result2 = inner();
-
-      result1 === result2; // ???
-</pre></code>
+                    <p style="display: inline-block">What happens when you click on a simple <code>Link</code> anchor tag?</p>
                     <div class="answer">
-                        <p>true:  No matter where inner is invoked it will always return the same result. This is because of lexical scoping.</p>
+                        <p>Clicking on the a href link triggers <code>BrowserRouter</code> to parse the url and look for matching <code>&lt;Route&gt;</code> components.</p>
                     </div>
                 </div>
                 <div class="question" id="question-54">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">The value returned by the letsJam function is _.</p>
-<code><pre>
-    function letsJam() {
-        // function1's scope
-        let rand = 3;
-
-        if (true) {
-          const rand = 2;
-        }
-
-        if (true) {
-          let rand = 1;
-        }
-
-        if (true) {
-          const rand = "let's jam!";
-        }
-
-        return rand;
-      }
-
-      letsJam(); // ???
-</pre></code>
+                    <p style="display: inline-block">How would you write a simple <code>Link</code> element?</p>
                     <div class="answer">
-                        <p>3 : The keywords let and const are block-scoped. Meaning that if a let or const are declared within a block {} that variable will stay within that block. In the above letsJam function the value returned will be the rand variable that was declared within the same outer scope - 3.</p>
+                        <p>
+<code><pre>
+    &lt;Link to="/"&gt;App&lt;/Link&gt;
+    &lt;Link to="/users"&gt;Users&lt;/Link&gt;
+    &lt;Link to="/users/1"&gt;Andrew's Profile&lt;/Link&gt;
+</pre></code></p>
                     </div>
                 </div>
-                <!-- <div class="question" id="question-55">
+                <div class="question" id="question-55">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">QUESTION</p>
-<code><pre>
-
-</pre></code>
+                    <p style="display: inline-block">What's the difference between the <code>&lt;Link&gt;</code> element and the <code>&lt;NavLink&gt; element?</code></p>
                     <div class="answer">
-                        <p>ANSWER</p>
+                        <p>They're identical except that <code>&lt;NavLink&gt;</code> has a optional <code>activeClassName</code> and <code>activeStyle</code> props that will set a css class or css styles</p>
+<code><pre>
+    &lt;NavLink to="/"&gt;App&lt;/NavLink&gt;
+    &lt;NavLink activeClassName="red" to="/users"&gt;Users&lt;/NavLink&gt;
+    &lt;NavLink activeClassName="blue" to="/hello"&gt;Hello&lt;/NavLink&gt;
+    &lt;NavLink activeClassName="green" to="/users/1"&gt;Andrew's Profile&lt;/NavLink&gt;
+    &lt;NavLink to="/" onClick={handleClick}&gt;App with click handler&lt;/NavLink&gt;
+</pre></code>
                     </div>
                 </div>
                 <div class="question" id="question-56">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">QUESTION</p>
-<code><pre>
+                    <p style="display: inline-block">By default, what does React Router Match for the url '/'?</p>
+<ol>
+    <li>
+<code><pre>&lt;Route path='/' ... &gt;</pre></code>
+</li>
+<li>
+<code><pre>&lt;Route path='/users' ... &gt;</pre></code>
+</li>
+<li>
+<code><pre>&lt;Route path='/users/:userId' ...&gt;
+</li>
+</ol>
 
-</pre></code>
+
+
                     <div class="answer">
-                        <p>ANSWER</p>
+                        <p>All of these routes!</p>
                     </div>
                 </div>
                 <div class="question" id="question-57">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">QUESTION</p>
+                    <p style="display: inline-block">What two ways can you make the <code>&lt;Route&gt; match exact paths?</code></p>
                     <div class="answer">
-                        <p>ANSWER</p>
+                        <p><ol>
+                            <li>Precede the path with the <code>exact</code> keyword</li>
+                            <li>Use the <code>&lt;Switch&gt;</code> component.  </li>
+                        </ol></p>
                     </div>
                 </div>
                 <div class="question" id="question-58">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">QUESTION</p>
+                    <p style="display: inline-block">How many <code>&lt;Route&gt;</code> elements will match inside a switch component?</p>
                     <div class="answer">
-                        <p>ANSWER</p>
+                        <p>Only one of the routes inside the component to be rendered at any given time. </p>
+                        <p>Remember:  the first route to match in a <code>&lt;Switch&gt;</code> is the winner!</p>
+<code><pre>
+    &lt;Switch&gt;
+        &lt;Route path="/users/:userId" component={ (props) =&gt; &lt;Profile ujsers={users} {...props} /&gt;} /&gt;
+        &lt;Route exact path="/users" render={() =&gt; &lt;Users users={users} /&gt;} /&gt;
+        &lt;Route path="/hello" render={ () =&gt; &lt;h1&gt;Hello!&lt;/h1&gt;} /&gt;
+        &lt;Route exact path="/" component={App} /&gt;
+        &lt;Route render={ (J) =&gt; &lt;h1&gt;404: Page not found&lt;/h1&gt;} /&gt;
+    &lt;/Switch&gt;
+</pre></code>
                     </div>
                 </div>
                 <div class="question" id="question-59">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">QUESTION</p>
+                    <p style="display: inline-block">How would you access the router properties when you're inside a component?</p>
                     <div class="answer">
-                        <p>ANSWER</p>
+                        <p>Use the React Router match prop to access router parameters.</p>
+                        <p>Given the following <code>&lt;Route&gt;</code>:</p>
+<code><pre>
+    &lt;Route path='/users/:userId/stories/:storyId' component={UserStories}/&gt;
+</pre></code><br>
+<p>If the url were <code>/users/1/stories/2</code> then the <code>props.match.params</code> inside of <code>UserStories</code> would look like:</p>
+
+<code><pre>
+    console.log(props.match.params);
+    // Will log this:
+    // {
+    //    userId: 1,
+    //    storyId: 2
+    // }
+</pre></code>
                     </div>
                 </div>
                 <div class="question" id="question-60">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">QUESTION</p>
+                    <p style="display: inline-block">How would you redirect your component to another url?</p>
                     <div class="answer">
-                        <p>ANSWER</p>
+                        <p>Use the <code>props.history</code> prop that <code>&lt;Route&gt;</code> sends to your component.</p>
+<code><pre>
+    const redirect = () =&gt; this.props.history.replace('/some/other/url');
+</pre></code>
                     </div>
                 </div>
                 <div class="question" id="question-61">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">QUESTION</p>
+                    <p style="display: inline-block">How would you enable the user to push the Back button in the browser to go back to the previous url?</p>
                     <div class="answer">
-                        <p>ANSWER</p>
+                        <p>Use the <code>props.history</code> function that <code>&lt;Route&gt;</code> sends to your component.</p>
+<code><pre>
+    const handleClick = () =&gt; this.props.history.push('/some/url');
+</pre></code><br>
+<p>This pushes a new URL (and adds to the end of the history stack);</p>
                     </div>
                 </div>
                 <div class="question" id="question-62">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">QUESTION</p>
+                    <p style="display: inline-block">If you use the <code>&lt;Route&gt;</code> history prop, and replace a url, what will the resulting history stack look like?</p>
                     <div class="answer">
-                        <p>ANSWER</p>
+                        <p>Using <code>this.props.history.replace('/some/other/url')</code> will replace the current URL, but it won't be tracked in the history stack.</p>
                     </div>
                 </div>
                 <div class="question" id="question-63">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">QUESTION</p>
+                    <p style="display: inline-block">How would you redirect a user to a different URL, like for instance after they've logged in?</p>
                     <div class="answer">
-                        <p>ANSWER</p>
+                        <p>Use the <code>&lt;Redirect&gt; component</code></p>
+<code><pre>
+    &lt;Redirect to="/"&gt;
+</pre></code>
                     </div>
                 </div>
                 <div class="question" id="question-64">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">QUESTION</p>
+                    <p style="display: inline-block">What is a nested route?</p>
                     <div class="answer">
-                        <p>ANSWER</p>
+                        <p>A nexted route is when we use a <code>&lt;Route&gt;</code> component inside a component that hasn't been rendered yet instead of creating them in your top level component directly under <code>&lt;BrowserRouter&gt;</code>.</p>
                     </div>
                 </div>
                 <div class="question" id="question-65">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">QUESTION</p>
+                    <p style="display: inline-block">Why would you use a nested route?</p>
                     <div class="answer">
-                        <p>ANSWER</p>
+                        <p>Nested routes allows us to keep those routes close to the components they render, and it means we are dynamically adding routes on the fly.  For instance, if you have a component that renders more routes to their subcomponents, you might use a nested route.</p>
+
+<code><pre>
+    //Destructure 'match' prop
+    const UserProfile = ( {match: { url, path, params } ) =&gt; {
+
+        //Custom call to database to fetch a user by a user ID.
+        const user = fetchUser(params.userId);
+        const { name, id } = user;
+
+        return (
+            &lt;div&gt;
+                &lt;h1&gt;Welcome to the profile of {name}!&lt;/h1&gt;
+                {/* Replaced '/users/${id}' URL with 'props.match.url' */}
+                &lt;Link to={'${url}/posts'}&gt;{name}'s Posts&lt;/Link&gt;
+                &lt;Link to={'${url}/photos'}&gt;{name}'s Photos&lt;/Link&gt;
+
+                {/* Replaced '/users/:userId' path with 'props.match.path' */}
+                &lt;Route path={'${path}/posts'} component={UserPosts} /&gt;
+                &lt;Route path={'${path}/photos'} component={UserPhotos} /&gt;
+            &lt;/div&gt;}
+        );
+    };
+
+</pre></code>
                     </div>
                 </div>
-                <div class="question" id="question-66">
+                <h2>React Builds</h2>
+                <h3>I'll finish this last section, and proof read tomorrow...</h3>
+                <!-- <div class="question" id="question-66">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
                     <p style="display: inline-block">QUESTION</p>
@@ -1201,8 +1235,9 @@ var party = "Party!";
                     <div class="answer">
                         <p>ANSWER</p>
                     </div>
-                </div> -->
+                </div>
             </div>
+            -->
 
 
 	</body>

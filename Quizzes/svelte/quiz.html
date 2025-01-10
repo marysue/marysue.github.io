@@ -10,8 +10,8 @@
 	</head>
 
 	<body>
-            <h2><center>Week 18 Quiz</center></h2>
-            <center><button class="buttonClass quizNbr" id="quiz18", style="display: inline-block">Start Quiz 18</button></center>
+            <h2><center>Svelte Quiz</center></h2>
+            <center><button class="buttonClass quizNbr" id="quiz7", style="display: inline-block">Start Quiz</button></center>
                 <!-- REMEMBER TO INCREMENT THE QUIZ NUMBER IN THE START QUIZ BUTTON!!! -->
             <div id="quiz" style="margin: 30px; display: none;">
                 <center><button id="resetButton">Reset Quiz</button></center>
@@ -19,940 +19,758 @@
                 <div class="question" id="question-1">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is used to install and manage python packages globally?</p>
+                    <p style="display: inline-block">How many parts to a svelte file</p>
                     <div class="answer">
-                        <p>pip:  "pip installs packages".  Like npm --global in javascript</p>
+                        <p>3:  &lt;script&gt, markup, &lt;style&gt</p>
                     </div>
                 </div>
                 <div class="question" id="question-2">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is an isolated working environment called in python?</p>
+                    <p style="display: inline-block">How do you make this string print properly when in the markup?
+                        <pre>
+                        &lt;script&gt;
+                          let string=`Some &lt;strong&gt;string &lt; /&gt; with html.`;
+                        &lt;script /&gt;
+                        </pre>
+                    </p>
                     <div class="answer">
-                        <p>virtualenv</p>
+                        <p>Precede the string with @html:  &lt;p&gt; {@html string} &lt; /p&gt; </p>
                     </div>
                 </div>
                 <div class="question" id="question-3">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">If you want to run different versions of python in different projects, what would you use?</p>
+                    <p style="display: inline-block">How do you build a project without creating minified files?</p>
                     <div class="answer">
-                        <p>virtualenv:  Creates an isolated working environment; enables side-by-side projects to work on different versions of python</p>
+                        <p>npm build -- --minify=false</p>
                     </div>
                 </div>
                 <div class="question" id="question-4">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What tool(s) in python are like a combination of nvm and node_modules in javascript?</p>
+                    <p style="display: inline-block">How do you manually force a rerender?</p>
                     <div class="answer">
-                        <p>pipenv:  ties together pip and virtualenv to seem almost like npm and nvm working together.</p>
+                        <p>In SveltKit use invalidate:
+                            <pre>import { invalidate } from 'app/navigation';
+                                function refreshData() { invalidate(); }
+                            </pre></p>
                     </div>
                 </div>
                 <div class="question" id="question-5">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What does PIPENV_VENV_IN_PROJECT=1 do?</p>
+                    <p style="display: inline-block">In the following statement, what will count render as in the string?
+                        <pre>
+                            &lt;script&gt;
+                            let count = 0;
+                            let string = `Count = ${count}`;
+                            $: count = count + 1;
+                            &lt; /script&gt;
+                            &lt;p&gt;{string}&lt; /p&gt;
+                            </pre>
+                    </p>
                     <div class="answer">
-                        <p>It prevents pipenv from installing its virtual environments in a global area.  Usually found in your shell init files like .bashrc, or .zshrc</p>
+                        <p>Because count = 0 in the statement above the string, count will render as 0.  Count will not rerender because of the $: reactive statement as these declaration statements are set only once and the reactive statement comes AFTER the declaration of the string.
+                        
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-6">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the python version of package.json in javascript?</p>
+                    <p style="display: inline-block">How do you write a conditional reactive statement?</p>
                     <div class="answer">
-                        <p>pipfile</p>
+                        <p>$: if (count &gt; 5) { console.log(`The count is ${count}`); }</p>
                     </div>
                 </div>
                 <div class="question" id="question-7">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Does pip understand pipfiles?</p>
+                    <p style="display: inline-block">Which of the following statements will rerender when count is changed?
+                        <pre>
+                            let count = 0;
+                            function getTotal() { count = count + 1; return count };
+                            $: console.log(`Count = ${getTotal()}.`);
+                        </pre>
+                    </p>
                     <div class="answer">
-                        <p>No!  Only pipenv reads pipfiles.</p>
+                        <p>Count = 1.</p>
                     </div>
                 </div>
                 <div class="question" id="question-8">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you get a virtual environment setup in your project?</p>
+                    <p style="display: inline-block">What will the string print for count in the following:
+                        <pre>
+            let count = 0;
+            function addOne(count) {
+                count = count + 1;
+                return count;
+            }
+
+            $: console.log(
+                `Before addOne count = ${count}; addOne(count): ${addOne(count)}, after addOne count = ${count}`
+            );
+                        </pre>
+                    </p>
                     <div class="answer">
-                        <p><ol>
-                            <li>Determine which version of python you want to run by running <code>python versions</code></li>
-                            <li>In your project directory, run the command: <code>pipenv install --python "PYENV_ROOT/versions/3.8.1/bin/python"</code> OR <code>pipenv install --python &lt;version&gt;</code></li>
-                        </ol></p>
+                        <p>This is a trick question.  Because we used count as a parameter to addOne, count became a local variable.  So despite using the global variable's name, only the local variable was updated.  Therefore, the global variable 'count' is not updated.  The following prints:
+                            <pre>
+                                Before addOne count = 0; addOne(count): 1, after addOne count = 0;
+                            </pre>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-9">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">When you install the virtualenvironment in your project, what files do you get?</p>
+                    <p style="display: inline-block">How would you fix the following so that count2 will always update within string?  <pre>
+                        $: string = `Count 2 is ${count2}.`;
+                        $: setCount2(count1);
+                    </pre>
+                </p>
                     <div class="answer">
-                        <p><ol>
-                            <li>Pipfile</li>
-                            <li>Pipfile.lock</li>
-                            <li>.venv directory</li>
-                        </ol></p>
+                        <p>  <pre>
+                            $: setCount2(count1);
+                            $: string = `Count 2 is ${count2}.`;
+                        </pre>
+                    This way when count2 is changed in the setCount2 function, it will then always trigger the string to update.</p>
                     </div>
                 </div>
                 <div class="question" id="question-10">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Now that you've installed virtualenv in your project, how do you activate it?</p>
+                    <p style="display: inline-block">How do you pass literal values of variables to the child component?</p>
                     <div class="answer">
-                        <p><code>pipenv shell</code> : You will notice you have a prompt prepended your your normal prompt, showing your project directory in parens</p>
+                        <p>
+                            <pre>
+                                &lt;ChildComp initialCount={3}, maxCount={10} /&gt;
+                            </pre>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-11">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What tool would you use to write python tests?</p>
+                    <p style="display: inline-block">What needs to be in the child component in order to take use of the following variables?
+                        <pre>
+                            &lt;ChildComp initialCount={3}, maxCount={10} /&gt;
+                        </pre>
+                    </p>
                     <div class="answer">
-                        <p>pytest : <code>pipenv install pytest</code></p>
+                        <p>Inside the script section of the child component you need the following:
+                            <pre>
+                                export let initialCount;
+                                export let maxCount;
+                            </pre>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-12">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you uninstall a package from your pipenv?</p>
+                    <p style="display: inline-block">You  have an object you want to pass to the child component.  The object keys have the same name as the variables in the child component.  How do you pass these variables?</p>
                     <div class="answer">
-                        <p><code>pipenv uninstall &lt;packageName&gt;</code></p>
+                        <p>
+                            <pre>
+                                &lt;ChildComponent key1, key2 / &gt;
+                            </pre>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-13">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How would you install a version of pytest that is less than or equal to version 5.3?</p>
+                    <p style="display: inline-block">You have <b>counter</b> and <b>hasDisplayed</b> variables in the parent component.  However, the child component has exported two variables that will serve the same purpose called <b>count</b> and <b>display</b>.  How do you pass these variable?</p>
                     <div class="answer">
-                        <p>pipenv install "pytest&lt;=5.3"</p>
+                        <p>
+                            <pre>
+                                &lt;ChildComponent count={counter}, hasDisplayed={display}/ &gt;
+                            </pre>
+                            Remember, values passed to components must be in the javascript {} notation.  
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-14">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How would you run something in your virtualenv without running the <code>pipenv shell</code>?</p>
+                    <p style="display: inline-block">What is wrong with the following statement?
+                        <pre>
+                            &lt;ChildComponent key1=2, key2=2 / &gt;
+                        </pre>
+                    </p>
                     <div class="answer">
-                        <p><code>pipenv run &lt;programName&gt;</code></p>
+                        <p>
+                           The assignment must be in braces:  key1={2}, key2={3};
+                        </p>
                     </div>
                 </div>
-                <h2>Unit tests in Python</h2>
                 <div class="question" id="question-15">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you run unit tests in Python?</p>
+                    <p style="display: inline-block">How do you set default values in the child component so you are not required to pass in values when calling the child component?</p>
                     <div class="answer">
-                        <p><ol>
-                            <li>Install pytest:  <code>pipinstall pytest</code></li>
-                            <li>Execute: <code>python -m unittest</code></li>
-                        </ol></p>
+                        <p>
+                            <pre>
+                                export let var1 = undefined;
+                                export let var2 = 'My default string if none is provided';
+                            </pre>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-16">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What module do you need to run unittests?</p>
+                    <p style="display: inline-block">You are passing all of an objects key/value pairs to a child component.  How would you do this?</p>
                     <div class="answer">
-                        <p><code>import unittest</code></p>
+                        <p>
+                            <pre>
+                                &lt;ChildComponent {...objName}/ &gt;
+                            </pre>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-17">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What must your testcase class inherit from to use unittest?</p>
+                    <p style="display: inline-block">You need to verify the props passed to the child component.  You only want to see the props that were not expected.  How would you console.log this?</p>
                     <div class="answer">
-                        <p><code>unittest.TestCase</code></p>
+                        <p>
+                            <pre>
+                                console.log(`RestProps:  `, $$restProps);
+                            </pre>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-18">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">In your test folder, what additional file do you need in order to run your testcases?</p>
+                    <p style="display: inline-block">You want to console.log ALL of the props received by the child component.  How would you do this?</p>
                     <div class="answer">
-                        <p><code>__init__.py</code></p>
+                        <p>
+                            <pre>
+                                console.log(`Props:  `, $$props);
+                            </pre>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-19">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What three parts must a unittest have in order to run?</p>
+                    <p style="display: inline-block">You have a base component, call it Buttons.svelte where the markup uses the base element <b>button</b> that you want to make flexible for any button title, but you do not want to pass props down to this base component.  You decide to use slots to accomplish this.  For this question, we just want to pass in the text that a button would have, and have a default text appear on the button if none is passed in.  How would you do this without passing a prop?</p>
                     <div class="answer">
-                        <p>Arrange, Act, and Assert</p>
+                        <p>Slots go inside the markup area of the component.  To use a slot, you might prepare it as follows:<br>
+                            Parent Component:
+                            <pre>
+                                &lt;Button&gt;My Button Title&lt; /Button&gt
+                            </pre>
+                            Child Button Component:
+                            <pre>
+                                &lt;button&gt;&lt;slot&gt;Default Button Label&lt; /slot&gt;&lt; /button&gt;
+                            </pre>
+
+                            As long a slot element appears in the child element you have the ability to pass in variable text or other elements into the slot.
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-20">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Where do you put your variable assignments and instance instantiations?</p>
+                    <p style="display: inline-block">If you have a prop you want to pass to your slot, and it is not a named slot, where would you place the prop?</p>
                     <div class="answer">
-                        <p>#Arrange area of your unittest function:  <code>s = Stack()</code></p>
+                        <p>Put the prop inside the component call:  <code>&lt;Button title={"My Title"} /&gt;</code></p>
                     </div>
                 </div>
                 <div class="question" id="question-21">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Where do you "do something" in your unit test function?</p>
+                    <p style="display: inline-block">You have a prop you want to pass to your named slot, where must you put the prop?</p>
                     <div class="answer">
-                        <p>#Act:  <code>s.push()</code></p>
+                        <p>You must put the prop in the element where the slot resides:
+                            <code>&ltdiv slot="leftContent let:x={"y"} /&gt;</code>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-22">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Where do you evaluate your tests results in your unittest function?</p>
+                    <p style="display: inline-block">You have many components that make use of your base button component.  Each of the calling (parent) components will have a different way of processing the button click.  Without writing a custom event handler, how would you write this in both the parent, and the child components?</p>
                     <div class="answer">
-                        <p>#Assert:  <code>self.assertEqual(s.peek(), True)</code> where s.peek() is a function that returns a boolean</p>
+                        <p>
+                            Parent Component:  You define the function you will call here.  Then use that function on the on:click event on that component:
+                            <code>&lt;Button on:click={() =&gt; alert(true)}&gt;</code>
+                        </p>
+                        <p>
+                            Child component:  You simply call the function on:click:
+                            <code>&lt;button on:click&gt;</code>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-23">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you name your unittest functions?</p>
+                    <p style="display: inline-block">What are two ways use an event modifier?</p>
                     <div class="answer">
-                        <p>Name them what they are testing for:  "test_peek_returns_last_item_but_does_not_remove_it_from_stack"</p>
+                        <p><ol>
+                            <li>
+                                add the modifier directly to the component call:  <code>&lt;Button event.preventDefault()&gt;</code>   
+                            </li>
+                            <li>
+                                use pipes to add the modifier: <code>&lt;Button on:click|once={(event) => {eventFn}}&gt;</code><br>
+                                Note:  Not all event modifiers can be passed in via pipes.  I only know of once.  preventDefault cannot.
+                            </li>
+                        </ol></p>
                     </div>
                 </div>
                 <div class="question" id="question-24">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Write a unittest to pop the last item from the stack and remove it from the stack</p>
+                    <p style="display: inline-block">What are $$respProps?</p>
                     <div class="answer">
-                        <p><code>
-<pre>
-    import unittest
-
-    def TestStack(unittest.TestCase):
-        def test_constructor_is_no_arg(self):
-            #Arrange
-            s = Stack()
-            s.push(6.28)
-
-            #Act
-            result = s.pop()
-
-            #Assert
-            self.assertEqual(result, 6.28)
-</pre>
-                        </code></p>
+                        <p>Any props that are not defined in our child component's export let block</p>
                     </div>
                 </div>
-                <h2>Pytest unitests</h2>
                 <div class="question" id="question-25">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you create an environment to run pytest?</p>
+                    <p style="display: inline-block">How do you create unique uuid's? Name the install package, the import syntax, and the use.</p>
                     <div class="answer">
-                        <p><ol>
-                            <li><code>pipenv install --python 3.8.6</code></li>
-                            <li><code>pipenv shell</code></li>
-                            <li><code>pipenv install --dev pytest</code></li>
-                            <li>Create a test folder name  test</li>
-                            <li>Add a <code>__init__.py</code> file to your test folder</li>
-                            <li>You may need to update your virtual environment with a linter:  <code>pipenv install --dev pycodestyle</code> then in VSCode choose linter of pycodestyle</li>
-                            <li><code>pytest</code> : to run pytest</li>
-
-
-                        </ol></p>
+                        <p>
+                            <pre>
+                                npm install uuid;
+                                import {v4 as uuidj } from "uuid";
+                                id: uuid(); // creates a unique uuid;
+                            </pre>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-26">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you name test files in pytest?</p>
+                    <p style="display: inline-block">How do you write a forEach block in the markup section of a .svelte file?</p>
                     <div class="answer">
-                        <p>If they begin with test, or end with test, then pytest understands it's a test file</p>
+                        <p>
+                            <code>{#each todos as todo}{/each}</code>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-27">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Write a test to test that your class peek function returns the item on the stack, but does not pull it off the stack, using the Stack class.</p>
+                    <p style="display: inline-block">Lets say todos is an object like:
+                        <pre>
+                            todos = [{
+                                id: uuid();
+                                title: event.details.id;
+                                complete: false;
+                            }]
+                        </pre>
+
+                        How would you include the line number for this todo, the id for this todo, and the title for this todo?  Remember, you do not want the id to be displayed.
+                    </p>
                     <div class="answer">
                         <p>
-<code><pre>
-    from stack import Stack  #import your class you're testing
-
-    def test_peek_returns_last_item_pushed_but_leaves_it_on_stack():
-        s = Stack()
-        s.push(6.28)
-        assert s.peek() == 6.28
-        assert len(s) == 1
-</pre></code>
+                            <pre>
+                                {#each todos as todo, index (id)}
+                                     &lt;li&gt;{index + 1} - {todo.title}&lt;/li&gt;
+                                {/each}
+                            </pre>
                         </p>
                     </div>
                 </div>
                 <div class="question" id="question-28">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you name your test cases in pytest?</p>
+                    <p style="display: inline-block">In the following forEach block in the markup section, how would you replace "index + 1" with a constant?
+                        <pre>
+                        {#each todos as todo, index (id)}
+                        &lt;li&gt;{index + 1} - {todo.title}&lt;/li&gt;
+                         {/each}
+                   </pre>
+                    </p>
                     <div class="answer">
-                        <p>make sure they all begin with the word test.  They can be camel cased - but must begin with the word "test"</p>
-                        <ul>
-                            <li>def test_push_increases_length_by_one():</li>
-                            <li>def testContructorIs_No_Arg():</li>
-                        </ul>
+                        <p> <pre>
+                            {#each todos as todo, index (id)}
+                                  {@const number = index + 1}
+                            &lt;li&gt;{number} - {todo.title}&lt;/li&gt;
+                             {/each}
+                       </pre></p>
                     </div>
                 </div>
                 <div class="question" id="question-29">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Does pytest understand unittest code?</p>
+                    <p style="display: inline-block">You have the following code.  You want to add a checkbox to the li.  How would you do that?
+                        <pre>
+                            &lt;div&gt;
+                                &lt;ul&gt; 
+                                    {#each todos as { id, title, completed } (id) }
+                                    &lt;li&gt;{title}&lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                        </pre>
+                    </p>
                     <div class="answer">
-                        <p>Yes!</p>
-<code><pre>
-    import unittest
-    from stack import Stack
-
-    class TestStack(unittest.TestCase):
-        def test_constructor_is_no_arg(self):
-            #Arrange
-
-            #Act
-            Stack()
-
-            #Assert
-
-        def test_new_stack_has_zero_elements(self):
-            #Arrange
-            s = stack()
-
-            #Act
-            result = len(s)
-
-            #Assert
-            self.assertEqual(result,0)
-
-</pre></code>
+                        <p>You need to add a &lt;label&gt; element to house the title;  You need to add an &lt;input&gt; element to handle the checkbox.  You need to add the initial value of the checkbox (your completed variable)
+                            <pre>
+                                &lt;ul&gt; 
+                                    {#each todos as { id, title, completed } }
+                                    &lt;li&gt;
+                                         &lt;label&gt;
+                                             &lt;input type="checkbox" checked={completed} /&gt;
+                                        {title}&lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                            </pre>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="question-30">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you skip a single test in pytest?</p>
+                    <p style="display: inline-block">For the above question, you want to add an event handler so that when you check the checkbox you can set completed on the todos array, or when you uncheck the checkbox you set completed to false on the todos array.  How would you add a n event handler for the input element?</p>
                     <div class="answer">
-                        <p>use the <code>@pytest.mark.skip()</code> decorator above the function (or in unittest, the class).  Note:  You must import pytest to use the decorator.</p>
+                        <p><ol>
+                            <li> First, add the event to the input on:input event and pass in the info needed: id and completed.</li>
+                            <li> Second, create a handler function to handle the event.  Pass in the id and completed to the handler.  Here modify the todos array accordingly. </li>
+                            <li> Return to your input on:input event definition and add the handler name and values to be passed to it.</li>
+                        </ol><pre>
+                            &lt;ul&gt; 
+                                {#each todos as { id, title, completed } }
+                                &lt;li&gt;
+                                     &lt;label&gt;
+                                         &lt;input 
+                                         on:input={(event) =&gt; {
+                                            event.currentTarget.checked = completed;
+                                            handleToggleTodo(id, !completed);
+                                         }}
+                                         type="checkbox" 
+                                         checked={completed} /&gt;
+                                    {title}&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                        </pre></p>
                     </div>
                 </div>
                 <div class="question" id="question-31">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Can you skip in the middle of a function in pytest?</p>
+                    <p style="display: inline-block">How do you handle an error on your element: handlers must have an ARIA role?</p>
                     <div class="answer">
-                        <p>Yes!</p>
-<code><pre>
-    def test_new_stack_has_zero_elements():
-        if True:
-            pytest.skiip()
-        asert len(Stack()) == 0
-</pre></code>
+                        <p>add role="presentation".  This was mentioned specifically for &lt;div&gt; elements</p>
                     </div>
                 </div>
-                <h2>Python Decorators</h2>
                 <div class="question" id="question-32">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is a decorator</p>
+                    <p style="display: inline-block">How</p>
                     <div class="answer">
-                        <p>A function that takes in another function to extend its behavior and return a modified version of the inner function</p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-33">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Define metaprogramming</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>Dynamic modification through the use of Python decorators is a simple example of metaprogramming.  Metaprogramming is when an object is created by other objects. Decorators are functions that return other functions.</p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-34">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Define introspection</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>The ability to examine objects to determine its behavior or type.</p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-35">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How would you "observe" an object?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>use the dir() function:  <code>print(dir(myFunction))<br># ['__annotations__', '__call__', '__class__', '__closure__', '__code__', '__defaults__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__get__', '__getattribute__', '__globals__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__kwdefaults__', '__le__', '__lt__', '__module__', '__name__', '__ne__', '__new__', '__qualname__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__']</code></p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-36">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Write a decorator function that will return:  "Hi, Julia, This is a message from Ryan."</code>  You will use kwargs and the function as follows:</p>
-<code><pre>
-    @message_decorator
-    def say_hi(name):
-        return f'Hi, {name}'
-
-    print(say_hi(name='Julia', author='Ryan'))
-
-</pre>
-
-</code>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>
-<code><pre>
-    def message_decorator(message_func):
-        def message_wrapper(*args, **kwargs):
-            message = message_func(kwargs['name'])
-            author = kwargs['author']
-            return f'{message}! This is a message from {author}.'
-        return message_wrapper
-
-</pre></code>
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
-                <h2>with</h2>
                 <div class="question" id="question-37">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Give a couple examples of <em>context managers</em></p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p><ol>
-                            <li>The file object, such as opeining a file for reading:  <code>f = open('some_file.txt')</code></li>
-                            <li>Database connections</li></ol></p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-38">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How would you manage a file using a try/catch block in python?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>
-<code><pre>
-    f = none
-    try:
-        f = open('some_file.txt')
-        # do some stuff
-    finally:
-        if f:
-            f.close()
-
-</pre></code>
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-39">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Change the open code, using <em>with</em></p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>
-<code><pre>
-with open('some_file.txt') as f:
-    #do stuff with f like read the file
-</pre></code>
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-40">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Use with to create a database connection and create a table called CREATE_USERS_TABLE_SQL using <em>with</em></p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>
-with psycopg2.connect(CONNECTION_PARAMETERS) as conn:
-    with con.cursor() as curs:
-        curs.execute(CREATE_USERS_TABLE_SQL)
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-41">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What are the two key dunder methods used with <em>with</em>?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p><ol>
-                            <li>__enter__</li>
-                            <li>__exit__</li>
-                        </ol></p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-42">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Create a class to be used with <em>with</em> that will print 2. In __enter__" and "4. In __exit"</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>
-<code><pre>
-    class WithLogger:
-        def __enter__(self):
-            print("2. In __enter__")
-            return self
-
-        def __exit__(self, type, value, traceback):
-            print("4. In __exit__", type, value
-            return True
-</pre></code>
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-43">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Now use the class you just created with a with statement:</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>
-<code><pre>
-    print("1. Before with")
-    with WithLogger() as logger:
-        print("3. In with block")
-    print("5. After with")
-</pre></code>
-<p>This will print:
-    <ol>
-        <li>Before with</li>
-        <li>In __enter__</li>
-        <li>In with block</li>
-        <li>In __exit__ None None</li>
-        <li>After with</li>
-    </ol>
-</p>
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
-                <h2>Psycopg</h2>
                 <div class="question" id="question-44">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you install psycopg2?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p><code>pipenv install psycopg2-binary</code></p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-45">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">HJow would you setup connection parameters for use with psycopg2?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>
-<code><pre>
-    CONNECTION_PARAMETERS = {
-        'dbname': 'psycopg_test_db',
-        'user': 'psycopg_test_user',
-        'password': 'password',
-    }
-</pre></code>
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-46">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What are the steps for opening a psycopg2 connection, and closing it, without using <em>with</em></p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>
-<code><pre>
-    import psycopg2
-
-    CONNECTION_PARAMETERS = {
-        'dbname': 'psycopg_test_db',
-        'user': 'psycopg_test_user',
-        'password': 'password',
-    }
-
-    #Connect to the database
-    conn = psycopg2.connect(**CONNECTION_PARAMETERS)
-
-    #Create a cursor
-    curs = conn.cursor()
-
-    #Do stuff ...
-
-    #Commit the changes to the database
-    conn.commit()
-
-    #Close the connection
-    curs.close()
-    conn.close()
-
-</pre></code>
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-47">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How would you open a psycopg2 connection, create a cursor, execute some code, and close the connection with a <em>with</em> statement?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>
-<code><pre>
-    import psycopg2
-
-    CONNECTION_PARAMETERS = {
-        'dbname': 'psycopg_test_db',
-        'user': 'psycopg_test_user',
-        'password': 'password',
-    }
-
-    def change_car_owner(car_id, new_owner_id):
-
-        with psycopg2.connect(**CONNECTION_PARAMETERS) as conn:
-            with conn.cursor() as curs:
-                curs.execute("""
-                            UPDATE cars SET owner_id = %(new_owner_id)s
-                            WHERE id = %(car_id)s
-                            """
-                            {'car_id': car_id,
-                            'new_owner_id': new_owner_id})
-
-    change_car_owner(5, 1)
-                    </pre></code>
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-48">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What are the datatype conversions between PostgreSQL and Python?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>PostgreSQL</th>
-                                        <th>Pyton</th>
-                                    </tr>
-                                </thead>
-                                <tr>
-                                    <td>NULL</td>
-                                    <td>None</td>
-                                </tr>
-                                <tr>
-                                    <td>bool</td>
-                                    <td>bool</td>
-                                </tr>
-                                <tr>
-                                    <td>double</td>
-                                    <td>float</td>
-                                </tr>
-                                <tr>
-                                    <td>integer</td>
-                                    <td>long</td>
-                                </tr>
-                                <tr>
-                                    <td>varchar</td>
-                                    <td>str</td>
-                                </tr>
-                                <tr>
-                                    <td>text</td>
-                                    <td>unicode</td>
-                                </tr>
-                                <tr>
-                                    <td>date</td>
-                                    <td>date</td>
-                                </tr>
-                                </table>
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
-                <h2>Flask</h2>
                 <div class="question" id="question-49">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you setup flask?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <ol>
-                            <li><code>pipenv install Flask~=1.1</code></li>
-                            <li><code>pipenv install python-dotenv~=0.13</code> #to use the .flaskenv file</li>
-                        </ol>
-                        <p></p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-50">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you check the flask version?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p><code>pipenv run flask --version</code></p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-51">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How would you create a route file using Flask?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>
-<code><pre>
-    from flask import Flask
-
-    app = Flask(__name__)
-
-    @app.route('/', methods=["GET", "POST"])
-    def hello():
-        return '<h1>Hello, world!</h1>'
-</pre></code>
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-52">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What do you put in your .flaskenv file?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>In your .flaskenv file, create the following entries:
-<code><pre>
-    FLASK_APP=&lt;fileName&gt;
-    FLASK_ENV=development
-</pre></code>
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-53">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you run flask outside of the pipenv shell?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p><code>pipenv run flask run</code></p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-54">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">In your route, how do you create a url that takes a path, and a variable, like "id"?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>
-@app.route('/item/&lt;id&gt;')
-def item(id):
-    return f'<h1>Item {id}</h1>
-</id>'
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-55">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you setup a route that serves two different routes with the same function?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>
-<code><pre>
-    @app.route('/')
-    @app.route('/home')
-    def home():
-        return '<h1>Home</h1>'
-</pre></code>
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-56">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How would you perform some function BEFORE processing the request?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>Use cases:  opening a database connection or loading the logged-in user from the session.</p>
-<code><pre>
-    @app.before_request
-    def before_request_function():
-        print("before_request is running")
-</pre></code>
-
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-57">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How would you perform some function AFTER processing the request?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>The function must take in the response as an argument, and must return a new, or the same response.
-<code><pre>
-    @app.after_request
-    def after_request_function(response):
-        print("after_request is running")
-        return response
-</pre></code>
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-58">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How would you run a one-time initializer?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>Runs before the first request is handled:
-<code><pre>
-    @app.before_first_request
-    def before_first_function():
-        print("before_first_request happens once"
-</pre></code>
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
-                <h2>Jinja</h2>
                 <div class="question" id="question-59">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you install Jinja?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p><code>pipenv install Jinja2~=2.11</code>, then make sure all your .html files are inside a templates folder</p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-60">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What do you need to import to display a Jinja template?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p><code>from flask import render_template</code></p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-61">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">In your Jinja template, how would you write an if statement?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>
-<code><pre>
-    {% if not logged_in %}
-        &lt;a href="/login"&gt;Log in&lt/a&gt;
-    {% endif %}
-</pre></code>
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-62">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you write a for loop in a Jinja template?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>
-<code><pre>
-    &lt;ul&gt;
-        {% for item in navigation %}
-            &lt;li&gt;
-                &lt;a href="{{ item.href }}"&gt;{{ item.caption }}&lt;/a&gt;
-            &lt;/li&gt;
-        {% endfor %}
-    &lt;/ul&gt;
-
-</pre></code>
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-63">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How doo you create a template, like a copyright in Jinja and include it in your templates?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>
-In <em>copyright.html</em>:
-<code><pre>
-    &copy; 2023 Me, myself, and I. All rights reserved.
-</pre></code><br>
-In <em>nav.html</em>:<br>
-<code><pre>
-    &lt;a href="/"&gt;Home&lt;/a&gt;
-    |
-    &lt;a href="/about"&gt;About&lt;/a&gt;
-</pre></code><br><br>
-Then in your index.html file:<br><br>
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;{{ page }} = {{ sitename }} &lt;/title&gt;
-&lt;head&gt;
-&lt;body&gt;
-    &lt;h1&gt;{{ sitename }}&lt;/h1&gt;
-    &lt;h2&gt;{{ page }}&lt;/h2&gt;
-    {% include 'nav.html' %}
-    &lt;p&gt;Coming soon to a browser near you...&lt;/p&gt;
-    {% include 'copyright.html' %}
-&lt;/body&gt;
-&lt;/html&gt;
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
-                <h2>Forms</h2>
                 <div class="question" id="question-64">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What does WT Forms use to prevent Cross-Site Request Forgery?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>A <code>SECRET_KEY</code></p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-65">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Where do you put your secret key?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>Because it is supposed to be secret, you should put it in your .env file</p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-66">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you import your environment variables?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>Use config.py:
-<code><pre>
-    import os
-
-    class Config(object):
-        SECRET_KEY = os.environ.get('SECRET_KEY') or 'default-key-for-devs'
-</pre></code>
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-67">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">Where do you use your config class?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>You need to use it in your route file:</p>
-<code><pre>
-    from flask import (Flask, render_template)
-    from app.config import Config
-
-    app = Flask(__name__)
-    app.config.from_object(Config) #populate Flask config dictionary from config class
-</pre></code>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-68">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What do you need to install to use Flask, Jinja, and WT Forms?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>
-<code><pre>
-    pipenv install Flask~=1.1
-    pipenv install Jinja2~=2.11
-    pipenv install python-dotenv~=0.13
-    pipenv install Flask-WTF~=0.14
-</pre></code>
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-69">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What files need to be setup to use WT Forms?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p><ol>
-                            <li>Your html file : It will reference your form</li>
-                            <li>A form.py file:  Here you will instantiate your form class and define it</li>
-                            <li>Your routes file:  Here you will use your form class to access the form fields</li>
-                        </ol></p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-70">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you create your form.py file?</p>
+                    <p style="display: inline-block">QUESTION</p>
                     <div class="answer">
-                        <p>
-<code><pre>
-    from flask_wtf import FlaskForm
-    from wtforms import StringField, SelectField, BooleanField, SubmitField
-    from wtforms.validators import DataRequired
-
-    class SampleForm(FlaskForm):
-        name = StringField('Name')
-</pre></code>
-                        </p>
+                        <p>ANSWER</p>
                     </div>
                 </div>
                 <div class="question" id="question-71">
