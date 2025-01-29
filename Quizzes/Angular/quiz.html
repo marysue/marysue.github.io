@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width",  initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>Mary Lark - Full Stack Engineer</title>
+		<link rel="stylesheet" type="text/css" href="../../css/quiz-style.css">
+        <script src="./quiz.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> -->
+	</head>
+
+	<body>
+            <h2><center>Angular Quiz</center></h2>
+            
+            <center><button class="buttonClass quizNbr" id="quiz18", style="display: inline-block">Start Quiz</button></center>
+            <center><button id="resetButton">Reset Quiz</button></center>
+                <!-- REMEMBER TO INCREMENT THE QUIZ NUMBER IN THE START QUIZ BUTTON!!! -->
+            <div class='section' id="quiz" style="margin: 30px; display: inline-block;">
+
+               
+                <!-- BEGIN getting-started SECTION  -->
+                <div style="display:flex">
+                    <h2>Angular: Getting Started</h2>
+                     <button class="sectionButton" id="gettingStartedBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
+                </div>
+                <div class='section' id="getting-started" style="display: inline-block">
+                    <div class="question" id="question-1">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">What is used to install and manage angular cli globally?</p>
+                        <div class="answer">
+                            <p><code>$ sudo npm install -g @angular/cli</code><br>
+                            Note:  You need node version 20.11.1 to install angular.  Do the following:<br>
+                        <code>nvm install v20.11.1</code> to install and use v20.11.1, which will take care of the EBADENGING warnings on npm install.</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-2">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">How do you view which version of angular is installed?</p>
+                        <div class="answer">
+                            <p><code>$ ng --version</code></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-3">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">How do you create a new angular project?</p>
+                        <div class="answer">
+                            <p><code>$ ng new hello-world</code></p>
+                            <p><ol>
+                                <li>Which stylesheet format would you like to use? CSS</li>
+                                <li>Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)? No [???No idea if this is right]</li>
+                            </ol></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-4">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">How do you tell your environment to open vscode when you type <code>$ code .</code></p>
+                        <div class="answer">
+                            <p>In command palette enter <code>&gt; code and select Shell Command: Install 'code' command in PATH</code></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-5">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">In vscode, how do we start the angular server?</p>
+                        <div class="answer">
+                            <p><code>$ ng serve</code></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-6">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">What is the <code>e2e</code> directory in your angular project and what does it stand for?</p>
+                        <div class="answer">
+                            <p>e2e:  End to end tests.  This is the directory where we write our tests for angular.</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-7">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">What are the bare minimum files in the app directory for every application?</p>
+                        <div class="answer">
+                            <p>One module ie: app.module.ts, and one component:  app.component.ts</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-8">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">Where do we put environment settings for either production or development environments?</p>
+                        <div class="answer">
+                            <p>Typically they are placed in the <code>app/environments</code> folder</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-9">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">In what directory do we store the index.html file?</p>
+                        <div class="answer">
+                            <p>Typically, <code>src/environments</code></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-10">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">What is the starting point for our application?</p>
+                        <div class="answer">
+                            <p><code>src/main.ts</code></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-11">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">How do we bootstrap the main module of our application?</p>
+                        <div class="answer">
+                            <p>Place the name of the main module (usually AppModule.ts) inside the main.ts file.<br><pre>
+
+                            </pre><code>platformBrowserDynamic() bootstrapModule(AppModule);</code></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-12">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">Where do we specify which environment we are going to run?</p>
+                        <div class="answer">
+                            <p>In main.ts:<br>
+                            <pre><code>if (environment.production) { enableProdMode(); }</code></pre></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-13">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">What is webpack?</p>
+                        <div class="answer">
+                            <p>A build automation tool.</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-14">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">What is webpack responsible for?</p>
+                        <div class="answer">
+                            <p>It takes all of our scripts, stylesheets, combines them in a bundle and then minifies the bundle for optimization. </p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-15">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">What is the polyfills.bundle.js file?</p>
+                        <div class="answer">
+                            <p>It takes all the scripts to fill the gap between the version of javascript that angular needs and the version of javascript that most browsers need.</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-16">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">What is contained in the main.bundle.js file?</p>
+                        <div class="answer">
+                            <p>All of your source code</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-17">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">What is contained in the styles.bundle.js</p>
+                        <div class="answer">
+                            <p>All of your styles files</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-18">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">What is contained in the vendor.bundle.js?</p>
+                        <div class="answer">
+                            <p>All of the libraries from 3rd party vendors included in your project.</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-19">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">Where are the webpack bundles referenced in your code?</p>
+                        <div class="answer">
+                            <p>They're included within the script tags of your index.html file.  This happens at runtime, so you won't see this in your index.html within your source directory.</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-20">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">What are the versions of Angular?</p>
+                        <div class="answer">
+                            <p>
+                                <ol>
+                                    <li>AngularJS<br>
+                                    The first version, written in 2009, is javascript-based.</li>
+                                    <li>Angular 2<br>
+                                        Released in September 2016, this version was a complete rewrite of AngularJS and was written entirely in TypeScript. It was mobile-oriented and offered more language choices. </li>
+                                    <li>Angular 4<br>
+                                        This version was an improvement on Angular 2 and was backward compatible with it. Consider it Angular 2.4 - to update the router library to the same version number.</li>
+                                    <li>Angular 7<br>
+                                        Released in October 2018, this version focused on the Ivy project, which made it easier for developers to create single-page applications. </li>
+                                    <li>Angular 10<br>
+                                        Released in June 2020, this version increased the minimum TypeScript capability to 3.9 and added a date range picker. It also improved application performance and browser compatibility. </li>
+                                    <li>Angular 11<br>
+                                        Released at the end of 2020.</li>
+                                    <li>Angular 12<br>
+                                        Released in 2021.</li>
+                                    <li>Angular 13<br>
+                                        Released in November 2021, this version included new features and changes, such as: <br>
+                                        <ul>
+                                            <li>Ivy-based features and optimizations</li>
+                                            <li>End of IE11 support </li>
+                                            <li>Improvements to Angular CLI </li>
+                                            <li>Framework changes and dependency updates </li>
+                                            <li>Improvements to Angular Tests </li>
+                                        </ul></li>
+                                        
+                                        <li>Angular 15<br>
+                                        Released in November 2022, this version included stable standalone APIs, which allowed developers to build apps without Ng Modules. </li>
+                                        <li>Angular 16 <br>
+                                            Released in May 2023 </li>
+                                            <li>Angular 17<br>
+                                        Released in November 2023 </li>
+                                </ol>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-21">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">What type of logic do we implement on the client side?</p>
+                        <ol>
+                            <li> Application logic</li>
+                            <li> Business logic</li>
+                            <li> Presentation logic</li>
+                            <li> Data Access logic</li>
+                        </ol>
+                        <div class="answer">
+                            <p>Presentation Logic </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- END getting-started SECTION -->
+
+                <!-- BEGIN Essentials: Typescript & OOP SECTION -->
+                <div style="display:flex">
+                    <h2>Essentials: Fundamentals of TypeScript and OOP</h2>
+                   
+                     <button class="sectionButton" id="typescriptBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
+                </div>
+                <div class='section' id="typescript-oop" style="display: inline-block">
+                    <div class="question" id="question-22">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">Does typescript come with Angular?</p>
+                        <div class="answer">
+                            <p>No!  You need to install typescript.</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-23">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">How do you install typescript</p>
+                        <div class="answer">
+                            <p><code> $ sudo npm install -g typescript</code></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-24">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">What is the command to show the version of typescript that's installed</p>
+                        <div class="answer">
+                            <p><code> $ tsc --version</code> or by running the typescript server: <code> $ ng serve </code> to transpile all of our typescript files.</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-25">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">How do you transpile a typescript file from the command line?</p>
+                        <div class="answer">
+                            <p><code> $ tsc main.ts </code></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-26">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">How do you declare an enum array in typescript such that each element is automatically assigned a value?</p>
+                        <div class="answer">
+                            <p><code>enum Color { Red, Green, Blue, Purple }</code><br>
+                            The values of Red, Green, etc. are automatically assigned the index of the element as though it were an array where Red = 0; Green = 1; etc.</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-27">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">How do you assign specific values to an enum in typescript?</p>
+                        <div class="answer">
+                            <p><code> enum Color { Red = 'Red', Green = 'Green' };</code><br>
+                            <code> let backgroundColor = Color.Red // "Red" </code></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-28">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">In typescript, what is "type assertions"</p>
+                        <div class="answer">
+                            <p>The same as type casting.  i.e.:<br>
+                            <code> let message;<br>
+                                message = 'abc';<br>
+                                let endsWithC = (&lt;string&gt;message).endsWith('c');
+                            </code><br>
+                        or <br>
+                    <code>let alternativeWay = (message as string).endsWith('c');</code></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-29">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">How do you run a test angular file, much like opening node and running javascript?</p>
+                        <div class="answer">
+                            <ol>
+                                <li>cd to a directory that is not an angular project directory (has no node modules)</li>
+                                <li>Create a main.ts file and insert your angular code in it.</li>
+                                <li>In a terminal, run: <code> tsc main.ts && node main.js </code></li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="question" id="question-30">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">What is inline annotation?</p>
+                        <div class="answer">
+                            <p>Where you define the type of the variable inline.  i.e.:<br>
+                            <code>const drawPoint = (point: { x: number, y: number} ) { //... }</code></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-31">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">What is a better approach to inline annotation if you use this concept in multiple places?</p>
+                        <div class="answer">
+                            <p>Define an interface.  i.e.: <br>
+                            <code>interfact Point {<br>
+                                x: number,
+                                y: number
+                            }
+                        
+                        let drawPoint = (point: point) =&gt; { //...}</code></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-32">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">What is the style convention on interface names?</p>
+                        <div class="answer">
+                            <p>Always use the first letter as a capital:  i.e.: <code>Point</code></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-33">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">What is an object?</p>
+                        <div class="answer">
+                            <p>An object is an instance of a class.  i.e.: <br>
+                            <code>class Point {
+                                x: number;
+                                y: number;
+
+                                draw() {
+                                    console.log('X: ' + this.x + ', Y: ' + this.y);
+                                }
+
+                                getDistance(another: Point) {
+                                    // ...
+                                }
+                            }
+
+                            let point = new Point();
+                            
+                            </code><br>
+                            <strong>point </strong> is an instance of the object Point.  </p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-34">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">What is an access modifier?</p>
+                        <div class="answer">
+                            <p>A keyword to control the use of the field, property or function.  i.e.:<br>
+                                <code>class Point {<br>
+                                    private x: number;<br>
+                                    private y: number;<br>
+    <br>
+                                    constructor(x: number, y: number) {<br>
+                                        this.x = x;<br>
+                                        this.y = y;<br>
+                                    }<br>
+        <br>
+                                    public draw() {<br>
+                                        console.log('X: ' + this.x + ', Y: ' + this.y);<br>
+                                    }<br><br>
+        
+                                    getDistance(another: Point) {<br>
+                                        // ...<br>
+                                    }<br>
+                                }<br><br>
+        
+                                let point = new Point();<br>
+                                
+                                </code><br>  
+                                Now you cannot change the x and y coordinates of a point.  Calling <code>point.x  = 4</code> will yield an error in your IDE.
+    </p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-35">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">How do you run a static website locally?</p>
+                        <div class="answer">
+                            <p><code>npm install http-server -g</code><br>
+                            <code>http-server</code></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-36">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">Rather than declaring a private or public member var (field) in the class definition, can you declare them within the constructor only?</p>
+                    <div class="answer">
+                            <p>Yes.  Simply precede the constructor var with public or private access modifiers</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-37">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">If I declare a private field, whether in a constructor or in the class, and I still want to set that field if it meets certain requirements, or retrieve that field's value, how would I do this? </p>
+                        <div class="answer">
+                            <p>Use setters and getters:  <code><br>
+                            get x() {<br>
+                                return this._x <br>
+                            }<br><br>
+                        set x(val) {<br>
+                            if (x &gt; 0) {<br>
+                                this._x = val; <br>
+                            }<br>
+                        }<br>
+                                </code> <br><br>
+                                
+                        Then call it using: 
+                    <code><br>
+                    point.x = 10;<br>
+                    let myx = point.x</code><br>
+                <br>Unlike fields, properties can assign or retrieve the field values by calling the getter or setter methods:  <br>
+            WRONG:  point.set x(10)<br>
+        CORRECT:  point.x = 10;<br></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-38">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-39">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-40">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-41">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-42">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-43">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-44">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-45">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-46">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-47">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-48">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-49">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-50">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-51">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-52">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-53">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">How do you run flask outside of the pipenv shell?</p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-54">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-55">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-56">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-57">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-58">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-59">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-60">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-61">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-62">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-63">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-64">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-65">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-66">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-67">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                    </div>
+                    </div>
+                    <div class="question" id="question-68">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-69">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-70">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-71">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-72">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-73">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-74">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-75">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-76">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-77">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-78">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-79">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-80">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-81">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-82">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-83">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-84">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-85">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-86">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-87">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-88">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-89">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-90">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">QUESTION</p>
+                        <div class="answer">
+                            <p>ANSWER</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Essentials: Typescript & OOP SECTION -->
+
+
+                <!-- BEGIN Essentials: Displaying data and handling events -->
+                 <div style="display:flex">
+                    <h2>Essentials: Displaying data and handling events</h2>
+                   
+                    <button class="sectionButton" id="dataBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
+                </div>
+                <div class='section' id="displaying-data-and-handling-events" style="display:inline-block">
+                    <p>INSERT QUESTIONS HERE...</p>
+                </div>
+                <!-- END Essentials: Displaying data and handling events  -->
+
+              <!-- BEGIN Essentials: Components -->
+              <div style="display:flex">
+                <h2>Essentials: Components</h2>
+               
+                <button class="sectionButton" id="componentsBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
+            </div>
+            <div class='section' id="displaying-data-and-handling-events" style="display:inline-block">
+                <p>INSERT QUESTIONS HERE...</p>
+            </div>
+            <!-- END Essentials: Components  -->
+
+
+              <!-- BEGIN Essentials: Directives -->
+              <div style="display:flex">
+                <h2>Essentials: Directives</h2>
+               
+                <button class="sectionButton" id="directivesBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
+            </div>
+            <div class='section' id="directives" style="display:inline-block">
+                <p>INSERT QUESTIONS HERE...</p>
+            </div>
+            <!-- END Essentials: Directives  -->
+
+
+            <!-- BEGIN Essentials: Template-driven forms -->
+            <div style="display:flex">
+                <h2>Essentials: Template-driven forms</h2>
+               
+                <button class="sectionButton" id="formsBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
+            </div>
+            <div class='section' id="template-driven-forms" style="display:inline-block">
+             <p>INSERT QUESTIONS HERE...</p>
+            </div>
+            <!-- END Essentials: Template-driven forms  -->
+
+            <!-- BEGIN Essentials: Consuming HTTP services -->
+            <div style="display:flex">
+                <h2>Essentials: Consuming HTTP services</h2>
+               
+                <button class="sectionButton" id="httpBttn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
+            </div>
+            <div class='section' id="http-services" style="display:inline-block">
+             <p>INSERT QUESTIONS HERE...</p>
+            </div>
+            <!-- END Essentials: Consuming HTTP services  -->
+
+             <!-- BEGIN Essentials: Routing and navigation -->
+             <div style="display:flex">
+                <h2>Essentials: Routing and navigation</h2>
+               
+                <button class="sectionButton" id="routesBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
+            </div>
+            <div class='section' id="routes-navigation" style="display:inline-block">
+             <p>INSERT QUESTIONS HERE...</p>
+            </div>
+            <!-- END Essentials: Routing and navigation  -->
+
+             <!-- BEGIN Essentials: Authentication and authorization -->
+             <div style="display:flex">
+                <h2>Essentials: Authentication and authorization</h2>
+               
+                <button class="sectionButton" id="authBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
+            </div>
+            <div class='section' id="authentication-authorization" style="display:inline-block">
+             <p>INSERT QUESTIONS HERE...</p>
+            </div>
+            <!-- END Essentials: Authentication and authorization  -->
+
+            <!-- BEGIN Essentials: Deployment -->
+            <div style="display:flex">
+                <h2>Essentials: Deployment</h2>
+               
+                <button class="sectionButton" id="deploymentBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
+            </div>
+            <div class='section' id="deployment" style="display:inline-block">
+                <p>INSERT QUESTIONS HERE...</p>
+            </div>
+            <!-- END Essentials: Deployment  -->
+
+
+            <!-- BEGIN Essentials: Building real-time, serverless applications with Firebase -->
+            <div style="display:flex">
+                <h2>Essentials: Building real-time, serverless applications with Firebase</h2>
+               
+                <button class="sectionButton" id="firebaseBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
+            </div>
+            <div class='section' id="firebase" style="display:inline-block">
+                <p>INSERT QUESTIONS HERE...</p>
+            </div>
+            <!-- END Essentials: Building real-time, serverless applications with Firebase  -->
+
+            <!-- BEGIN Advanced Topics: Animations -->
+            <div style="display:flex">
+                <h2>Advanced Topics: Animations</h2>
+               
+                <button class="sectionButton" id="animationsBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
+            </div>
+            <div class='section' id="animations" style="display:inline-block">
+                <p>INSERT QUESTIONS HERE...</p>
+            </div>
+            <!-- END Advanced Topics: Animations  -->
+
+            <!-- BEGIN Advanced Topics: Angular Material -->
+            <div style="display:flex">
+                <h2>Advanced Topics: Angular Material</h2>
+               
+                <button class="sectionButton" id="materialBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
+            </div>
+            <div class='section' id="angular-material" style="display:inline-block">
+                <p>INSERT QUESTIONS HERE...</p>
+            </div>
+            <!-- END Advanced Topics: Angular Material  -->
+
+             <!-- BEGIN Advanced Topics: Redux -->
+             <div style="display:flex">
+                <h2>Advanced Topics: Redux</h2>
+               
+                <button class="sectionButton" id="reduxBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
+            </div>
+            <div class='section' id="redux" style="display:inline-block">
+                <p>INSERT QUESTIONS HERE...</p>
+            </div>
+            <!-- END Advanced Topics: Redux  -->
+
+            <!-- BEGIN Advanced Topics: Unit testing -->
+                <div style="display:flex">
+                <h2>Advanced Topics: Unit testing</h2>
+           
+            <button class="sectionButton" id="unitTestingBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
+            </div>
+            <div class='section' id="unit-testing" style="display:inline-block">
+                <p>INSERT QUESTIONS HERE...</p>
+            </div>
+            <!-- END Advanced Topics: Unit testing  -->
+
+
+            <!-- BEGIN Advanced Topics: Integration testing -->
+            <div style="display:flex">
+                <h2>Advanced Topics: Integration testing</h2>
+           
+            <button class="sectionButton" id="integrationTestingBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
+            </div>
+            <div class='section' id="integration-testing" style="display:inline-block">
+                <p>INSERT QUESTIONS HERE...</p>
+            </div>
+            <!-- END Advanced Topics: Integration testing  -->
+	</body>
+</html>
