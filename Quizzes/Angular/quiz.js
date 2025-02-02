@@ -6,13 +6,21 @@ function reset() {
     let hidden;
     let hiddenSects;
 
+    console.log(`inside reset()`)
+
     if (isTablet) {
         hidden = sessionStorage.getItem("gotIt");
         hiddenSects = sessionStorage.getItem("hiddenSections");
     } else {
       hidden = localStorage.getItem("gotIt");
       hiddenSects = localStorage.getItem("hiddenSections");
+      if (hiddenSects?.length === 0) { 
+        localStorage.removeItem("hiddenSections");
+        hiddenSects = null;
+      }
     }
+
+    console.log(`reset: hidden = ${hidden}, hiddenSects = ${hiddenSects}`);
     
     if (hidden) {
         let hiddenElts = JSON.parse(hidden);
@@ -59,14 +67,12 @@ function showAnswers() {
       elList[i].style.display = "block";
   }
 }
-
 function hideQuestion(event) {
     //console.log(event.target.id);
     let question = document.getElementById(event.target.id);
 
     question.style.display = "none";
 }
-
 function showQuestions() {
     let hidden;
     if (isTablet) {
@@ -86,37 +92,15 @@ function showQuestions() {
 }
 
 window.addEventListener("DOMContentLoaded", (event) => {
-    let quizBtn = document.getElementsByClassName("quizNbr")[0];
-
-    //console.log("Quiz btn:  ", quizBtn.id);
-    if (localStorage.getItem(quizBtn.id)) {
-        quizBtn.style.display = "none"
-        let quiz = document.getElementById("quiz");
-        quiz.style.display = "inline-block";
-    }
-
-    //quizBtn.style.display = "inline-block";
-    quizBtn.addEventListener("click", (event) => {
-        quiz = event.target.id;
-        if (localStorage.getItem(quiz) === null) {
-            let thisQuizNbr = parseInt(quiz.slice(4));
-            cleanLocalStorage(thisQuizNbr);
-            reset();
-            localStorage.setItem(quiz, "started");
-            quizBtn.style.display = "none";
-            let myQuiz = document.getElementById("quiz");
-            myQuiz.style.display = "inline-block";
-        };
-
-    });
-
-
     const userAgent = navigator.userAgent.toLowerCase();
     isTablet = /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent);
     //console.log(isTablet)
 
     let resetBtn = document.getElementById("resetButton");
-    resetBtn.addEventListener("click", reset);
+    resetBtn.addEventListener("click", () => {
+        console.log(`reset quiz selected. calling reset()`);
+        reset();
+    });
 
     hideAnswers();
 
@@ -206,12 +190,5 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 });    
 
-function cleanLocalStorage(currQuizNbr) {
-    for (let i = 1; i < currQuizNbr; i++) {
-            let lastQuizId = "quiz" + i;
-            //console.log("removing ", lastQuizId, " from local storage...");
-            localStorage.removeItem(lastQuizId);
-    }
-}
 
 

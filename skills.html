@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" id="rootElement">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width",  initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>Mary Lark - Full Stack Engineer</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/responsive.css">
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
+	</head>
+
+	<body>
+
+		<div class="blue-back">
+			<header class="medium-fade shadow">
+				<div class="wrapper">
+					<div class="navbar light-fade">
+						<nav class="menu">
+							<a href="index.html">About</a>
+                            <a class="selected" href="skills.html">Skills</a>
+                            <a href="recommendations.html">Recommendations</a>
+							<a href="resume.html">Resume</a>
+							<a href="portfolio.html">Portfolio</a>
+							<a href="contact.html">Contact</a>
+							<a href="#" id="burger-time" class="hamburger-icon" >&#9776;</a>
+						</nav>
+					</div><!-- .wrapper -->
+				</div><!-- #navbar -->
+
+				<div class="wrapper">
+					<div id="logo">
+						<h1 class="pageTitle">Mary Lark, Full Stack Engineer</h1>
+					</div>
+				</div><!-- .wrapper -->
+			</header>
+
+
+			<div>
+				<center>
+					<img class="fixed-ratio-resize shadow" src="images/mary-headshot.jpg" width="175px" height="250px" alt="Mary Lark" title="Mary Lark">
+				</center>
+			</div>
+
+			<div class="pageBorder">
+				<section  class="shadow">
+                    <div>
+                        <center><h2>Skills</h2></center>
+                        <center><button id="hideSkills"  onclick="hideSkills()">Hide</button>
+                            <button id="showSkills" style="display: none" onclick="showSkills()">Show</button></center><br /><br />
+
+                        <div id="skillsDiv" style="display: block; border:1px solid blue; margin: 1rem; padding: 2rem 2rem; text-align: center; ">
+                            <div style="display: inline-block;  padding: 1rem 1rem; text-align: left; vertical-align:top">
+                                <h3>frontend development</h3>
+                                  <ul style="text-align: left">
+                                    <li>Javascript: 4 yrs</li>
+                                    <li>Typescript: 3 yrs</li>
+                                    <li>Angular: 1 yr</li>
+                                    <li>React: 1 yr</li>
+                                    <li>React Native: 1 yr</li>
+                                    <li>Svelte: 1 yr</li>
+                                  </ul>
+                            </div>
+                            <div style="display: inline-block;  padding: 1rem 1rem; text-align: left; vertical-align:top">
+                                <h3>applications/backend development</h3>
+                                <ul style="text-align: left">
+                                    <li><i>c programming: 4 yrs</i></li>
+                                    <li><i>C++ programming: 3 yrs</i></li>
+                                    <li>Java programming: 1 yr</li>
+                                    <li>Python backend: academic only</li>
+                                    <li>Express backend: academic only</li>
+                                </ul>
+                            </div>
+                            <div style="display: inline-block; padding: 1rem 1rem; text-align: left; vertical-align:top">
+                                
+                            <h3>systems engineering</h3>
+                                <ul style="text-align: left">
+                                    <li>perl scripting: 6 yrs</li>
+                                    <li>unix/bash scripting: 6 yrs</li>
+                                    <li>power shell scripting: 6 yrs</li>
+                                    <li>linux scripting: 6 yrs</li>
+                                    <li>Citrix server management: 6 yrs</li>
+                                </ul>
+                            </div>
+                            <p style="align-content: center"><i>*italicized items experience pre-2000; see profile</i></p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+					
+        </div>
+		<section id="details" class="medium-fade">
+			<div class="wrapper">
+				<div>
+					<center>
+						<h3>Contact</h3>
+						<p>
+						email: <a href="mailto:mary@marylark.com">mary@marylark.com</a><br>
+						phone: +1 925 866 1111
+						</p>
+						<h3>Location</h3>
+						<address>
+						Parker, CO
+						</address>
+						<br><br>
+						<span style="font-size: 10px;">&copy; 2025 Mary Lark. All Rights Reserved.</span>
+					</center>
+				</div>
+			</div><!-- .wrapper -->
+		</section>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+
+		  <script>
+			  function switchDisplay(btnElt) {
+				if (btnElt.style.display === "none") {
+					btnElt.style.display = "block";
+				} else {
+					btnElt.style.display = "none";
+				}
+			  }
+              function hideProfile () {
+					let btnElt = document.getElementById("showProfile");
+					let hideBtn = document.getElementById("hideProfile");
+					switchDisplay(btnElt);
+					switchDisplay(hideBtn)
+					document.getElementById("profileDiv").style.display = "none";
+			  }
+			  function showProfile() {
+				let btnElt = document.getElementById("showProfile");
+				let hideBtn = document.getElementById("hideProfile");
+				switchDisplay(btnElt);
+				switchDisplay(hideBtn)
+				document.getElementById("profileDiv").style.display = "block";
+			  }
+
+              function showSkills() {
+                let btnElt = document.getElementById("showSkills");
+                let hideBtn=document.getElementById("hideSkills");
+                switchDisplay(btnElt);
+                switchDisplay(hideBtn);
+                document.getElementById("skillsDiv").style.display = "block";
+              }
+
+              function hideSkills() {
+                let btnElt = document.getElementById("showSkills");
+                let hideBtn=document.getElementById("hideSkills");
+                switchDisplay(btnElt);
+                switchDisplay(hideBtn);
+                document.getElementById("skillsDiv").style.display = "none";
+              }
+
+			  function hideRecommend() {
+				  var btnElt = document.getElementById("hideRecommend");
+				  showBtn = document.getElementById("showRecommend");
+				  switchDisplay(btnElt);
+				  switchDisplay(showBtn);
+				  var elList = document.getElementsByClassName("recommend");
+				  for (i = 0; i < elList.length; i++) {
+					  elList[i].style.display = "none";
+				  }
+
+			  }
+			  function showRecommend() {
+				var btnElt = document.getElementById("hideRecommend");
+				  showBtn = document.getElementById("showRecommend");
+				  switchDisplay(btnElt);
+				  switchDisplay(showBtn);
+				  var elList = document.getElementsByClassName("recommend");
+				  for (i = 0; i < elList.length; i++) {
+					  elList[i].style.display = "block";
+				  }
+			  }
+
+			//   $(document).ready(function(){
+			// 	$("#hide").click(function(){
+			// 		$("p.profile").hide();
+			// 	});
+			// 	$("#show").click(function(){
+			// 		$("p.profile").show();
+			// 	});
+			// 	$("#hideRecommend").click(function(){
+			// 		$("div.recommend").hide();
+			// 	});
+			// 	$("#showRecommend").click(function() {
+			// 		$("div.recommend").show();
+			// 	});
+			// })
+
+
+		  </script>
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+	</body>
+</html>

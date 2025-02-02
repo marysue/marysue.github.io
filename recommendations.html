@@ -4,10 +4,10 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width",  initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 		<title>Mary Lark - Full Stack Engineer</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css">
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/responsive.css">
-		<link rel="stylesheet" type="text/css" href="css/testmenu.css">
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
 	</head>
 
@@ -15,15 +15,16 @@
 
 		<div class="blue-back">
 			<header class="medium-fade shadow">
-					<div class="wrapper">
-				<div class="navbar light-fade">
-
+				<div class="wrapper">
+					<div class="navbar light-fade">
 						<nav class="menu">
-							<a class="selected" href="index.html">About</a>
+							<a href="index.html">About</a>
+                            <a href="skills.html">Skills</a>
+                            <a  class="selected" href="recommendations.html">Recommendations</a>
 							<a href="resume.html">Resume</a>
-							<a href="work-samples.html">Work Samples</a>
+							<a href="portfolio.html">Portfolio</a>
 							<a href="contact.html">Contact</a>
-							<a href="#" class="hamburger-icon" >&#9776;</a>
+							<a href="#" id="burger-time" href="hamburger-icon" >&#9776;</a>
 						</nav>
 					</div><!-- .wrapper -->
 				</div><!-- #navbar -->
@@ -35,147 +36,219 @@
 				</div><!-- .wrapper -->
 			</header>
 
-	<div class="blue-back">
+
+			<div>
+				<center>
+					<img class="fixed-ratio-resize shadow" src="images/mary-headshot.jpg" width="175px" height="250px" alt="Mary Lark" title="Mary Lark">
+				</center>
+			</div>
+
 			<div class="pageBorder">
-				<section  class="shadow">
+				<section class="shadow">
 					<center><h2>Recommendations</h2></center>
-                    <div id="recommendation">
-						<div class="recommend first">
-							<p>"Mary is a phenomenal teammate and has been as much a friend as a co-worker. She is a diligent worker who loves deeply understanding issues and putting her mind to generating creative solutions. She has a passion for learning new skills and technologies and building on her already strong software knowledge-base. She is a great team player that any team would be lucky to have. "</p>
-						</div>
-						<div class="author">
-							Kamil Stasiulewicz,
-                            Software Engineering Director, Sapphire Project
-                            CACI International
-						</div>
+					<center><button id="hideRecommend" onclick="hideRecommend()">Abbreviate Recommendations</button>
+					<button id="showRecommend" style="display: none" onclick="showRecommend()">Show Full Recommendations</button></center><br /><br />
+                    <div class="recommend first">
+                        <p>"Mary is a phenomenal teammate and has been as much a friend as a co-worker. She is a diligent worker who loves deeply understanding issues and putting her mind to generating creative solutions. She has a passion for learning new skills and technologies and building on her already strong software knowledge-base. She is a great team player that any team would be lucky to have. "</p>
+                    </div>
+                    <div class="author">
+                        Kamil Stasiulewicz,<br>
+                        Software Engineering Director, Sapphire Project, CACI International
+                    </div>
+                    <div class="recommend">
+                        <p>"Mary has been amazing to work with. She has an attention to detail that helps immensely when breaking down work, and she has a strong determination to accomplish her goals. Mary isn't afraid to ask questions, and doesn't shy away from helping others with their work. Her positive attitude and inquisitive mind makes her an asset to any team."</p>
+                    </div>
+                    <div class="author">
+                        Tim McKnight, <br>
+                        Project Owner & Scrum Master, Saffire Project, CACI International
+                    </div>
+                    <div class="recommend">
+                        <p>"Mary is a driven, detail-oriented professional with a strong eagerness to learn. She's a joy to work with—sweet, social, and caring, always creating a positive and supportive atmosphere for those around her. Her attention to detail ensures that every task is completed thoughtfully and thoroughly."</p>
+                    </div>
+                   <div class="author">
+                        Kory Clark, <br>
+                        Technical Team Lead, Saffire Project, CACI International
+                    </div>
+                   
+                    <div class="recommend">
+                        <p>"Mary is a wonderful person to work with.  She isn't afraid to dive in deep on new and complex topics,
+                        and she is positive and encouraging to those around her. She does what needs to be done and can see
+                        the big picture to understand why it is necessary. She has a high degree of skill in front-end frameworks
+                        such as JavaScript and Angular, and is adept at organizing, structuring, and supporting Agile teams."</p>
+                    </div>
+                    <div class="author">
+                        Brad Brashier<br>
+                        Sr. Development Manager, Allata
+                    </div>
+                    
+                    <div class="recommend">
+                        <p>"I worked with Mary on a client project with vague guidelines and large customer knowledge gaps.
+                            With Mary’s hard work, and the team’s dedication, we were able to help the customer discover the
+                            technical requirements for a non-technical statement of work, to parse that work into concrete
+                            requirements, and to execute on those requirements while coordinating with third party vendors.
+                            Mary took technical direction well where needed, worked doggedly to fill in knowledge gaps,
+                            and executed on tasks exactly as expected.  Mary conducts all communication with customers
+                            and co-workers to utmost professional standards, and her professional maturity is an asset in
+                            an office setting for mentoring new employees." </p>
+                    </div>
+                    <div class="author">
+                        Jason Robinson<br>
+                        Manager, Software Development, Allata
+                    </div>
+                    <div class="recommend">
+                        <p>"I had the pleasure of working with Mary on a project to convert requirements into user stories for development.
+                        Her attention to detail is one of her strongest assets. Her persistence to ensure the correct information
+                        is collected and returned to clients points to her project management /business analyst skills.
+                        Mary’s eagerness helps a team achieve consensus on expectations of assigned tasks. Mary is not afraid to
+                        ask questions until she has a complete grasp of her responsibilities. I appreciate her contributions and
+                        efforts when working together."</p>
+                    </div>
+                    <div class="author">
+                        Paul Corsi<br>
+                        Senior Associate – Quality Assurance, Allata
+                    </div>
+                   
+                    <div class="recommend">
+                        <p>"Mary is an amazing person and an incredible resource. No-one
+                        digs into a problem like Mary, and her attention to detail is
+                        second-to-none. At Toolwire Mary inherited a system in desperate
+                        need of a "new sheriff". Where there was chaos and disparity Mary
+                        brought order and conformity."</p>
+                    </div>
+                    <div class="author">
+                        Joseph White<br>
+                        Security Management | Windows and Linux System Administration | Virtualization | Cisco Networking<br>
+                        IT Services Director, Toolwire, Inc.
+                    </div>
+                    <div class="recommend">
+                        <p>"It’s my great pleasure to recommend Mary. I’ve worked directly
+                        with her for 5 years now. She is one of my primary go-to people at
+                        Toolwire and the true one-stop resource for everything about our
+                        OnDemand hosting platform. I can always rely on Mary to put her
+                        heart and soul into everything she does. She consistently
+                        demonstrates leadership initiative, leaving a path of organization
+                        and documentation where there previously was only chaos. She does
+                        a wonderful job of cross training the software and technical
+                        operations teams after every major project she manages or builds.
+                        Dogged, driven, fun, engaged, curious and thoughtful, are just
+                        some of the wonderful adjectives that describe her. If I go to
+                        another company I am bringing Mary with me if I can. So don't hire
+                        her JUST yet... "</p>
+                    </div>
 
-						<div class="recommend">
-							<p>"Mary is a driven, detail-oriented professional with a strong eagerness to learn. She's a joy to work with—sweet, social, and caring, always creating a positive and supportive atmosphere for those around her. Her attention to detail ensures that every task is completed thoughtfully and thoroughly."</p>
-						</div>
-						<div class="author">
-							Kory Clark, 
-                            Technical Team Lead,
-                            CACI International
-						</div>
 
-						<div class="recommend">
-							<p>"It’s my great pleasure to recommend Mary. I’ve worked directly
-							with her for 5 years now. She is one of my primary go-to people at
-							Toolwire and the true one-stop resource for everything about our
-							OnDemand hosting platform. I can always rely on Mary to put her
-							heart and soul into everything she does. She consistently
-							demonstrates leadership initiative, leaving a path of organization
-							and documentation where there previously was only chaos. She does
-							a wonderful job of cross training the software and technical
-							operations teams after every major project she manages or builds.
-							Dogged, driven, fun, engaged, curious and thoughtful, are just
-							some of the wonderful adjectives that describe her. If I go to
-							another company I am bringing Mary with me if I can. So don't hire
-							her JUST yet... "</p>
-						</div>
-						<div class="author">
-							Brett Gentry<br>
-							Entrepreneur In Residence
-						</div>
+                    <div class="author">
+                        Brett Gentry<br>
+                        Entrepreneur In Residence<br>
+                        (Engineering Director, Toolwire)
+                    </div>
+                    <div class="recommend">
+                        <p>"Mary is a delight to work with and easy to get along. She has a
+                        lot of energy, and has a ready smile and works well with everyone.
+                        She had to come up to speed on lots of advanced technical details
+                        of projects and she was able to do so with ease. She is detail
+                        oriented and is able to deliver her tasks on time. Highly
+                        recommended."</p>
+                    </div>
+                    <div class="author">
+                        Razi Mohiuddin<br>
+                        Special Projects at Amazon Web Services<br>
+                        (Project Manager, Teknowledge)
+                    </div>
+                    
+                    <div class="recommend">
+                        <p>"I've had the pleasure of knowing Mary Sue Lark for many years
+                        as well as working with Mary at Siemens Medical Systems. Mary is a
+                        very capable, conscientious, and high integrity engineer that
+                        consistently executed her project responsibilities in a
+                        collaborative, efficient, effective and productive manner. I have
+                        no reservation in recommending Mary Sue Lark."</p>
+                    </div>
+                    <div class="author">
+                        Albert Di Rienzo<br>
+                        President, CEO and Chief Science Officer<br>
+                        (Director, Software Engineering, Siemens Medical Systems)
+                    </div>
+                    
+                    <div class="recommend">
+                        <p>"Mary and I worked together on a project for a foreign bank. I
+                        could always rely on her to help me with problems or discuss
+                        solutions. Mary turned out to be a good friend that made me feel
+                        welcome such a long way from home."</p>
+                    </div>
+                    <div class="author">
+                        Jan Legtenberg<br>
+                        Business Analist bij Le Blanc Advies<br>
+                        (Client & co-worker, TRW Financial Systems)
+                    </div>
+                    <div class="recommend">
+                        <p>"Mary and I worked together on an international project that was
+                        rather stressful at times. I always found her to be willing to
+                        help me resolve issues and pleasant to work with. I enjoyed
+                        working with her."</p>
+                    </div>
 
-						<div class="recommend">
-							<p>"Mary is a delight to work with and easy to get along. She has a
-							lot of energy, and has a ready smile and works well with everyone.
-							She had to come up to speed on lots of advanced technical details
-							of projects and she was able to do so with ease. She is detail
-							oriented and is able to deliver her tasks on time. Highly
-							recommended."</p>
-						</div>
-						<div class="author">
-							Razi Mohiuddin<br>
-							Special Projects at Amazon Web Services
-						</div>
+                    <div class="author">
+                        Steve Wensel<br>
+                        IT Management Consultant<br>
+                        Onboard Engineering Services Ltd<br>
+                        (Coworker, TRW Financial Systems)
+                    </div>
+                   
+                    <div class="recommend">
+                        <p>"Mary Sue always has impressed me with her positive attitude,
+                        warm personality, and tenacity. She is an asset to any team or
+                        project, and I would welcome any opportunity to work directly with
+                        her."</p>
+                    </div>
+                    <div class="author">
+                        Mike King<br>
+                        Parking Technology & Infrastructure Manager<br>
+                        City of Sacramento<br>
+                        (Coworker, TRW Financial Systems)
+                    </div>
+                    
+                    <div class="recommend">
+                        <p>"Mary Sue was a pleasure to work with at TRW. She always
+                        supported the efforts of the team and forged strong professional
+                        relationships with teammates onshore and overseas."</p>
+                    </div>
 
-						<div class="recommend">
-							<p>"I've had the pleasure of knowing Mary Sue Lark for many years
-							as well as working with Mary at Siemens Medical Systems. Mary is a
-							very capable, conscientious, and high integrity engineer that
-							consistently executed her project responsibilities in a
-							collaborative, efficient, effective and productive manner. I have
-							no reservation in recommending Mary Sue Lark."</p>
-						</div>
-						<div class="author">
-							Albert Di Rienzo<br>
-							President, CEO and Chief Science Officer
-						</div>
+                    <div class="author">
+                        James Coll<br>
+                        Software Engineer / Architect<br>
+                        Full-Stack | SOA | SaaS | Java | C#.Net | C++ | JavaScript | NodeJS | SQL | AWS | CSS<br>
+                        (Co-worker, TRW Financial Systems)
+                    </div>
+                    <div class="recommend">
+                        <p>"Mary provided IT and various tech support to all departments, and she was always
+                        delightfully cheery and responsive to anyone in the company who needed fast help--a
+                        rare attribute that we very much appreciated. I would highly recommend Mary for any
+                        position that involved being responsive to problems, working with people,
+                        and helping build morale. She brings a smile and a laugh to tough work."</p>
+                    </div>
+                    <div class="author">
+                        Kristin Speer<br>
+                        Managing Director,<br>
+                        Technology Practice at Westwood & Wilshire<br>
+                        (Coworker - Teknowledge)
+                    </div>
+                   
+                    <div class="recommend">
+                        <p>"Mary is an intelligent, hard working co-worker whom everyone can
+                        count on in lean times."</p>
+                    </div>
+                    <div class="author">
+                        Phillip Liu<br>
+                        VP of Engineering at Datrium<br>
+                        (TRW Financial Systems Lead)
+                    </div>
+                    
 
-						<div class="recommend">
-							<p>"Mary and I worked together on a project for a foreign bank. I
-							could always rely on her to help me with problems or discuss
-							solutions. Mary turned out to be a good friend that made me feel
-							welcome such a long way from home."</p>
-						</div>
-						<div class="author">
-							Jan Legtenbert<br>
-							Business Analist bij Le Blanc Advies
-						</div>
-
-						<div class="recommend">
-							<p>"Mary and I worked together on an international project that was
-							rather stressful at times. I always found her to be willing to
-							help me resolve issues and pleasant to work with. I enjoyed
-							working with her."</p>
-						</div>
-						<div class="author">
-							Steve Wensel<br>
-							IT Management Consultant<br>
-							Onboard Engineering Services Ltd
-						</div>
-
-						<div class="recommend">
-							<p>"Mary Sue always has impressed me with her positive attitude,
-							warm personality, and tenacity. She is an asset to any team or
-							project, and I would welcome any opportunity to work directly with
-							her."</p>
-						</div>
-						<div class="author">
-							Mike King<br>
-							Parking Technology & Infrastructure Manager<br>
-							City of Sacramento
-						</div>
-
-						<div class="recommend">
-							<p>"Mary Sue was a pleasure to work with at TRW. She always
-							supported the efforts of the team and forged strong professional
-							relationships with teammates onshore and overseas."</p>
-						</div>
-						<div class="author">
-							James Coll<br>
-							Software Engineer / Architect<br>
-							Full-Stack | SOA | SaaS | Java | C#.Net | C++ | JavaScript | NodeJS | SQL | AWS | CSS
-						</div>
-
-						<div class="recommend">
-							<p>"Mary provided IT and various tech support to all departments, and she was always
-							delightfully cheery and responsive to anyone in the company who needed fast help--a
-							rare attribute that we very much appreciated. I would highly recommend Mary for any
-							position that involved being responsive to problems, working with people,
-							and helping build morale. She brings a smile and a laugh to tough work."</p>
-						</div>
-						<div class="author">
-							Kristin Speer<br>
-							Managing Director,<br>
-							Technology Practice at Westwood & Wilshire
-						</div>
-
-						<div class="recommend">
-							<p>"Mary is an intelligent, hard working co-worker whom everyone can
-							count on in lean times."</p>
-						</div>
-						<div class="author">
-							Phillip Liu<br>
-							VP of Engineering at Datrium
-						</div>
 					</div> <!--recommendation -->
 				</section>
 			</div><!-- .wrapper -->
 		</div><!-- .blue-back -->
-
 
 		<section id="details" class="medium-fade">
 			<div class="wrapper">
@@ -196,7 +269,87 @@
 				</div>
 			</div><!-- .wrapper -->
 		</section>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
+
+		  <script>
+			  function switchDisplay(btnElt) {
+				if (btnElt.style.display === "none") {
+					btnElt.style.display = "block";
+				} else {
+					btnElt.style.display = "none";
+				}
+			  }
+              function hideProfile () {
+					let btnElt = document.getElementById("showProfile");
+					let hideBtn = document.getElementById("hideProfile");
+					switchDisplay(btnElt);
+					switchDisplay(hideBtn)
+					document.getElementById("profileDiv").style.display = "none";
+			  }
+			  function showProfile() {
+				let btnElt = document.getElementById("showProfile");
+				let hideBtn = document.getElementById("hideProfile");
+				switchDisplay(btnElt);
+				switchDisplay(hideBtn)
+				document.getElementById("profileDiv").style.display = "block";
+			  }
+
+              function showSkills() {
+                let btnElt = document.getElementById("showSkills");
+                let hideBtn=document.getElementById("hideSkills");
+                switchDisplay(btnElt);
+                switchDisplay(hideBtn);
+                document.getElementById("skillsDiv").style.display = "block";
+              }
+
+              function hideSkills() {
+                let btnElt = document.getElementById("showSkills");
+                let hideBtn=document.getElementById("hideSkills");
+                switchDisplay(btnElt);
+                switchDisplay(hideBtn);
+                document.getElementById("skillsDiv").style.display = "none";
+              }
+
+			  function hideRecommend() {
+				  var btnElt = document.getElementById("hideRecommend");
+				  showBtn = document.getElementById("showRecommend");
+				  switchDisplay(btnElt);
+				  switchDisplay(showBtn);
+				  var elList = document.getElementsByClassName("recommend");
+				  for (i = 0; i < elList.length; i++) {
+					  elList[i].style.display = "none";
+				  }
+
+			  }
+			  function showRecommend() {
+				var btnElt = document.getElementById("hideRecommend");
+				  showBtn = document.getElementById("showRecommend");
+				  switchDisplay(btnElt);
+				  switchDisplay(showBtn);
+				  var elList = document.getElementsByClassName("recommend");
+				  for (i = 0; i < elList.length; i++) {
+					  elList[i].style.display = "block";
+				  }
+			  }
+
+			//   $(document).ready(function(){
+			// 	$("#hide").click(function(){
+			// 		$("p.profile").hide();
+			// 	});
+			// 	$("#show").click(function(){
+			// 		$("p.profile").show();
+			// 	});
+			// 	$("#hideRecommend").click(function(){
+			// 		$("div.recommend").hide();
+			// 	});
+			// 	$("#showRecommend").click(function() {
+			// 		$("div.recommend").show();
+			// 	});
+			// })
+
+
+		  </script>
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" src="js/menu.js"></script>
 	</body>

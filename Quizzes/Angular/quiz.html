@@ -10,17 +10,11 @@
 	</head>
 
 	<body>
-            <h2><center>Angular Quiz</center></h2>
-            
-            <center><button class="buttonClass quizNbr" id="quiz18", style="display: inline-block">Start Quiz</button></center>
-            <center><button id="resetButton">Reset Quiz</button></center>
-                <!-- REMEMBER TO INCREMENT THE QUIZ NUMBER IN THE START QUIZ BUTTON!!! -->
-            <div class='section' id="quiz" style="margin: 30px; display: inline-block;">
-
-               
+            <h2><center>Angular Quiz</center></h2>            
+            <center><button id="resetButton">Reset Quiz</button></center> 
                 <!-- BEGIN getting-started SECTION  -->
                 <div style="display:flex">
-                    <h2>Angular: Getting Started</h2>
+                    <h2>Essentials: Section 1: Getting Started</h2>
                      <button class="sectionButton" id="gettingStartedBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
                 </div>
                 <div class='section' id="getting-started" style="display: inline-block">
@@ -30,8 +24,8 @@
                         <p style="display: inline-block">What is used to install and manage angular cli globally?</p>
                         <div class="answer">
                             <p><code>$ sudo npm install -g @angular/cli</code><br>
-                            Note:  You need node version 20.11.1 to install angular.  Do the following:<br>
-                        <code>nvm install v20.11.1</code> to install and use v20.11.1, which will take care of the EBADENGING warnings on npm install.</p>
+                            Note:  You need node version 20.11.1 to install angular.  <br>Do the following:<br>
+                        <code>$ nvm install v20.11.1</code> to install and use v20.11.1, which will take care of the EBADENGING warnings on npm install.</p>
                         </div>
                     </div>
                     <div class="question" id="question-2">
@@ -59,7 +53,7 @@
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
                         <p style="display: inline-block">How do you tell your environment to open vscode when you type <code>$ code .</code></p>
                         <div class="answer">
-                            <p>In command palette enter <code>&gt; code and select Shell Command: Install 'code' command in PATH</code></p>
+                            <p>In command palette enter <code>&gt; code </code>and select Shell Command: Install 'code' command in PATH</p>
                         </div>
                     </div>
                     <div class="question" id="question-5">
@@ -68,6 +62,15 @@
                         <p style="display: inline-block">In vscode, how do we start the angular server?</p>
                         <div class="answer">
                             <p><code>$ ng serve</code></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-5a">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">How do you run a static website locally?</p>
+                        <div class="answer">
+                            <p><code>npm install http-server -g</code><br>
+                            <code>http-server</code></p>
                         </div>
                     </div>
                     <div class="question" id="question-6">
@@ -115,9 +118,8 @@
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
                         <p style="display: inline-block">How do we bootstrap the main module of our application?</p>
                         <div class="answer">
-                            <p>Place the name of the main module (usually AppModule.ts) inside the main.ts file.<br><pre>
-
-                            </pre><code>platformBrowserDynamic() bootstrapModule(AppModule);</code></p>
+                            <p>Place the name of the main module (usually AppModule.ts) inside the main.ts file.<br>
+                            <code>platformBrowserDynamic() bootstrapModule(AppModule);</code></p>
                         </div>
                     </div>
                     <div class="question" id="question-12">
@@ -126,7 +128,7 @@
                         <p style="display: inline-block">Where do we specify which environment we are going to run?</p>
                         <div class="answer">
                             <p>In main.ts:<br>
-                            <pre><code>if (environment.production) { enableProdMode(); }</code></pre></p>
+                           <code>if (environment.production) { enableProdMode(); }</code></p>
                         </div>
                     </div>
                     <div class="question" id="question-13">
@@ -240,12 +242,11 @@
                             <p>Presentation Logic </p>
                         </div>
                     </div>
-                </div>
-                <!-- END getting-started SECTION -->
+                </div> <!-- ends getting-started SECTION -->
 
                 <!-- BEGIN Essentials: Typescript & OOP SECTION -->
                 <div style="display:flex">
-                    <h2>Essentials: Fundamentals of TypeScript and OOP</h2>
+                    <h2>Essentials: Section 2: Fundamentals of TypeScript and OOP</h2>
                    
                      <button class="sectionButton" id="typescriptBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
                 </div>
@@ -253,7 +254,7 @@
                     <div class="question" id="question-22">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">Does typescript come with Angular?</p>
+                        <p style="display: inline-block">Ch 14:00:32:  Does typescript come with Angular?</p>
                         <div class="answer">
                             <p>No!  You need to install typescript.</p>
                         </div>
@@ -261,7 +262,7 @@
                     <div class="question" id="question-23">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">How do you install typescript</p>
+                        <p style="display: inline-block">Ch 14:00:32: How do you install typescript</p>
                         <div class="answer">
                             <p><code> $ sudo npm install -g typescript</code></p>
                         </div>
@@ -269,7 +270,7 @@
                     <div class="question" id="question-24">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">What is the command to show the version of typescript that's installed</p>
+                        <p style="display: inline-block">Ch 14:00:44: What is the command to show the version of typescript that's installed</p>
                         <div class="answer">
                             <p><code> $ tsc --version</code> or by running the typescript server: <code> $ ng serve </code> to transpile all of our typescript files.</p>
                         </div>
@@ -277,15 +278,27 @@
                     <div class="question" id="question-25">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">How do you transpile a typescript file from the command line?</p>
+                        <p style="display: inline-block">Ch 14:01:59: How do you transpile a typescript file from the command line?</p>
                         <div class="answer">
                             <p><code> $ tsc main.ts </code></p>
+                            <p><code> $ ng serve</code> will automatically transpile code </p>
+                            <p> After the code has been transpiled, you can run it using the js file with <code> $ node &lt; fileName &gt;.js </code></p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-25a">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">Ch15:03:08 Define the scoped area for : var, let, and const .</p>
+                        <div class="answer">
+                            <p>var:  scoped outside of the block where it is declared in.<br>
+                            let: scoped inside only  of the block where it is declared.<br>
+                            const:  it doesn't actually mention const scope.</p>
                         </div>
                     </div>
                     <div class="question" id="question-26">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">How do you declare an enum array in typescript such that each element is automatically assigned a value?</p>
+                        <p style="display: inline-block">Ch 16:04:20:  How do you declare an enum array in typescript such that each element is automatically assigned a value?</p>
                         <div class="answer">
                             <p><code>enum Color { Red, Green, Blue, Purple }</code><br>
                             The values of Red, Green, etc. are automatically assigned the index of the element as though it were an array where Red = 0; Green = 1; etc.</p>
@@ -294,7 +307,7 @@
                     <div class="question" id="question-27">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">How do you assign specific values to an enum in typescript?</p>
+                        <p style="display: inline-block">Ch 15:05:39: How do you assign specific values to an enum in typescript?</p>
                         <div class="answer">
                             <p><code> enum Color { Red = 'Red', Green = 'Green' };</code><br>
                             <code> let backgroundColor = Color.Red // "Red" </code></p>
@@ -303,15 +316,15 @@
                     <div class="question" id="question-28">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">In typescript, what is "type assertions"</p>
+                        <p style="display: inline-block">Ch 17:01:49 In typescript, what is "type assertions"</p>
                         <div class="answer">
-                            <p>The same as type casting.  i.e.:<br>
+                            <p>The same as type casting however we use angle brackets to assert the type: &lt;string&gt;  i.e.:<br>
                             <code> let message;<br>
                                 message = 'abc';<br>
                                 let endsWithC = (&lt;string&gt;message).endsWith('c');
                             </code><br>
                         or <br>
-                    <code>let alternativeWay = (message as string).endsWith('c');</code></p>
+                    <code>let alternativeWay = (message as string).endsWith('c');</code> At the very end of the chapter:  Note - with this alternative way we are not changing the type of the variable at runtime, just helping intellisense understand what type of variable it is.</p>
                         </div>
                     </div>
                     <div class="question" id="question-29">
@@ -326,22 +339,30 @@
                             </ol>
                         </div>
                     </div>
+                    <div class="question" id="question-29-a">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">Ch 17:03:10: What is an interface?</p>
+                        <div class="answer">
+                            <p>An interface defines the shape of an object.  This helps intellisense help you understand the form of parameters and assignments.</p>
+                        </div>
+                    </div>
                     <div class="question" id="question-30">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">What is inline annotation?</p>
+                        <p style="display: inline-block">Ch 19:02:01: What is inline annotation?</p>
                         <div class="answer">
                             <p>Where you define the type of the variable inline.  i.e.:<br>
-                            <code>const drawPoint = (point: { x: number, y: number} ) { //... }</code></p>
+                            <code>const drawPoint = (point: { x: number, y: number} ) { //... }</code>
                         </div>
                     </div>
                     <div class="question" id="question-31">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">What is a better approach to inline annotation if you use this concept in multiple places?</p>
+                        <p style="display: inline-block">Ch 19:02:33: What is a better approach to inline annotation if you use this concept in multiple places?</p>
                         <div class="answer">
                             <p>Define an interface.  i.e.: <br>
-                            <code>interfact Point {<br>
+                            <code>interface Point {<br>
                                 x: number,
                                 y: number
                             }
@@ -352,88 +373,245 @@
                     <div class="question" id="question-32">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">What is the style convention on interface names?</p>
+                        <p style="display: inline-block">Ch 17:03:35:What is the naming convention on interface names?</p>
                         <div class="answer">
                             <p>Always use the first letter as a capital:  i.e.: <code>Point</code></p>
                         </div>
                     </div>
-                    <div class="question" id="question-33">
+                    <div class="question" id="question-32a">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">What is an object?</p>
+                        <p style="display: inline-block">Ch 20:02:29: Can you have a function inside an interface?</p>
+                        <div class="answer">
+                            <p>Yes! <pre>
+                                <code>
+interface Point {
+    x: number,
+    y: number,
+    draw: () => void;
+}
+                                </code></pre><br>
+                            You do not have to pass in x and y to the draw function because it is already included in the Point interface block.</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-32b">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">Ch 20:02:49: Can you implement a function inside an interface?</p>
+                        <div class="answer">
+                            <p>No! <pre>
+                                <code>
+interface Point {
+    x: number,
+    y: number,
+    draw: () => void;
+}
+                                </code></pre><br>
+                            You can only define the shape of the function.  You don't need to define the shape with input vars because that's already included in the interface block.  You need to define the implementation elsewhere.</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-32c">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">Ch 20:02:54: The following code applies the SRP (single responsibility principle) but violates what other principle?<br>
+                            <pre>
+                                <code>
+interface Point {
+    x: number,
+    y: number,
+    draw: () => void;
+}
+
+let drawPoint = (point: Point) => { ... };
+let getDistance = (pointA: Point, pointB: Point) => { ... }
+                                </code></pre><br></p>
+                        <div class="answer">
+                            <p>Cohesion principle.  To adhere to the cohesion principle these functions should all be encapsulated in a class.  Then we have both SRP and Cohesion principles.  Additionally, Modules have cohesion principles.  Modules should have one, and only one responsibility.<p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-32d">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">Ch 20:04:46 How do you define a class method?</p>
+                        <div class="answer">
+                            <p>Just the name of the method and any EXTERNAL parameters.  Methods can use any internally set fields. i.e.:<br>
+                                <pre><code>
+class Point {
+    x: number;
+    y: number;
+
+    draw() { uses x and y within the method.  Note, no function or arrow function declarations.  This is a method within a class.}
+}
+                                </code></pre><p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-33a">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">Ch 21:03:54:  What is an instance of an object?</p>
                         <div class="answer">
                             <p>An object is an instance of a class.  i.e.: <br>
                             <code>class Point {
                                 x: number;
                                 y: number;
 
-                                draw() {
-                                    console.log('X: ' + this.x + ', Y: ' + this.y);
-                                }
+                                draw() => void;
 
                                 getDistance(another: Point) {
                                     // ...
                                 }
                             }
 
-                            let point = new Point();
+                            let point = new Point(); // point is now the new instance of the Point object.
                             
                             </code><br>
-                            <strong>point </strong> is an instance of the object Point.  </p>
+                           </p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-33b">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">Ch 21:01:40: What is the difference between <code>let point:Point; and let point = new Point()</code></p>
+                        <div class="answer">
+                            <p><code>let point:Point;</code> has not allocated any space in memory for the custom "type" -- our class.</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-33c">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">Ch 21:01:40:What will happen in the following code: <code>let point:Point; and let point = new Point()</code></p>
+                        <div class="answer">
+                            <p>
+                                <pre><code>
+class Point {
+    x: number;
+    y: number;
+    
+    draw() => console.log('X: ', this.x,  'Y:', this.y)
+    
+    getDistance(another: Point) {
+        // ...
+    }
+}
+    
+let point:Point;
+                                                              
+                                </code></pre><br>
+                                <br>
+                                You will get a <code>TypeError: Cannot read property of 'draw' of undefined.</code> because you haven't allocated any memory for the object.  You need to define <code> point </code> as 
+                                <code>let point = new Point();</code>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-33d">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">Ch 22:02:49:  How do you make parameters in the constructor optional?</p>
+                        <div class="answer">
+                            <p>The same way you make them optional in typescript.  With a "?". <br>
+                                <code>constructor (x?: number, y?: number)</code></p>
                         </div>
                     </div>
                     <div class="question" id="question-34">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">What is an access modifier?</p>
+                        <p style="display: inline-block">Ch 23:00:49: What is an access modifier?</p>
                         <div class="answer">
                             <p>A keyword to control the use of the field, property or function.  i.e.:<br>
-                                <code>class Point {<br>
-                                    private x: number;<br>
-                                    private y: number;<br>
-    <br>
-                                    constructor(x: number, y: number) {<br>
-                                        this.x = x;<br>
-                                        this.y = y;<br>
-                                    }<br>
-        <br>
-                                    public draw() {<br>
-                                        console.log('X: ' + this.x + ', Y: ' + this.y);<br>
-                                    }<br><br>
-        
-                                    getDistance(another: Point) {<br>
-                                        // ...<br>
-                                    }<br>
-                                }<br><br>
-        
-                                let point = new Point();<br>
+                                <pre><code>
+class Point {
+    private x: number;
+    private y: number;
+    
+    constructor(x: number, y: number) {
+        this.x = x;
+        this.y = y;
+    
+      
+    public draw() {
+        console.log('X: ' + this.x + ', Y: ' + this.y);
+    }
+    
+    getDistance(another: Point) {
+        // ...
+    }
+}
+     
+let point = new Point();
                                 
-                                </code><br>  
+                                </code></pre>  
                                 Now you cannot change the x and y coordinates of a point.  Calling <code>point.x  = 4</code> will yield an error in your IDE.
     </p>
-                        </div>
-                    </div>
-                    <div class="question" id="question-35">
-                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
-                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">How do you run a static website locally?</p>
-                        <div class="answer">
-                            <p><code>npm install http-server -g</code><br>
-                            <code>http-server</code></p>
                         </div>
                     </div>
                     <div class="question" id="question-36">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">Rather than declaring a private or public member var (field) in the class definition, can you declare them within the constructor only?</p>
+                        <p style="display: inline-block">Ch 24:00:27:  What are two ways to declare a field public, private, or protected?</p>
                     <div class="answer">
-                            <p>Yes.  Simply precede the constructor var with public or private access modifiers</p>
+                            <p>Either declare the field with the access modifier or precede the constructor param with public or private access modifiers</p>
+                            <pre><code>
+ class Point {
+    private z: number;
+
+    constructor(private x:number, private y:number, z:number) {
+        // variables x and y are automatically declared; No need to add them to
+        // field declarations as in z above.
+        this.z = z;
+    }
+}
+                            </code></pre>
+                        </div>
+                    </div>
+                    <div class="question" id="question-36-a">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">Ch 23:02:45:  If no access modifier is specified, what is the default access?</p>
+                    <div class="answer">
+                            <p>public</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-36-b">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">Ch 25:00:00:  What is the difference between fields and properties?</p>
+                    <div class="answer">
+                            <p>Most people confuse the two, calling properties fields.  In actuality, a field is declare like a var with or without access modifiers.  A property is the fence between public access of the field value.  For instance:<br>
+                            A field:<br>
+                            <code>private x:number;</code>
+                            A property:<br>
+                            <pre><code>
+    get x() {
+        return this._x  //notice you've renamed the field to _x to make the getter or setter function more intuitive
+    }
+                            </code></pre>
+                        </p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-36-c">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">Ch 25:05:12:  How do you  call the getter method?</p>
+                    <div class="answer">
+                            <p>
+                            <code>let x = point.x;</code>
+                        </p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-36-d">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">Ch 25:04:59:  How do you  call the setter method?</p>
+                    <div class="answer">
+                            <p>
+                            <code>point.x = 10;</code>
+                        </p>
                         </div>
                     </div>
                     <div class="question" id="question-37">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">If I declare a private field, whether in a constructor or in the class, and I still want to set that field if it meets certain requirements, or retrieve that field's value, how would I do this? </p>
+                        <p style="display: inline-block">Ch25:04:59: If I declare a private field, whether in a constructor or in the class, and I still want to set that field if it meets certain requirements, or retrieve that field's value, how would I do this? </p>
                         <div class="answer">
                             <p>Use setters and getters:  <code><br>
                             get x() {<br>
@@ -455,92 +633,124 @@
         CORRECT:  point.x = 10;<br></p>
                         </div>
                     </div>
-                    <div class="question" id="question-38">
-                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
-                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
-                        <div class="answer">
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="question" id="question-39">
-                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
-                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
-                        <div class="answer">
-                            <p></p>
-                        </div>
-                    </div>
                     <div class="question" id="question-40">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">Ch26:01:02: What is a typescript module?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>Typescript modules differ from Angular's definition of modules.  From typescript's point of view, any .ts file that has exported classes, functions, single variables, or objects is a module.</p>
+                            <img src="../../assets/images/module-flow-chart.jpg" alt="Modules using modules" />
                         </div>
                     </div>
+                </div>
+                <div style="display:flex">
+                    <h2>Essentials: Section 3: Angular Fundamentals</h2>
+                   
+                     <button class="sectionButton" id="fundamentals" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
+                </div>
+                <div class='section' id="angular-fundamentals" style="display: inline-block">
                     <div class="question" id="question-41">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">Ch31:00:29: What comprises an angular component?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>Data, HTML Template, Logic</p>
                         </div>
                     </div>
                     <div class="question" id="question-42">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">Ch31:01:55: Let's say there's only one component in an angular application.  What must its name be?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>App component</p>
                         </div>
                     </div>
                     <div class="question" id="question-43">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">Ch31:02:05:  What is an angular module?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>A module is a container for a group of related components.  Every angular app has at least one module, called app module.</p>
                         </div>
                     </div>
                     <div class="question" id="question-44">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">Ch32:00:19: What are the steps for creating a component?</p>
                         <div class="answer">
-                            <p></p>
+                            <p><ul>
+                                <li> <strong>Create</strong> a component.</li>
+                                <li> <strong>Register</strong> the component in a module.</li>
+                                <li> Add an element in an <strong>HTML markup</strong></li>
+                            </ul></p>
                         </div>
                     </div>
                     <div class="question" id="question-45">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">Ch32:01:07: What is the naming convention for a component?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>&lt;name&gt;.component.ts - i.e.: "courses-math.component.ts"</p>
                         </div>
                     </div>
                     <div class="question" id="question-46">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">Ch32:02:40: You have the following class.  How do you convert it to an angular component?<br>
+                        <pre><code>
+export class CoursesComponent {
+
+}
+                        </code></pre></p>
                         <div class="answer">
-                            <p></p>
+                            <p><ul>
+                                <li><code>import { Component } from '@angular/core';</code></li>
+                                <li>Add the decorator, called like a function, specifying how this component will be called and rendered: <code>@Component()</code></li>
+                            </ul>
+                            <pre><code>
+import { Component } from '@angular/core';
+
+@Component({
+    selector: 'courses',  // to be used wherever &lt;courses&gt; is used in the markup;
+    template: '<h2>Courses</h2>'
+})
+export class CoursesComponent {
+}
+                            </code></pre>
+                        </p>
                         </div>
                     </div>
                     <div class="question" id="question-47">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">What are two ways to create markup for your angular component?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>1.  Use an external template, specifying it in your @Component:<br>
+                                <pre><code>
+@Component({
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
+
+})
+                                </code></pre><br>
+                                2.  Place it in the template key of your @Component:<br>
+                                <pre><code>
+@Component({
+    selector:'app-root',
+    template:  '&lt;h2&gt;Hello!&lt;/h2&gt;'
+})
+                                </code></pre>
+                            
+                            </p>
                         </div>
                     </div>
                     <div class="question" id="question-48">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">What is the command line for angular to create a component and all of its related files; adding the component reference to the module as well?</p>
                         <div class="answer">
-                            <p></p>
+                            <p><code>$ ng g c mycomponent // g = generate; c = component;</code></p>
                         </div>
                     </div>
                     <div class="question" id="question-49">
@@ -554,175 +764,245 @@
                     <div class="question" id="question-50">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">What files does <code>$ ng g c mycomponent</code> create?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>src/app/course/mycomponent.component.css<br>
+                                src/app/course/mycomponent.html<br>
+                                src/app/course/mycomponent.spec.ts<br><br>
+                                ... then it updates src/app/app.module.ts
+                                
+                               <p>Question:  What if you're in a complex tree and your module is up two levels, where app module is up four levels?  What does it update ... app.module.ts or the module up next.</p>
                         </div>
                     </div>
                     <div class="question" id="question-51">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">What does {{ }} do?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>It renders content dynamically.i.e.: <br>
+                                <pre><code>
+@Component({
+        selector: 'courses',
+        template: '<h2>{{ title }} </h2>'
+})
+export class CoursesComponent {
+        title = "List of courses";
+}</code></pre></p>
                         </div>
                     </div>
                     <div class="question" id="question-52">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">When a variable that is used in the component file updates, when does the component update?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>Immediately.</p>
                         </div>
                     </div>
                     <div class="question" id="question-53">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">How do you run flask outside of the pipenv shell?</p>
+                        <p style="display: inline-block">In the template object, when we want to expand the markup over multiple lines, can we just but a crlf within the ' '?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>No.  You need to change ' ' to ` `.  Then your code can be written more clearly spanning multiple lines.</p>
                         </div>
                     </div>
                     <div class="question" id="question-54">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">What is a directive used for?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>To manipulate the dom.  i.e.:<br>
+                                <pre><code>
+&lt;ul&gt;
+        &lt;li *ngFor=""&gt;&lt;/li&gt;
+&lt;ul&gt;&lt;/p&gt;
+                                </code></pre>
                         </div>
                     </div>
                     <div class="question" id="question-55">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">Why do you prefix a directive with an asterick.  i.e.:  &lt;li *ngFor=""&gt; ...</p>
                         <div class="answer">
-                            <p></p>
+                            <p>This is used whenever you're going to modify the contents of the DOM.</p>
                         </div>
                     </div>
                     <div class="question" id="question-56">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">Write an ngFor loop for li's that are going to modify the DOM similar to a for each loop:</p>
                         <div class="answer">
-                            <p></p>
+                            <p><code>&lt;li *ngFor="let course of courses"&gt;&lt;/li&gt;. // here courses is an array of courses.</code></p>
                         </div>
                     </div>
                     <div class="question" id="question-57">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">Within a template, how do you display the value of a variable defined within a component?</p>
                         <div class="answer">
-                            <p></p>
+                            <p><code>{{ courseName }}</code>:  Double braces;</p>
                         </div>
                     </div>
                     <div class="question" id="question-58">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">Do you need any decorator with your service class decoration, like you need with a component?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>No.  A service is just a typescript class.<br>
+
+                                <pre><code>
+export class CoursesService {
+        getCourses() {
+            return [ "math", "english", "civics" ]
+    }
+}
+                                </code></pre></p>
                         </div>
                     </div>
                     <div class="question" id="question-59">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">What is the convention for naming a service file?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>courses.service.ts</p>
                         </div>
                     </div>
                     <div class="question" id="question-60">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">How would you use a service in your code?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>1.  import the service<br>
+                                2.  Write a constructor for your component.  Inside the constructor, declare the service object.<br><br>
+                                
+                                i.e.:<br>
+                                <pre><code>
+export class CoursesComponent {
+        title = "List of courses";
+
+    constructor () {
+            let service = new CoursesService(); // initialize the service
+            this.courses = service.getCourses();  // set our field to the value returned from the service.
+    }
+}</code></pre></p>
                         </div>
                     </div>
                     <div class="question" id="question-61">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">Why is creating a new instance of CoursesService inside the CoursesComponent a bad pattern?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>Because that way you tightly couple the CoursesService to the CoursesComponent.  If you change the CoursesService constructor to take parameters you need to go back to each place you instanciated the CoursesService and modify the argument list.</p>
                         </div>
                     </div>
                     <div class="question" id="question-62">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">How do you decouple the instantiation of the service inside the constructor of your component from the component?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>Use dependency injection.</p>
                         </div>
                     </div>
                     <div class="question" id="question-63">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">When you use dependency injection, what are the two places you need to update?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>1.  In the constructor of the component where you want to use the dependency:<br>
+                                <code>constructor (service:CoursesService) { ... }; </code><br><br>
+                          2.  In the module where the component is registered, you must update the module to tell Angular that the components in this module have dependencies:<br>
+                               <code>@NgModule({ ... providers: [CoursesService], ...})</code></p>
                         </div>
                     </div>
                     <div class="question" id="question-64">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">What happens when you forget to register a service in the providers array of the module?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>ERROR Error: No provider for CoursesService!<br><br>
+
+                                In addition, you won't see the courses in the browser.</p>
                         </div>
                     </div>
                     <div class="question" id="question-65">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">Let's say within your module you have hundreds of components.  What happens in the provider's array with the service?  Do you have one, or many of the providers instantiated?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>No.  This is a Singleton pattern.  One instance of the provider will be instantiated for ALL of the components.</p>
                         </div>
                     </div>
                     <div class="question" id="question-66">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">Ch 38:  How do you create a service automatically in angular cli?
+                        </p>
                         <div class="answer">
-                            <p></p>
+                            <p><code>$ ng g s &lt;serviceName&gt;  // g for generate; s for service;</code></p>
                         </div>
                     </div>
                     <div class="question" id="question-67">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">When you run <code>ng g s &lt;serviceName&gt;</code> how many files are automatically generated, and what are they called?</p>
                         <div class="answer">
-                            <p></p>
+                            <p><ol><li>src/app/email.service.spec.ts
+                                </li><li>src/app/email.service.ts</li></ol></p>
                     </div>
                     </div>
                     <div class="question" id="question-68">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">When do you need to use <code>@Injectable()</code> decorator in a service?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>Only when that service takes arguments.</p>
                         </div>
                     </div>
+                </div>
+                 <!-- LAST QUESTION IN ANGULAR FUNDAMENTALS -->
+                 <div style="display:flex">
+                    <h2>Essentials: Section 4: Displaying Data and Handling Events</h2>
+                     <button class="sectionButton" id="displaying-data" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
+                </div>
+                <div class='section' id="displaying-data" style="display: inline-block">
+                    <div class="question" id="question-41">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block">Ch31:00:29: What comprises an angular component?</p>
+                        <div class="answer">
+                            <p>Data, HTML Template, Logic</p>
+                        </div>
+                    </div>
+
                     <div class="question" id="question-69">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">When would you want to use property binding over interpolation?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>Basically interpolation and property binding do the same thing.  However, interpolation cannot change any property other than the <code>innerHTML</code>, <code>outerHTML</code>, <code>innerText</code> or <code>outerText</code>
+
+                                <br>With property binding you can bind any html property.  i.e. in pseudo code:<br>
+                                
+                                <code>if (doNotDisplay) then &lt;h2 [display]="hidden"&gt;HELLO THERE!&lt;/h2&lt;</code><br><br>
+                                
+                                Also with property binding you can use complex operations to generate displays.<br><br>
+                                
+                                Ref:
+                                <img src="../../assets/images/propertyBindingVsInterpolation" alt="Comparison table"/></p>
                         </div>
                     </div>
                     <div class="question" id="question-70">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block"></p>
+                        <p style="display: inline-block">If you have either a property binding or an interpolation string like {{ title }} where title=someDynamicString; with the DOM update as the dynamic string or property binding changes?</p>
                         <div class="answer">
-                            <p></p>
+                            <p>No.  PropertyBindings and Interpolation strings are called 1-way bindings because they bind to the DOM, but the DOM does not communicate back if their values change.</p>
                         </div>
                     </div>
                     <div class="question" id="question-71">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">What does the HTML markup look like for a table?</p>
                         <div class="answer">
                             <p>ANSWER</p>
                         </div>
@@ -730,173 +1010,257 @@
                     <div class="question" id="question-72">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">How do you draw a table in HTML?</p>
                         <div class="answer">
-                            <p>ANSWER</p>
+                            <p><pre><code>
+&lt; table &gt;
+    &lt; tr &gt;
+        &lt; td  [colspan]="colSpan" &gt;
+    &lt;/tr &gt;
+ &lt; /table &gt;</code></pre></p>
                         </div>
                     </div>
                     <div class="question" id="question-73">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">With property binding, does every DOM object have the same objects as HTML properties?</p>
                         <div class="answer">
-                            <p>ANSWER</p>
+                            <p>No!  For example, in the DOM, <code>&lt; h1 [textContent]="title" &gt;&lt; /h1 &gt;</code> the textContent property does not exist in HTML.</p>
                         </div>
                     </div>
                     <div class="question" id="question-74">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">How do you tell what is represented in the DOM?</p>
                         <div class="answer">
-                            <p>ANSWER</p>
-                        </div>
+                            <p>You need to know the object name in the DOM first.  For instance, "style". 
+                                <ol>
+                                    <li>Anything shown in the elements tab of dev tools is what is in the dom.  To see the properties of the element, go to the console tab and use something like getElementById, then inspect the element.</li> 
+                                    <li>0:41:  Google "dom style properties" or the html attribute name to see the properties available to that attribute in the DOM.</li> </p>
+                                </ol>
+                            </div>
                     </div>
                     <div class="question" id="question-75">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">How do you set an attribute in the DOM if it normally doesn't exist.  For example, 'colSpan', which exists on an HTML element, but it does not exist in the DOM?</p>
                         <div class="answer">
-                            <p>ANSWER</p>
+                            <p><code>&lt;td [attr.colspan]="colSpan"&gt;</code> : Now you've added an attribute to the DOM which didn't exist there before.</p>
                         </div>
                     </div>
                     <div class="question" id="question-76">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">How do you install bootstrap css stylings to your angular project?</p>
                         <div class="answer">
-                            <p>ANSWER</p>
+                            <ol>
+                                <li><code> $ npm install bootstrap --save </code>
+                                    The first thing it does is downloads bootstrap and stores in your node_modules folder, and the --save adds bootstrap as a dependency in your package.json file.
+                                    </li>
+                                <li>
+                                    Go into your style.css folder and import bootstrap from node_modules:
+                                      <code>@import "bootstrap/dist/css/bootstrap.css"</code>
+                                </li>
+                            </ol> 
+                                
                         </div>
                     </div>
                     <div class="question" id="question-77">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">How do you add a class binding which would be a dynamic property binding to your html?
+                        </p>
                         <div class="answer">
-                            <p>ANSWER</p>
+                            <p>Use the [] property binding:  <code>&lt; button class="btn btn-primary" [class.active]="isActive"&gt;</code></p>
                         </div>
                     </div>
                     <div class="question" id="question-78">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">How do you find all of the DOM style object properties?</p>
                         <div class="answer">
-                            <p>ANSWER</p>
+                            <p>Google "dom style object properties".  This would also give you a hint at what properties are available on the DOM if you get a compilation error.</p>
                         </div>
                     </div>
                     <div class="question" id="question-79">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">How do you set the DOM style object properties in angular?</p>
                         <div class="answer">
-                            <p>ANSWER</p>
+                            <p>Rather than "style="background-color: black"", you need to use attribute binding for the DOM:<br>
+                                <code>&lt;button [style.backgroundColor]="isActive ? 'blue' : 'white':</code></p>
                         </div>
                     </div>
                     <div class="question" id="question-80">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">What is wrong with this syntax in your template markup?<br>
+                            <code>&lt;button style="backgroundColor: blue" &gt;&lt;/button&gt;</code>
+                        </p>
                         <div class="answer">
-                            <p>ANSWER</p>
+                            <p>Here you're setting a DOM property.  You need to do this with property binding:<br>
+                                <code>&lt;button [style.backgroundColor]="isActive ? 'blue' : 'white'"&gt;&lt;/button&gt;</code></p>
                         </div>
                     </div>
                     <div class="question" id="question-81">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">How do you add an event to an element in the DOM?</p>
                         <div class="answer">
-                            <p>ANSWER</p>
+                            <p>Almost identically to the way you handle it in HTML.<br>
+                                &lt;button (click)="onSave()"&gt;Save&lt;/button&gt;<br><br>
+                                
+                                Then, in your class, you write a function called "onSave".</p>
                         </div>
                     </div>
                     <div class="question" id="question-82">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">Let's say you want to get a handle on the click event on your button.  How would you do this?</p>
                         <div class="answer">
-                            <p>ANSWER</p>
+                            <p>Pass in to the click call $event:<br>
+                                &lt;button (click)="onSave($event)"&gt;Save&lt;/button&gt;<br><br>
+                                
+                                Then in your class, you write your function "<code>onSave($event)</code>"</p>
                         </div>
                     </div>
                     <div class="question" id="question-83">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">If you do not have stopPropagation on the click event on your button, and you have a &lt;div&gt; parent who also has a click event, what happens?</p>
                         <div class="answer">
-                            <p>ANSWER</p>
+                            <p>If you have a click event on any parent element, the click event will bubble up to all click events until the event has bubbled up to the top.  This is why stopPropagation is so important to use.</p>
                         </div>
                     </div>
                     <div class="question" id="question-84">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">Describe what happens to the following click event:</p>
                         <div class="answer">
-                            <p>ANSWER</p>
+                            <p><pre><code>
+&lt;div click="() => console.log(`div was clicked`)"; /&gt;
+&lt;button click="() => console.log(`button was clicked`)"; &gt; Click Here &lt; /button&gt;
+                        </pre></code>
+                        
+                        You will get two console.logs:<br>
+                             1.  button was clicked<br>
+                             2.  div was clicked</p>
                         </div>
                     </div>
                     <div class="question" id="question-85">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">How do you stop event propagation?</p>
                         <div class="answer">
-                            <p>ANSWER</p>
+                            <p>1.  pass the $event into the event handler call.<br>
+                                2.  within the event handler, use the $event to stop propagation: <br> <code>$event.stopPropagation();</code></p>
                         </div>
                     </div>
                     <div class="question" id="question-86">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">How would you improve the following code in angular?<br><br>
+                            <pre><code>
+&lt;input (keyup)="onKeyUp($event)" /&gt;
+
+onKeyUp($event) {
+     if ($event.keyCode === 13) console.log("ENTER was pressed.");
+}
+</code></pre></p>
                         <div class="answer">
-                            <p>ANSWER</p>
+                            <p><pre><code>
+&lt;input (keyup.enter)="onKeyUp()" /&gt;
+
+onKeyUp() {
+    console.log("ENTER was pressed.");
+}
+                                </code></pre></p>
                         </div>
                     </div>
                     <div class="question" id="question-87">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">How do you use variables in template, so you can access them back in your component? </p>
                         <div class="answer">
-                            <p>ANSWER</p>
-                        </div>
+                            <p>Within the element, declare the variable <code>#email</code>, then pass that variable back to your component on the event binding: <br>
+                                <pre><code>
+&lt;input #email (keyup.enter)="onKeyUp(email.value)" /&gt;
+                                
+onKeyUp(email) {
+    console.log(email); // mary@marylark.com
+ }</code></pre></p>
+                       </div>
                     </div>
                     <div class="question" id="question-88">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">Change the following code from procedural programming to object oriented programming.  Hint: you want the class to set the value of email.
+<pre><code>
+&lt;input #email (keyup.enter)="onKeyUp()" /&gt;
+
+onKeyUp(email) {
+    console.log(email); // mary@marylark.com
+ }
+                            </code></pre>
+                            </p>
                         <div class="answer">
-                            <p>ANSWER</p>
+                            <p><pre><code>
+ &lt;input (keyup.enter)="onKeyUp()" /&gt;
+                
+export class ComponentClass() {
+    email = "mary@marylark.com"
+
+    onKeyUp() {
+        console.log(this.email); // mary@marylark.com
+    }
+}</code></pre></p>
                         </div>
                     </div>
                     <div class="question" id="question-89">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">What is the following and what is it used for? <br><br>
+                            <code>[()]</code>
+                            </p>
                         <div class="answer">
-                            <p>ANSWER</p>
+                            <p>Banana in a box : used for two way bindings within templates.</p>
                         </div>
                     </div>
                     <div class="question" id="question-90">
                         <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                         <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                        <p style="display: inline-block">QUESTION</p>
+                        <p style="display: inline-block">What is missing in the banana in a box notation?  <code>[()]</code></p>
                         <div class="answer">
-                            <p>ANSWER</p>
+                            <p>1.  You haven't bound it to ngModel,<br>
+                                2.  You haven't made the variable assignment to the variable declared in the component.<br>
+                                
+                                <code>[(ngModel)]="email"</code><br>
+                                
+                                3.  You haven't imported ngModel into the main apps.module.ts file in the imports: [] array.<br>
+                                      a.  import { FormsModule } from '@angular/Forms';<br>
+                                      b.  imports: [<br>
+                                                 BrowserModule,<br>
+                                                 FormsModule<br>
+                                           ]<br><br>
+                                
+                                NOTE:  What I don't know is if this really belongs in the apps.module, or the module just above this component.</p>
+                        </div>
+                    </div>
+                    <div class="question" id="question-">
+                        <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                        <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                        <p style="display: inline-block"></p>
+                        <div class="answer">
+                            <p></p>
                         </div>
                     </div>
                 </div>
-                <!-- END Essentials: Typescript & OOP SECTION -->
-
-
                 <!-- BEGIN Essentials: Displaying data and handling events -->
-                 <div style="display:flex">
-                    <h2>Essentials: Displaying data and handling events</h2>
-                   
-                    <button class="sectionButton" id="dataBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
-                </div>
-                <div class='section' id="displaying-data-and-handling-events" style="display:inline-block">
-                    <p>INSERT QUESTIONS HERE...</p>
-                </div>
-                <!-- END Essentials: Displaying data and handling events  -->
 
-              <!-- BEGIN Essentials: Components -->
+
+              <!-- BEGIN Essentials: Reusable Components -->
               <div style="display:flex">
-                <h2>Essentials: Components</h2>
+                <h2>Essentials: Section 5: Building Re-usable Components</h2>
                
                 <button class="sectionButton" id="componentsBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
             </div>
@@ -908,7 +1272,7 @@
 
               <!-- BEGIN Essentials: Directives -->
               <div style="display:flex">
-                <h2>Essentials: Directives</h2>
+                <h2>Essentials: Section 6: Directives</h2>
                
                 <button class="sectionButton" id="directivesBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
             </div>
@@ -920,7 +1284,7 @@
 
             <!-- BEGIN Essentials: Template-driven forms -->
             <div style="display:flex">
-                <h2>Essentials: Template-driven forms</h2>
+                <h2>Essentials: Section 7: Template-driven forms</h2>
                
                 <button class="sectionButton" id="formsBtn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
             </div>
@@ -931,7 +1295,7 @@
 
             <!-- BEGIN Essentials: Consuming HTTP services -->
             <div style="display:flex">
-                <h2>Essentials: Consuming HTTP services</h2>
+                <h2>Essentials: Section 9: Consuming HTTP services</h2>
                
                 <button class="sectionButton" id="httpBttn" style="height: fit-content; width: auto; margin-left: 20px; margin-top: 25px">HIDE</button>
             </div>
