@@ -2335,144 +2335,239 @@ Note:  If after studying I still don't understand the difference between ngModel
                 <div class="question" id="q7.7">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you add validation errors to an input class?
-                    </p>
+                    <p style="display: inline-block">How do you add validation errors to an input class?</p>
                     <div class="answer">
                         <ol>
                             <li>First, in the input element, use ngModel and assign the template name of the input element to ngModel. <br>
 <pre><code>&lt;input ngModel name="firstName" #firstName="ngModel" (change)="log(ngModel)" id="firstName" type="text" &gt;  &lt;/input&gt;
 </code></pre></li>
-                            <li>Create a div to house the validation errors:<br>
-<pre><code>&lt;div "alert alert-danger" *ngIf="!firstName.valid"&gt;First Name is not valid &lt;/div&gt;</code></pre></li>
+                            <li>Create divs to house specific validation errors:<br>
+<pre><code>&lt;div "alert alert-danger" *ngIf="!firstName.valid"&gt;First Name is not valid &lt;/div&gt;</code></pre><br>
+<pre><code>&lt;div "alert alert-danger" *ngIf="firstName.length &lt; 3"&gt;First Name must be more than 3 characters. &lt;/div&gt;</code></pre></li>
                         </ol>
                     </div>
                 </div>
                 <div class="question" id="q7.8">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How do you make an input field required and display the validation error if the field is left blank on the form?</p>
                     <div class="answer">
-                        <p></p>
+                        <ol>
+                            <li>On the input element, place the required directive.<br>
+<code>&lt;input required ...&gt;</code></li>
+                            <li>Create a div under the input element with the validation specifications:
+                            <br><code>&lt;div class="alert alert-danger" *ngIf="!firstName.valid && firstName.touched"&gt;First Name is required.&lt;/div&gt;</code><br><br>This uses the template variable #firstName from the input element and the bootstrap classes "alert" and "alert-danger" along with ngModel's .valid and .touched attributes.</li>
+                        </ol>
                     </div>
                 </div>
                 <div class="question" id="q7.9">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How do you make an input field required and display the validation error if field is left blank? (Display ONLY if the input field is not valid AND the user has tabbed out of the input field.)
+                    </p>
                     <div class="answer">
-                        <p></p>
+                        <input required ... >
+<pre><code>&lt;div class="alert alert-danger" *ngIf="!firstName.valid && firstName.touched"&gt;First Name is required&lt;/div&gt;</code></pre><br>
+
+This uses the template variable #firstName and the bootstrap classes alert and alert-danger along with ngModel's .valid and .touched attributes.
+
                     </div>
                 </div>
                 <div class="question" id="q7.10">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How do you set the minimum and maximum length of an input field?
+                    </p>
                     <div class="answer">
-                        <p></p>
+                        <p>Set the minlength and maxlength directives on the inputfield:<br>
+<pre><code>&lt;input required minlength="3" maxlength="10" ngModel name="FirstName" #firstName .../>
+&lt;div class="alert alert-danger" *ngIf="firstName.touched && firstName.minlength > 2"&gt;First name must be at least 3 characters&lt;/div&gt;
+&lt;div class="alert alert-danger" *ngIf="firstName.touched && firstName.maxlength > 10"&gt;Last name must be less than 10 characters&lt;/div&gt; 
+</code></pre></p>
                     </div>
                 </div>
                 <div class="question" id="q7.11">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">If you have multiple validation errors, how do you write that for an input field?</p>
                     <div class="answer">
-                        <p></p>
+                        <p>Use seperate div for each validation error, with the reason for the error in the divs text. (See above)</p>
                     </div>
                 </div>
                 <div class="question" id="q7.12">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">You want the input box to gain focus when the user clicks on the label of the input box.  How would you do this?</p>
                     <div class="answer">
-                        <p></p>
+                        <p>Use the for directive with the id of the input element on the label.</p>
+<pre><code>&lt;form&gt;
+     &lt;label for="firstName"&gt;First Name&lt;/label&gt;
+     &lt;input id="firstName" type="text" class="form-control"&gt;&lt;/input&gt;
+&lt;/form&gt;
+</code></pre>
                     </div>
                 </div>
                 <div class="question" id="q7.13">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How do you associate an &lt;input&gt; element that is defined as an ngModel, with the name of the &lt;input&gt;?</p>
                     <div class="answer">
-                        <p></p>
+                        <p>Not with name="firstName", but with the template variable #firstName=ngModel.  Then in the ngIf, to validate the input field, you can use firstName.valid.</p>
                     </div>
                 </div>
                 <div class="question" id="q7.14">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">What is an alternate way of writing an error for the input field which is a required field:
+                        
+<pre><code> &lt;input required minlength="3" maxlength="10" pattern="banana" type="text" /&gt;
+// errors below
+&lt;div class="alert alert-danger" *ngIf="!firstName.touched && firstName.valid>&lt;/div&gt;
+    &lt;div *ngIf="firstName.minlength" &gt;First name must be a minimum length of 3 characters.&lt;/div&gt;
+    &lt;div *ngIf="firstName.required"&gt;First name is required&gt;&lt;/div &gt;
+&lt;/div&gt;</code></pre>
+</p>
                     <div class="answer">
-                        <p></p>
+                        <p>Use the errors from the templateName.errors object</p>
+<pre><code>&lt;div class="alert alert-danger" *ngIf="!firstName.touched && firstName.valid>&lt;/div&gt;
+    &lt;div *ngIf="firstName.errors.minlength" &gt;First name must be a minimum length of 3 characters.&lt;/div&gt;
+   &lt;div *ngIf="firstName.errors.required"&gt;First name is required&gt;&lt;/div &gt;
+&lt;/div&gt;</code></pre>
                     </div>
                 </div>
                 <div class="question" id="q7.15">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">What are the standard HTML errors?</p>
                     <div class="answer">
-                        <p></p>
+                        <ul>
+                            <li>minlength</li>
+                            <li>maxlength</li>
+                            <li>pattern="a reg expression or string"</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="question" id="q7.16">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How do you provide a dynamic error message?</p>
                     <div class="answer">
-                        <p></p>
+<pre><code>&lt;div ...&gt;Minimum chars required is {{ firstName.errors.minlength.required }} characters&lt;/div&gt;
+&lt;div ...&gt;Maximum chars required is {{ firstName.errors.maxlength.required }} characters&lt;/div&gt;</code></pre>
                     </div>
                 </div>
                 <div class="question" id="q7.17">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How would you add a solid red border to a form control input field when there's an error?</p>
                     <div class="answer">
-                        <p></p>
+                        <p>In your main .css file:</p>
+<pre><code>.form-control.ng-touched.ng-invalid {
+    border: 2px solid red;
+}</code></pre>
                     </div>
                 </div>
                 <div class="question" id="q7.18">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
-                    <div class="answer">
-                        <p></p>
+                    <p style="display: inline-block">You have used the ngModel directive on your input element to make this input an input control element, however what else do you need to add to make the input validate on the following critera?
+                        <ul>
+                            <li>The input is required</li>
+                            <li>The input must be a minimum of 3 characters</li>
+                            <li>The input must be a maximum of 10 characters</li>
+                            <li>the input must be "banana"</li>
+                            <li>the input needs to pass the value for the input firstName to a on change function that will only log the firstname.</li>
+                            <li>the input element must perform validation on the input.</li>
+                        </ul>
+                    </p>
+                    <div class="answer">Add the following directives to the input element:<br>
+                        <ul>
+                            <li>required : // to make sure there IS an input</li>
+                            <li>minlength="3" : setting the HTML minlength property</li>
+                            <li>maxlength="10" :setting the HTML maxlength property</li>
+                            <li>pattern="banana" : setting the HTML regexp property</li>
+                            <li>name="firstName" : to pass the value of your input to your on change function</li>
+                            <li>#firstName="ngModel" : so you have access to the .valid, .errors, etc. properties</li>
+                            <li>(change)="log(firstName) : using the DOM's on change event, pass the input string'"</li>
+                        </ul>
+                        
                     </div>
                 </div>
                 <div class="question" id="q7.19">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">You want to validate on the form.  There are steps to do this.  Name them:<f/p>
                     <div class="answer">
-                        <p></p>
+                        <ol>
+                            <li>On your control objects (input) you can check if the individual controls are valid using the template variable for the control.</li>
+                            <li>on your form element, you've created a template name #f. Check !f.errors </li>
+                        </ol>
                     </div>
                 </div>
                 <div class="question" id="q7.20">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">What is the vsCode shorthand for creating the following code:
+<pre><code>&lt; div class="radio"&gt;
+    &lt;label&gt;
+        &lt;input type="radio" name="contactMethod"&gt;
+    &lt;label&gt;
+&lt;/div&gt;
+</code></pre></p>
                     <div class="answer">
-                        <p></p>
+<pre><code>&lt;div class="radio"&gt;&lt;label for=""&gt;&lt;input type="radio" name="contactMethod"&gt;</code></pre><pre><code>&lt;div class="radio"&gt;&lt;label for=""&gt;&lt;input type="radio" name="contactMethod"&gt;</code></pre>
+
                     </div>
                 </div>
                 <div class="question" id="q7.21">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">You want the input box to gain focus when the user clicks on the label of the input box.  How would you do this?</p>
                     <div class="answer">
-                        <p></p>
+                        <p>There are two ways to do this:</p>
+                        <ol>
+                            <li>Surround your input element with the label element:<br>
+<pre><code>&lt;form&gt;
+    &lt;label&gt;First Name
+        &lt;input id="firstName" type="text" class="form-control"&gt;&lt;/input&gt;
+    &lt;/label&gt;
+&lt;/form&gt;</code></pre></li>
+                            <li>Name your label with the same name as the input:<br>
+<pre><code>&lt;form&gt;
+    &lt;label for="firstName"&gt;First Name&lt;/label&gt;
+    &lt;input id="firstName" type="text" class="form-control"&gt;&lt;/input&gt;
+&lt;/form&gt;</code></pre>
+
+                            </li>
+                        </ol>
                     </div>
                 </div>
                 <div class="question" id="q7.22">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How do you associate an &lt;input&gt; element that is defined as an ngModel, with the name of the &lt;input&gt;?</p>
                     <div class="answer">
-                        <p></p>
+                        <p>Not with name="firstName".<br><br>Use the template variable #firstName=ngModel.  Then in the ngIf, to validate the input field, you can use firstName.valid.<br><br>ngModel gives the template name #firstName all of the properties in an ngModel.</p>
                     </div>
                 </div>
                 <div class="question" id="q7.23">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">What is an alternate way of writing an error for the input field which is a required field:
+<pre><code>&lt;input id="firstName" required minlength="3" maxlength="10" pattern="banana" type="text" /&gt;
+
+// errors below
+&lt;div class="alert alert-danger" *ngIf="!firstName.touched && firstName.valid&gt;&lt;/div&gt;
+    &lt;div *ngIf="firstName.minlength" &gt;First name must be a minimum length of 3 characters.&lt;/div&gt;
+    &lt;div *ngIf="firstName.required"&gt;First name is required&gt;&lt;/div &gt;
+&lt;/div&gt;</code></pre>
                     <div class="answer">
-                        <p></p>
+                        <p>Use the errors object exposed through name of the input object: [check this out, was this ngModel?]
+<pre><code>&lt;div class="alert alert-danger" *ngIf="!firstName.touched && firstName.valid&gt;&lt;/div&gt;
+    &lt;div *ngIf="firstName.errors.minlength" &gt;First name must be a minimum length of 3 characters.&lt;/div&gt;
+   &lt;div *ngIf="firstName.errors.required"&gt;First name is required&gt;&lt;/div &gt;
+&lt;/div&gt;</code></pre>
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="q7.24">
@@ -2486,81 +2581,116 @@ Note:  If after studying I still don't understand the difference between ngModel
                 <div class="question" id="q7.25">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How do you provide a dynamic error message?
+                    </p>
                     <div class="answer">
-                        <p></p>
+                        <code>&lt;div ...&gt;Minimum characters required is {{ firstName.errors.minlength.required }} characters.&lt;/div&gt;</code></p>
                     </div>
                 </div>
                 <div class="question" id="q7.26">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
-                    <div class="answer">
-                        <p></p>
+                    <p style="display: inline-block">If angular finds an element of &lt;form&gt;, and it is not an ngNoForm, nor formGroup, angular is automatically going to apply what?</p>
+                    <div class="answer">If they are NOT ngNoForm, and not formGroup, then the selector is either:
+                        
+<pre><code>ngForm or
+    [ngForm]
+</code></pre>
                     </div>
                 </div>
                 <div class="question" id="q7.27">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How would you bind the ngSubmit event to our own event, passing in the values from the &lt;form&gt;?</p>
                     <div class="answer">
-                        <p></p>
+<pre><code>&lt;form #f="ngForm" (ngSubmit)="submit(f)"&gt;&lt;/form&gt;</code></pre>>
                     </div>
                 </div>
                 <div class="question" id="q7.28">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">Using ngModelGroup, how would you group together all input field validations and validation errors.  Say your contact form looks like:<br>
+                        firstName:<br>
+                        lastName: </p>
                     <div class="answer">
-                        <p></p>
+                        <ol>
+                            <li>ou will want a submit button.  This comes with ngForm.  You will want to bind your submit function with the ngSubmit event that is fired when the submit button is pressed:<br>
+<pre><code>&lt;form #f="ngForm" (ngSubmit)="submit(f)"&gt;&lt;/form&gt;</code></pre></li>
+                                <li>You will want to group your fields in your form, like firstName and lastName together in an ngModelGroup div and name it.<br>
+<pre><code>&lt;div ngModelGroup="contact" #contact="ngModelGroup"&gt;&lt;/div&gt;</code></pre></li>
+                            <li>Then fire off validations for the contact form:<br>
+<pre><code>&lt;div class="alert alert-danger" *ngIf="firstName.touched && ... mumble ...&gt;
+    &lt;div *ngIf="!contact.valid"&gt;
+        &lt;div *ngIf="!contact.firstName.touched"&gt;Must have a value for first name.&lt;/div&gt;
+        ...
+   &lt;/div&gt;</code></pre></li>
+                        </ol>
                     </div>
                 </div>
                 <div class="question" id="q7.29">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">What is the difference between ngForm and ngModelGroup?</p>
                     <div class="answer">
-                        <p></p>
+                        <p>ngForm would need a submit button and a submit event on the form, where ngModelGroup does would not. </p>
+                        <p>ngModelGroup would be used for complex groups where multiple ngModelGroups are used</p>
                     </div>
                 </div>
                 <div class="question" id="q7.30">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How would you disable the submit button on an ngForm?</p>
                     <div class="answer">
-                        <p></p>
+<pre><code>&lt;button class="btn btn-primary" [disabled]="!f.valid"&gt;Submit*lt;/div&gt; // binding the disabled HTML property to !f.valid<br><br></code></pre>>
+where #f is a template class applied to the &lt;form ngForm #f="ngForm" (ngSubmit)="submit(f)"&gt;
                     </div>
                 </div>
                 <div class="question" id="q7.31">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">Do you need to define your form as an ngFormGroup?</p>
                     <div class="answer">
-                        <p></p>
+                        <p>No - Angular will see the &lt;form&gt; element, and unless otherwise defined it will automatically create this as an ngFormGroup.</p>
                     </div>
                 </div>
                 <div class="question" id="q7.32">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How would you create the following in VSCode:<br>
+<pre><code>&lt;div class="checkbox"&gt;
+        &lt;label&gt;
+            &lt;input type="checkbox"&gt;Subscribe to mailing list&lt;/input&gt;
+        &lt;/label&gt;
+&lt;/div&gt;
+</code></pre></p>
                     <div class="answer">
-                        <p></p>
+                        <p>div.checkbox>label&gt;input[type='checkbox']</p>
                     </div>
                 </div>
                 <div class="question" id="q7.33">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">What do we need in addition <code>&lt;input type="checkbox"&gt;Subscribe to mailing list&lt;/&gt;</code> and why?</p>
                     <div class="answer">
-                        <p></p>
+                        <p><code>&lt;input type="checkbox" ngModel name="isSubscribed"&gt;Subscribe to mailing list&lt;/&gt;</code><br><br>
+
+                            Then Angular will create an instance of the form-control object for this input field.<br><br>
+                            
+                            You also need <code>name="isSubscribed"</code > to indicate the status of the checkbox.</p>
                     </div>
                 </div>
                 <div class="question" id="q7.34">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How would you see the values of your form in your ui?</p>
                     <div class="answer">
-                        <p></p>
+<pre><code>&lt;p&gt;
+            {{ f.value | json }}
+&lt;/p&gt;
+</code></pre>
+                       
+                       Adds to the bottom of your form:
+                       <code>{ "firstName": "", "comment": "asd", "isSubscribed": false }</code>
                     </div>
                 </div>
                 <div class="question" id="q7.35">
@@ -2574,35 +2704,134 @@ Note:  If after studying I still don't understand the difference between ngModel
                 <div class="question" id="q7.36">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">ngModel should be added to what?  And does one or more attributes need to be set?</p>
                     <div class="answer">
-                        <p></p>
+                        
+                        Your form-control object.  In this case, it would be <code>&lt;input type="checkbox" ngModel name="isSubscribed"&lt;Subscribe&lt;/input&gt;</code><br><br>          
+
+                        ngModel will take your input and apply form-control to it.  isSubscribed will be your boolean to store the value of ngModel.
                     </div>
                 </div>
                 <div class="question" id="q7.37">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">What is the shorthand in vscode for the following and what do we need to add to this to make it a form-control?
+<pre><code>&lt;div class="form-group"&gt;
+        &lt;label for="contactMethod"&gt;&lt;/label&gt;
+        &lt;select name="" id="contactMethod" class="form-control"&gt;
+&lt/div&gt;
+</code></pre></p>
                     <div class="answer">
-                        <p></p>
+                        <p><code>div.form-group&gt;label[for='contactMethod']+select[id='contactMethod'].form-control</code></p>
                     </div>
                 </div>
                 <div class="question" id="q7.38">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How to we modify vscode shorthand to make it our fully functioning form control:
+                    </p>
                     <div class="answer">
-                        <p></p>
-                    </div>
+                        <ol>
+                        <li>Add the label for the "Contact Method" inside the label element;</li>
+<li><code>ngModel name="contactMethod"</code> to the select element.</li>
+<li>The options for the select:
+     <li>In our component we would have some api call return an object with contact info:<br>
+<pre><code>contactMethods = [
+    { "id": 1,  "name": "Email" }
+    { "id": 2, "name": "Phone"}
+]
+</code></pre></li>
+      <li>Back in our template:<br>
+              <code>&lt;option *ngFor="let method of methods" [value]="method.id"&gt;{{ method.name }}&lt;/option&gt;</code>
+      </li></li></ol>       
+            </div>
                 </div>
                 <div class="question" id="q7.39">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How do we uncheck the first option in our select drop-down so no options are selected?</p>
                     <div class="answer">
-                        <p></p>
+Add the following above the &lt;option *ngFor ...&gt; element that just sets the value:<br>
+<pre><code>&lt;option value=""gt;&lt;/option;&gt;
+&lt;option *ngFor="let method of contactMethods" [value]="method.id"&gt;{{ method.name }} &lt;/option&gt;
+</code></pre>
                     </div>
                 </div>
+                <div class="question" id="q7.40">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you bind the value attribute to an object rather than a string?</p>
+                    <div class="answer">
+                        Use ngValue, which then allows you to bind it to a complex object:<br>
+<pre></code>&lt;option *ngFor="let method of contactMethods" <strong>[ngValue]="method"</strong>&gt;{{ method.name }} &lt;/option&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="question" id="q7.41">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How would you set your dropdown list to be able to select multiple values?
+                    </p>
+                    <div class="answer">
+                        <p><pre><code>&lt;select <strong>multiple</strong> ngModel name="contactMethod" id="contactMethod" class="form-control"&gt;</code></pre></p>
+                    </div>
+                </div>
+                <div class="question" id="q7.42">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What is the vsCode shorthand for creating the following code:<br>
+<pre><code>&lt; div class="radio"&gt;
+        &lt;label&gt;
+            &lt;input type="radio" name="contactMethod"&gt;
+        &lt;label&gt;
+&lt;/div&gt;
+</code></pre></p>
+                    <div class="answer">
+                        div.radio&gt;label&gt;input[type='radio'][name='contactMethod']
+                    </div>
+                </div>
+                <div class="question" id="q7.43">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What do we need to add to the previous code to complete it so it shows two radio buttons, one for Email and one radio button for Phone?
+                    </p>
+                    <div class="answer">
+                        The label element must include:
+                        <ul>
+                            <li>ngModel which will make it a FormControl element</li>
+                            <li>The value for the form control element:<br>
+<pre><code>&lt; div class="radio"&gt;
+    &lt;label&gt;
+            &lt;input type="radio" name="contactMethod" [value]="1"&gt;
+            Email
+    &lt;label&gt;
+
+    &lt;label&gt;
+    &lt;input type="radio" name="contactMethod" [value]="2"&gt;
+            Phone
+    &lt;label&gt;
+&lt;/div&gt;
+</code></pre>               </li>
+                        </ul>
+                 
+                
+                    </div>
+                </div>
+                <div class="question" id="q7.44">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do we render the form shown previously dynamically?</p>
+                    <div class="answer">
+                        <p>First we add <strong>*ngFor</strong> then we change value="1" to a property binding for [value]="method.id";</p>
+<pre><code>&lt; div *ngFor="let method of contactMethods" class="radio"&gt;
+    &lt;label&gt;
+        &lt;input type="radio" name="contactMethod" [value]=method.id /&gt;
+            Email
+    &lt;/label&gt;
+&lt;/div&gt;
+</code></pre>        
+                    </div>
+                </div>
+               
             </div>
             <!-- END Essentials: Template-driven forms  -->
 
