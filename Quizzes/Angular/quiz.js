@@ -1,69 +1,172 @@
 const gotIt = [];
 const hiddenSections = [];
 let isTablet = false;
+const SHOW_BUTTON = 'SHOW';
+const HIDE_BUTTON = 'HIDE';
 
-function reset() {
-    let hidden;
-    let hiddenSects;
+function setQuestionDisplay(hide, questionElt) {
+    if (questionElt) {
+        questionElt.style= hide ? "none" : "block";
+        questionElt.display = hide ? "none" : "block";
+    } else {
+        const elts = getElementByClassName("hideButtonClass");
+        for (let i = 0; i < elts?.length; i++) {
+            elts[i].display = hide ? "none" : "inline-block";
+            elts[i].style = hide ? "display: none" : "display: inline-block";
+        }
+    }
+}
 
-    console.log(`inside reset()`)
+function setSectionLabels(buttonLabel, sectionDiv) {
+    
+    if (sectionDiv) {
+            sectionDiv.previousElementSibling.firstElementChild.innerHTML = buttonLabel;
+            // sectionElt.innerText = hide ? "SHOW" : "HIDE";
+    } else {
+        const sectionElts = document.getElementsByClassName("section");
+
+        for (let i=0; i < sectionElts?.length; i++) {
+            button = sectionElts[i].previousElementSibling.firstElementChild; 
+            button.innerHTML = buttonLabel;
+            // sectionElts[i].innerText = hide ? "SHOW" : "HIDE";
+        }
+    }
+}
+
+function setSectionDisplay(hide, sectionElt) {
+
+    if (sectionElt) {
+        sectionElt.style= hide ? "display: none" : "display: inline-block";
+        sectionElt.display = hide ? "none" : "inline-block"
+    } else {
+        const sectionElts = getElementsByClassName("section");
+        for (let i = 0; i < sectionElts?.length; i++) {
+            sectionElts[i].style = hide ? "display:none" : "display : inline-block";
+            sectionElts[i].display = hide ? "none" : "inline-block";
+        }
+    }
+}
+
+function removeFromStorage(key, value) {
+    if (isTablet) {
+        origStorage = JSON.parse(sessionStorage.getItem(key));
+        newStorageArray = origStorage.filter(x => x !== value);
+        if (newStorageArray?.length > 0) {
+            sessionStorage.setItem(key, JSON.stringify(newStorageArray));
+        } else {
+            sessionStorage.removeItem(key);
+        }
+        
+    } else {
+        origStorage = JSON.parse(localStorage.getItem(key));
+        newStorageArray = origStorage?.filter(x => x !== value);
+        if (newStorageArray?.length > 0) {
+            localStorage.setItem(key, JSON.stringify(newStorageArray));
+        } else {
+            localStorage.removeItem(key);
+        }
+     } 
+}
+
+function clearStorage(key) {
+    if (isTablet) {
+        sessionStorage.removeItem(key);
+    } else {
+        localStorage.removeItem(key);
+    }
+}
+
+function addToStorage(key, value) {
+    let origStorage= undefined;
+    let newStorageArray=[];
 
     if (isTablet) {
-        hidden = sessionStorage.getItem("gotIt");
-        hiddenSects = sessionStorage.getItem("hiddenSections");
+        origStorage = JSON.parse(sessionStorage.getItem(key));
     } else {
-      hidden = localStorage.getItem("gotIt");
-      hiddenSects = localStorage.getItem("hiddenSections");
-      if (hiddenSects?.length === 0) { 
-        localStorage.removeItem("hiddenSections");
-        hiddenSects = null;
-      }
+        origStorage = JSON.parse(localStorage.getItem(key));
+    }
+   
+
+    console.log(`origStorage:  `, origStorage);
+    if (!origStorage || origStorage.length === 0) {
+        // if no items in orig storage, add key/value
+        newStorageArray.push(value);
+    } else if (origStorage.length > 0 && !origStorage.includes(value)) {
+        // origStorage has values, but does not include the value, add it.
+        newStorageArray = [...origStorage, value];
+    } else {
+        // origStorage has values AND includes the value just make newStorage = origStorage do nothing
+        return 
     }
 
-    console.log(`reset: hidden = ${hidden}, hiddenSects = ${hiddenSects}`);
     
-    if (hidden) {
-        let hiddenElts = JSON.parse(hidden);
-
-        for (let i=0; i < hiddenElts.length; i++) {
-            let elt = document.getElementById(hiddenElts[i]);
-            elt.style.display="block";
-        }
-        if (isTablet) {
-            sessionStorage.removeItem("gotIt");
-        } else {
-            localStorage.removeItem("gotIt");
-        }
+    if (isTablet) {
+        sessionStorage.setItem(key, JSON.stringify(newStorageArray));
+    } else {
+        localStorage.setItem(key, JSON.stringify(newStorageArray));
     }
-    if (hiddenSects?.length > 0) {
-        console.log(`We have hiddenSections to reset: `, hiddenSects);
-        // set everything to style  = display: inline-block for all sections
-        let sectionShowHideLabels = document.getElementsByClassName("sectionButton");
-        for (let i = 0; i < sectionShowHideLabels.length; i++) {
-            sectionShowHideLabels[i].innerHTML = "HIDE";
-            sectionShowHideLabels[i].innerText = "HIDE";
-        }
+   
+}
 
-        let sections = document.getElementsByClassName("section");
-        for (let i = 0; i < sections?.length; i++) {
-            sections[i].style="display: inline-block";
-            sections[i].display = "inline-block";
-        }
-        localStorage.removeItem("hiddenSections");
-    } 
+function getItemsFromStorage(key) {
+    if (isTablet) {
+        const storage = JSON.parse(sessionStorage.getItem(key));
+        console.log(`storage: `, storage, `as ${typeof storage}`);
+        return JSON.parse(sessionStorage.getItem(key));
+    } else {
+        const storage = JSON.parse(localStorage.getItem(key));
+        console.log(`storage: `, storage, `as ${typeof storage}`);
+        return JSON.parse(localStorage.getItem(key));
+    }
+}
+
+function refresh() {
+    let hiddenQuestions = getItemsFromStorage("gotIt");
+    let showSects = getItemsFromStorage("showSections");
+
+        // get from local storage and set questions and sections
+    // as indicated
+    setQuestionDisplay(hide=false);
+    setSectionDisplay(hide=true);
+    setSectionLabels(SHOW_BUTTON);
+
+
+    for (let i = 0; i < hiddenQuestions; i++) {
+        // questionDiv display = "none"
+        setQuestionDisplay(hide=true, hiddenQuestions[i]);
+    }
+    const sectionButtons = document.getElementsByClassName("sectionButton");
+    for (let i =0;i < showSects; i++) {
+        const currElt = getElementById(showSects[i]);
+        setSectionDisplay(hide=false, currElt);
+        setSectionLabels(HIDE_BUTTON, currElt);
+    }
+
+}
+
+function reset() {
+    // set all sections to hide
+    setSectionDisplay(hide=true);
+    setSectionLabels(SHOW_BUTTON);
+
+    // set all questions to show
+    setQuestionDisplay(hide=false);
+    
+    // remove all local storage
+    clearStorage("gotIt");
+    clearStorage("showSections")
 }
 
 function hideAnswers() {
-
   let elList = document.getElementsByClassName("answer");
-  for (i = 0; i < elList.length; i++) {
+  for (i = 0; i < elList?.length; i++) {
       elList[i].style.display = "none";
   }
 
 }
 function showAnswers() {
   let elList = document.getElementsByClassName("answer");
-  for (i = 0; i < elList.length; i++) {
+  for (i = 0; i < elList?.length; i++) {
       elList[i].style.display = "block";
   }
 }
@@ -74,19 +177,37 @@ function hideQuestion(event) {
     question.style.display = "none";
 }
 function showQuestions() {
-    let hidden;
-    if (isTablet) {
-         hidden = sessionStorage.getItem("gotIt");
-    } else {
-         hidden = localStorage.getItem("gotIt");
-    }
+    const hidden = getItemsFromStorage("gotIt");
+    
     if (hidden != null) {
-        hiddenQuestionsArr = JSON.parse(hidden);
-        //console.log("HiddenQuestions:  ", hiddenQuestionsArr);
-        for (let i = 0; i < hiddenQuestionsArr.length; i++) {
-            let question = document.getElementById(hiddenQuestionsArr[i]);
+        console.log("HiddenQuestions:  ", hidden);
+        for (let i = 0; i < hidden?.length; i++) {
+            let question = document.getElementById(hidden[i]);
             //console.log("Setting ", hiddenQuestionsArr[i], " to display=none");
             question.style.display = "none";
+        }
+    }
+}
+
+function hideSections() {
+    sectionElts = document.getElementsByClassName('section');
+    const hideSection = true;
+    const showSection = false;
+    let showSections;
+    
+    if (isTablet) {
+        showSections = sessionStorage.getItem("showSections");       
+    } else {
+        showSections = localStorage.getItem("showSections");
+    }
+    console.log(`showSections: `, showSections);
+    for (let i = 0; i < sectionElts.length; i++) {
+        if (showSections?.includes(sectionElts[i].id)) {
+            setSectionDisplay(showSection, sectionElts[i]);
+            setSectionLabels(HIDE_BUTTON, sectionElts[i]);
+        } else {
+            setSectionDisplay(hideSection, sectionElts[i]);
+            setSectionLabels(SHOW_BUTTON, sectionElts[i]);
         }
     }
 }
@@ -103,13 +224,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
 
     hideAnswers();
-
     showQuestions();
+    hideSections();
+
 
     function addQuestionEventListeners( ) {
 
         let hideQuestions = document.getElementsByClassName("hideButtonClass")
-        for (let i = 0; i < hideQuestions.length; i++) {
+        for (let i = 0; i < hideQuestions?.length; i++) {
             hideQuestions[i].addEventListener("click", (event) => {
                 //console.log("Target id:  ", event.target.id);
                 let parentID = event.target.parentElement.id;
@@ -123,7 +245,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
         let myQuestions = document.getElementsByClassName("buttonClass");
 
-        for (let i = 0; i < myQuestions.length; i++) {
+        for (let i = 0; i < myQuestions?.length; i++) {
             myQuestions[i].addEventListener( "click", (event) => {
                 answerDiv = event.target.parentElement.getElementsByClassName("answer")[0];
                 if (answerDiv !== undefined && answerDiv.style.display === "none") {
@@ -138,50 +260,29 @@ window.addEventListener("DOMContentLoaded", (event) => {
     }
     addQuestionEventListeners();
 
-             // For each button clicked, we have the button element
-    // 1.  get the hiddenSections from local storage
-    // 2.  get the next sibling for the button.
-    // 3.  if next sibling.id is in localStorage
-    //         remove sibling.id from local storage
-    //         change this elements inner html to "HIDE"
-    //         change the section (sibling.id) style="inline-block";
-    // 4.  else
-    //         put sibling.id into localStorage
-    //         change this element's innerHtml to "SHOW"
-    //         change the sibling.id.style="none"
-
     function addSectionEventListeners() {
         const sectionButtons = document.getElementsByClassName("sectionButton");
-       
         
-        for (let i = 0; i < sectionButtons.length; i++) {
+        for (let i = 0; i < sectionButtons?.length; i++) {
             button = sectionButtons[i]; 
             button.addEventListener("click", (event) => {
-                // const sectionDiv = event.target.parentNode;
-               
                 const button = event.target;
                 const headingDiv = button.parentNode;
                 const sectionDiv = headingDiv.nextElementSibling;
 
-                const sectionIsHidden = localStorage.getItem("hiddenSections")?.includes(sectionDiv.id);
-
-                if (sectionIsHidden) {
-                    event.target.innerHTML = "HIDE";
-                    event.target.innerText = "HIDE";
-                    sectionDiv.style="display:inline-block";
-
-                    const idx = hiddenSections.indexOf(sectionDiv.id);
-                    hiddenSections.splice(idx, 1);
-                   
+                if (button.innerHTML === 'HIDE') {
+                    // set button === 'SHOW'
+                    setSectionDisplay(hide=true, sectionDiv);
+                    setSectionLabels(SHOW_BUTTON, sectionDiv);
+                    removeFromStorage("showSections", button.id)
+                    // set display
                 } else {
-                    event.target.innerHTML = "SHOW";
-                    event.target.innerText = "SHOW";
-                    sectionDiv.style="display:none";
-
-                    hiddenSections.push(sectionDiv.id);
-                
+                    // set button === 'HIDE'
+                    setSectionDisplay(hide=false, sectionDiv);
+                    setSectionLabels(HIDE_BUTTON, sectionDiv);
+                    addToStorage("showSections", button.id);
+                    // 
                 }
-                localStorage.setItem("hiddenSections", hiddenSections);
             });
 
         }
