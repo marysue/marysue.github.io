@@ -4,6 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width",  initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 		<title>Mary Lark - Full Stack Engineer</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css">
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/responsive.css">
@@ -14,11 +15,12 @@
 
 		<div class="blue-back">
 			<header class="medium-fade shadow">
-
-				<div class="navbar light-fade">
-					<div class="wrapper">
+				<div class="wrapper">
+                    <div class="navbar light-fade">
 						<nav class="menu">
 							<a href="index.html">About</a>
+                            <a href="skills.html">Skills</a>
+                            <a href="recommendations.html">Recommendations</a>
 							<a href="resume.html">Resume</a>
 							<a class="selected" href="portfolio.html">Portfolio</a>
 							<a href="contact.html">Contact</a>
@@ -35,15 +37,46 @@
 			</header>
 
 
+			<div>
+				<center>
+					<img class="fixed-ratio-resize shadow" src="images/mary-headshot.jpg" width="175px" height="250px" alt="Mary Lark" title="Mary Lark">
+				</center>
+			</div>
+
 			<div class="pageBorder">
+				
 				<section  class="shadow">
-                    <h2><p><a href="./Quizzes/AA/quiz.html">AppAcademy Quizzes</a></p></h2>
-                    <h2><p><a href="./Quizzes/svelte/quiz.html">Svelte Quiz</a></p></h2>
-                    <h2><p><a href="./Quizzes/Angular/quiz.html">Angular Quiz</a></p></h2>
-				</section>
+					<h1><center>Study Guides</center></h1>
+					<h3><p><a href="./Quizzes/AA/quiz.html">AppAcademy</a></p></h3>
+					<h3><p><a href="./Quizzes/svelte/quiz.html">Svelte</a></p></h3>
+					<h3><p><a href="./Quizzes/Angular/quiz.html">Angular</a></p></h3>
+					<h3><p><a href="./Quizzes/Vue3/quiz.html">Vue 3</a></p></h3>
+				</section>	
+			</div><!-- pageBorder -->
+		</div><!-- .blue-back -->
 
-                <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-                <script type="text/javascript" src="js/menu.js"></script>
+		<section id="details" class="medium-fade">
+			<div class="wrapper">
+				<div>
+					<center>
+						<h3>Contact</h3>
+						<p>
+						email: <a href="mailto:mary@marylark.com">mary@marylark.com</a><br>
+						phone: +1 925 866 1111
+						</p>
+						<h3>Location</h3>
+						<address>
+						Parker, CO
+						</address>
+						<br><br>
+						<span style="font-size: 10px;">&copy; 2025 Mary Lark. All Rights Reserved.</span>
+					</center>
+				</div>
+			</div><!-- .wrapper -->
+		</section>
 
-            </body>
-        </html>
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+
+	</body>
+</html>

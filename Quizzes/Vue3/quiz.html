@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width",  initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>Mary Lark - Full Stack Engineer</title>
+		<link rel="stylesheet" type="text/css" href="../../css/quiz-style.css">
+        <script src="./quiz.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> -->
+	</head>
+
+	<body>
+            <h2><center>Vue3 Study Guide</center></h2>
+            <center><button class="buttonClass quizNbr" id="quiz7", style="display: inline-block">Start Quiz</button></center>
+                <!-- REMEMBER TO INCREMENT THE QUIZ NUMBER IN THE START QUIZ BUTTON!!! -->
+            <div id="quiz" style="margin: 30px; display: none;">
+                <center><button id="resetButton">Reset Quiz</button></center>
+
+                <div class="question" id="q-setup-1">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you install and run a new vue project?</p>
+                    <div class="answer">
+                        <p>
+                            <ol>
+                                <li><code>sudo npm install -g @vue/cli</code></li>
+                                <li><code>vue create my-app</code></li>
+                                <li><code>cd my-app</code></li>
+                                <li><code>npm run serve</code> or <code>yarn serve</code></li>
+                            </ol>
+                        </p>
+                    </div>
+                </div>
+                <div class="question" id="q-2">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What are the two styles of writing vue?</p>
+                    <div class="answer">
+                        <p><ol>
+                            <li>Options:  
+                                <ul>
+                                    <li>Options is an object: Uses Data, Method and Mounted keys</li>
+                                    <li>No &lt;script&gt; tag surrounds Options.  Just export the options object</li>
+                                    <li>Good for smaller apps and class based apps -- can use <code>this</code> component instance</li>
+                                    <li></li>
+                                </ul>
+                            </li>
+                            <li>Composition
+                            <ul>
+                                <li>Uses &lt;script&gt; tag for javascript code</li>
+                                <li>use <code>&lt;script setup&gt;</code> so you do not have to explicitly export vars</li>
+                            </ul>
+                            </li>
+                        </ol></p>
+                    </div>
+                </div>
+                <div class="question" id="q-3">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What must a reactive var type be?</p>
+                    <div class="answer">
+                        <p>Object or array; No primitives;</p>
+                    </div>
+                </div>
+                <div class="question" id="q-4">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you create a reactive var from a primitive?</p>
+                    <div class="answer">
+                        <p><code>const count = ref(0)</code></p>
+                        <p>This creates an object with count.value</p>
+                    </div>
+                </div>
+                <div class="question" id="q-5">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you retrieve the value of a nested object?</p>
+                    <div class="answer">
+                        <p>Either deconstruct the object's key for the value or explicitly give the path to the nested value.</p>
+                    </div>
+                </div>
+                <div class="question" id="q-6">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you add an event listener from the DOM or a custom event  in your HTML element?</p>
+                    <div class="answer">
+                        <p><code>&lt;button v-on:click="increment"&gt;Increment&lt;/button&gt;</code></p> or
+                        <p><code>&lt;button @click="increment"&gt;Increment&lt;/button&gt;</code></p>
+                    </div>
+                </div>
+                <div class="question" id="q-7">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What is the explicit way to implement two way binding on an input element?</p>
+                    <div class="answer">
+                        <p>use :value="varName" @input="inputFunctionName" in your input element;</p>
+<pre><code>&lt;script setup&gt;
+import { ref } from 'vue'
+
+const varName = ref('')
+
+function inputFunctionName(e) {
+    varName.value = e.target.value
+}
+&lt;/script&gt;
+
+&lt;template&gt;
+    &lt;input :value="varName" @input="inputFunctionName" placeholder="Type here"&gt;
+    &lt;p&gt;{{ varName }}&lt;/p&gt;
+&lt;/template&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="question" id="q-8">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What is the shorthand for v-bind?</p>
+                    <div class="answer">
+                        <p>:</p>
+<pre><code>&lt; input v-bind:="text"&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="question" id="q-9">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What is the shorthand for v-on?</p>
+                    <div class="answer">
+                        <p>@</p>
+<pre><code>&lt; input v-on:=click="onClickMethod"</code></pre>
+                    </div>
+                </div>
+                <div class="question" id="q-10">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What is the shorthand for two way binding on your input element?</p>
+                    <div class="answer">
+                        <p><code> &lt; input v-model="text"&gt;</code></p>
+                        <p>There is no longer the need for the onInput() function as v-model will directly change the value of your variable "text".</p>
+                    </div>
+                </div>
+                <div class="question" id="q-11">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you conditionally render an element?</p>
+                    <div class="answer">
+                        <p>use "v-if="</p>
+<code>&lt;h1 v-if="showMe"&gt;Conditional Statement!!!&lt;/h1&gt;</code>
+                    </div>
+                </div>
+                <div class="question" id="q-12">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How would you write an if:else block for elements?</p>
+                    <div class="answer">
+<pre><code>&lt;h1 v-if="truthyVar"&gt;Print if truthy!!!&lt;/h1&gt;
+&lt;h1 v-else&gt;Print this if not truthy!!!&lt;/h1&gt;
+</code></pre>
+                    </div>
+                </div>
+                <div class="question" id="q-13">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How would you write the following code to use the v-if and v-else?</p>
+<pre><code>
+&lt;script setup&gt;
+    import { ref } from 'vue';
+
+    const awesome = ref(true);
+    
+    function toggle() {
+        // insert code here to change
+      }
+&lt;/script&gt;
+      
+&lt;template&gt;
+    &lt;button @click="toggle"&gt;Toggle&lt;/button&gt;
+    &lt;h1 &gt;Vue is awesome!&lt;/h1&gt;
+    &lt;h1 &gt;Oh no 😢&lt;/h1&gt;
+&lt;/template&gt;
+</code></pre>
+                    <div class="answer">
+<pre><code>
+&lt;script setup&gt;
+    import { ref } from 'vue';
+
+    const awesome = ref(true);
+    
+    function toggle() {
+        // insert code here to change
+        }
+&lt;/script&gt;
+        
+&lt;template&gt;
+    &lt;button @click="toggle"&gt;Toggle&lt;/button&gt;
+    &lt;h1 v-if="awesome"&gt;Vue is awesome!&lt;/h1&gt;
+    &lt;h1 v-else&gt;Oh no 😢&lt;/h1&gt;
+&lt;/template&gt;
+    </code></pre>
+                    </div>
+                </div>
+                <div class="question" id="q-14">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">Using a todo list which is an array of objects of the form { id: id++, text: "some text" }, write a for loop to present this as an unordered list of todo items.</p>
+                    <div class="answer">
+<pre><code>
+&lt;ul&gt;
+    &lt;li v-for="todo in todos" :key="todo.id"&gt;
+        {{ todo.text }}
+        &lt;button @click="removeTodo(todo)"&gt;X&lt;/button&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+                    </div>
+                </div>
+                <div class="question" id="q-15">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How did you bind the id of the todo list to the li element?</p>
+                    <div class="answer">
+                        <p>v-bind:key=, or shorthand:  :key=</p>
+                    </div>
+                </div>
+                <div class="question" id="q-16">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-17">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-18">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-19">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-20">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-21">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-22>
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-23">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-24">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-25">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-26">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-27">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-28">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-29">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-30">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-31">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-32">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-33">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-34">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-35">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-36">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-37">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-38">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-39">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-40">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+               
+            </div>
+
+
+	</body>
+</html>
