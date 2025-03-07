@@ -42,7 +42,6 @@
                                     <li>Options is an object: Uses Data, Method and Mounted keys</li>
                                     <li>No &lt;script&gt; tag surrounds Options.  Just export the options object</li>
                                     <li>Good for smaller apps and class based apps -- can use <code>this</code> component instance</li>
-                                    <li></li>
                                 </ul>
                             </li>
                             <li>Composition
@@ -52,6 +51,60 @@
                             </ul>
                             </li>
                         </ol></p>
+                    </div>
+                </div>
+                <div class="question" id="q-2.1">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you create a Vue3 app?</p>
+                    <div class="answer">
+                        <ol>
+                                <li>In App.js:<br>
+                                    import { createApp } from 'vue';
+
+                                    const app = createApp({
+                                      data() {
+                                        return {
+                                          count: 0
+                                        }
+                                      }
+                                    });
+                                    
+                                    app.mount('#app')</li>
+                                <li>In the markup section:<br>
+                                    &lt;div id="app"&gt;<br>
+                                    &lt;button @click="count++"&gt;{{ count }} &lt;/button&gt;<br>
+                                    &lt;/div&gt;
+                                </li>
+                                <li>Then, after all setup is done, mount the application, using a "container" arg or an element id:<br>
+                                    app.mount('#app');
+                                </li>
+                        </ol>
+                </div>
+                <div class="question" id="q-2.2">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What is a directive?  Give a few examples of directives.</p>
+                    <div class="answer">
+                        <p>A directive is a special attribute.</p>
+                        <p>v-html, v-&lt;AnythingFollowingv-&gt;</p>
+                    </div>
+                </div>
+                <div class="question" id="q-2.3">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you print out actual html using interpolation?</p>
+                    <div class="answer">
+                        <p>Just use the double mustache:  {{ rawHtml }}</p>
+                    </div>
+                </div>
+                <div class="question" id="q-2.4">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you print out the interpreted html value?</p>
+                    <div class="answer">
+                        <p>&lt;p&gt;span v-html="rawHtml"&gt;&lt;/span&gt;</p>
+                        <p>Prints:  <span style="color:red">This should be red.</span></p>
                     </div>
                 </div>
                 <div class="question" id="q-3">
@@ -68,7 +121,7 @@
                     <p style="display: inline-block">How do you create a reactive var from a primitive?</p>
                     <div class="answer">
                         <p><code>const count = ref(0)</code></p>
-                        <p>This creates an object with count.value</p>
+                        <p>Use the ref() method, passing in the value of the primimtive.  This creates an object with count.value</p>
                     </div>
                 </div>
                 <div class="question" id="q-5">
@@ -77,6 +130,23 @@
                     <p style="display: inline-block">How do you retrieve the value of a nested object?</p>
                     <div class="answer">
                         <p>Either deconstruct the object's key for the value or explicitly give the path to the nested value.</p>
+                        <p>Test this to make sure I understand how to do this.</p>
+                    </div>
+                </div>
+                <div class="question" id="q-5.1">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you define a directive inside an element?</p>
+                    <div class="answer">
+                        <p>&lt;div v-bind:id="dynamicId"&gt;&lt;/div&gt;</p>
+                    </div>
+                </div>
+                <div class="question" id="q-5.2">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What is the shorthand for v-bind:id?</p>
+                    <div class="answer">
+                        <p>&lt;div :id="dynamicId"&gt;&lt;/div&gt;</p>
                     </div>
                 </div>
                 <div class="question" id="q-6">
@@ -86,6 +156,14 @@
                     <div class="answer">
                         <p><code>&lt;button v-on:click="increment"&gt;Increment&lt;/button&gt;</code></p> or
                         <p><code>&lt;button @click="increment"&gt;Increment&lt;/button&gt;</code></p>
+                    </div>
+                </div>
+                <div class="question" id="q-6.1">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">When will an attribute be omitted when bound in an element?</p>
+                    <div class="answer">
+                        <p>If the value of v-bind:""</p>
                     </div>
                 </div>
                 <div class="question" id="q-7">
