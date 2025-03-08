@@ -80,6 +80,7 @@
                                     app.mount('#app');
                                 </li>
                         </ol>
+                    </div>
                 </div>
                 <div class="question" id="q-2.2">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
@@ -556,60 +557,116 @@ todos.value = todos.value.filter(t => t !== todo);
     &lt;/template&gt;</code></pre>
                     </div>
                 </div>
-                <div class="question" id="q-26">
-                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
-                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
-                    <div class="answer">
-                        <p></p>
-                    </div>
-                </div>
                 <div class="question" id="q-27">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">What is the difference between displaying/accessing the value of <code>const count = ref(0)</code> within the script block and the template block?</code></p>
                     <div class="answer">
-                        <p></p>
+                        <p>In the script block, to access the value of count, you must use <code>count.value</code>.</code></p>
+                        <p>In the template block, the value may be displayed within double mustaches {{ count }}</p>
+                    </div>
+                </div>
+                <div class="question" id="q-26">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">You have the following code in the &lt;script setup&gt; block.  What is the value of count?</p>
+<pre><code>const count = ref(0);
+let countString = `The count is: ${count}`
+
+count.value+=1;
+</code></pre>
+                    <div class="answer">
+                        <p>The count is 0</p>
+                        <p>Like angular, strings are evaluated only once during onMount.  </p>
                     </div>
                 </div>
                 <div class="question" id="q-28">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">You want to console.log count each time it is updated.  How would you do this?</p>
                     <div class="answer">
-                        <p></p>
+<pre><code>const count = ref(0);
+function incrementCount() { count.value += 1 };
+
+watch(count, (newCount) => {
+    console.log(`Count has been updated.  newCount is:  ${newCount});
+})
+
+incrementCount();
+incrementCount();
+</code></pre>
+<p>The console log will be printed twice -- once for each call to incrementCount, as count has changed.</p>
                     </div>
                 </div>
                 <div class="question" id="q-29">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How do we reference another component in another component's view?</p>
                     <div class="answer">
-                        <p></p>
+                        <p>The same way as svelte:</p>
+<pre><code>import AnotherComponent from 'AnotherComponent.vue';
+&lt;template&gt;
+    &lt;AnotherComponent /&gt;
+&lt;/template&gt;
+</code></pre>
                     </div>
                 </div>
                 <div class="question" id="q-30">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How do you pass params to a child component, which will not change:</p>
                     <div class="answer">
-                        <p></p>
+                        <p>In the child component, use defineProps.  Then define the incomming variable in the child component.</p>
+<pre><code>&lt;script setup&gt;
+    const props = defineProps({
+        msg: String  // parent component has defined msg.  This lets child component know about the var.
+    });
+&lt;script&gt;
+&lt;template&gt;
+    &lt;h2&gt;{{ msg }}&lt;/h2&gt;
+</code></pre>
                     </div>
                 </div>
                 <div class="question" id="q-31">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">You will be changing the msg in the child prop.  The parent prop will use the updated msg.  How do you make this happen?</p>
                     <div class="answer">
-                        <p></p>
+                       <ol>
+                        <li>In the parent component, set the response from child component as: <br>
+<pre><code>&lt;script setup&gt;
+    import ChildComponent from './ChildComponent.vue';
+
+    const childMsg = ref('Hi from parent component');
+&lt;/script&gt;
+
+&lt;template&gt;     
+    &lt;ChildComponent @response="(msg) => childMsg = msg" /&gt;
+    &lt;h2&gt;childMsg&lt;/h2&gt;
+&lt;/template&gt;
+</code></pre> </li>
+                       <li>In the child component, define an emitter, passing the value of 'response', the parent component's variable as follows:<br>
+<pre><code>&lt;script setup&gt;
+    const emit = defineEmits(['response'])  // parent components var name.
+
+    emit('response', 'hello from child');
+&lt;/script&gt;
+</code></pre>                  </li>
+                       </ol>
                     </div>
                 </div>
                 <div class="question" id="q-32">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How are slots used in Vue?</p>
                     <div class="answer">
-                        <p></p>
+                       <ol> 
+                            <li>Just like &lt;h2&gt;, &lt;div&gt; - just pass in the data between the beginning element and end element. <br>
+<pre><code>&lt;ChildComponent&gt;This is the content of the slot for the child.&lt;/&gt;</code></pre></li>
+                                <li>In the child component, set the default of the slot, if there is any:<br>
+<pre><code>&lt;slot&gt;Fallback content&lt;/slot&gt;</code></pre><br>
+                            This way if no incoming content for the component, the Fallback content string will be printed where the slot exists.</bfr></li>
+                        </ol>
                     </div>
                 </div>
                 <div class="question" id="q-33">
