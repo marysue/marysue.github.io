@@ -115,13 +115,22 @@
                         <p>Object or array; No primitives;</p>
                     </div>
                 </div>
+                <div class="question" id="q-3.1">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What are two reactive state vars?</p>
+                    <div class="answer">
+                        <p>reactive =Object or array; ref() for primitives other non objects or non array types.</p>
+                    </div>
+                </div>
+                
                 <div class="question" id="q-4">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you create a reactive var from a primitive?</p>
+                    <p style="display: inline-block">How do you create a reactive var from a primitive or any type that is not an object or array?</p>
                     <div class="answer">
                         <p><code>const count = ref(0)</code></p>
-                        <p>Use the ref() method, passing in the value of the primimtive.  This creates an object with count.value</p>
+                        <p>Use the ref() method, passing in the value.  This creates an object with value key.</p>
                     </div>
                 </div>
                 <div class="question" id="q-5">
@@ -131,6 +140,73 @@
                     <div class="answer">
                         <p>Either deconstruct the object's key for the value or explicitly give the path to the nested value.</p>
                         <p>Test this to make sure I understand how to do this.</p>
+                    </div>
+                </div>
+                <div class="question" id="q-5">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How do you retrieve the value of the following constants?<br>
+                    <ol>
+                        const myArray = reactive( [1,2,3]);
+                        const counter = reactive ( {count: 0});
+                        const myString = ref('Foo Bar');
+                    </ol></p>
+                    <div class="answer">
+<pre><code><script setup>
+    import { ref, reactive } from 'vue';
+    
+     const myArray = reactive( [1, 2, 3]);
+     const counter = reactive({count: 0});
+     const myString = ref('Foo Bar');
+    </script>
+    
+    <template>
+      <h2>
+        Values of the items without dereferencing
+      </h2>
+      <ol>
+        <li>{{myArray}}</li>
+        <li>{{counter}}</li>
+        <li>{{myString}}</li>
+      </ol>
+      
+      <h2>
+        Values of the items dereferencing
+      </h2>
+       <ol>
+         <li>{{myArray[0].value}}        // note no value for myArray[0].value </li>
+         <li>{{myArray[0]}}</li>
+         <li>{{counter.count.value}}     //note no value for reactive.value </li>
+         <li>{{counter.count}}</li>
+        <li>{{myString.value}}           // note no value for ref().value </li> 
+      </ol>
+    </template></code></pre>
+    <h2>Values of the items without dereferencing</h2>
+    <ol>
+        <li>[1, 2, 3 ]</li>
+        <li>{ "count":0 }</li>
+        <li>Foo Bar</li>
+    </ol>
+    <h2>Values of the items dereferencing</h2>
+    <ol>
+        <li>     // note no value for myArray[0].value</li>
+        <li>1</li>
+        <li>     // note no value for reactiveVar.value</li>
+        <li>0</li>
+        <li>     // note no value for ref().value</li>
+    </ol>
+                        
+                    </div>
+                </div>
+                <div class="question" id="q-5.1">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">In a &lt;script setup&gt; block,  which variables can be used as state variables directly in the template?</p>
+                    <div class="answer">
+                        <p>A reactive state declared in the &lt; script setup &gt; block. e.g.:<br>
+<pre><code>&lt;h1&gt;{{ message }} &lt;/h1&gt;</code></pre>  <br>
+<pre><code</code></pre><br><br>Note:  message.value was not needed for ref() values in templates.</p>
+
                     </div>
                 </div>
                 <div class="question" id="q-5.1">
@@ -152,7 +228,7 @@
                 <div class="question" id="q-6">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you add an event listener from the DOM or a custom event  in your HTML element?</p>
+                    <p style="display: inline-block">How do you add an event listener from the DOM or a custom event in your HTML element?</p>
                     <div class="answer">
                         <p><code>&lt;button v-on:click="increment"&gt;Increment&lt;/button&gt;</code></p> or
                         <p><code>&lt;button @click="increment"&gt;Increment&lt;/button&gt;</code></p>
@@ -163,7 +239,7 @@
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
                     <p style="display: inline-block">When will an attribute be omitted when bound in an element?</p>
                     <div class="answer">
-                        <p>If the value of v-bind:""</p>
+                        <p>If the value of v-bind:"" is not </p>
                     </div>
                 </div>
                 <div class="question" id="q-7">
@@ -204,7 +280,7 @@ function inputFunctionName(e) {
                     <pre><code>&lt; input v-on:=click="onClickMethod"</code></pre>
                     <div class="answer">
                         <p>@</p>
-<pre><code>&lt; input @=click="onClickMethod"</code></pre>
+<pre><code>&lt; input @click="onClickMethod"</code></pre>
                     </div>
                 </div>
                 <div class="question" id="q-10">
@@ -213,7 +289,33 @@ function inputFunctionName(e) {
                     <p style="display: inline-block">What is the shorthand for two way binding on your input element?</p>
                     <div class="answer">
                         <p><code> &lt; input v-model="text"&gt;</code></p>
-                        <p>There is no longer the need for the onInput() function as v-model will directly change the value of your variable "text".</p>
+                        <p>There is no longer the need for the @input="onInput" function or :value="text" as v-model will directly change the value of your variable "text".value using v-model="text"</p>
+                        <h2>Before:</h2>
+<pre><code>%lt;script setup&gt;
+    import { ref } from 'vue'
+    
+    const text = ref('')
+    
+   <strong>function onInput(e) { 
+      text.value = e.target.value
+   }</strong>
+    &lt;/script&gt;
+    
+    &lt;template&gt;
+      &lt;input <strong>:value="text" @input="onInput"</strong> placeholder="Type here"&gt;
+      &lt;p&gt;{{ text }}&lt;/p&gt;
+    &lt;/template&gt;</code></pre>
+                        <h2>After, using v-model</h2>
+<pre><code>&lt;script setup&gt;
+    import { ref } from 'vue'
+    
+    const text = ref('')
+    &lt;/script&gt;
+    
+    &lt;template&gt;
+      &lt;input <strong>v-model="text"</strong> placeholder="Type here"&gt;
+      &lt;p&gt;{{ text }}&lt;/p&gt;
+    &lt;/template&gt;</code></pre>
                     </div>
                 </div>
                 <div class="question" id="q-11">
@@ -302,81 +404,156 @@ function inputFunctionName(e) {
                 <div class="question" id="q-16">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">What are the if, then, else if, else conditional statements for HTML elements to show?</p>
                     <div class="answer">
-                        <p></p>
+                        <p>v-if, v-else-if, v-else</p>
                     </div>
                 </div>
                 <div class="question" id="q-17">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">You have a boolean variable you need to declare, then toggle.  How?</p>
                     <div class="answer">
-                        <p></p>
+<pre><code>let awesome = ref(true);
+
+function toggle() {
+    awesome.value = !awesome.value;
+}
+</code></pre>
                     </div>
                 </div>
                 <div class="question" id="q-18">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">To directives are needed for rendering a list.  What are they?</p>
                     <div class="answer">
-                        <p></p>
+                        <ol>
+                            <li><code>v-for="todo in todos"</code></li>
+                            <li>:key="todo.id"</li>
+                        </ol>
+
+<pre><code>&lt;ul&gt;
+    const todo = {
+        id: number;
+        text: string;
+    }
+
+    &lt;li v-for="todo in todos" :key=todo.id"&gt;
+        {{ todo.text }}
+    &lt;/li&gt;
+</code></pre>
                     </div>
                 </div>
                 <div class="question" id="q-19">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">You have the following array.  How do you access the Second Todo?</p>
+<pre><code>const todos = ref([ 
+    { id: id++, text: 'First Todo' },
+    { id: id++, text: 'Second Todo' },
+    { id: id++, text: 'Third Todo' }
+]);
+</code></pre>
                     <div class="answer">
-                        <p></p>
+                        <code>console.log('todo[1]: ', todo[1]);</code> // returns Proxy(Object) {id: 1, text: 'Second Todo'}
                     </div>
                 </div>
                 <div class="question" id="q-20">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">On the array above, what prints out if you console.log(todos.value)</p>
                     <div class="answer">
-                        <p></p>
+                        <p>undefined</p>
                     </div>
                 </div>
                 <div class="question" id="q-21">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">Again, on the array above, what prints out if you console.log(`todos[0]: `, todos[0]);</p>
                     <div class="answer">
-                        <p></p>
+                        <p>{ id: 0, text: 'First Todo' }</p>
                     </div>
                 </div>
                 <div class="question" id="q-22">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How do you add a new array item to the todos object array shown above?</p>
                     <div class="answer">
-                        <p></p>
+                        <p>todos.value.push( {id: id++, text: newTodo.value } );</p>
+                        <p>newTodo is a ref(''), so it will have a value key.</p>
+                        <p>todos has a value key which represents (amongst other things) the array of todos.</p>
+<pre>todos.value:  
+    Proxy(Array) {0: {…}, 1: {…}, 2: {…}}
+    [[Handler]]:MutableReactiveHandler
+    [[Target]]: Array(4)
+    0: {id: 0, text: 'Learn HTML'}
+    1: {id: 1, text: 'Learn JavaScript'}
+    2: {id: 2, text: 'Learn Vue'}
+    3: {id: 3, text: 'Learn C++'}
+    length: 4
+    [[Prototype]]: Array(0)
+    [[IsRevoked]]: false</pre>
                     </div>
                 </div>
                 <div class="question" id="q-23">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">Remove the 'Learn Vue' from the todo list.  Assume the function passes in a todo object with id and text.</p>
                     <div class="answer">
-                        <p></p>
+todos.value = todos.value.filter(t => t !== todo);
                     </div>
                 </div>
                 <div class="question" id="q-24">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">You need to create an array of objects based on the current state of vars.  How would you do this?</p>
                     <div class="answer">
-                        <p></p>
+                        <ol>
+                       <li>Define the variable as a computed() that takes an arrow function, and sets the variables based on your conditions.<br>
+                       e.g.: <br>
+<pre><code>const filteredTodos = computed(() =&gt; {
+    return hideCompleted.value 
+       ? todos.value.filter((t) =&gt; !t.done)
+       : todos.value
+})
+</code></pre></li>
+                        <li>Then create a button where you can set the variable hideCompleted, used in your computed() function callback, that will either hide completed or show all:<br>
+<pre><code>&lt;button @click="hideCompleted" = !hideCompleted"&gt;
+    {{ hideCompleted ? 'Show all' : 'Hide completed' }}
+&lt;/button&gt;
+</code></pre></li>
+</ol>
+
                     </div>
                 </div>
                 <div class="question" id="q-25">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">What do we need to do to access the DOM directly?</p>
                     <div class="answer">
-                        <p></p>
+                        <ol>
+                            <li>import { ref, onMounted } from 'vue'</li>
+                            <li>Declare a var a null ref:  <code>const pElementRef = ref(null)</code> because the ref must be null as it will not exist until the component is  mounted.</li>
+                            <li>In your element, use <code>ref="pElementRef"</code></li>
+                            <li>In your onMounted callback function you can set the value initially.  eg:<br>
+<pre><code>onMounted( () => {
+    pElementRef.value.textContent = 'mounted!';
+});
+</code></pre></li>
+                        </ol>
+<pre><code>&lt;script setup&gt;
+    import { ref, onMounted } from 'vue'
+    
+    const pElementRef = ref(null)
+    
+    onMounted(() =&gt; {
+      pElementRef.value.textContent = 'mounted!'
+    })
+    &lt;/script&gt;
+    
+    &lt;template&gt;
+      &lt;p ref="pElementRef"&gt;Hello&lt;/p&gt;
+    &lt;/template&gt;</code></pre>
                     </div>
                 </div>
                 <div class="question" id="q-26">
