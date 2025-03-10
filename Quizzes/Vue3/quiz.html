@@ -140,66 +140,65 @@
                     <p style="display: inline-block">How do you retrieve the value of a nested object?</p>
                     <div class="answer">
                         <p>Either deconstruct the object's key for the value or explicitly give the path to the nested value.</p>
-                        <p>Test this to make sure I understand how to do this.</p>
                     </div>
                 </div>
                 <div class="question" id="q-5">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you retrieve the value of the following constants?<br>
-                    <ol>
-                        const myArray = reactive( [1,2,3]);
-                        const counter = reactive ( {count: 0});
-                        const myString = ref('Foo Bar');
-                    </ol></p>
+                    <p style="display: inline-block">In the template, print the value of "second level" in  the following object:<br>
+<pre><code>const deepObj = reactive({
+    first: {
+        'first_level': 'first level',
+        second: {
+            'second_level': 'second level'
+        }
+    }
+})</code></pre></p>
                     <div class="answer">
-<pre><code><script setup>
-    import { ref, reactive } from 'vue';
-    
-     const myArray = reactive( [1, 2, 3]);
-     const counter = reactive({count: 0});
-     const myString = ref('Foo Bar');
-    </script>
-    
-    <template>
-      <h2>
-        Values of the items without dereferencing
-      </h2>
-      <ol>
-        <li>{{myArray}}</li>
-        <li>{{counter}}</li>
-        <li>{{myString}}</li>
-      </ol>
-      
-      <h2>
-        Values of the items dereferencing
-      </h2>
-       <ol>
-         <li>{{myArray[0].value}}        // note no value for myArray[0].value </li>
-         <li>{{myArray[0]}}</li>
-         <li>{{counter.count.value}}     //note no value for reactive.value </li>
-         <li>{{counter.count}}</li>
-        <li>{{myString.value}}           // note no value for ref().value </li> 
-      </ol>
-    </template></code></pre>
-    <h2>Values of the items without dereferencing</h2>
-    <ol>
-        <li>[1, 2, 3 ]</li>
-        <li>{ "count":0 }</li>
-        <li>Foo Bar</li>
-    </ol>
-    <h2>Values of the items dereferencing</h2>
-    <ol>
-        <li>     // note no value for myArray[0].value</li>
-        <li>1</li>
-        <li>     // note no value for reactiveVar.value</li>
-        <li>0</li>
-        <li>     // note no value for ref().value</li>
-    </ol>
+<pre><code>
+    &lt;template&gt;
+        &lt;div&gt;{{ deepObj.second.second_level }}&lt;/div&gt;
+    &lt;/template&gt;
+</code></pre>
+   
                         
                     </div>
                 </div>
-                <div class="question" id="q-5.1">
+                <div class="question" id="q-5.1.0">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">For the following array, change the value of the 1st index to <code>123</code> - a number.
+<pre><code>const myArray = reactive([1, 2, 3]);</code></pre> </p>
+                    <div class="answer">
+                        <p><code>myArray[1] = 123</code></p>
+                    </div>
+                </div>
+                <div class="question" id="q-5.1.1">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">You have <code>const myRef = ref('Hello World');  You want to console.log the value.  How?</code></p>
+                    <div class="answer">
+                        <p>myRef must use .value in the script block:  <br><code>myRef.value</code></p>
+                    </div>
+                </div>
+                <div class="question" id="q-5.1.2">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">You have <code>const myRef = ref('Hello World');  You want to display this value in the template.  How?</code></p>
+                    <div class="answer">
+                        <p>Providing myRef is not a deeply nested object, or you've dereferenced it down to the last nest you do not need to use .value<br><code>{{ myRef }}</code></p>
+                    </div>
+                </div>
+                <div class="question" id="q-5.1.3">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">You want to change the value of <code>const myRef = ref('Hello World')</code> to 'I have changed'.  Can you do the following?<br>
+                    <code>myRef = 'I have changed'</code></p>
+                    <div class="answer">
+                        <p>No!  myRef is a constant.  You cannot change a constant value.  You MUST use <code>myRef.value = 'I have changed'</code></p>
+                    </div>
+                </div>
+                <div class="question" id="q-5.1.4">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
                     <p style="display: inline-block">In a &lt;script setup&gt; block,  which variables can be used as state variables directly in the template?</p>
@@ -207,15 +206,54 @@
                         <p>A reactive state declared in the &lt; script setup &gt; block. e.g.:<br>
 <pre><code>&lt;h1&gt;{{ message }} &lt;/h1&gt;</code></pre>  <br>
 <pre><code</code></pre><br><br>Note:  message.value was not needed for ref() values in templates.</p>
-
                     </div>
                 </div>
-                <div class="question" id="q-5.1">
+                <div class="question" id="q-5.1.5">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
                     <p style="display: inline-block">How do you define a directive inside an element?</p>
                     <div class="answer">
                         <p>&lt;div v-bind:id="dynamicId"&gt;&lt;/div&gt;</p>
+                    </div>
+                </div>
+                <div class="question" id="q-5.1.6">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">You need to add 4 to the myArray = reactive([1,2,3]);  How do you do this?</p>
+                    <div class="answer">
+                        <p><code>myArray.push(4)</code></p>
+                    </div>
+                </div>
+                <div class="question" id="q-5.1.7">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">You need to add a new todo to the myArray = ref([{id: id++, text: 'First'}]);  How do you do this?</p>
+                    <div class="answer">
+                        <p><code>myArray.value.push({id: id++, text: 'Second'})</code></p>
+                    </div>
+                </div>
+                <div class="question" id="q-5.1.7">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">You need to add a new todo to the myArray = reactive([{id: id++, text: 'First'}]);  How do you do this?</p>
+                    <div class="answer">
+                        <p><code>myArray.push({id: id++, text: 'Second'})</code></p>
+                    </div>
+                </div>
+                <div class="question" id="q-5.1.7">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">When you are pushing a new array member to a ref(), do you need to use .value?</p>
+                    <div class="answer">
+                        <p>Yes!  With ref()'s you must use .value.<br><code>myRef.value.push({id: id++, text: 'Second'})</code></p>
+                    </div>
+                </div>
+                <div class="question" id="q-5.1.7">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">When you are pushing a new array member to a reactive() var, do you need to use .value?</p>
+                    <div class="answer">
+                        <p>No!  With reactive vars you only use .push -- not .value!<br><code>myReactive.push({id: id++, text: 'Second'})</code></p>
                     </div>
                 </div>
                 <div class="question" id="q-5.2">
@@ -226,6 +264,7 @@
                         <p>&lt;div :id="dynamicId"&gt;&lt;/div&gt;</p>
                     </div>
                 </div>
+               
                 <div class="question" id="q-6">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
@@ -540,7 +579,7 @@ todos.value = todos.value.filter(t => t !== todo);
 <pre><code>onMounted( () => {
     pElementRef.value.textContent = 'mounted!';
 });
-</code></pre></li>
+</code></li>
                         </ol>
 <pre><code>&lt;script setup&gt;
     import { ref, onMounted } from 'vue'
