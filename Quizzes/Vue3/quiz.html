@@ -94,7 +94,7 @@ app.mount('#app')
                             <li>v-model:  two way binding on form elements</li>
                             <li>v-if, v-else-if, v-else</li>
                             <li>v-on (shorthand @): Attach event listeners</li>
-                            <li>v-bind (shorthand :) Dynamically bind attributes</li>
+                            <li>v-bind (shorthand :) Dynamically bind attributes eg: <code>v-bind:class="{ active: isActive" }</code></li>
                             <li>v-show: Toggle element visibility using CSS display property</li>
                             <li>v-html:  Render HTML content:<br>
 <pre><code>const myHTML = const myHTML = '&lt;span style="color: red"&gt;Red&lt;/span&gt;'
@@ -515,7 +515,7 @@ const todos = ref([
 </code></pre>
                     <div class="answer">
 <pre><code>&lt;template&gt;
-    &lt;li :v-for="todo in todos" :key=todo.id&gt;
+    &lt;li v-for="todo in todos" :key=todo.id&gt;
        {{todo.text}}
     &lt;/li&gt;
 &lt;/template&gt;
