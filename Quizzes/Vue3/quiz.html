@@ -60,24 +60,26 @@
                     <div class="answer">
                         <ol>
                                 <li>In App.js:<br>
-                                    import { createApp } from 'vue';
+<code><pre>import { createApp } from 'vue';
 
-                                    const app = createApp({
-                                      data() {
-                                        return {
-                                          count: 0
-                                        }
-                                      }
-                                    });
-                                    
-                                    app.mount('#app')</li>
+const app = createApp({
+    data() {
+    return {
+        count: 0
+    }
+    }
+});
+
+app.mount('#app')
+</pre></code></li>
                                 <li>In the markup section:<br>
-                                    &lt;div id="app"&gt;<br>
-                                    &lt;button @click="count++"&gt;{{ count }} &lt;/button&gt;<br>
-                                    &lt;/div&gt;
+<pre><code>&lt;div id="app"&gt;
+ 
+&lt;button @click="count++"&gt;{{ count }} &lt;/button&gt;
+&lt;/div&gt;</code></pre>
                                 </li>
                                 <li>Then, after all setup is done, mount the application, using a "container" arg or an element id:<br>
-                                    app.mount('#app');
+                                    <code>app.mount('#app');</code>
                                 </li>
                         </ol>
                     </div>
@@ -87,25 +89,44 @@
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
                     <p style="display: inline-block">What is a directive?  Give a few examples of directives.</p>
                     <div class="answer">
-                        <p>A directive is a special attribute.</p>
-                        <p>v-html, v-&lt;AnythingFollowingv-&gt;</p>
+                        <p>A directive is a special attribute that extends HTML elements with added functionality.  They offer a way to manipulate the DOM directly from Vue templates</p>
+                        <ol>
+                            <li>v-model:  two way binding on form elements</li>
+                            <li>v-if, v-else-if, v-else</li>
+                            <li>v-on (shorthand @): Attach event listeners</li>
+                            <li>v-bind (shorthand :) Dynamically bind attributes</li>
+                            <li>v-show: Toggle element visibility using CSS display property</li>
+                            <li>v-html:  Render HTML content:<br>
+<pre><code>const myHTML = const myHTML = '&lt;span style="color: red"&gt;Red&lt;/span&gt;'
+<span style="color: green">&lt;!-- eslint-disable-next-line vue/no-v-html --&gt;</span>
+&lt;div v-html="myHTML"&gt;&lt;/div&gt; // renders <span style="color:red">Red</span>
+</code></pre></li>
+                            <li>v-text: Render text content</li>
+                            <li>v-once:  Render the element and component once</li>
+                            <li>v-pre: Skip compilation for this element and its children</li>
+                            <li>v-cloak:  This directive will remain on the element until the associated Vue instance finishes compilation.</li>
+                            <li>v-&lt;CustomDirective&gt;</li>
+                        </ol>    
                     </div>
                 </div>
                 <div class="question" id="q-2.3">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you print out actual html using interpolation?</p>
+                    <p style="display: inline-block">How do you print out actual html of the following using interpolation?</p>  <code>const rawHtml = '&lt;span style="color: red"&gt;Red&lt;/span&gt;'</code>
                     <div class="answer">
-                        <p>Just use the double mustache:  {{ rawHtml }}</p>
+                        <p>Just use the double mustache:  {{ rawHtml }}<br>                
+<pre><code>// Prints the actual html:  &ltspan style="color: red"&gt;Red&lt;/span&gt;</code></pre></p>
                     </div>
                 </div>
                 <div class="question" id="q-2.4">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you print out the interpreted html value?</p>
+                    <p style="display: inline-block">How do you print out the interpreted html value of the following?  <code>const rawHtml = '&lt;span style="color: red"&gt;Red&lt;/span&gt;'</code>
                     <div class="answer">
-                        <p>&lt;p&gt;span v-html="rawHtml"&gt;&lt;/span&gt;</p>
-                        <p>Prints:  <span style="color:red">This should be red.</span></p>
+                        <span style="color: green">&lt;!-- eslint-disable-next-line vue/no-v-html --&gt;</span><br>
+                         &lt;p&gt;&lt;span v-html="rawHtml"&gt;&lt;/span&gt;<br>
+                        <p>Prints:  <span style="color:red">Red</span></p>
+                        Also note:  You need the eslint-disable or you will break because interpreting embedded HTML is a serious security risk.
                     </div>
                 </div>
                 <div class="question" id="q-3">
@@ -121,7 +142,7 @@
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
                     <p style="display: inline-block">What are two reactive state vars?</p>
                     <div class="answer">
-                        <p>reactive =Object or array; ref() for primitives other non objects or non array types.</p>
+                        <p>reactive = Object or array; <br>ref() for primitives other non objects or non array types.</p>
                     </div>
                 </div>
                 
@@ -137,7 +158,7 @@
                 <div class="question" id="q-5">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you retrieve the value of a nested object?</p>
+                    <p style="display: inline-block">How do you retrieve the value of a nested reactive() object?</p>
                     <div class="answer">
                         <p>Either deconstruct the object's key for the value or explicitly give the path to the nested value.</p>
                     </div>
@@ -157,7 +178,7 @@
                     <div class="answer">
 <pre><code>
     &lt;template&gt;
-        &lt;div&gt;{{ deepObj.second.second_level }}&lt;/div&gt;
+        &lt;div&gt;{{ deepObj.first.second.second_level }}&lt;/div&gt;
     &lt;/template&gt;
 </code></pre>
    
@@ -204,8 +225,16 @@
                     <p style="display: inline-block">In a &lt;script setup&gt; block,  which variables can be used as state variables directly in the template?</p>
                     <div class="answer">
                         <p>A reactive state declared in the &lt; script setup &gt; block. e.g.:<br>
-<pre><code>&lt;h1&gt;{{ message }} &lt;/h1&gt;</code></pre>  <br>
-<pre><code</code></pre><br><br>Note:  message.value was not needed for ref() values in templates.</p>
+<pre><code>&lt;script setup&gt;
+    const myReactive = { foo: 'bar' }
+    const myRef = ref('fooBar')
+&lt;/script&gt;
+
+&lt;template&gt;
+    &lt;h1&gt;{{ myReactive.foo }}&lt;h1&gt;
+    &lt;h1&gt;{{ myRef }}&lt;h1&gt;
+&lt;/template&gt;
+</code></pre><br><br>Note:  message.value was not needed for ref() values in templates.</p>
                     </div>
                 </div>
                 <div class="question" id="q-5.1.5">
@@ -213,7 +242,8 @@
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
                     <p style="display: inline-block">How do you define a directive inside an element?</p>
                     <div class="answer">
-                        <p>&lt;div v-bind:id="dynamicId"&gt;&lt;/div&gt;</p>
+                        <p>Use either <code>vbind:</code> or the shorthand <code>:</code> inside the element.</p>
+                        <p><code></code>&lt;div v-bind:id="dynamicId"&gt;&lt;/div&gt;</code></p>
                     </div>
                 </div>
                 <div class="question" id="q-5.1.6">
@@ -274,14 +304,6 @@
                         <p><code>&lt;button @click="increment"&gt;Increment&lt;/button&gt;</code></p>
                     </div>
                 </div>
-                <div class="question" id="q-6.1">
-                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
-                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">When will an attribute be omitted when bound in an element?</p>
-                    <div class="answer">
-                        <p>If the value of v-bind:"" is not </p>
-                    </div>
-                </div>
                 <div class="question" id="q-7">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
@@ -317,7 +339,7 @@ function inputFunctionName(e) {
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
                     <p style="display: inline-block">What is the shorthand for v-on?</p>
-                    <pre><code>&lt; input v-on:=click="onClickMethod"</code></pre>
+                    <pre><code>&lt;input v-on:click="onClickMethod"&gt;</code></pre>
                     <div class="answer">
                         <p>@</p>
 <pre><code>&lt; input @click="onClickMethod"</code></pre>
@@ -328,9 +350,9 @@ function inputFunctionName(e) {
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
                     <p style="display: inline-block">What is the shorthand for two way binding on your input element?</p>
                     <div class="answer">
-                        <p><code> &lt; input v-model="text"&gt;</code></p>
+                        <p><code> &lt;input v-model="text"&gt;</code></p>
                         <p>There is no longer the need for the @input="onInput" function or :value="text" as v-model will directly change the value of your variable "text".value using v-model="text"</p>
-                        <h2>Before:</h2>
+                        <h3>Before:</h3>
 <pre><code>%lt;script setup&gt;
     import { ref } from 'vue'
     
@@ -345,7 +367,7 @@ function inputFunctionName(e) {
       &lt;input <strong>:value="text" @input="onInput"</strong> placeholder="Type here"&gt;
       &lt;p&gt;{{ text }}&lt;/p&gt;
     &lt;/template&gt;</code></pre>
-                        <h2>After, using v-model</h2>
+                        <h3>After, using v-model</h3>
 <pre><code>&lt;script setup&gt;
     import { ref } from 'vue'
     
@@ -406,7 +428,7 @@ function inputFunctionName(e) {
     const awesome = ref(true);
     
     function toggle() {
-        // insert code here to change
+        awesome.value = !awesome.value
         }
 &lt;/script&gt;
         
@@ -465,37 +487,44 @@ function toggle() {
                 <div class="question" id="q-18">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">To directives are needed for rendering a list.  What are they?</p>
+                    <p style="display: inline-block">You have the following list array:<br>
+<pre><code>const todo = reactive([
+    {id: 1, text: 'First todo'},
+    {id: 2, text: 'Second todo'},
+    {id: 3, text: 'Third todo'
+}])
+</code></pre>Besides the text value, what is the directive needed on each list item?</p>
                     <div class="answer">
-                        <ol>
-                            <li><code>v-for="todo in todos"</code></li>
-                            <li>:key="todo.id"</li>
-                        </ol>
-
-<pre><code>&lt;ul&gt;
-    const todo = {
-        id: number;
-        text: string;
-    }
-
-    &lt;li v-for="todo in todos" :key=todo.id"&gt;
-        {{ todo.text }}
-    &lt;/li&gt;
+<pre><code>:key=todo.id</code></pre>eg: <br>
+<pre><code>&lt;li v-for="todo in todos" :key=todo.id"&gt;
+     {{ todo.text}}
+&lt;/li&gt;
 </code></pre>
                     </div>
                 </div>
-                <div class="question" id="q-19">
+                <div class="question" id="q-19.1">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">You have the following array.  How do you access the Second Todo?</p>
-<pre><code>const todos = ref([ 
+                    <p style="display: inline-block">You have the following array.  Write a v-for to print each of the todos.</p>
+<pre><code>let id = 0;
+const todos = ref([ 
     { id: id++, text: 'First Todo' },
     { id: id++, text: 'Second Todo' },
     { id: id++, text: 'Third Todo' }
 ]);
 </code></pre>
                     <div class="answer">
-                        <code>console.log('todo[1]: ', todo[1]);</code> // returns Proxy(Object) {id: 1, text: 'Second Todo'}
+<pre><code>&lt;template&gt;
+    &lt;li :v-for="todo in todos" :key=todo.id&gt;
+       {{todo.text}}
+    &lt;/li&gt;
+&lt;/template&gt;
+</code></pre>
+Note <ol>
+    <li>v-for is a directive, so it is noted as :v-for</li>
+    <li>Assign directives strings, so :v-for="todo in todos"</li>
+    <li>Todos is an array of objects, so you need to dereference id and text as <code>todo.text</code> or <code>todo.id</code></li>
+</ol>
                     </div>
                 </div>
                 <div class="question" id="q-20">
@@ -503,7 +532,7 @@ function toggle() {
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
                     <p style="display: inline-block">On the array above, what prints out if you console.log(todos.value)</p>
                     <div class="answer">
-                        <p>undefined</p>
+                        <p>undefined  : You must dereference todos.value</p>
                     </div>
                 </div>
                 <div class="question" id="q-21">
