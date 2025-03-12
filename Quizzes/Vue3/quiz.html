@@ -524,6 +524,7 @@ Note <ol>
     <li>v-for is a directive, so it is noted as :v-for</li>
     <li>Assign directives strings, so :v-for="todo in todos"</li>
     <li>Todos is an array of objects, so you need to dereference id and text as <code>todo.text</code> or <code>todo.id</code></li>
+    <li>Todos, although a ref, does not need ".value" within the template area.  The interpolation will handle extracting that.</li>
 </ol>
                     </div>
                 </div>
@@ -532,7 +533,7 @@ Note <ol>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
                     <p style="display: inline-block">On the array above, what prints out if you console.log(todos.value)</p>
                     <div class="answer">
-                        <p>undefined  : You must dereference todos.value</p>
+                        <p>The entire array:  {0: {...}, 1: {...}, 2: {...}}</p>
                     </div>
                 </div>
                 <div class="question" id="q-21">
@@ -540,7 +541,7 @@ Note <ol>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
                     <p style="display: inline-block">Again, on the array above, what prints out if you console.log(`todos[0]: `, todos[0]);</p>
                     <div class="answer">
-                        <p>{ id: 0, text: 'First Todo' }</p>
+                        <p>undefined.  A ref must be accessed through the .value key.  That is where the array of objects resides.</p>
                     </div>
                 </div>
                 <div class="question" id="q-22">
@@ -562,6 +563,14 @@ Note <ol>
     length: 4
     [[Prototype]]: Array(0)
     [[IsRevoked]]: false</pre>
+                    </div>
+                </div>
+                <div class="question" id="q-23.1">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">Again for the todos structure above, what prints in <code>console.log(todos[0]);</code>?</p>
+                    <div class="answer">
+undefined : You must access the todos array via the .value key:  todos.value
                     </div>
                 </div>
                 <div class="question" id="q-23">
