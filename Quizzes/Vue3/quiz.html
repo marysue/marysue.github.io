@@ -240,7 +240,7 @@ app.mount('#app')
                 <div class="question" id="q-5.1.5">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you define a directive inside an element?</p>
+                    <p style="display: inline-block">How do you bind a dynamic value inside an element?</p>
                     <div class="answer">
                         <p>Use either <code>vbind:</code> or the shorthand <code>:</code> inside the element.</p>
                         <p><code></code>&lt;div v-bind:id="dynamicId"&gt;&lt;/div&gt;</code></p>
@@ -307,7 +307,7 @@ app.mount('#app')
                 <div class="question" id="q-7">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the explicit way to implement two way binding on an input element?</p>
+                    <p style="display: inline-block">What is the <strong>explicit</strong> way to implement two way binding on an input element?</p>
                     <div class="answer">
                         <p>use :value="varName" @input="inputFunctionName" in your input element;</p>
 <pre><code>&lt;script setup&gt;
@@ -329,10 +329,10 @@ function inputFunctionName(e) {
                 <div class="question" id="q-8">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What is the shorthand for v-bind?</p>
+                    <p style="display: inline-block">What is the shorthand for j<code>&lt; input  v-bind:="text"&gt;</code></p>
                     <div class="answer">
                         <p>:</p>
-<pre><code>&lt; input v-bind:="text"&gt;</code></pre>
+<pre><code>&lt; input :="text"&gt;</code></pre>
                     </div>
                 </div>
                 <div class="question" id="q-9">
@@ -446,12 +446,10 @@ function inputFunctionName(e) {
                     <p style="display: inline-block">Using a todo list which is an array of objects of the form { id: id++, text: "some text" }, write a for loop to present this as an unordered list of todo items.</p>
                     <div class="answer">
 <pre><code>
-&lt;ul&gt;
     &lt;li v-for="todo in todos" :key="todo.id"&gt;
         {{ todo.text }}
         &lt;button @click="removeTodo(todo)"&gt;X&lt;/button&gt;
     &lt;/li&gt;
-&lt;/ul&gt;
 </code></pre>
                     </div>
                 </div>
@@ -466,7 +464,7 @@ function inputFunctionName(e) {
                 <div class="question" id="q-16">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What are the if, then, else if, else conditional statements for HTML elements to show?</p>
+                    <p style="display: inline-block">What are the if, then, else if, else conditional statements for HTML elements to appear?</p>
                     <div class="answer">
                         <p>v-if, v-else-if, v-else</p>
                     </div>
@@ -496,7 +494,7 @@ function toggle() {
 </code></pre>Besides the text value, what is the directive needed on each list item?</p>
                     <div class="answer">
 <pre><code>:key=todo.id</code></pre>eg: <br>
-<pre><code>&lt;li v-for="todo in todos" :key=todo.id"&gt;
+<pre><code>&lt;li v-for="todo in todos" :key="todo.id"&gt;
      {{ todo.text}}
 &lt;/li&gt;
 </code></pre>
@@ -515,14 +513,13 @@ const todos = ref([
 </code></pre>
                     <div class="answer">
 <pre><code>&lt;template&gt;
-    &lt;li v-for="todo in todos" :key=todo.id&gt;
+    &lt;li v-for="todo in todos" :key="todo.id"&gt;
        {{todo.text}}
     &lt;/li&gt;
 &lt;/template&gt;
 </code></pre>
 Note <ol>
-    <li>v-for is a directive, so it is noted as :v-for</li>
-    <li>Assign directives strings, so :v-for="todo in todos"</li>
+    <li>Assign directives strings, so v-for="todo in todos"</li>
     <li>Todos is an array of objects, so you need to dereference id and text as <code>todo.text</code> or <code>todo.id</code></li>
     <li>Todos, although a ref, does not need ".value" within the template area.  The interpolation will handle extracting that.</li>
 </ol>
@@ -596,7 +593,7 @@ todos.value = todos.value.filter(t => t !== todo);
 })
 </code></pre></li>
                         <li>Then create a button where you can set the variable hideCompleted, used in your computed() function callback, that will either hide completed or show all:<br>
-<pre><code>&lt;button @click="hideCompleted" = !hideCompleted"&gt;
+<pre><code>&lt;button @click="hideCompleted = !hideCompleted"&gt;
     {{ hideCompleted ? 'Show all' : 'Hide completed' }}
 &lt;/button&gt;
 </code></pre></li>
@@ -666,7 +663,7 @@ count.value+=1;
 function incrementCount() { count.value += 1 };
 
 watch(count, (newCount) => {
-    console.log(`Count has been updated.  newCount is:  ${newCount});
+    console.log(`Count has been updated.  newCount is:  ${newCount}`);
 })
 
 incrementCount();
@@ -678,12 +675,17 @@ incrementCount();
                 <div class="question" id="q-29">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do we reference another component in another component's view?</p>
+                    <p style="display: inline-block">How do we pass reactive vars from a parent to a child?</p>
                     <div class="answer">
                         <p>The same way as svelte:</p>
-<pre><code>import AnotherComponent from 'AnotherComponent.vue';
+    
+<pre><code>&lt;script setup&gt;
+    import AnotherComponent from 'AnotherComponent.vue';
+    const parentMessage = "Message from parent"
+    const parentCount = ref(0)
+&lt;/script&gt;
 &lt;template&gt;
-    &lt;AnotherComponent /&gt;
+    &lt;AnotherComponent :msg="parentMessage" :count="parentCount" /&gt;
 &lt;/template&gt;
 </code></pre>
                     </div>
@@ -691,42 +693,46 @@ incrementCount();
                 <div class="question" id="q-30">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">How do you pass params to a child component, which will not change:</p>
+                    <p style="display: inline-block">How do we receive the values from the parent component, assuming they will not change:</p>
                     <div class="answer">
-                        <p>In the child component, use defineProps.  Then define the incomming variable in the child component.</p>
+                        <p>In the child component, use defineProps.  Then define the incoming variable in the child component.</p>
 <pre><code>&lt;script setup&gt;
     const props = defineProps({
         msg: String  // parent component has defined msg.  This lets child component know about the var.
+        count: number
     });
 &lt;script&gt;
 &lt;template&gt;
-    &lt;h2&gt;{{ msg }}&lt;/h2&gt;
+    &lt;h2&gt;{{ msg }}, {{count}}&lt;/h2&gt;
 </code></pre>
                     </div>
                 </div>
                 <div class="question" id="q-31">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">You will be changing the msg in the child prop.  The parent prop will use the updated msg.  How do you make this happen?</p>
+                    <p style="display: inline-block">You will be sending a msg from the child component.  The parent component will use the child's msg.  How do you make this happen?</p>
                     <div class="answer">
                        <ol>
-                        <li>In the parent component, set the response from child component as: <br>
+                        <li>In the parent component, in the script section, set a responsive var you will use to set the response from the child component. In this case, we will call it the childMsg, and set it to a default value to display until the child component responds. <br>
 <pre><code>&lt;script setup&gt;
     import ChildComponent from './ChildComponent.vue';
 
-    const childMsg = ref('Hi from parent component');
+    const childMsg = ref('Hi from parent component');  // This will change when the child responds.
 &lt;/script&gt;
+</code></pre></li>
+<li>In the parent component, in the template section, setup the variable name which will be the emitter variable.  In this case, we will emit to the child's response variable, receiving a message and assigning it to our childMsg variable:
+<pre><code>
 
 &lt;template&gt;     
-    &lt;ChildComponent @response="(msg) => childMsg = msg" /&gt;
+    &lt;ChildComponent @response="(msg) => childMsg = msg" /&gt;  
     &lt;h2&gt;childMsg&lt;/h2&gt;
 &lt;/template&gt;
 </code></pre> </li>
-                       <li>In the child component, define an emitter, passing the value of 'response', the parent component's variable as follows:<br>
+                       <li>In the child component, define an emitter that will use the parent component's variable:<br>
 <pre><code>&lt;script setup&gt;
-    const emit = defineEmits(['response'])  // parent components var name.
+    const emit = defineEmits(['response'])  // parent components var name 'response' which will be observed for the new value.
 
-    emit('response', 'hello from child');
+    emit('response', 'hello from child'); // pass 'hellofrom child' through the response variable to the parent.
 &lt;/script&gt;
 </code></pre>                  </li>
                        </ol>
@@ -746,6 +752,415 @@ incrementCount();
                         </ol>
                     </div>
                 </div>
+                <div class="question" id="q-33">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What value for attributes will cause the attribute to be excluded?</p>
+                    <div class="answer">
+                    <p>If the falsy value is anything other than empty string <code>" "</code></p>
+                    </div>
+                </div>
+                <div class="question" id="q-33">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">Will this interpolation work?  Explain.  <code>{{ var a = 1 }}</code></p>
+                    <div class="answer">
+                    <p>Njo.  This is not an expression.  This is a statement.</p>
+                    </div>
+                </div>
+                <div class="question" id="q-34">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">Will this work in an interpolation?  <code> {{if (ok) { treutn message} }}</code></p>
+                    <div class="answer">
+                    <p>This flow control statement won't work.  Use a ternary : <code>ok ? message : null</code> </p>
+                    </div>
+                </div>
+                <div class="question" id="q-35">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">Is it possible to call a component-exposed metthod inside a binding expression.  i.e.:  
+<pre><code>&lt;time :title="toTitleDate(date)" :datetime"date"&gt;
+    {{ formateDate(date) }}
+&lt; /time &gt;
+</code></pre>
+                    </p>
+                    <div class="answer">
+                    <p>Yes</p>
+                    </div>
+                </div>
+                <div class="question" id="q-36">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What are two ways watching for a custom event handler called "doSomething" in your HTML element.  </p>
+                    <div class="answer">
+                        <p>There are the standard key references in javascript:  [focus] or focus in the following examples:</p>
+                    <ol>
+                        <li><code>&lt;a @[focus]="doSomething"&gt;</code></li>
+                        <li><code>&lt;a v-on:focus="doSomething"</code></li>
+                    </ol>>
+                    </div>
+                </div>
+                <div class="question" id="q-37">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How will the following evaluate?  Explain.
+<pre><code>const raw = {};
+const proxy = reactive(raw)
+
+console.log(proxy === raw)
+</code></pre>
+                    </p>
+                    <div class="answer">
+                    <p><code>{}</code>> will evaluate to false, because the empty object gets reassigned to a reactive object.  Two different spaces in memory:</p>
+<pre><code>raw = {};
+reactive(raw) =
+      Proxy(Array) 0: {...}, 1: {...}
+           [[Handler]]: MutableReactiveHandler
+           [[Target]]: Array(2)
+           [[IsRevoked]]
+</code></pre>
+                    </div>
+                </div>
+                <div class="question" id="q-38">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">When a change is made to a component's reactive variable, what happens?</p>
+                    <div class="answer">
+                    <ol>
+                        <li>The new variable value will be placed in a buffer queued for re-render.</li>
+                        <li>Each <code>tick</code> the buffer is emptied and the new values are updated in the DOM</li>
+                    </ol>
+                    </div>
+                </div>
+                <div class="question" id="q-39">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How would you force an immediate rerender?</p>
+                    <div class="answer">
+                    <p>Call the <code>tick()</code> function.</p>
+                    </div>
+                </div>
+                <div class="question" id="q-40">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">Let's say you have a function that is going to invoke a rerender, eventually.  How do you ensure this function waits until the next rerender cycle?</p>
+                    <div class="answer">
+                    <p><code>nextTick()</code></p>
+                    </div>
+                </div>
+                <div class="question" id="q-41">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">You have the following code.  What is the value of state.count after updating count?</p>
+<pre><code>const state = reactive({count: 0})
+const { count } = state;
+count += 1;
+</code></pre>
+                    <div class="answer">
+                    <p><code>state.count</code> will = 0.  You've lost the reactive nature of count when you  deconstructed this.</p>
+                    </div>
+                </div>
+                <div class="question" id="q-42">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What is the value of the following?</p>
+<pre><code>
+&lt;script setup&gt;
+    const count = ref(0)
+    const object = { id: ref(1) }
+&lt;/script&gt;
+&lt;template&gt;
+    &lt;p&gt;count + 1 {{ count + 1 }}&lt;/p&gt;
+    &lt;p&gt;object.id + 1 = {{ object.id + 1}}&lt;/p&gt;
+&lt;/template&gt;
+
+</code></pre>
+                    <div class="answer">
+                    <p>count + 1 = 1<br>
+                    object.id + 1 = &lt;will not compile&gt;</p>
+                    <p>You need to dereference the value in object.id as <code>object.id.value + 1</code> because it was declared as a ref(1) in the object.  As such, it won't get automatically unwrapped by the interpolater.</p>
+                    </div>
+                </div>
+                <div class="question" id="q-43">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">You want to write a character count for an input box that shows how many characters are entered as they are entered.  i.e. 25/200 where 200 is the max characters allowed.  How would you do this?</p>
+                    <div class="answer">
+                    <p> In the script area, import computed.  Then create a const called computedChars = ( () => return newItem.value.length);  Then create a p tag under the input box for displaying:  &lt;p&gt;{{ computedChars }}/200&lt;/p&gt;</p>
+                    </div>
+                </div>
+                <div class="question" id="q-44">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What is wrong with the following code?</p>
+<pre><code>const reverseList = computed( () => return items.value.reverse() )</code></pre>
+                    <div class="answer">
+                    <p>.reverse will mutate items.value array.  You may not want to mutate the array.  For instance, this will interrupt the reactivity of the original array.</p>
+                    </div>
+                </div>
+                <div class="question" id="q-45">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How would you fix the code above?</p>
+
+                    <div class="answer">
+                    <p>Deconstruct the array, then call reverse on it:  <code>return [...items.value].reverse()</code></p>
+                    </div>
+                </div>
+                <div class="question" id="q-46">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-47">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-48">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-49">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-50">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-51">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-52">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-53">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-54">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-55">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-56">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-57">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-58">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-59">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-60">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-61">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-62">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="63">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="64">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-46">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="65">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-66">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-67">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-68">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-69">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-70">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-71">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="question" id="q-72">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block"></p>
+
+                    <div class="answer">
+                        <p></p>
+                    </div>
+                </div>
+
             </div>
 
 
