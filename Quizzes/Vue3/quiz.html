@@ -15,7 +15,7 @@
                 <!-- REMEMBER TO INCREMENT THE QUIZ NUMBER IN THE START QUIZ BUTTON!!! -->
             <div id="quiz" style="margin: 30px; display: none;">
                 <center><button id="resetButton">Reset Quiz</button></center>
-
+                <h3>Setup questions</h3>
                 <div class="question" id="q-setup-1">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
@@ -84,6 +84,7 @@ app.mount('#app')
                         </ol>
                     </div>
                 </div>
+                <h3>Directives, Interpolation, ref() and reactive() vars</h3>
                 <div class="question" id="q-2.2">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
@@ -294,7 +295,7 @@ app.mount('#app')
                         <p>&lt;div :id="dynamicId"&gt;&lt;/div&gt;</p>
                     </div>
                 </div>
-               
+                <h3>Event handlers, Forms</h3>
                 <div class="question" id="q-6">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
@@ -380,6 +381,7 @@ function inputFunctionName(e) {
     &lt;/template&gt;</code></pre>
                     </div>
                 </div>
+                <h3>HTML element conditionals - if, then, else:</h3>
                 <div class="question" id="q-11">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
@@ -440,6 +442,15 @@ function inputFunctionName(e) {
     </code></pre>
                     </div>
                 </div>
+                <div class="question" id="q-16">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">What are the if, then, else if, else conditional statements for HTML elements to appear?</p>
+                    <div class="answer">
+                        <p>v-if, v-else-if, v-else</p>
+                    </div>
+                </div>
+                <h3>Lists</h3>
                 <div class="question" id="q-14">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
@@ -459,14 +470,6 @@ function inputFunctionName(e) {
                     <p style="display: inline-block">How did you bind the id of the todo list to the li element?</p>
                     <div class="answer">
                         <p>v-bind:key=, or shorthand:  :key=</p>
-                    </div>
-                </div>
-                <div class="question" id="q-16">
-                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
-                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block">What are the if, then, else if, else conditional statements for HTML elements to appear?</p>
-                    <div class="answer">
-                        <p>v-if, v-else-if, v-else</p>
                     </div>
                 </div>
                 <div class="question" id="q-17">
@@ -601,6 +604,7 @@ todos.value = todos.value.filter(t => t !== todo);
 
                     </div>
                 </div>
+                <h3>pRefs</h3>
                 <div class="question" id="q-25">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
@@ -672,6 +676,7 @@ incrementCount();
 <p>The console log will be printed twice -- once for each call to incrementCount, as count has changed.</p>
                     </div>
                 </div>
+                <h3>Passing props to child components</h3>
                 <div class="question" id="q-29">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
@@ -738,6 +743,7 @@ incrementCount();
                        </ol>
                     </div>
                 </div>
+                <h3>Slots</h3>
                 <div class="question" id="q-32">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
@@ -882,6 +888,7 @@ count += 1;
                     <p>You need to dereference the value in object.id as <code>object.id.value + 1</code> because it was declared as a ref(1) in the object.  As such, it won't get automatically unwrapped by the interpolater.</p>
                     </div>
                 </div>
+                <h3>Computed Properties</h3>
                 <div class="question" id="q-43">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
@@ -905,68 +912,106 @@ count += 1;
                     <p style="display: inline-block">How would you fix the code above?</p>
 
                     <div class="answer">
-                    <p>Deconstruct the array, then call reverse on it:  <code>return [...items.value].reverse()</code></p>
+                    <p>Spread the array, then call reverse on it:  <code>return [...items.value].reverse()</code></p>
                     </div>
                 </div>
+                <h3>Class and Style Bindings</h3>
                 <div class="question" id="q-46">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How would you bind a class active: isActive within your element?</p>
 
                     <div class="answer">
-                        <p></p>
-                    </div>
-                </div>
-                <div class="question" id="q-47">
-                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
-                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
-
-                    <div class="answer">
-                        <p></p>
-                    </div>
-                </div>
-                <div class="question" id="q-48">
-                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
-                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
-
-                    <div class="answer">
-                        <p></p>
+                        <p><code>&lt;div :class="{active: isActive }"&gt;&lt;/div&gt;</code></p>
                     </div>
                 </div>
                 <div class="question" id="q-49">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">Can you bind reactive objects to class attributes?</p>
 
                     <div class="answer">
-                        <p></p>
+                        <p>Yes!  And you use them just like any other object with <code></code>&lt;div :class="classObject"&gt;&lt;/div&gt;</code></p>
+                    </div>
+                </div>
+                <div class="question" id="q-47">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How would you bind both active:isActive and 'text-danger': hasError on your html element?</p>
+
+                    <div class="answer">Just like any multiple inline classes - with an object.<br>
+<code>&lt;div :class="{active: isActive, 'text-danger': hasError}"</code>
+                    </div>
+                </div>
+                <div class="question" id="q-48">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">How would the following appear in  your dev tools for your html element?<br>
+<pre><code>const classObject = reactive({
+    active: true,
+    'text-danger': false
+});
+
+&lt; div :class="classObject"&gt;&lt;/div&gt;
+</code></pre></p>
+
+                    <div class="answer">
+                        <p><code>&lt;div class="active"&gt;&lt;/div&gt;</code></p>
+                        <p>Only the the truthy classes will appear in devtools.</p>
+                    </div>
+                </div>
+                <div class="question" id="q-49">
+                    <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
+                    <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
+                    <p style="display: inline-block">Can we use computed() properties in :bind statements?</p>
+
+                    <div class="answer">
+                        <p>Yes.  We need to return the object with the attributes in an object; then use the computedConstVar name in bind;</p>
+<pre><code>
+const isActive = ref(true)
+const error = ref(null)
+
+const classObject = computed(() => ({
+    active: isActive.value && !error.value,   // remember, isActive and error are declared as ref's, so you need to access as .value
+    'text-danger': error.value && error.value.type === 'fatal'
+}))
+
+&lt;div :class="classObject"&gt;&lt;/div&gt;
+</code></pre>
+
                     </div>
                 </div>
                 <div class="question" id="q-50">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">Can you bind a class to an array?</p>
 
                     <div class="answer">
-                        <p></p>
+                        <p>Yes!  Remember the ref nature of values within interpolation. No need to access them with ".value"</p>
+<pre><code>
+    const isActive = ref(true)
+    const error = ref(null)
+</code></pre>
+<code>&lt;div :class="[activeClass, errorClass]"&gt;&lt;/div&gt;</code>
                     </div>
                 </div>
                 <div class="question" id="q-51">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">Is the following legal?</p>
+<pre><code>
+&lt;div :class="[isActive ? activeClass : '', errorClass]"&gt;&lt;/div&gt;
+</code></pre>
 
                     <div class="answer">
-                        <p></p>
+                        <p>Yes.  You can use ternaries in conjunction with other boolean classes</p>
                     </div>
                 </div>
                 <div class="question" id="q-52">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
-
+                    <p style="display: inline-block">Is the following legal?</p>
+<pre><code>&lt;div :class="[{ [activeClass]: isActive }, errorClass]"&gt;&lt;/div&gt;</code></pre>
                     <div class="answer">
                         <p></p>
                     </div>
@@ -974,82 +1019,106 @@ count += 1;
                 <div class="question" id="q-53">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">What is a root element in your component?</p>
 
                     <div class="answer">
-                        <p></p>
+                        <p>eg:
+<pre><code>&lt;template&gt;
+    &lt;div&gt;
+         &lt;h1&gt;Hello from this component!&lt;/h1&gt;
+         &lt;p&gt;From this component here's some text.&lt;/p&gt;
+    &lt;/div&gt;
+</code></pre></p><p>The <code>&lt;div&gt;</code> is considered the root element.
+                        </p>
                     </div>
                 </div>
                 <div class="question" id="q-54">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">What if you do not want to add a root element?  How would you handle this component?</p>
 
                     <div class="answer">
-                        <p></p>
+                        <p>Define the template as functional: <code>&lt;template functional&gt;</code>.  Then you can have no root elements.  However, they lack their own state, if that's important.</p>
                     </div>
                 </div>
                 <div class="question" id="q-55">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">What are the kinds of root nodes?</p>
 
                     <div class="answer">
-                        <p></p>
+                        <ul>
+                            <li>Explicit root elements, like <code>&lt;div&gt;</code> shown in the example above.</li>
+                            <li>Functional root elements, like <code>&lt;template functional&gt;</code> but they do now carry their own state.</li>
+                            <li>Fragment Root (Vue3):  Compoonents can have multiple root nodes (like <code>&lt;h1&gt;, &lt;p&gt;)</code>but attributes and events can get twisted unless you're very careful.</li>
+                            <li>Dynamic Root Elements : Like &lt;component :is="rootElement"&gt;</li>
+                        </ul>
+
                     </div>
                 </div>
                 <div class="question" id="q-56">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">Your component has multiple root elements.  How would you define an attribute from the parent class?</p>
 
                     <div class="answer">
-                        <p></p>
+                        <p>Use <code>&lt;p :class=&attrs.class"&gt;Hi!&lt;/p&gt;</code> in your child class after passing it down from your parent component: <code>&lt;ParentComponent class="baz"/&gt;</code></p>
                     </div>
                 </div>
+                <h3>Fallthrough attributes</h3>
                 <div class="question" id="q-57">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">Define a fallthrough attribute.</p>
 
                     <div class="answer">
-                        <p></p>
+                        <p>A "fallthrough attribute" is an attribute or v-on event listener that is passed to a component, but is not explicitly declared in the receiving component's props or emits. Common examples of this include class, style, and id attributes.</p>
                     </div>
                 </div>
                 <div class="question" id="q-58">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">If a parent component calls a child like: <code>&lt; MyButton class="large" /&gt;</code>, what happens to the child?</p>
 
                     <div class="answer">
-                        <p></p>
+                        <p>If there is only one root element, and the attribute was not declared as an accepted prop, then this is called a "fallthrough" attribute and the class is applied to the root element of the child automatically.</p>
+<pre><code>&lt;MyButton class="large" /&gt;
+// child class button's root element
+&lt;button class="large"&gt;Click Me&lt;/button&gt; // class is applied automatically to root element.
+</code></pre>
                     </div>
                 </div>
                 <div class="question" id="q-59">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">Will a fallthrough attribute fall through to the granchild component?</p>
 
                     <div class="answer">
-                        <p></p>
+                        <p>Yes.  However, there are caveats with v-on and attributes declared as props or events.  If you see this behavior, reference <a href="http://vuejs.org/guide/components/attrs.html">Vue Page on Attributes</a></p>
                     </div>
                 </div>
                 <div class="question" id="q-60">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">Can you disable this inheritance issue?</p>
 
                     <div class="answer">
-                        <p></p>
+                        <p>Yes, in the defineOptions object:</p>
+<pre><code>&lt;script setup&gt; 
+    defineOptions({
+        inheritAttrs: false
+    })
+&lt;/script&gt;
+</code></pre>
                     </div>
                 </div>
                 <div class="question" id="q-61">
                     <button class="buttonClass" id="buttonId" style="display: inline-block">SHOW</button>
                     <button class="hideButtonClass" style="display:inline-block">GOT IT!</button>
-                    <p style="display: inline-block"></p>
+                    <p style="display: inline-block">How do you access the fallthrough attributes if the options object has set inheritAttrs: false?</p>
 
                     <div class="answer">
-                        <p></p>
+                        <p>In the <code>$attrs</code>object:  <code>&lt;span&gt;Fallthrough attributes: {{ $attrs }}&lt;/span&gt;</code></p>
                     </div>
                 </div>
                 <div class="question" id="q-62">
